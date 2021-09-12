@@ -213,6 +213,22 @@ def roll_3d6():
 def turn_11():
     print("Mountains rise, forests grow. Small settlements begin to form, including an empire for each player to develop throughout the course of the game.");
     print("During this stage of the game, each player will take turns drawing out the islands, geography, factions, and resources in their 'Home Region'")
+    print("")
+    
+    exit = False
+    while exit != True:
+        print("Take turns drawing islands into your “Home Region”.)
+        print("0 - Main Menu")
+        print("1 - Roll")
+        val = float(input("Enter Selection:"))
+        
+        if(val == 0):
+            exit = True
+        if(val == 1):
+            roll = roll_1d6()
+            print(island_table[roll])
+            
+        print()
 
 def turn_menu():
     exit = False;
