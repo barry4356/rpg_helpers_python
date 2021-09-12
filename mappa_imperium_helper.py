@@ -284,6 +284,28 @@ def turn_14():
             print(race_table[roll])
 
         print()
+
+def turn_31():
+    print("The lands have been drawn and each empire now has a starting settlement.")
+    print("This era will develop your faction settlements in small empires.") 
+    print("This era consists of the first 50 years of your empire’s story.")
+          
+    exit = False
+    while exit != True:
+        print("placing new settlements for their empire.")
+        print("These must all be placed on the same island as their capital.")
+        print("Be sure to name and connect each settlement with a road (a dotted line works well to represent this)")
+        print("0 - Main Menu")
+        print("1 - Roll")
+        val = float(input("Enter Selection:"))
+        
+        if(val == 0):
+            exit = True
+        if(val == 1):
+            roll = roll_1d6()
+            print(settlement_table[roll])
+
+        print()
               
 def turn_menu():
     exit = False;
