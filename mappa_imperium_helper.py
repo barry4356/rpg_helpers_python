@@ -166,6 +166,7 @@ def turn_41():
         print("1 - Roll once")
         print("2 - Roll 7 times")
         val = float(input("Enter Selection: "))
+        print()
         
         if(val == 0):
             exit = True
@@ -191,15 +192,15 @@ def turn_41_helper(roll):
     elif(roll == 5):
         print("Your sea explorers have discovered a new island! Draw in 1 small island, with geography:")
         roll2 = roll_2d6()
-        print("\t" + geography_table(roll2))
+        print("\t" + geo_table[roll2])
         roll2 = roll_2d6()
-        print("\t" + geography_table(roll2))
+        print("\t" + geo_table[roll2])
     elif(roll == 6):
         print("Your scouts report back a mysterious ruin. Draw in a monolith, henge, or ruined site.")
     elif(roll == 7):
         print("Scouts reported back new and terrifying lands. Place the geography:")
         roll2 = roll_2d6()
-        print("\t" + geography_table(roll2))
+        print("\t" + geo_table[roll2])
     elif(roll == 8):
         print("Brigands have been spotted nearby")
         print("Place a new hostile settlement on a trade route or bay, then give them a name and banner.")
@@ -225,15 +226,16 @@ def turn_41_helper(roll):
         print("A nearby hostile force has attacked!")
         print("destroy a fort or settlement and replace it with a ruin, or claim it for the new invaders.")
     elif(roll == 14):
-        print()
+        print("Choose one neighboring faction and roll to add a settlement for them.")
     elif(roll == 15):
-        print()
+        print("Your Explorers have discovered a valuable new resource! Place a new resource symbol, distant from your Capital.")
     elif(roll == 16):
-        print()
+        print("Strange and magnificent beasts have been spotted. Are they terrifyingly large, aggressive, tasty? Draw in a symbol and name for these new creatures.")
     elif(roll == 17):
-        print()
+        print("Scouts have stumbled upon an impressive landmark, is it a strange rock formation, a lone monolith, magical grove?")
+        print("Draw it in now.")
     elif(roll == 18):
-        print()
+        print("Your scouts have disturbed and awakened a legendary monster, draw in a new monster and give it a name.")
               
 def turn_menu():
     exit = False;
@@ -273,6 +275,8 @@ def turn_menu():
             turn_31()
         if(val == 3.2):
             turn_32()
+        if(val == 4.1):
+            turn_41()
         
 def dice_menu():
     exit = False;
