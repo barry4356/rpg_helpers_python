@@ -149,6 +149,82 @@ def turn_32():
                 print(race_table[roll])
 
         print()
+            
+def turn_41():
+          
+    exit = False
+    while exit != True:
+        print("Each player will take turns exploring their nearby islands. 
+        print("All results can be placed anywhere within each player's Home Region.")
+        print("Roll 7 times on this table.")
+        print("0 - Main Menu")
+        print("1 - Roll once")
+        print("2 - Roll 7 times")
+        val = float(input("Enter Selection:"))
+        
+        if(val == 0):
+            exit = True
+        if(val == 1):
+            roll = roll_3d6()
+            turn_41_helper(roll)
+        if(val == 2):
+            for i in range(7):
+                roll = roll_3d6()
+                turn_41_helper(roll)
+                print()
+
+        print()
+    
+def turn_41_helper(roll):
+    if(roll == 3):
+        print("Something magical, powerful, or otherworldly has been discovered."
+        print("Describe and draw this relic, be sure to give it, and if necessary the location, a name.")
+    elif(roll == 4):
+        print("Sinister forces are lurking."
+        print("Is it demons, twisted abominations, bloodthirsty spiders?")
+        print("Draw in this new hostile neighbor with an appropriate settlement")
+    elif(roll == 5):
+        print("Your sea explorers have discovered a new island! Draw in 1 small island, with geography:")
+        roll2 = roll_2d6()
+        print("\t" + geography_table(roll2))
+        roll2 = roll_2d6()
+        print("\t" + geography_table(roll2))
+    elif(roll == 6):
+        print("Your scouts report back a mysterious ruin. Draw in a monolith, henge, or ruined site.")
+    elif(roll == 7):
+        print("Scouts reported back new and terrifying lands. Place the geography:")
+        roll2 = roll_2d6()
+        print("\t" + geography_table(roll2))
+    elif(roll == 8):
+        print("Brigands have been spotted nearby")
+        print("Place a new hostile settlement on a trade route or bay, then give them a name and banner.")
+    elif(roll == 9):
+        print("Your explorers have made contact with a primitive tribe.")
+        print("place a new tribe settlement of race:")
+        roll2 = roll_2d6()
+        print("\t" + race_table[roll2])
+    elif(roll == 10):
+        print("Your empire is growing to distant shores.")
+        print("Build a new coastal settlement, preferably on a nearby island.")
+    elif(roll == 11):
+        print("Your empire is expanding.")
+        print("Place a new settlement near an existing one. settlement type:")
+        roll2 = roll_1d6()
+        print("\t" + settlement_table[roll2]
+    elif(roll == 12):
+        print("Scouts have discovered another kingdom!")
+        print("Place 2 settlements. Faction's Race:")
+        roll2 = roll_2d6()
+        print("\t" + race_table[roll2])
+    elif(roll == 13):
+        print("A nearby hostile force has attacked!")
+        print("destroy a fort or settlement and replace it with a ruin, or claim it for the new invaders.")
+    elif(roll == 14):
+    elif(roll == 15):
+    elif(roll == 16):
+    elif(roll == 17):
+    elif(roll == 18):
+
               
 def turn_menu():
     exit = False;
