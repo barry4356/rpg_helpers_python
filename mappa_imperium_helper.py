@@ -251,10 +251,21 @@ def trun_12():
                 roll = roll_2d6()
                 print(geo_table[roll])
         print()
-
-              
-    exit = False
     
+def turn_13():
+    exit = False
+    while exit != True:
+        print("Take turns placing 3 different resources into the player’s Home Regions.")
+        print("These are up to each player to decide what to place and where.")
+        print("Use a symbol to represent the resource location."
+        print("These resources will help you decide where events and settlements may take place in your world.")
+        print("0 - Main Menu")
+              
+        val = float(input("Enter Selection:"))
+        
+        if(val == 0):
+            exit = True
+        print()
               
 def turn_menu():
     exit = False;
