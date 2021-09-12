@@ -236,7 +236,20 @@ def turn_41_helper(roll):
         print("Draw it in now.")
     elif(roll == 18):
         print("Your scouts have disturbed and awakened a legendary monster, draw in a new monster and give it a name.")
-              
+            
+def turn_neighbors_expand():
+          
+    exit = False
+    while exit != True:
+        print("Each player takes turns choosing one neighbor within their home region and places an additional settlement for them.") 
+        print("You can choose what to place for the civilized neighbors, claim a ruin, or place a new camp for a tribe, cult, etc.")
+        print("0 - Back")
+        val = float(input("Enter Selection: "))
+        print()
+        
+        if(val == 0):
+            exit = True
+
 def turn_menu():
     exit = False;
     while exit != True:
@@ -277,6 +290,8 @@ def turn_menu():
             turn_32()
         if(val == 4.1):
             turn_41()
+        if(val == 4.2 or val == 5.2 or val == 6.2)
+            turn_neighbors_expand()
         
 def dice_menu():
     exit = False;
