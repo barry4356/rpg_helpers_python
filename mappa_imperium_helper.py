@@ -250,6 +250,89 @@ def turn_neighbors_expand():
         if(val == 0):
             exit = True
 
+            
+def turn_51():
+    
+    print("Your empires have gained a foothold and perhaps even expanded onto neighboring islands.")
+    print("Now it’s time to flex their might and expand, or perhaps fight, their way across the seas.")
+    exit = False
+    while exit != True:
+        print("All results can now be placed in any region on the map.")
+        print("Roll 7 times in this Era for 70 years of advancement.")
+        print("0 - Back")
+        print("1 - Roll once")
+        print("2 - Roll 7 times")
+        val = float(input("Enter Selection: "))
+        print()
+        
+        if(val == 0):
+            exit = True
+        if(val == 1):
+            roll = roll_3d6()
+            turn_51_helper(roll)
+        if(val == 2):
+            for i in range(7):
+                roll = roll_3d6()
+                turn_51_helper(roll)
+                print()
+
+        print()
+         
+def turn_51_helper(roll):
+    if(roll == 3):
+        print("Tourism - Is it a beautiful waterfall, mana spring, or enchanted grove?")
+        print("Your empire has built a new settlement on/near this site.")
+    elif(roll == 4):
+        print("One of your settlements has grown tired of your rule and thrown out the ruling class.")
+        print("Rename this new 'free' city and give the new faction a name and banner.")
+    elif(roll == 5):
+        print("One of your settlements is rapidly growing.")
+        print("Grow one of your smaller villages into a city by adding more buildings, placing farmland, adding 'city' to the end of the name, etc.")
+    elif(roll == 6):
+        print("A powerful hero has shown up in the Empire, what did they do?")
+        print("Draw in a statue or monument near your capital or the location of the event.")
+    elif(roll == 7):
+        print("Your army is marching!") 
+        print("Select any settlement not already owned by you and prepare for War!")
+        input("Are you prepared for WAR?!: ")
+        war()
+    elif(roll == 8):
+        print("Brigands have been spotted nearby")
+        print("Place a new hostile settlement on a trade route or bay, then give them a name and banner.")
+    elif(roll == 9):
+        print("Your explorers have made contact with a primitive tribe.")
+        print("place a new tribe settlement of race:")
+        roll2 = roll_2d6()
+        print("\t" + race_table[roll2])
+    elif(roll == 10):
+        print("Your empire is growing to distant shores.")
+        print("Build a new coastal settlement, preferably on a nearby island.")
+    elif(roll == 11):
+        print("Your empire is expanding.")
+        print("Place a new settlement near an existing one. settlement type:")
+        roll2 = roll_1d6()
+        print("\t" + settlement_table[roll2])
+    elif(roll == 12):
+        print("Scouts have discovered another kingdom!")
+        print("Place 2 settlements. Faction's Race:")
+        roll2 = roll_2d6()
+        print("\t" + race_table[roll2])
+    elif(roll == 13):
+        print("A nearby hostile force has attacked!")
+        print("destroy a fort or settlement and replace it with a ruin, or claim it for the new invaders.")
+    elif(roll == 14):
+        print("Choose one neighboring faction and roll to add a settlement for them.")
+    elif(roll == 15):
+        print("Your Explorers have discovered a valuable new resource! Place a new resource symbol, distant from your Capital.")
+    elif(roll == 16):
+        print("Strange and magnificent beasts have been spotted. Are they terrifyingly large, aggressive, tasty? Draw in a symbol and name for these new creatures.")
+    elif(roll == 17):
+        print("Scouts have stumbled upon an impressive landmark, is it a strange rock formation, a lone monolith, magical grove?")
+        print("Draw it in now.")
+    elif(roll == 18):
+        print("Your scouts have disturbed and awakened a legendary monster, draw in a new monster and give it a name.")
+                        
+            
 def turn_menu():
     exit = False;
     while exit != True:
