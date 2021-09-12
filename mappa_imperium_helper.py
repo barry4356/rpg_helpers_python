@@ -267,6 +267,24 @@ def turn_13():
             exit = True
         print()
               
+def turn_14():
+    exit = False
+    while exit != True:
+        print("place a capital settlement for each player's Home Region.")
+        print("This is the empire each player will be devoting most of their time to throughout the rest of the game.")
+        print("Be sure to create a name for your faction and design a crest to place on the map.")
+        print("0 - Main Menu")
+        print("1 - Roll")
+        val = float(input("Enter Selection:"))
+        
+        if(val == 0):
+            exit = True
+        if(val == 1):
+            roll = roll_2d6()
+            print(race_table[roll])
+
+        print()
+              
 def turn_menu():
     exit = False;
     while exit != True:
