@@ -144,8 +144,10 @@ def turn_32():
         if(val == 1):
             roll = roll_1d6()
             print(hostile_table[roll])
+            if(roll > 1 && roll < 4):
+                roll = roll_2d6()
+                print(race_table[roll])
 
-              
         print()
               
 def turn_menu():
