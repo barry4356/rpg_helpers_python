@@ -1,17 +1,6 @@
 #!/usr/bin/python
 
-#import sys
-#import os
-#import time
 import random
-#import pandas as pd
-#from datetime import date
-#from selenium import webdriver
-#from selenium.webdriver.support.ui import WebDriverWait
-#from selenium.webdriver.common.action_chains import ActionChains
-#from selenium.webdriver.support import expected_conditions as EC
-#from selenium.webdriver.common.by import By
-#from selenium.common.exceptions import TimeoutException
 
 #============= Chance Tables =============
 island_table = ["N/A", "1 large continent", "1 large + 1 small island", "1 large + 2 small islands", "2 medium islands", "3 medium islands", "4 small islands"]
