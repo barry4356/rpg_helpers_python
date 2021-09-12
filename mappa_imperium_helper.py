@@ -33,36 +33,38 @@ def turn_11():
     
     exit = False
     while exit != True:
-        print("Take turns drawing islands into your “Home Region”.)
-        print("0 - Main Menu")
+        print("Take turns drawing islands into your 'Home Region'.")
+        print("0 - Back")
         print("1 - Roll")
-        val = float(input("Enter Selection:"))
+        val = float(input("Enter Selection: "))
         
         if(val == 0):
             exit = True
         if(val == 1):
             roll = roll_1d6()
+            print()
             print(island_table[roll])
             
         print()
 
-def trun_12():
+def turn_12():
     exit = False
     while exit != True:
         print("Each player will take turns placing the results into their Home Region.")
         print("These can be placed anywhere and on any island, it is up to each player to design their own 'Home region'.")
-        print("Recommended: Roll 8 times")
-        print("0 - Main Menu")
+        print("0 - Back")
         print("1 - Roll once")
-        print("8 - Roll 8 times")
-        val = float(input("Enter Selection:"))
+        print("2 - Roll 8 times")
+        val = float(input("Enter Selection: "))
         
         if(val == 0):
             exit = True
         if(val == 1):
             roll = roll_2d6()
+            print()
             print(geo_table[roll])
-        if(val == 8):
+        if(val == 2):
+            print()
             for i in range(8):
                 roll = roll_2d6()
                 print(geo_table[roll])
@@ -73,11 +75,11 @@ def turn_13():
     while exit != True:
         print("Take turns placing 3 different resources into the player’s Home Regions.")
         print("These are up to each player to decide what to place and where.")
-        print("Use a symbol to represent the resource location."
+        print("Use a symbol to represent the resource location.")
         print("These resources will help you decide where events and settlements may take place in your world.")
-        print("0 - Main Menu")
+        print("0 - Back")
               
-        val = float(input("Enter Selection:"))
+        val = float(input("Enter Selection: "))
         
         if(val == 0):
             exit = True
@@ -89,14 +91,15 @@ def turn_14():
         print("place a capital settlement for each player's Home Region.")
         print("This is the empire each player will be devoting most of their time to throughout the rest of the game.")
         print("Be sure to create a name for your faction and design a crest to place on the map.")
-        print("0 - Main Menu")
+        print("0 - Back")
         print("1 - Roll")
-        val = float(input("Enter Selection:"))
+        val = float(input("Enter Selection: "))
         
         if(val == 0):
             exit = True
         if(val == 1):
             roll = roll_2d6()
+            print()
             print(race_table[roll])
 
         print()
@@ -112,10 +115,11 @@ def turn_31():
         print("These must all be placed on the same island as their capital.")
         print("Be sure to name and connect each settlement with a road (a dotted line works well to represent this)")
         print("Roll twice for each player")
-        print("0 - Main Menu")
+        print("0 - Back")
         print("1 - Roll")
         print("2 - Roll Twice")
-        val = float(input("Enter Selection:"))
+        val = float(input("Enter Selection: "))
+        print()
         
         if(val == 0):
             exit = True
@@ -135,18 +139,19 @@ def turn_32():
     while exit != True:
         print("Each player takes turns rolling on the Hostiles Table to select their hostile neighbors, then places them anywhere in their home region.")
         print("Give them a name and draw in an appropriate symbol to designate their location. (Small camp, tower, dragon, etc)")
-        print("0 - Main Menu")
+        print("0 - Back")
         print("1 - Roll")
-        val = float(input("Enter Selection:"))
+        val = float(input("Enter Selection: "))
+        print()
         
         if(val == 0):
             exit = True
         if(val == 1):
             roll = roll_1d6()
-            print(hostile_table[roll])
-            if(roll > 1 && roll < 4):
+            print(hostiles_table[roll])
+            if(roll > 1 and roll < 4):
                 roll = roll_2d6()
-                print(race_table[roll])
+                print("\t" + race_table[roll])
 
         print()
             
@@ -154,13 +159,13 @@ def turn_41():
           
     exit = False
     while exit != True:
-        print("Each player will take turns exploring their nearby islands. 
+        print("Each player will take turns exploring their nearby islands.")
         print("All results can be placed anywhere within each player's Home Region.")
         print("Roll 7 times on this table.")
-        print("0 - Main Menu")
+        print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 7 times")
-        val = float(input("Enter Selection:"))
+        val = float(input("Enter Selection: "))
         
         if(val == 0):
             exit = True
@@ -177,10 +182,10 @@ def turn_41():
     
 def turn_41_helper(roll):
     if(roll == 3):
-        print("Something magical, powerful, or otherworldly has been discovered."
+        print("Something magical, powerful, or otherworldly has been discovered.")
         print("Describe and draw this relic, be sure to give it, and if necessary the location, a name.")
     elif(roll == 4):
-        print("Sinister forces are lurking."
+        print("Sinister forces are lurking.")
         print("Is it demons, twisted abominations, bloodthirsty spiders?")
         print("Draw in this new hostile neighbor with an appropriate settlement")
     elif(roll == 5):
@@ -210,7 +215,7 @@ def turn_41_helper(roll):
         print("Your empire is expanding.")
         print("Place a new settlement near an existing one. settlement type:")
         roll2 = roll_1d6()
-        print("\t" + settlement_table[roll2]
+        print("\t" + settlement_table[roll2])
     elif(roll == 12):
         print("Scouts have discovered another kingdom!")
         print("Place 2 settlements. Faction's Race:")
@@ -220,11 +225,15 @@ def turn_41_helper(roll):
         print("A nearby hostile force has attacked!")
         print("destroy a fort or settlement and replace it with a ruin, or claim it for the new invaders.")
     elif(roll == 14):
+        print()
     elif(roll == 15):
+        print()
     elif(roll == 16):
+        print()
     elif(roll == 17):
+        print()
     elif(roll == 18):
-
+        print()
               
 def turn_menu():
     exit = False;
@@ -248,10 +257,22 @@ def turn_menu():
         print("6.2: Neighbor Expansion")
         print("6.3: Finalizing")
         print("0 - Main Menu")
-        val = float(input("Enter Selection:"))
+        val = float(input("Enter Selection: "))
         print("\n")
         if(val == 0):
             exit = True
+        if(val == 1.1):
+            turn_11()
+        if(val == 1.2):
+            turn_12()
+        if(val == 1.3):
+            turn_13()
+        if(val == 1.4):
+            turn_14()
+        if(val == 3.1):
+            turn_31()
+        if(val == 3.2):
+            turn_32()
         
 def dice_menu():
     exit = False;
@@ -261,7 +282,7 @@ def dice_menu():
         print("2 - 2 Dice")
         print("3 - 3 Dice")
         print("0 - Main Menu")
-        val = float(input("Enter Selection:"))
+        val = float(input("Enter Selection: "))
         print()
         if(val == 0):
             exit = True
@@ -280,14 +301,14 @@ exit = False;
 while exit != True:
     print("Menu Selection...")
 
-    print("0 - Exit")
     print("1 - Take Turn")
     print("2 - Roll Dice")
-    val = float(input("Enter Selection:"))
+    print("0 - Exit")
+    
+    val = float(input("Enter Selection: "))
     print("\n")
     
     if(val == 0):
-        print ("HERE")
         exit = True
     
     if (val == 1):
