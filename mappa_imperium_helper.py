@@ -230,6 +230,32 @@ def turn_11():
             
         print()
 
+def trun_12():
+    exit = False
+    while exit != True:
+        print("Each player will take turns placing the results into their Home Region.")
+        print("These can be placed anywhere and on any island, it is up to each player to design their own 'Home region'.")
+        print("Recommended: Roll 8 times")
+        print("0 - Main Menu")
+        print("1 - Roll once")
+        print("8 - Roll 8 times")
+        val = float(input("Enter Selection:"))
+        
+        if(val == 0):
+            exit = True
+        if(val == 1):
+            roll = roll_2d6()
+            print(geo_table[roll])
+        if(val == 8):
+            for i in range(8):
+                roll = roll_2d6()
+                print(geo_table[roll])
+        print()
+
+              
+    exit = False
+    
+              
 def turn_menu():
     exit = False;
     while exit != True:
