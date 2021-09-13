@@ -25,7 +25,7 @@ def roll_3d6():
     val = roll_1d6() + roll_1d6() + roll_1d6()
     return (val)
 
-def war():
+def printwar():
     print()
     print("  _    _   ___  ______  ")
     print(" | |  | | / _ \ | ___ \ ")
@@ -34,6 +34,9 @@ def war():
     print(" \  /\  /| | | || |\ \  ")
     print("  \/  \/ \_| |_/\_| \_| ")
     print()
+    
+def war():
+    printwar()
     print("OUR ARMIES APPROACH THE ENEMY SETTLEMENT! ROLL YOUR DICE!")
     input("What is the fate of our forces? ")
     roll = roll_1d6()
@@ -67,14 +70,7 @@ def war():
         war()
     
 def war_defender():
-    print()
-    print("  _    _   ___  ______  ")
-    print(" | |  | | / _ \ | ___ \ ")
-    print(" | |  | |/ /_\ \| |_/ / ")
-    print(" | |/\| ||  _  ||    /  ")
-    print(" \  /\  /| | | || |\ \  ")
-    print("  \/  \/ \_| |_/\_| \_| ")
-    print()
+    printwar()
     print("ENEMIES APPROACH OUR SETTLEMENT!")
     input("What is the fate of our forces? ")
     roll = roll_1d6()
@@ -111,6 +107,42 @@ def war_defender():
         print()
         war_defender()
 
+def war_bystander():
+    printwar()
+    print("THE ATTACKER APPROACHES THE DEFENDER!")
+    input("Press Enter to receive battle report: ")
+    roll = roll_1d6()
+    print()
+    if (roll == 1):
+        print("The attacker suffered a devastating Loss! He should prepare for a counter attack!")
+        print("The attacker is now the defender!")
+        print()
+        war_bystander()
+    elif (roll == 2):
+        print("The attacker has failed!")
+        print("Their forces are in full retreat!")
+        print()
+    elif (roll == 3):
+        print("The attacker gained a pyrrhic victory.")
+        print("The defending forces were destroyed...")
+        print("along with the defending settlement, and a large portion of the attacker's army")
+        print()
+    elif (roll == 4):
+        print("The attacker was successful!")
+        print("The have driven off the defenders and gained control of the settlement!")
+        print()
+    elif (roll == 5):
+        print("Attacker was greatly successful!")
+        print("they've destroyed the defenders, taken their settlement, and even established a new fort nearby!")
+        print("Place a fort near the newly-taken settlement")
+        print()
+    elif (roll == 6):
+        print("THE ATTACK WAS FLAWLESS!")
+        print("The campaign continues on!")
+        print("Place a monument to the attacker's great victory, and choose another settlement to attack!")
+        print()
+        war_bystander()
+        
 #=================================
 #============= Turns =============
 def turn_11():
@@ -496,7 +528,8 @@ def turn_61_helper(roll):
     elif(roll == 13):
         print("Select any two neighboring factions.")
         print("choose which is the attacker and defender, then prepare for War!")
-        input("Are you prepared for WAR?!: ")
+        input("Are they prepared for WAR?!: ")
+        war_bystander()
     elif(roll == 14):
         print("Something sinister has claimed a nearby ruin.")
         print("Place a new cult or evil force onto the map on an existing ruin.") 
