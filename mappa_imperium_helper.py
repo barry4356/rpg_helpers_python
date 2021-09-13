@@ -111,8 +111,8 @@ def war_defender():
         print()
         war_defender()
 
-#================================
-
+#=================================
+#============= Turns =============
 def turn_11():
     print("Mountains rise, forests grow. Small settlements begin to form, including an empire for each player to develop throughout the course of the game.");
     print("During this stage of the game, each player will take turns drawing out the islands, geography, factions, and resources in their 'Home Region'")
@@ -429,7 +429,96 @@ def turn_51_helper(roll):
         print("Half your empire has split into a new faction.") 
         print("Give them a name and banner, and treat them as a hostile neighbor from now on.")
                         
-            
+def turn_61():
+    
+    print("")
+    exit = False
+    while exit != True:
+        print("")
+        print("0 - Back")
+        print("1 - Roll once")
+        print("2 - Roll 7 times")
+        val = float(input("Enter Selection: "))
+        print()
+        
+        if(val == 0):
+            exit = True
+        if(val == 1):
+            roll = roll_3d6()
+            turn_61_helper(roll)
+        if(val == 2):
+            for i in range(7):
+                roll = roll_3d6()
+                turn_61_helper(roll)
+                print()
+
+        print()
+
+def turn_61_helper(roll):
+    if(roll == 3):
+        print("Tourism - Is it a beautiful waterfall, mana spring, or enchanted grove?")
+        print("Your empire has built a new settlement on/near this site.")
+    elif(roll == 4):
+        print("One of your settlements has grown tired of your rule and thrown out the ruling class.")
+        print("Rename this new 'free' city and give the new faction a name and banner.")
+    elif(roll == 5):
+        print("One of your settlements is rapidly growing.")
+        print("Grow one of your smaller villages into a city by adding more buildings, placing farmland, adding 'city' to the end of the name, etc.")
+    elif(roll == 6):
+        print("A powerful hero has shown up in the Empire, what did they do?")
+        print("Draw in a statue or monument near your capital or the location of the event.")
+    elif(roll == 7):
+        print("A nearby hostile force has attacked!")
+        print("Destroy a fort or settlement and replace it with a ruin, or claim it for the new invaders.")
+    elif(roll == 8):
+        print("Your army is marching!") 
+        print("Select any settlement not already owned by you and prepare for War!")
+        input("Are you prepared for WAR?!: ")
+        war()
+    elif(roll == 9):
+        print("Some of your people have set out on their own.")
+        print("Place a new Faction onto the map (be sure to give them a banner and name)")
+        print("Settlement type: ")
+        roll2 = roll_1d6()
+        print("\t" + settlement_table[roll2])
+    elif(roll == 10):
+        print("Your military strength is growing, draw in either a new frontier fort or add city walls to an existing settlement.")
+        print("(City walls will crumble instead of a city during an attack)")
+    elif(roll == 11):
+        print("Your empire is growing!")
+        print("Place a new settlement anywhere on the map.")
+        print("Settlement Type:")
+        roll2 = roll_1d6()
+        print("\t" + settlement_table[roll2])
+    elif(roll == 12):
+        print("People are flocking to your empire.")
+        print("Grow your cities if possible, add more farmland, draw ships in the ports, etc.")
+    elif(roll == 13):
+        print("Economic Prosperity!")
+        print("Build a road connecting your empire to another faction, then add a trade post somewhere along the road.")
+        print("(consider resource locations)")
+        print("If no possible road connections exist, build a new coastal trade post")
+    elif(roll == 14):
+        print("Something nefarious is looming in your empire and has gathered enough worshipers to construct its own facility.")
+        print("Demon summoners, necromancers, mad wizards, it’s up to you.") 
+        print("Draw in an appropriate building for the cult/organization.")
+    elif(roll == 15):
+        print("Something terrible has struck the empire.")
+        print("Natural Disaster or Magical, famine or disease?") 
+        print("Remove a settlement and replace it with a ruin..")
+    elif(roll == 16):
+        print("Your empire has cultivated a new craft, art, or ability.") 
+        print("Are they spellcasters, researchers, monks, druids?") 
+        print ("Build a new academy for this group and place this new settlement.")
+    elif(roll == 17):
+        print("Your growing empire needs food!")
+        print("Place either a new farming town or fishing village")
+    elif(roll == 18):
+        print("Rebellion!") 
+        print("Half your empire has split into a new faction.") 
+        print("Give them a name and banner, and treat them as a hostile neighbor from now on.")
+#=================================
+#============= Menus =============       
 def turn_menu():
     exit = False;
     while exit != True:
@@ -492,9 +581,8 @@ def dice_menu():
         if(val == 3):
             print(roll_3d6())
         print()
-            
+#=====================================
 #============= MAIN MENU =============
-
 print ("\n===== MAPPA IMPERIUM HELPER =====\n")
 exit = False;
 while exit != True:
@@ -519,5 +607,4 @@ while exit != True:
         war()
     elif (val == 4):
         war_defender()
-    
 #================================
