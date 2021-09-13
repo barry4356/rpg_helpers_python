@@ -24,6 +24,93 @@ def roll_2d6():
 def roll_3d6():
     val = roll_1d6() + roll_1d6() + roll_1d6()
     return (val)
+
+def war():
+    print()
+    print("  _    _   ___  ______  ")
+    print(" | |  | | / _ \ | ___ \ ")
+    print(" | |  | |/ /_\ \| |_/ / ")
+    print(" | |/\| ||  _  ||    /  ")
+    print(" \  /\  /| | | || |\ \  ")
+    print("  \/  \/ \_| |_/\_| \_| ")
+    print()
+    print("BATTLE IS JOINED! ROLL YOUR DICE!")
+    input("What is the fate of our forces? ")
+    roll = roll_1d6()
+    print()
+    if (roll == 1):
+        print("Devastating Loss! Prepare for a counter attack!")
+        print()
+        war_defender()
+    elif (roll == 2):
+        print("The attack has failed!")
+        print("Our forces are in full retreat!")
+        print()
+    elif (roll == 3):
+        print("Pyrrhic victory, but victory nonetheless.")
+        print("Our forces have destroyed the enemy, but the seetlement was destroyed in the process")
+        print()
+    elif (roll == 4):
+        print("Attack was a success!")
+        print("We have driven off the enemy and gained control of their settlement!")
+        print()
+    elif (roll == 5):
+        print("Attack was a great success!")
+        print("We've destroyed the enemy, taken their settlement, and even established a new fort nearby!")
+        print("Place a fort near the newly-won settlement")
+        print()
+    elif (roll == 6):
+        print("THE ATTACK WAS FLAWLESS!")
+        print("The campaign continues on!")
+        print("Place a monument to our great victory, and choose another settlement to attack!")
+        print()
+        war()
+    
+def war_defender():
+    print()
+    print("  _    _   ___  ______  ")
+    print(" | |  | | / _ \ | ___ \ ")
+    print(" | |  | |/ /_\ \| |_/ / ")
+    print(" | |/\| ||  _  ||    /  ")
+    print(" \  /\  /| | | || |\ \  ")
+    print("  \/  \/ \_| |_/\_| \_| ")
+    print()
+    print("ENEMIES APPROACH OUR SETTLEMENT!")
+    input("What is the fate of our forces? ")
+    roll = roll_1d6()
+    print()
+    if (roll == 1):
+        print("We've driven off the attackers!")
+        print("Our forces run them down, and continue on to the enemies settlement!")
+        print("Choose an enemy settlement to attack!"
+        print()
+        war()
+    elif (roll == 2):
+        print("The enemy is rebuffed!")
+        print("We've maintained control of our settlement!")
+        print()
+    elif (roll == 3):
+        print("Close defeat.")
+        print("Our forces were destroyed, after holding out to the last man.")
+        print("The enemy have taken our settlement, but it was reduced to ruin in the process".)
+        print()
+    elif (roll == 4):
+        print("We are undone!")
+        print("The enemy have driven off our men and have taken our settlement!")
+        print()
+    elif (roll == 5):
+        print("Attack was a terrible bloodbath!")
+        print("The enemy have destroyed our forces, taken our settlement, and even established a new fort nearby!")
+        print("Place a fort near the newly-lost settlement")
+        print()
+    elif (roll == 6):        
+        print("THE ATTACK WAS DEVASTATING!")
+        print("The enemy brough more forces to bear than expected!")
+        print("NOBODY COULD HAVE FORSEEN THIS!!!!")
+        print("The enemy took the settlement, placed a monument to their victory, and is now choosing another settlement to attack!")
+        print()
+        war_defender()
+
 #================================
 
 def turn_11():
