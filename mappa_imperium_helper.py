@@ -34,7 +34,7 @@ def war():
     print(" \  /\  /| | | || |\ \  ")
     print("  \/  \/ \_| |_/\_| \_| ")
     print()
-    print("BATTLE IS JOINED! ROLL YOUR DICE!")
+    print("OUR ARMIES APPROACH THE ENEMY SETTLEMENT! ROLL YOUR DICE!")
     input("What is the fate of our forces? ")
     roll = roll_1d6()
     print()
@@ -379,45 +379,55 @@ def turn_51_helper(roll):
         print("A powerful hero has shown up in the Empire, what did they do?")
         print("Draw in a statue or monument near your capital or the location of the event.")
     elif(roll == 7):
+        print("A nearby hostile force has attacked!")
+        print("Destroy a fort or settlement and replace it with a ruin, or claim it for the new invaders.")
+    elif(roll == 8):
         print("Your army is marching!") 
         print("Select any settlement not already owned by you and prepare for War!")
         input("Are you prepared for WAR?!: ")
         war()
-    elif(roll == 8):
-        print("Brigands have been spotted nearby")
-        print("Place a new hostile settlement on a trade route or bay, then give them a name and banner.")
     elif(roll == 9):
-        print("Your explorers have made contact with a primitive tribe.")
-        print("place a new tribe settlement of race:")
-        roll2 = roll_2d6()
-        print("\t" + race_table[roll2])
+        print("Some of your people have set out on their own.")
+        print("Place a new Faction onto the map (be sure to give them a banner and name)")
+        print("Settlement type: ")
+        roll2 = roll_1d6()
+        print("\t" + settlement_table[roll2])
     elif(roll == 10):
-        print("Your empire is growing to distant shores.")
-        print("Build a new coastal settlement, preferably on a nearby island.")
+        print("Your military strength is growing, draw in either a new frontier fort or add city walls to an existing settlement.")
+        print("(City walls will crumble instead of a city during an attack)")
     elif(roll == 11):
-        print("Your empire is expanding.")
-        print("Place a new settlement near an existing one. settlement type:")
+        print("Your empire is growing!")
+        print("Place a new settlement anywhere on the map.")
+        print("Settlement Type:")
         roll2 = roll_1d6()
         print("\t" + settlement_table[roll2])
     elif(roll == 12):
-        print("Scouts have discovered another kingdom!")
-        print("Place 2 settlements. Faction's Race:")
-        roll2 = roll_2d6()
-        print("\t" + race_table[roll2])
+        print("People are flocking to your empire.")
+        print("Grow your cities if possible, add more farmland, draw ships in the ports, etc.")
     elif(roll == 13):
-        print("A nearby hostile force has attacked!")
-        print("destroy a fort or settlement and replace it with a ruin, or claim it for the new invaders.")
+        print("Economic Prosperity!")
+        print("Build a road connecting your empire to another faction, then add a trade post somewhere along the road.")
+        print("(consider resource locations)")
+        print("If no possible road connections exist, build a new coastal trade post")
     elif(roll == 14):
-        print("Choose one neighboring faction and roll to add a settlement for them.")
+        print("Something nefarious is looming in your empire and has gathered enough worshipers to construct its own facility.")
+        print("Demon summoners, necromancers, mad wizards, it’s up to you.") 
+        print("Draw in an appropriate building for the cult/organization.")
     elif(roll == 15):
-        print("Your Explorers have discovered a valuable new resource! Place a new resource symbol, distant from your Capital.")
+        print("Something terrible has struck the empire.")
+        print("Natural Disaster or Magical, famine or disease?") 
+        print("Remove a settlement and replace it with a ruin..")
     elif(roll == 16):
-        print("Strange and magnificent beasts have been spotted. Are they terrifyingly large, aggressive, tasty? Draw in a symbol and name for these new creatures.")
+        print("Your empire has cultivated a new craft, art, or ability.") 
+        print("Are they spellcasters, researchers, monks, druids?") 
+        print ("Build a new academy for this group and place this new settlement.")
     elif(roll == 17):
-        print("Scouts have stumbled upon an impressive landmark, is it a strange rock formation, a lone monolith, magical grove?")
-        print("Draw it in now.")
+        print("Your growing empire needs food!")
+        print("Place either a new farming town or fishing village")
     elif(roll == 18):
-        print("Your scouts have disturbed and awakened a legendary monster, draw in a new monster and give it a name.")
+        print("Rebellion!") 
+        print("Half your empire has split into a new faction.") 
+        print("Give them a name and banner, and treat them as a hostile neighbor from now on.")
                         
             
 def turn_menu():
