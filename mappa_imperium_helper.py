@@ -82,7 +82,7 @@ def war_defender():
     if (roll == 1):
         print("We've driven off the attackers!")
         print("Our forces run them down, and continue on to the enemies settlement!")
-        print("Choose an enemy settlement to attack!"
+        print("Choose an enemy settlement to attack!")
         print()
         war()
     elif (roll == 2):
@@ -92,7 +92,7 @@ def war_defender():
     elif (roll == 3):
         print("Close defeat.")
         print("Our forces were destroyed, after holding out to the last man.")
-        print("The enemy have taken our settlement, but it was reduced to ruin in the process".)
+        print("The enemy have taken our settlement, but it was reduced to ruin in the process.")
         print()
     elif (roll == 4):
         print("We are undone!")
@@ -470,7 +470,7 @@ def turn_menu():
             turn_32()
         if(val == 4.1):
             turn_41()
-        if(val == 4.2 or val == 5.2 or val == 6.2)
+        if(val == 4.2 or val == 5.2 or val == 6.2):
             turn_neighbors_expand()
         
 def dice_menu():
