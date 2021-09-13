@@ -502,6 +502,8 @@ while exit != True:
 
     print("1 - Take Turn")
     print("2 - Roll Dice")
+    print("3 - War (attack)")
+    print("4 - War (defend)")
     print("0 - Exit")
     
     val = float(input("Enter Selection: "))
@@ -509,11 +511,13 @@ while exit != True:
     
     if(val == 0):
         exit = True
-    
-    if (val == 1):
+    elif (val == 1):
         print(turn_menu())
-        
-    if (val == 2):
+    elif (val == 2):
         dice_menu()
+    elif (val == 3):
+        war()
+    elif (val == 4):
+        war_defender()
     
 #================================
