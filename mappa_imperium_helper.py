@@ -38,72 +38,84 @@ def printwar():
 def war():
     printwar()
     print("OUR ARMIES APPROACH THE ENEMY SETTLEMENT! ROLL YOUR DICE!")
-    input("What is the fate of our forces? ")
+    input("What is the fate of our forces? Press Enter...")
     roll = roll_1d6()
     print()
     if (roll == 1):
         print("Devastating Loss! Prepare for a counter attack!")
+        input("Press Enter to continue...")
         print()
         war_defender()
     elif (roll == 2):
         print("The attack has failed!")
         print("Our forces are in full retreat!")
+        input("Press Enter to continue...")
         print()
     elif (roll == 3):
         print("Pyrrhic victory, but victory nonetheless.")
         print("Our forces have destroyed the enemy, but the seetlement was destroyed in the process")
+        input("Press Enter to continue...")
         print()
     elif (roll == 4):
         print("Attack was a success!")
         print("We have driven off the enemy and gained control of their settlement!")
+        input("Press Enter to continue...")
         print()
     elif (roll == 5):
         print("Attack was a great success!")
         print("We've destroyed the enemy, taken their settlement, and even established a new fort nearby!")
         print("Place a fort near the newly-won settlement")
+        input("Press Enter to continue...")
         print()
     elif (roll == 6):
         print("THE ATTACK WAS FLAWLESS!")
         print("The campaign continues on!")
         print("Place a monument to our great victory, and choose another settlement to attack!")
+        input("Press Enter to continue...")
         print()
         war()
     
 def war_defender():
     printwar()
     print("ENEMIES APPROACH OUR SETTLEMENT!")
-    input("What is the fate of our forces? ")
+    input("What is the fate of our forces? Press Enter...")
     roll = roll_1d6()
     print()
     if (roll == 1):
         print("We've driven off the attackers!")
-        print("Our forces run them down, and continue on to the enemies settlement!")
+        print("Our forces run them down, and continue on to the enemy's settlement!")
         print("Choose an enemy settlement to attack!")
+        input("Press Enter to continue...")
         print()
         war()
     elif (roll == 2):
         print("The enemy is rebuffed!")
         print("We've maintained control of our settlement!")
+        input("Press Enter to continue...")
         print()
     elif (roll == 3):
         print("Close defeat.")
         print("Our forces were destroyed, after holding out to the last man.")
         print("The enemy have taken our settlement, but it was reduced to ruin in the process.")
+        input("Press Enter to continue...")
         print()
     elif (roll == 4):
         print("We are undone!")
         print("The enemy have driven off our men and have taken our settlement!")
+        input("Press Enter to continue...")
         print()
     elif (roll == 5):
         print("Attack was a terrible bloodbath!")
         print("The enemy have destroyed our forces, taken our settlement, and even established a new fort nearby!")
         print("Place a fort near the newly-lost settlement")
+        input("Press Enter to continue...")
         print()
     elif (roll == 6):        
         print("THE ATTACK WAS DEVASTATING!")
         print("The enemy brough more forces to bear than expected!")
         print("NOBODY COULD HAVE FORSEEN THIS!!!!")
         print("The enemy took the settlement, placed a monument to their victory, and is now choosing another settlement to attack!")
+        input("Press Enter to continue...")
         print()
         war_defender()
 
@@ -116,30 +128,36 @@ def war_bystander():
     if (roll == 1):
         print("The attacker suffered a devastating Loss! He should prepare for a counter attack!")
         print("The attacker is now the defender!")
+        input("Press Enter to continue...")
         print()
         war_bystander()
     elif (roll == 2):
         print("The attacker has failed!")
         print("Their forces are in full retreat!")
+        input("Press Enter to continue...")
         print()
     elif (roll == 3):
         print("The attacker gained a pyrrhic victory.")
         print("The defending forces were destroyed...")
         print("along with the defending settlement, and a large portion of the attacker's army")
+        input("Press Enter to continue...")
         print()
     elif (roll == 4):
         print("The attacker was successful!")
         print("The have driven off the defenders and gained control of the settlement!")
+        input("Press Enter to continue...")
         print()
     elif (roll == 5):
         print("Attacker was greatly successful!")
         print("they've destroyed the defenders, taken their settlement, and even established a new fort nearby!")
         print("Place a fort near the newly-taken settlement")
+        input("Press Enter to continue...")
         print()
     elif (roll == 6):
         print("THE ATTACK WAS FLAWLESS!")
         print("The campaign continues on!")
         print("Place a monument to the attacker's great victory, and choose another settlement to attack!")
+        input("Press Enter to continue...")
         print()
         war_bystander()
         
@@ -159,11 +177,12 @@ def turn_11():
         
         if(val == 0):
             exit = True
+            return
         if(val == 1):
             roll = roll_1d6()
             print()
             print(island_table[roll])
-            
+        input("Press Enter to continue...")
         print()
 
 def turn_12():
@@ -178,6 +197,7 @@ def turn_12():
         
         if(val == 0):
             exit = True
+            return
         if(val == 1):
             roll = roll_2d6()
             print()
@@ -187,6 +207,7 @@ def turn_12():
             for i in range(8):
                 roll = roll_2d6()
                 print(geo_table[roll])
+        input("Press Enter to continue...")
         print()
     
 def turn_13():
@@ -202,6 +223,8 @@ def turn_13():
         
         if(val == 0):
             exit = True
+            return
+        input("Press Enter to continue...")
         print()
               
 def turn_14():
@@ -216,11 +239,12 @@ def turn_14():
         
         if(val == 0):
             exit = True
+            return
         if(val == 1):
             roll = roll_2d6()
             print()
             print(race_table[roll])
-
+        input("Press Enter to continue...")
         print()
 
 def turn_31():
@@ -242,6 +266,7 @@ def turn_31():
         
         if(val == 0):
             exit = True
+            return
         if(val == 1):
             roll = roll_1d6()
             print(settlement_table[roll])
@@ -250,7 +275,7 @@ def turn_31():
             print(settlement_table[roll])
             roll = roll_1d6()
             print(settlement_table[roll])
-              
+        input("Press Enter to continue...")
         print()
            
 def turn_32():
@@ -265,12 +290,15 @@ def turn_32():
         
         if(val == 0):
             exit = True
+            return
         if(val == 1):
             roll = roll_1d6()
             print(hostiles_table[roll])
             if(roll > 1 and roll < 4):
                 roll = roll_2d6()
                 print("\t" + race_table[roll])
+        input("Press Enter to continue...")
+
 
         print()
             
@@ -289,6 +317,7 @@ def turn_41():
         
         if(val == 0):
             exit = True
+            return
         if(val == 1):
             roll = roll_3d6()
             turn_41_helper(roll)
@@ -297,6 +326,8 @@ def turn_41():
                 roll = roll_3d6()
                 turn_41_helper(roll)
                 print()
+        input("Press Enter to continue...")
+
 
         print()
     
@@ -386,6 +417,7 @@ def turn_51():
         
         if(val == 0):
             exit = True
+            return
         if(val == 1):
             roll = roll_3d6()
             turn_51_helper(roll)
@@ -394,7 +426,7 @@ def turn_51():
                 roll = roll_3d6()
                 turn_51_helper(roll)
                 print()
-
+        input("Press Enter to continue...")
         print()
          
 def turn_51_helper(roll):
@@ -463,10 +495,12 @@ def turn_51_helper(roll):
                         
 def turn_61():
     
-    print("")
+    print("With every rising empire there is a falling one.")
+    print("Open land is quickly diminishing and with that, wars, famine, & rebellion become a common occurrence.")
     exit = False
     while exit != True:
-        print("")
+        print("Take 6 turns in this era for 60 years of story.")
+        print("All results can be placed anywhere on the map")
         print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 6 times")
@@ -475,6 +509,7 @@ def turn_61():
         
         if(val == 0):
             exit = True
+            return
         if(val == 1):
             roll = roll_3d6()
             turn_61_helper(roll)
@@ -483,12 +518,13 @@ def turn_61():
                 roll = roll_3d6()
                 turn_61_helper(roll)
                 print()
+        input("Press Enter to continue...")
 
         print()
 
 def turn_61_helper(roll):
     if(roll == 3):
-        print("A Monster has risen from underground and destroyed or claimed one of your settlements."
+        print("A Monster has risen from underground and destroyed or claimed one of your settlements.")
         print("Place a new monster on the map now (don’t forget a name)")
     elif(roll == 4):
         print("Has a portal to a new realm opened, or perhaps a mad wizard has crafted a new tower?")
@@ -507,8 +543,8 @@ def turn_61_helper(roll):
         print("Despite the times, your empire is thriving!") 
         print("Either expand an existing settlement with farmland, walls, etc.")
         print("Or create a new settlement of type:")
-            roll2 = roll_1d6()
-            print("\t" + settlement_table[roll2])
+        roll2 = roll_1d6()
+        print("\t" + settlement_table[roll2])
     elif(roll == 9):
         print("Something terrible has struck the empire.")
         print("Natural Disaster or Magical, famine or disease?")
@@ -523,8 +559,8 @@ def turn_61_helper(roll):
         print("Destroy a fort, city wall, or settlement and replace it with a ruin.")
     elif(roll == 12):
         print("Choose one hostile neighbor and add a settlement for them of type:")
-            roll2 = roll_1d6()
-            print("\t" + settlement_table[roll2])
+        roll2 = roll_1d6()
+        print("\t" + settlement_table[roll2])
     elif(roll == 13):
         print("Select any two neighboring factions.")
         print("choose which is the attacker and defender, then prepare for War!")
@@ -557,10 +593,10 @@ def turn_menu():
         print("1.2: Geography")
         print("1.3: Resources")
         print("1.4: Major Faction")
-        print("2.1: Number of Gods")
-        print("2.2: Domains")
-        print("2.3: Symbol")
-        print("2.4: Name")
+        #print("2.1: Number of Gods")
+        #print("2.2: Domains")
+        #print("2.3: Symbol")
+        #print("2.4: Name")
         print("3.1: Early Settlers")
         print("3.2: Hostile Neighbors")
         print("4.1: Exploration Begins")
@@ -616,6 +652,27 @@ def dice_menu():
         elif(val == 3):
             print(roll_3d6())
         print()
+        
+def war_menu():
+    exit = False;
+    while exit != True:
+        print("Which type of war?")
+        print("1 - War (Attacker)")
+        print("2 - War (Defender)")
+        print("3 - War (Generic)")
+        print("0 - Main Menu")
+        val = float(input("Enter Selection: "))
+        print()
+        if(val == 0):
+            exit = True
+            return
+        elif(val == 1):
+            war()
+        elif(val == 2):
+            war_defender()
+        elif(val == 3):
+            war_bystander()
+        print()
 #=====================================
 #============= MAIN MENU =============
 print ("\n===== MAPPA IMPERIUM HELPER =====\n")
@@ -625,8 +682,7 @@ while exit != True:
 
     print("1 - Take Turn")
     print("2 - Roll Dice")
-    print("3 - War (attack)")
-    print("4 - War (defend)")
+    print("3 - War")
     print("0 - Exit")
     
     val = float(input("Enter Selection: "))
@@ -639,7 +695,5 @@ while exit != True:
     elif (val == 2):
         dice_menu()
     elif (val == 3):
-        war()
-    elif (val == 4):
-        war_defender()
+        war_menu()
 #================================
