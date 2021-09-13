@@ -437,7 +437,7 @@ def turn_61():
         print("")
         print("0 - Back")
         print("1 - Roll once")
-        print("2 - Roll 7 times")
+        print("2 - Roll 6 times")
         val = float(input("Enter Selection: "))
         print()
         
@@ -447,7 +447,7 @@ def turn_61():
             roll = roll_3d6()
             turn_61_helper(roll)
         if(val == 2):
-            for i in range(7):
+            for i in range(6):
                 roll = roll_3d6()
                 turn_61_helper(roll)
                 print()
@@ -456,63 +456,60 @@ def turn_61():
 
 def turn_61_helper(roll):
     if(roll == 3):
-        print("Tourism - Is it a beautiful waterfall, mana spring, or enchanted grove?")
-        print("Your empire has built a new settlement on/near this site.")
+        print("A Monster has risen from underground and destroyed or claimed one of your settlements."
+        print("Place a new monster on the map now (don’t forget a name)")
     elif(roll == 4):
-        print("One of your settlements has grown tired of your rule and thrown out the ruling class.")
-        print("Rename this new 'free' city and give the new faction a name and banner.")
+        print("Has a portal to a new realm opened, or perhaps a mad wizard has crafted a new tower?")
+        print("Describe & draw in a magical occurrence, anything from a new tower to a massive crater.")
     elif(roll == 5):
-        print("One of your settlements is rapidly growing.")
-        print("Grow one of your smaller villages into a city by adding more buildings, placing farmland, adding 'city' to the end of the name, etc.")
+        print("Many heroes have given their lives for your kingdom.")
+        print("Draw in a monument or statue near your capital or place of importance.")
     elif(roll == 6):
-        print("A powerful hero has shown up in the Empire, what did they do?")
-        print("Draw in a statue or monument near your capital or the location of the event.")
+        print("Your rulers need a place to live!")
+        print("Build a palace for them near the capital or somewhere of importance")
     elif(roll == 7):
-        print("A nearby hostile force has attacked!")
-        print("Destroy a fort or settlement and replace it with a ruin, or claim it for the new invaders.")
+        print("Your people think they can have a better life outside your empire.")
+        print("Remove one of your settlements and place a new one somewhere on the map.")
+        print("Be sure to give them a new faction name and banner.")
     elif(roll == 8):
+        print("Despite the times, your empire is thriving!") 
+        print("Either expand an existing settlement with farmland, walls, etc.")
+        print("Or create a new settlement of type:")
+            roll2 = roll_1d6()
+            print("\t" + settlement_table[roll2])
+    elif(roll == 9):
+        print("Something terrible has struck the empire.")
+        print("Natural Disaster or Magical, famine or disease?")
+        print("Remove a settlement and replace it with a ruin")
+    elif(roll == 10):
         print("Your army is marching!") 
         print("Select any settlement not already owned by you and prepare for War!")
         input("Are you prepared for WAR?!: ")
         war()
-    elif(roll == 9):
-        print("Some of your people have set out on their own.")
-        print("Place a new Faction onto the map (be sure to give them a banner and name)")
-        print("Settlement type: ")
-        roll2 = roll_1d6()
-        print("\t" + settlement_table[roll2])
-    elif(roll == 10):
-        print("Your military strength is growing, draw in either a new frontier fort or add city walls to an existing settlement.")
-        print("(City walls will crumble instead of a city during an attack)")
     elif(roll == 11):
-        print("Your empire is growing!")
-        print("Place a new settlement anywhere on the map.")
-        print("Settlement Type:")
-        roll2 = roll_1d6()
-        print("\t" + settlement_table[roll2])
+        print("You have been attacked!!")
+        print("Destroy a fort, city wall, or settlement and replace it with a ruin.")
     elif(roll == 12):
-        print("People are flocking to your empire.")
-        print("Grow your cities if possible, add more farmland, draw ships in the ports, etc.")
+        print("Choose one hostile neighbor and add a settlement for them of type:")
+            roll2 = roll_1d6()
+            print("\t" + settlement_table[roll2])
     elif(roll == 13):
-        print("Economic Prosperity!")
-        print("Build a road connecting your empire to another faction, then add a trade post somewhere along the road.")
-        print("(consider resource locations)")
-        print("If no possible road connections exist, build a new coastal trade post")
+        print("Select any two neighboring factions.")
+        print("choose which is the attacker and defender, then prepare for War!")
+        input("Are you prepared for WAR?!: ")
     elif(roll == 14):
-        print("Something nefarious is looming in your empire and has gathered enough worshipers to construct its own facility.")
-        print("Demon summoners, necromancers, mad wizards, it’s up to you.") 
-        print("Draw in an appropriate building for the cult/organization.")
+        print("Something sinister has claimed a nearby ruin.")
+        print("Place a new cult or evil force onto the map on an existing ruin.") 
+        print("(If no empty ruin exists, find an empty place on the map for them)")
     elif(roll == 15):
-        print("Something terrible has struck the empire.")
-        print("Natural Disaster or Magical, famine or disease?") 
-        print("Remove a settlement and replace it with a ruin..")
+        print("A Minor Faction has joined your empire.")
+        print("Create an Alliance Banner and give your new United Kingdom a name.") 
     elif(roll == 16):
-        print("Your empire has cultivated a new craft, art, or ability.") 
-        print("Are they spellcasters, researchers, monks, druids?") 
-        print ("Build a new academy for this group and place this new settlement.")
+        print("People are flocking to your city, are they fleeing war, monster attacks, disasters?") 
+        print("Place a small village next to or expand your capital for these new citizens.")
     elif(roll == 17):
-        print("Your growing empire needs food!")
-        print("Place either a new farming town or fishing village")
+        print("Something fowl is lurking in the forest (or any geography) is it lycanthropy, demonic spiders, a mad druid?")
+        print("Treat them as a hostile faction and give the location an ominous name")
     elif(roll == 18):
         print("Rebellion!") 
         print("Half your empire has split into a new faction.") 
@@ -545,22 +542,27 @@ def turn_menu():
         print("\n")
         if(val == 0):
             exit = True
-        if(val == 1.1):
+        elif(val == 1.1):
             turn_11()
-        if(val == 1.2):
+        elif(val == 1.2):
             turn_12()
-        if(val == 1.3):
+        elif(val == 1.3):
             turn_13()
-        if(val == 1.4):
+        elif(val == 1.4):
             turn_14()
-        if(val == 3.1):
+        elif(val == 3.1):
             turn_31()
-        if(val == 3.2):
+        elif(val == 3.2):
             turn_32()
-        if(val == 4.1):
+        elif(val == 4.1):
             turn_41()
-        if(val == 4.2 or val == 5.2 or val == 6.2):
+        elif(val == 4.2 or val == 5.2 or val == 6.2):
             turn_neighbors_expand()
+        elif(val == 5.1):
+            turn_51()
+        elif(val == 6.1):
+            turn_61()
+        
         
 def dice_menu():
     exit = False;
@@ -574,11 +576,11 @@ def dice_menu():
         print()
         if(val == 0):
             exit = True
-        if(val == 1):
+        elif(val == 1):
             print(roll_1d6())
-        if(val == 2):
+        elif(val == 2):
             print(roll_2d6())
-        if(val == 3):
+        elif(val == 3):
             print(roll_3d6())
         print()
 #=====================================
