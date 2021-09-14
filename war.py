@@ -1,5 +1,5 @@
 #war.py
-
+import dice
 def printwar():
     print()
     print("  _    _   ___  ______  ")
@@ -14,7 +14,7 @@ def war():
     printwar()
     print("OUR ARMIES APPROACH THE ENEMY SETTLEMENT! ROLL YOUR DICE!")
     input("What is the fate of our forces? Press Enter...")
-    roll = roll_1d6()
+    roll = dice.roll_1d6()
     print()
     if (roll == 1):
         print("Devastating Loss! Prepare for a counter attack!")
@@ -54,7 +54,7 @@ def war_defender():
     printwar()
     print("ENEMIES APPROACH OUR SETTLEMENT!")
     input("What is the fate of our forces? Press Enter...")
-    roll = roll_1d6()
+    roll = dice.roll_1d6()
     print()
     if (roll == 1):
         print("We've driven off the attackers!")
@@ -98,7 +98,7 @@ def war_bystander():
     printwar()
     print("THE ATTACKER APPROACHES THE DEFENDER!")
     input("Press Enter to receive battle report: ")
-    roll = roll_1d6()
+    roll = dice.roll_1d6()
     print()
     if (roll == 1):
         print("The attacker suffered a devastating Loss! He should prepare for a counter attack!")
