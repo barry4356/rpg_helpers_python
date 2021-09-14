@@ -42,12 +42,12 @@ def turn_12():
         if(val == 1):
             roll = dice.roll_2d6()
             print()
-            print(chanc_tables.geo_table[roll])
+            print(chance_tables.geo_table[roll])
         if(val == 2):
             print()
             for i in range(8):
                 roll = dice.roll_2d6()
-                print(chanc_tables.geo_table[roll])
+                print(chance_tables.geo_table[roll])
         input("Press Enter to continue...")
         print()
     
