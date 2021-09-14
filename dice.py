@@ -1,4 +1,5 @@
 #dice.py
+import random
 
 def roll_1d6():
     return (random.randrange(6) + 1)
