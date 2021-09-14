@@ -1,5 +1,4 @@
 #mappa_imperium_helper.py
-import random
 import turns
 import war
 import dice
