@@ -2,6 +2,7 @@
 
 import war
 import chance_tables
+import dice
 
 def turn_11():
     print("Mountains rise, forests grow. Small settlements begin to form, including an empire for each player to develop throughout the course of the game.");
