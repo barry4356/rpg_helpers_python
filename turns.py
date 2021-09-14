@@ -1,5 +1,7 @@
 #turns.py
 
+import war
+
 def turn_11():
     print("Mountains rise, forests grow. Small settlements begin to form, including an empire for each player to develop throughout the course of the game.");
     print("During this stage of the game, each player will take turns drawing out the islands, geography, factions, and resources in their 'Home Region'")
@@ -286,7 +288,7 @@ def turn_51_helper(roll):
         print("Your army is marching!") 
         print("Select any settlement not already owned by you and prepare for War!")
         input("Are you prepared for WAR?!: ")
-        war()
+        war.war()
     elif(roll == 9):
         print("Some of your people have set out on their own.")
         print("Place a new Faction onto the map (be sure to give them a banner and name)")
@@ -390,7 +392,7 @@ def turn_61_helper(roll):
         print("Your army is marching!") 
         print("Select any settlement not already owned by you and prepare for War!")
         input("Are you prepared for WAR?!: ")
-        war()
+        war.war()
     elif(roll == 11):
         print("You have been attacked!!")
         print("Destroy a fort, city wall, or settlement and replace it with a ruin.")
@@ -402,7 +404,7 @@ def turn_61_helper(roll):
         print("Select any two neighboring factions.")
         print("choose which is the attacker and defender, then prepare for War!")
         input("Are they prepared for WAR?!: ")
-        war_bystander()
+        war.war_bystander()
     elif(roll == 14):
         print("Something sinister has claimed a nearby ruin.")
         print("Place a new cult or evil force onto the map on an existing ruin.") 
