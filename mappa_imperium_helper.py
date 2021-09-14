@@ -2,6 +2,7 @@
 import random
 import turns
 import war
+import dice
 
 def turn_menu():
     exit = False;
