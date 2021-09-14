@@ -1,35 +1,8 @@
-
+#mappa_imperium_helper.py
 import random
 import turns
 import war
 
-#============= Chance Tables =============
-island_table = ["N/A", "1 large continent", "1 large + 1 small island", "1 large + 2 small islands", "2 medium islands", "3 medium islands", "4 small islands"]
-geo_table = ["N/A", "N/A", "Savanna",  "Wetlands", "Hills", "Lake", "River", "Forest", "Mountains", "Desert", "Jungle", "Canyon", "Volcano"]
-race_table = ["N/A", "N/A", "Demonkind", "Seafolk", "Smallfolk", "Reptilian", "Dwarves", "Humans", "Elves", "Greenskins", "Animalfolk", "Giantkind", "Player’s choice"]
-number_of_gods = [0, 1, 2, 2, 3, 3, 4]
-god_domain_table = [ "N/A", "A Geography", "Something in Nature", "A Craft or Art", "An Endeavor", "Something around the home", "Something Grim"]
-god_symbol_table = ["N/A", "Weapon", "Tool", "Animal", "Plant", "Natural", "Body Part"]
-settlement_table = ["N/A", "Farming Village", "Mining Settlement", "Resource Town", "Trade Post / Market Hub", "Frontier / Military Fort", "Monastery / Temple"]
-hostiles_table = ["N/A", "Insect Hive", "Hostile Tribe", "Minor Faction", "Necromancer / Mad Mage", "Demon Lair", "Legendary Monster"]
-#================================
-
-#============= UTILS =============
-def roll_1d6():
-    return (random.randrange(6) + 1)
-    
-def roll_2d6():
-    val = roll_1d6() + roll_1d6()
-    return (val)
-    
-def roll_3d6():
-    val = roll_1d6() + roll_1d6() + roll_1d6()
-    return (val)
-
-
-
-#=================================
-#============= Menus =============       
 def turn_menu():
     exit = False;
     while exit != True:
@@ -91,11 +64,11 @@ def dice_menu():
         if(val == 0):
             exit = True
         elif(val == 1):
-            print(roll_1d6())
+            print(dice.roll_1d6())
         elif(val == 2):
-            print(roll_2d6())
+            print(dice.roll_2d6())
         elif(val == 3):
-            print(roll_3d6())
+            print(dice.roll_3d6())
         print()
         
 def war_menu():
@@ -118,11 +91,10 @@ def war_menu():
         elif(val == 3):
             war.war_bystander()
         print()
-#=====================================
-#============= MAIN MENU =============
-print ("\n===== MAPPA IMPERIUM HELPER =====\n")
+
 exit = False;
 while exit != True:
+    print ("\n===== MAPPA IMPERIUM HELPER =====\n")
     print("Menu Selection...")
 
     print("1 - Take Turn")
@@ -141,4 +113,3 @@ while exit != True:
         dice_menu()
     elif (val == 3):
         war_menu()
-#================================
