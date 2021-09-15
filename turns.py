@@ -72,10 +72,52 @@ def turn_14():
         if(val == 0):
             exit = True
             return
-        if(val == 1):
-            print()
+        elif(val == 1):
             print(chance_tables.race_table[dice.roll_2d6()])
         utils.wait4enter()
+
+def pantheon():
+    exit = False
+    while exit != True:
+        utils.print_header("2 - Pantheon")
+        intro = (
+        "What gods and goddesses rule over this world?\n"
+        "In this section, each player will take turns rolling" 
+        "to determine number, domains, and symbols for each deity in their home region.\n" 
+        "These are the gods of each player's major faction.\n" 
+        "Whether they are worshipped, feared, or ignored are up to you"
+        " and they may help to spark imagination of the development and story or your world.\n"
+        "\nWhile each player will roll up the deities of their own home region, "
+        "these can be shared by everyone throughout the course of the game if needed.\n"
+        "Either in the margins of your map or on a separate sheet of paper, write down your results.\n"
+        )
+        print(intro)
+        print("1 - Roll Number of Deities")
+        print("2 - Roll Domain")
+        print("3 - Roll Symbol")
+        print("4 - Roll Name")
+        print("5 - Roll Full Pantheon")
+        print("0 - Back")
+        val = utils.get_input()
+        if(val == 0):
+            return
+        elif(val == 1):
+            print(chance_tables.number_of_gods[dice.roll_1d6()])
+        elif(val == 2):
+            print(chance_tables.god_domain_table[dice.roll_1d6()])
+        elif(val == 3):
+            print(chance_tables.god_symbol_table[dice.roll_1d6()])
+        elif(val == 4):
+            print(chance_tables.god_name_table[dice.roll_1d6()][dice.roll_1d6()])
+        elif(val == 5):
+            num_o_gods = chance_tables.number_of_gods[dice.roll_1d6()]
+            for i in range(num_o_gods):
+                god_name = chance_tables.god_name_table[dice.roll_1d6()][dice.roll_1d6()]
+                god_symbol = chance_tables.god_symbol_table[dice.roll_1d6()]
+                god_domain = chance_tables.god_domain_table[dice.roll_1d6()]
+                print(god_name+": god of [" + god_domain + "]. Symbol is: "+god_symbol)
+        utils.wait4enter()
+        
 
 def turn_31():
     exit = False

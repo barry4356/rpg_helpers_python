@@ -21,10 +21,10 @@ def turn_menu():
         print("1.2: Geography")
         print("1.3: Resources")
         print("1.4: Major Faction")
-        #print("2.1: Number of Gods")
-        #print("2.2: Domains")
-        #print("2.3: Symbol")
-        #print("2.4: Name")
+        print("2.1: Number of Gods")
+        print("2.2: Domains")
+        print("2.3: Symbol")
+        print("2.4: Name")
         print("3.1: Early Settlers")
         print("3.2: Hostile Neighbors")
         print("4.1: Exploration Begins")
@@ -33,7 +33,7 @@ def turn_menu():
         print("5.2: Neighbor Expansion")
         print("6.1: Final Era")
         print("6.2: Neighbor Expansion")
-        print("6.3: Finalizing")
+        #print("6.3: Finalizing")
         print("0 - Main Menu")
         val = utils.get_input()
         if(val == 0):
@@ -46,6 +46,8 @@ def turn_menu():
             turns.turn_13()
         elif(val == 1.4):
             turns.turn_14()
+        elif(val < 3 and val > 2):
+            turns.pantheon()
         elif(val == 3.1):
             turns.turn_31()
         elif(val == 3.2):
