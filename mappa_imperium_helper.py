@@ -2,6 +2,7 @@
 import turns
 import war
 import dice
+import utils
 
 def get_input():
     val = "INVALID"
@@ -33,7 +34,7 @@ def turn_menu():
         print("6.2: Neighbor Expansion")
         print("6.3: Finalizing")
         print("0 - Main Menu")
-        val = get_input()
+        val = utils.get_input()
         print("\n")
         if(val == 0):
             exit = True
@@ -67,7 +68,7 @@ def dice_menu():
         print("2 - 2 Dice")
         print("3 - 3 Dice")
         print("0 - Main Menu")
-        val = get_input()
+        val = utils.get_input()
         print()
         if(val == 0):
             exit = True
@@ -87,7 +88,7 @@ def war_menu():
         print("2 - War (Defender)")
         print("3 - War (Generic)")
         print("0 - Main Menu")
-        val = get_input()
+        val = utils.get_input()
         print()
         if(val == 0):
             exit = True
@@ -110,7 +111,7 @@ while exit != True:
     print("3 - War")
     print("0 - Exit")
     
-    val = get_input()
+    val = utils.get_input()
     print("\n")
     
     if(val == 0):
