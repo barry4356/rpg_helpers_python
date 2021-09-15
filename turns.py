@@ -4,27 +4,29 @@ import war
 import chance_tables
 import dice
 
+def print_header():
+    print()
+    print()
+    print("==============================")
+    print()
+        
 def turn_11():
-    print("Mountains rise, forests grow. Small settlements begin to form, including an empire for each player to develop throughout the course of the game.");
-    print("During this stage of the game, each player will take turns drawing out the islands, geography, factions, and resources in their 'Home Region'")
-    print("")
-    
     exit = False
     while exit != True:
+        print("Mountains rise, forests grow. Small settlements begin to form, including an empire for each player to develop throughout the course of the game.");
+        print("During this stage of the game, each player will take turns drawing out the islands, geography, factions, and resources in their 'Home Region'")
+        print("")
         print("Take turns drawing islands into your 'Home Region'.")
         print("0 - Back")
         print("1 - Roll")
         val = float(input("Enter Selection: "))
-        
         if(val == 0):
             exit = True
             return
-        if(val == 1):
+        elif(val == 1):
             roll = dice.roll_1d6()
-            print()
             print(chanc_tables.island_table[roll])
         input("Press Enter to continue...")
-        print()
 
 def turn_12():
     exit = False
@@ -34,22 +36,20 @@ def turn_12():
         print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 8 times")
-        val = float(input("Enter Selection: "))
-        
+        val = float(input("Enter Selection: "))        
         if(val == 0):
             exit = True
             return
-        if(val == 1):
+        elif(val == 1):
             roll = dice.roll_2d6()
             print()
             print(chance_tables.geo_table[roll])
-        if(val == 2):
+        elif(val == 2):
             print()
             for i in range(8):
                 roll = dice.roll_2d6()
                 print(chance_tables.geo_table[roll])
         input("Press Enter to continue...")
-        print()
     
 def turn_13():
     exit = False
@@ -58,15 +58,12 @@ def turn_13():
         print("These are up to each player to decide what to place and where.")
         print("Use a symbol to represent the resource location.")
         print("These resources will help you decide where events and settlements may take place in your world.")
-        print("0 - Back")
-              
+        print("0 - Back")   
         val = float(input("Enter Selection: "))
-        
         if(val == 0):
             exit = True
             return
         input("Press Enter to continue...")
-        print()
               
 def turn_14():
     exit = False
@@ -77,7 +74,6 @@ def turn_14():
         print("0 - Back")
         print("1 - Roll")
         val = float(input("Enter Selection: "))
-        
         if(val == 0):
             exit = True
             return
@@ -86,15 +82,13 @@ def turn_14():
             print()
             print(chanc_tables.race_table[roll])
         input("Press Enter to continue...")
-        print()
 
 def turn_31():
-    print("The lands have been drawn and each empire now has a starting settlement.")
-    print("This era will develop your faction settlements in small empires.") 
-    print("This era consists of the first 50 years of your empire’s story.")
-          
     exit = False
     while exit != True:
+        print("The lands have been drawn and each empire now has a starting settlement.")
+        print("This era will develop your faction settlements in small empires.") 
+        print("This era consists of the first 50 years of your empire’s story.")
         print("placing new settlements for their empire.")
         print("These must all be placed on the same island as their capital.")
         print("Be sure to name and connect each settlement with a road (a dotted line works well to represent this)")
@@ -104,20 +98,18 @@ def turn_31():
         print("2 - Roll Twice")
         val = float(input("Enter Selection: "))
         print()
-        
         if(val == 0):
             exit = True
             return
-        if(val == 1):
+        elif(val == 1):
             roll = dice.roll_1d6()
             print(chanc_tables.settlement_table[roll])
-        if(val == 2):
+        elif(val == 2):
             roll = dice.roll_1d6()
             print(chanc_tables.settlement_table[roll])
             roll = dice.roll_1d6()
             print(chanc_tables.settlement_table[roll])
         input("Press Enter to continue...")
-        print()
            
 def turn_32():
     exit = False
@@ -128,11 +120,10 @@ def turn_32():
         print("1 - Roll")
         val = float(input("Enter Selection: "))
         print()
-        
         if(val == 0):
             exit = True
             return
-        if(val == 1):
+        elif(val == 1):
             roll = dice.roll_1d6()
             print(chanc_tables.hostiles_table[roll])
             if(roll > 1 and roll < 4):
@@ -144,7 +135,6 @@ def turn_32():
         print()
             
 def turn_41():
-          
     exit = False
     while exit != True:
         print("Each player will take turns exploring their nearby islands.")
@@ -155,7 +145,6 @@ def turn_41():
         print("2 - Roll 7 times")
         val = float(input("Enter Selection: "))
         print()
-        
         if(val == 0):
             exit = True
             return
@@ -168,9 +157,6 @@ def turn_41():
                 turn_41_helper(roll)
                 print()
         input("Press Enter to continue...")
-
-
-        print()
     
 def turn_41_helper(roll):
     if(roll == 3):
@@ -228,8 +214,7 @@ def turn_41_helper(roll):
     elif(roll == 18):
         print("Your scouts have disturbed and awakened a legendary monster, draw in a new monster and give it a name.")
             
-def turn_neighbors_expand():
-          
+def turn_neighbors_expand():  
     exit = False
     while exit != True:
         print("Each player takes turns choosing one neighbor within their home region and places an additional settlement for them.") 
@@ -237,38 +222,37 @@ def turn_neighbors_expand():
         print("0 - Back")
         val = float(input("Enter Selection: "))
         print()
-        
         if(val == 0):
             exit = True
 
             
 def turn_51():
     
-    print("Your empires have gained a foothold and perhaps even expanded onto neighboring islands.")
-    print("Now it’s time to flex their might and expand, or perhaps fight, their way across the seas.")
+    
     exit = False
     while exit != True:
+        print("Your empires have gained a foothold and perhaps even expanded onto neighboring islands.")
+        print("Now it’s time to flex their might and expand, or perhaps fight, their way across the seas.")        
         print("All results can now be placed in any region on the map.")
+        print()
         print("Roll 7 times in this Era for 70 years of advancement.")
         print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 7 times")
         val = float(input("Enter Selection: "))
         print()
-        
         if(val == 0):
             exit = True
             return
-        if(val == 1):
+        elif(val == 1):
             roll = dice.roll_3d6()
             turn_51_helper(roll)
-        if(val == 2):
+        elif(val == 2):
             for i in range(7):
                 roll = dice.roll_3d6()
                 turn_51_helper(roll)
                 print()
         input("Press Enter to continue...")
-        print()
          
 def turn_51_helper(roll):
     if(roll == 3):
@@ -335,11 +319,11 @@ def turn_51_helper(roll):
         print("Give them a name and banner, and treat them as a hostile neighbor from now on.")
                         
 def turn_61():
-    
-    print("With every rising empire there is a falling one.")
-    print("Open land is quickly diminishing and with that, wars, famine, & rebellion become a common occurrence.")
     exit = False
     while exit != True:
+        print("With every rising empire there is a falling one.")
+        print("Open land is quickly diminishing and with that, wars, famine, & rebellion become a common occurrence.")
+        print()
         print("Take 6 turns in this era for 60 years of story.")
         print("All results can be placed anywhere on the map")
         print("0 - Back")
@@ -347,21 +331,18 @@ def turn_61():
         print("2 - Roll 6 times")
         val = float(input("Enter Selection: "))
         print()
-        
         if(val == 0):
             exit = True
             return
-        if(val == 1):
+        elif(val == 1):
             roll = dice.roll_3d6()
             turn_61_helper(roll)
-        if(val == 2):
+        elif(val == 2):
             for i in range(6):
                 roll = dice.roll_3d6()
                 turn_61_helper(roll)
                 print()
         input("Press Enter to continue...")
-
-        print()
 
 def turn_61_helper(roll):
     if(roll == 3):
