@@ -3,24 +3,19 @@
 import war
 import chance_tables
 import dice
-
-def print_header(title):
-    print()
-    print()
-    print("=============== " + title + " ===============")
-    print()
+import utils
         
 def turn_11():
     exit = False
     while exit != True:
-        print_header("1.1 - Island Creation")
+        utils.print_header("1.1 - Island Creation")
         print("Mountains rise, forests grow. Small settlements begin to form, including an empire for each player to develop throughout the course of the game.");
         print("During this stage of the game, each player will take turns drawing out the islands, geography, factions, and resources in their 'Home Region'")
         print("")
         print("Take turns drawing islands into your 'Home Region'.\n")
         print("0 - Back")
         print("1 - Roll")
-        val = float(input("\nEnter Selection: "))
+        val = utils.get_input()
         print()
         if(val == 0):
             exit = True
@@ -37,7 +32,7 @@ def turn_12():
         print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 8 times")
-        val = float(input("Enter Selection: "))        
+        val = utils.get_input()        
         print()
         if(val == 0):
             exit = True
@@ -58,7 +53,7 @@ def turn_13():
         print("Use a symbol to represent the resource location.")
         print("These resources will help you decide where events and settlements may take place in your world.")
         print("0 - Back")   
-        val = float(input("Enter Selection: "))
+        val = utils.get_input()
         if(val == 0):
             exit = True
             return
@@ -72,7 +67,7 @@ def turn_14():
         print("Be sure to create a name for your faction and design a crest to place on the map.")
         print("0 - Back")
         print("1 - Roll")
-        val = float(input("Enter Selection: "))
+        val = utils.get_input()
         if(val == 0):
             exit = True
             return
@@ -94,7 +89,7 @@ def turn_31():
         print("0 - Back")
         print("1 - Roll")
         print("2 - Roll Twice")
-        val = float(input("Enter Selection: "))
+        val = utils.get_input()
         print()
         if(val == 0):
             exit = True
@@ -113,7 +108,7 @@ def turn_32():
         print("Give them a name and draw in an appropriate symbol to designate their location. (Small camp, tower, dragon, etc)")
         print("0 - Back")
         print("1 - Roll")
-        val = float(input("Enter Selection: "))
+        val = utils.get_input()
         print()
         if(val == 0):
             exit = True
@@ -136,7 +131,7 @@ def turn_41():
         print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 7 times")
-        val = float(input("Enter Selection: "))
+        val = utils.get_input()
         print()
         if(val == 0):
             exit = True
@@ -205,7 +200,7 @@ def turn_neighbors_expand():
         print("Each player takes turns choosing one neighbor within their home region and places an additional settlement for them.") 
         print("You can choose what to place for the civilized neighbors, claim a ruin, or place a new camp for a tribe, cult, etc.")
         print("0 - Back")
-        val = float(input("Enter Selection: "))
+        val = utils.get_input()
         print()
         if(val == 0):
             exit = True
@@ -224,7 +219,7 @@ def turn_51():
         print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 7 times")
-        val = float(input("Enter Selection: "))
+        val = utils.get_input()
         print()
         if(val == 0):
             exit = True
@@ -310,7 +305,7 @@ def turn_61():
         print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 6 times")
-        val = float(input("Enter Selection: "))
+        val = utils.get_input()
         print()
         if(val == 0):
             exit = True
