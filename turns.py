@@ -4,29 +4,31 @@ import war
 import chance_tables
 import dice
 
-def print_header():
+def print_header(title):
     print()
     print()
-    print("==============================")
+    print("=============== " + title + " ===============")
     print()
         
 def turn_11():
     exit = False
     while exit != True:
+        print_header("1.1 - Island Creation")
         print("Mountains rise, forests grow. Small settlements begin to form, including an empire for each player to develop throughout the course of the game.");
         print("During this stage of the game, each player will take turns drawing out the islands, geography, factions, and resources in their 'Home Region'")
         print("")
-        print("Take turns drawing islands into your 'Home Region'.")
+        print("Take turns drawing islands into your 'Home Region'.\n")
         print("0 - Back")
         print("1 - Roll")
-        val = float(input("Enter Selection: "))
+        val = float(input("\nEnter Selection: "))
+        print()
         if(val == 0):
             exit = True
             return
         elif(val == 1):
             roll = dice.roll_1d6()
-            print(chanc_tables.island_table[roll])
-        input("Press Enter to continue...")
+            print(chance_tables.island_table[roll])
+        input("\nPress Enter to continue...")
 
 def turn_12():
     exit = False
@@ -80,7 +82,7 @@ def turn_14():
         if(val == 1):
             roll = dice.roll_2d6()
             print()
-            print(chanc_tables.race_table[roll])
+            print(chance_tables.race_table[roll])
         input("Press Enter to continue...")
 
 def turn_31():
@@ -103,12 +105,12 @@ def turn_31():
             return
         elif(val == 1):
             roll = dice.roll_1d6()
-            print(chanc_tables.settlement_table[roll])
+            print(chance_tables.settlement_table[roll])
         elif(val == 2):
             roll = dice.roll_1d6()
-            print(chanc_tables.settlement_table[roll])
+            print(chance_tables.settlement_table[roll])
             roll = dice.roll_1d6()
-            print(chanc_tables.settlement_table[roll])
+            print(chance_tables.settlement_table[roll])
         input("Press Enter to continue...")
            
 def turn_32():
@@ -125,10 +127,10 @@ def turn_32():
             return
         elif(val == 1):
             roll = dice.roll_1d6()
-            print(chanc_tables.hostiles_table[roll])
+            print(chance_tables.hostiles_table[roll])
             if(roll > 1 and roll < 4):
                 roll = dice.roll_2d6()
-                print("\t" + chanc_tables.race_table[roll])
+                print("\t" + chance_tables.race_table[roll])
         input("Press Enter to continue...")
 
 
@@ -169,15 +171,15 @@ def turn_41_helper(roll):
     elif(roll == 5):
         print("Your sea explorers have discovered a new island! Draw in 1 small island, with geography:")
         roll2 = dice.roll_2d6()
-        print("\t" + chanc_tables.geo_table[roll2])
+        print("\t" + chance_tables.geo_table[roll2])
         roll2 = dice.roll_2d6()
-        print("\t" + chanc_tables.geo_table[roll2])
+        print("\t" + chance_tables.geo_table[roll2])
     elif(roll == 6):
         print("Your scouts report back a mysterious ruin. Draw in a monolith, henge, or ruined site.")
     elif(roll == 7):
         print("Scouts reported back new and terrifying lands. Place the geography:")
         roll2 = dice.roll_2d6()
-        print("\t" + chanc_tables.geo_table[roll2])
+        print("\t" + chance_tables.geo_table[roll2])
     elif(roll == 8):
         print("Brigands have been spotted nearby")
         print("Place a new hostile settlement on a trade route or bay, then give them a name and banner.")
@@ -185,7 +187,7 @@ def turn_41_helper(roll):
         print("Your explorers have made contact with a primitive tribe.")
         print("place a new tribe settlement of race:")
         roll2 = dice.roll_2d6()
-        print("\t" + chanc_tables.race_table[roll2])
+        print("\t" + chance_tables.race_table[roll2])
     elif(roll == 10):
         print("Your empire is growing to distant shores.")
         print("Build a new coastal settlement, preferably on a nearby island.")
@@ -193,12 +195,12 @@ def turn_41_helper(roll):
         print("Your empire is expanding.")
         print("Place a new settlement near an existing one. settlement type:")
         roll2 = dice.roll_1d6()
-        print("\t" + chanc_tables.settlement_table[roll2])
+        print("\t" + chance_tables.settlement_table[roll2])
     elif(roll == 12):
         print("Scouts have discovered another kingdom!")
         print("Place 2 settlements. Faction's Race:")
         roll2 = dice.roll_2d6()
-        print("\t" + chanc_tables.race_table[roll2])
+        print("\t" + chance_tables.race_table[roll2])
     elif(roll == 13):
         print("A nearby hostile force has attacked!")
         print("destroy a fort or settlement and replace it with a ruin, or claim it for the new invaders.")
@@ -280,7 +282,7 @@ def turn_51_helper(roll):
         print("Place a new Faction onto the map (be sure to give them a banner and name)")
         print("Settlement type: ")
         roll2 = dice.roll_1d6()
-        print("\t" + chanc_tables.settlement_table[roll2])
+        print("\t" + chance_tables.settlement_table[roll2])
     elif(roll == 10):
         print("Your military strength is growing, draw in either a new frontier fort or add city walls to an existing settlement.")
         print("(City walls will crumble instead of a city during an attack)")
@@ -289,7 +291,7 @@ def turn_51_helper(roll):
         print("Place a new settlement anywhere on the map.")
         print("Settlement Type:")
         roll2 = dice.roll_1d6()
-        print("\t" + chanc_tables.settlement_table[roll2])
+        print("\t" + chance_tables.settlement_table[roll2])
     elif(roll == 12):
         print("People are flocking to your empire.")
         print("Grow your cities if possible, add more farmland, draw ships in the ports, etc.")
@@ -366,7 +368,7 @@ def turn_61_helper(roll):
         print("Either expand an existing settlement with farmland, walls, etc.")
         print("Or create a new settlement of type:")
         roll2 = dice.roll_1d6()
-        print("\t" + chanc_tables.settlement_table[roll2])
+        print("\t" + chance_tables.settlement_table[roll2])
     elif(roll == 9):
         print("Something terrible has struck the empire.")
         print("Natural Disaster or Magical, famine or disease?")
@@ -382,7 +384,7 @@ def turn_61_helper(roll):
     elif(roll == 12):
         print("Choose one hostile neighbor and add a settlement for them of type:")
         roll2 = dice.roll_1d6()
-        print("\t" + chanc_tables.settlement_table[roll2])
+        print("\t" + chance_tables.settlement_table[roll2])
     elif(roll == 13):
         print("Select any two neighboring factions.")
         print("choose which is the attacker and defender, then prepare for War!")
