@@ -10,8 +10,7 @@ def turn_11():
     while exit != True:
         utils.print_header("1.1 - Island Creation")
         print("Mountains rise, forests grow. Small settlements begin to form, including an empire for each player to develop throughout the course of the game.");
-        print("During this stage of the game, each player will take turns drawing out the islands, geography, factions, and resources in their 'Home Region'")
-        print("")
+        print("During this stage of the game, each player will take turns drawing out the islands, geography, factions, and resources in their 'Home Region'\n")
         print("Take turns drawing islands into your 'Home Region'.\n")
         print("0 - Back")
         print("1 - Roll")
@@ -28,7 +27,7 @@ def turn_12():
     while exit != True:
         utils.print_header("1.2 - Geography")
         print("Each player will take turns placing the results into their Home Region.")
-        print("These can be placed anywhere and on any island, it is up to each player to design their own 'Home region'.")
+        print("These can be placed anywhere and on any island, it is up to each player to design their own 'Home region'.\n")
         print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 8 times")
@@ -51,7 +50,7 @@ def turn_13():
         print("Take turns placing 3 different resources into the player’s Home Regions.")
         print("These are up to each player to decide what to place and where.")
         print("Use a symbol to represent the resource location.")
-        print("These resources will help you decide where events and settlements may take place in your world.")
+        print("These resources will help you decide where events and settlements may take place in your world.\n")
         print("0 - Back")   
         val = utils.get_input()
         if(val == 0):
@@ -65,7 +64,7 @@ def turn_14():
         utils.print_header("1.4 - Major Faction")
         print("place a capital settlement for each player's Home Region.")
         print("This is the empire each player will be devoting most of their time to throughout the rest of the game.")
-        print("Be sure to create a name for your faction and design a crest to place on the map.")
+        print("Be sure to create a name for your faction and design a crest to place on the map.\n")
         print("0 - Back")
         print("1 - Roll")
         val = utils.get_input()
@@ -82,12 +81,11 @@ def pantheon():
         utils.print_header("2 - Pantheon")
         intro = (
         "What gods and goddesses rule over this world?\n"
-        "In this section, each player will take turns rolling" 
-        "to determine number, domains, and symbols for each deity in their home region.\n" 
+        "In this section, each player will take turns determining number, domains, and symbols for each deity in their home region.\n" 
         "These are the gods of each player's major faction.\n" 
-        "Whether they are worshipped, feared, or ignored are up to you"
-        " and they may help to spark imagination of the development and story or your world.\n"
-        "\nWhile each player will roll up the deities of their own home region, "
+        "Whether they are worshipped, feared, or ignored are up to you."
+        "They may help to spark imagination of the development and story or your world.\n"
+        "\nWhile each player will roll up the deities of their own home region, \n"
         "these can be shared by everyone throughout the course of the game if needed.\n"
         "Either in the margins of your map or on a separate sheet of paper, write down your results.\n"
         )
@@ -129,7 +127,7 @@ def turn_31():
         print("placing new settlements for their empire.")
         print("These must all be placed on the same island as their capital.")
         print("Be sure to name and connect each settlement with a road (a dotted line works well to represent this)")
-        print("Roll twice for each player")
+        print("Roll twice for each player\n")
         print("0 - Back")
         print("1 - Roll")
         print("2 - Roll Twice")
@@ -149,7 +147,7 @@ def turn_32():
     while exit != True:
         utils.print_header("3.2 - Hostile Neighbors")
         print("Each player takes turns rolling on the Hostiles Table to select their hostile neighbors, then places them anywhere in their home region.")
-        print("Give them a name and draw in an appropriate symbol to designate their location. (Small camp, tower, dragon, etc)")
+        print("Give them a name and draw in an appropriate symbol to designate their location. (Small camp, tower, dragon, etc)\n")
         print("0 - Back")
         print("1 - Roll")
         val = utils.get_input()
@@ -171,7 +169,7 @@ def turn_41():
         utils.print_header("4.1 - Exploration Begins")
         print("Each player will take turns exploring their nearby islands.")
         print("All results can be placed anywhere within each player's Home Region.")
-        print("Roll 7 times on this table.")
+        print("Roll 7 times on this table.\n")
         print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 7 times")
@@ -242,7 +240,7 @@ def turn_neighbors_expand():
     while exit != True:
         utils.print_header("Neighbors Expand")
         print("Each player takes turns choosing one neighbor within their home region and places an additional settlement for them.") 
-        print("You can choose what to place for the civilized neighbors, claim a ruin, or place a new camp for a tribe, cult, etc.")
+        print("You can choose what to place for the civilized neighbors, claim a ruin, or place a new camp for a tribe, cult, etc.\n")
         print("0 - Back")
         val = utils.get_input()
         if(val == 0):
@@ -257,9 +255,8 @@ def turn_51():
         utils.print_header("5.1 - Worldwide Expansion")
         print("Your empires have gained a foothold and perhaps even expanded onto neighboring islands.")
         print("Now it’s time to flex their might and expand, or perhaps fight, their way across the seas.")        
-        print("All results can now be placed in any region on the map.")
-        print()
-        print("Roll 7 times in this Era for 70 years of advancement.")
+        print("All results can now be placed in any region on the map.\n")
+        print("Roll 7 times in this Era for 70 years of advancement.\n")
         print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 7 times")
@@ -342,10 +339,9 @@ def turn_61():
     while exit != True:
         utils.print_header("6.1 - Final Era")
         print("With every rising empire there is a falling one.")
-        print("Open land is quickly diminishing and with that, wars, famine, & rebellion become a common occurrence.")
-        print()
+        print("Open land is quickly diminishing and with that, wars, famine, & rebellion become a common occurrence.\n")
         print("Take 6 turns in this era for 60 years of story.")
-        print("All results can be placed anywhere on the map")
+        print("All results can be placed anywhere on the map\n")
         print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 6 times")
@@ -420,3 +416,16 @@ def turn_61_helper(roll):
         print("Rebellion!") 
         print("Half your empire has split into a new faction.") 
         print("Give them a name and banner, and treat them as a hostile neighbor from now on.")
+
+def turn_63():
+    intro = (
+        "The map is almost complete!\n"
+        "Finish off by naming any important features that haven’t been named yet.\n"
+        "Including geography, war sites, lair locations, etc.\n"
+        "Then, draw in some accents for final touches (compass rose, ships in open water, sea monsters etc)\n"
+        )
+    print(intro)
+    print("0 - Back")
+    val = utils.get_input()
+    if(val == 0):
+        exit = True

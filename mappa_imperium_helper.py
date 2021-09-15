@@ -33,7 +33,7 @@ def turn_menu():
         print("5.2: Neighbor Expansion")
         print("6.1: Final Era")
         print("6.2: Neighbor Expansion")
-        #print("6.3: Finalizing")
+        print("6.3: Finalizing")
         print("0 - Main Menu")
         val = utils.get_input()
         if(val == 0):
@@ -60,6 +60,8 @@ def turn_menu():
             turns.turn_51()
         elif(val == 6.1):
             turns.turn_61()
+        elif(val == 6.3):
+            turns.turn_63()
         
         
 def dice_menu():
