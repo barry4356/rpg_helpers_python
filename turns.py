@@ -16,24 +16,23 @@ def turn_11():
         print("0 - Back")
         print("1 - Roll")
         val = utils.get_input()
-        print()
         if(val == 0):
             exit = True
             return
         elif(val == 1):
             print(chance_tables.island_table[dice.roll_1d6()])
-        input("\nPress Enter to continue...")
+        utils.wait4enter()
 
 def turn_12():
     exit = False
     while exit != True:
+        utils.print_header("1.2 - Geography")
         print("Each player will take turns placing the results into their Home Region.")
         print("These can be placed anywhere and on any island, it is up to each player to design their own 'Home region'.")
         print("0 - Back")
         print("1 - Roll once")
         print("2 - Roll 8 times")
         val = utils.get_input()        
-        print()
         if(val == 0):
             exit = True
             return
@@ -43,11 +42,12 @@ def turn_12():
         elif(val == 2):
             for i in range(8):
                 print(chance_tables.geo_table[dice.roll_2d6()])
-        input("Press Enter to continue...")
+        utils.wait4enter()
     
 def turn_13():
     exit = False
     while exit != True:
+        utils.print_header("1.3 - Resources")
         print("Take turns placing 3 different resources into the player’s Home Regions.")
         print("These are up to each player to decide what to place and where.")
         print("Use a symbol to represent the resource location.")
@@ -57,11 +57,12 @@ def turn_13():
         if(val == 0):
             exit = True
             return
-        input("Press Enter to continue...")
+        utils.wait4enter()
               
 def turn_14():
     exit = False
     while exit != True:
+        utils.print_header("1.4 - Major Faction")
         print("place a capital settlement for each player's Home Region.")
         print("This is the empire each player will be devoting most of their time to throughout the rest of the game.")
         print("Be sure to create a name for your faction and design a crest to place on the map.")
@@ -74,11 +75,12 @@ def turn_14():
         if(val == 1):
             print()
             print(chance_tables.race_table[dice.roll_2d6()])
-        input("Press Enter to continue...")
+        utils.wait4enter()
 
 def turn_31():
     exit = False
     while exit != True:
+        utils.print_header("3.1 - Early Settlers")
         print("The lands have been drawn and each empire now has a starting settlement.")
         print("This era will develop your faction settlements in small empires.") 
         print("This era consists of the first 50 years of your empire’s story.")
@@ -90,7 +92,6 @@ def turn_31():
         print("1 - Roll")
         print("2 - Roll Twice")
         val = utils.get_input()
-        print()
         if(val == 0):
             exit = True
             return
@@ -99,17 +100,17 @@ def turn_31():
         elif(val == 2):
             print(chance_tables.settlement_table[dice.roll_1d6()])
             print(chance_tables.settlement_table[dice.roll_1d6()])
-        input("Press Enter to continue...")
+        utils.wait4enter()
            
 def turn_32():
     exit = False
     while exit != True:
+        utils.print_header("3.2 - Hostile Neighbors")
         print("Each player takes turns rolling on the Hostiles Table to select their hostile neighbors, then places them anywhere in their home region.")
         print("Give them a name and draw in an appropriate symbol to designate their location. (Small camp, tower, dragon, etc)")
         print("0 - Back")
         print("1 - Roll")
         val = utils.get_input()
-        print()
         if(val == 0):
             exit = True
             return
@@ -117,7 +118,7 @@ def turn_32():
             print(chance_tables.hostiles_table[dice.roll_1d6()])
             if(roll > 1 and roll < 4):
                 print("\t" + chance_tables.race_table[dice.roll_2d6()])
-        input("Press Enter to continue...")
+        utils.wait4enter()
 
 
         print()
@@ -125,6 +126,7 @@ def turn_32():
 def turn_41():
     exit = False
     while exit != True:
+        utils.print_header("4.1 - Exploration Begins")
         print("Each player will take turns exploring their nearby islands.")
         print("All results can be placed anywhere within each player's Home Region.")
         print("Roll 7 times on this table.")
@@ -132,7 +134,6 @@ def turn_41():
         print("1 - Roll once")
         print("2 - Roll 7 times")
         val = utils.get_input()
-        print()
         if(val == 0):
             exit = True
             return
@@ -142,7 +143,7 @@ def turn_41():
             for i in range(7):
                 turn_41_helper(dice.roll_3d6())
                 print()
-        input("Press Enter to continue...")
+        utils.wait4enter()
     
 def turn_41_helper(roll):
     if(roll == 3):
@@ -197,11 +198,11 @@ def turn_41_helper(roll):
 def turn_neighbors_expand():  
     exit = False
     while exit != True:
+        utils.print_header("Neighbors Expand")
         print("Each player takes turns choosing one neighbor within their home region and places an additional settlement for them.") 
         print("You can choose what to place for the civilized neighbors, claim a ruin, or place a new camp for a tribe, cult, etc.")
         print("0 - Back")
         val = utils.get_input()
-        print()
         if(val == 0):
             exit = True
 
@@ -211,6 +212,7 @@ def turn_51():
     
     exit = False
     while exit != True:
+        utils.print_header("5.1 - Worldwide Expansion")
         print("Your empires have gained a foothold and perhaps even expanded onto neighboring islands.")
         print("Now it’s time to flex their might and expand, or perhaps fight, their way across the seas.")        
         print("All results can now be placed in any region on the map.")
@@ -220,7 +222,6 @@ def turn_51():
         print("1 - Roll once")
         print("2 - Roll 7 times")
         val = utils.get_input()
-        print()
         if(val == 0):
             exit = True
             return
@@ -230,7 +231,7 @@ def turn_51():
             for i in range(7):
                 turn_51_helper(dice.roll_3d6())
                 print()
-        input("Press Enter to continue...")
+        utils.wait4enter()
          
 def turn_51_helper(roll):
     if(roll == 3):
@@ -297,6 +298,7 @@ def turn_51_helper(roll):
 def turn_61():
     exit = False
     while exit != True:
+        utils.print_header("6.1 - Final Era")
         print("With every rising empire there is a falling one.")
         print("Open land is quickly diminishing and with that, wars, famine, & rebellion become a common occurrence.")
         print()
@@ -306,7 +308,6 @@ def turn_61():
         print("1 - Roll once")
         print("2 - Roll 6 times")
         val = utils.get_input()
-        print()
         if(val == 0):
             exit = True
             return
@@ -316,7 +317,7 @@ def turn_61():
             for i in range(6):
                 turn_61_helper(dice.roll_3d6())
                 print()
-        input("Press Enter to continue...")
+        utils.wait4enter()
 
 def turn_61_helper(roll):
     if(roll == 3):

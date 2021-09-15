@@ -15,6 +15,7 @@ def get_input():
 def turn_menu():
     exit = False;
     while exit != True:
+        utils.print_header("Main Menu")
         print("Please input either a turn number, or menu selection...")
         print("1.1: Island Creation")
         print("1.2: Geography")
@@ -35,7 +36,6 @@ def turn_menu():
         print("6.3: Finalizing")
         print("0 - Main Menu")
         val = utils.get_input()
-        print("\n")
         if(val == 0):
             exit = True
         elif(val == 1.1):
@@ -63,10 +63,11 @@ def turn_menu():
 def dice_menu():
     exit = False;
     while exit != True:
+        utils.print_header("Dice Roller")
         print("How many dice to roll?")
-        print("1 - 1 Die")
-        print("2 - 2 Dice")
-        print("3 - 3 Dice")
+        print("1 - 1 6-sided Die")
+        print("2 - 2 6-sided Dice")
+        print("3 - 3 6-sided Dice")
         print("0 - Main Menu")
         val = utils.get_input()
         print()
@@ -83,6 +84,7 @@ def dice_menu():
 def war_menu():
     exit = False;
     while exit != True:
+        war.printwar()
         print("Which type of war?")
         print("1 - War (Attacker)")
         print("2 - War (Defender)")
