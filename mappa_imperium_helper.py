@@ -3,6 +3,14 @@ import turns
 import war
 import dice
 
+def get_input():
+    val = "INVALID"
+    try:
+        val = float(input("Enter Selection: "))
+    except ValueError:
+        print("Invalid")
+    return val
+
 def turn_menu():
     exit = False;
     while exit != True:
@@ -25,7 +33,7 @@ def turn_menu():
         print("6.2: Neighbor Expansion")
         print("6.3: Finalizing")
         print("0 - Main Menu")
-        val = float(input("Enter Selection: "))
+        val = get_input()
         print("\n")
         if(val == 0):
             exit = True
@@ -59,7 +67,7 @@ def dice_menu():
         print("2 - 2 Dice")
         print("3 - 3 Dice")
         print("0 - Main Menu")
-        val = float(input("Enter Selection: "))
+        val = get_input()
         print()
         if(val == 0):
             exit = True
@@ -79,7 +87,7 @@ def war_menu():
         print("2 - War (Defender)")
         print("3 - War (Generic)")
         print("0 - Main Menu")
-        val = float(input("Enter Selection: "))
+        val = get_input()
         print()
         if(val == 0):
             exit = True
@@ -102,7 +110,7 @@ while exit != True:
     print("3 - War")
     print("0 - Exit")
     
-    val = float(input("Enter Selection: "))
+    val = get_input()
     print("\n")
     
     if(val == 0):
