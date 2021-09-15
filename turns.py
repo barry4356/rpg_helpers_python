@@ -113,7 +113,7 @@ def pantheon():
                 god_name = chance_tables.god_name_table[dice.roll_1d6()][dice.roll_1d6()]
                 god_symbol = chance_tables.god_symbol_table[dice.roll_1d6()]
                 god_domain = chance_tables.god_domain_table[dice.roll_1d6()]
-                print(god_name+": god of [" + god_domain + "]. Symbol is: "+god_symbol)
+                print(god_name+": god of [" + god_domain + "]. Symbol is ["+god_symbol+"]")
         utils.wait4enter()
         
 
