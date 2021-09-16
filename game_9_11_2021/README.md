@@ -10,6 +10,7 @@
     - [Narnova](#history)
     - [Ankai](#history)
 - [History](#history)
+    - [The Beginning](#the-beginning)
     - [Age of Discovery](#age-of-discovery)
 
 # History
