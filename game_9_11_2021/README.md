@@ -1,8 +1,4 @@
-# Mappa Imperium
-
-## Overview
-
-## Table of Contents
+# Table of Contents
 - [Factions](factions.md)
     - [Barrows Ravagers](factions.md#barrows-ravagers)
     - [Nephilim](factions.md#nephilim)
@@ -16,13 +12,13 @@
 - [History](#history)
     - [Age of Discovery](#age-of-discovery)
 
-## History
+# History
 
-### The Beginning
+## The Beginning
 
 ![firstage](FirstAge.png)
 
-### Age of Discovery
+## Age of Discovery
 
 ![secondage](SecondAge.png)
 
