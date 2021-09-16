@@ -7,12 +7,6 @@ After descending upon and slaying *illegible* (for it was he who scouted and cho
 ## Sigil
 ![sigil](BarrowsRavagersSigil.png)
 
-## Pantheon
-### Goran, god of the Mountain
-![GoranSymbol](GoranSymbol.png)
-### Narnova, goddess of the Hearth
-![Symbol](NarnovaSymbol.png)
-
 # Nephilim
 ![Ne](NephilimExample.png)
 
@@ -20,10 +14,6 @@ Long ago, war broke out in the heavens. Slaying as many of the gods as he could 
 
 ## Sigil
 ![sigil](NephilimSigil.png)
-
-## Pantheon
-### Ankai, god of the skies
-![symbol](AnkaiSymbol.png)
 
 # Forked Tongues
 ![FT](ForkedTonguesExample.png)
