@@ -18,6 +18,15 @@
 
 ![firstage](FirstAge.png)
 
+### Ankai, god of the skies
+![symbol](AnkaiSymbol.png)
+
+### Goran, god of the Mountain
+![GoranSymbol](GoranSymbol.png)
+
+### Narnova, goddess of the Hearth
+![Symbol](NarnovaSymbol.png)
+
 ## Age of Discovery
 
 ![secondage](SecondAge.png)
