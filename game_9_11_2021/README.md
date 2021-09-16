@@ -18,7 +18,13 @@
 
 ## History
 
+### The Beginning
+
+![firstage](FirstAge.png)
+
 ### Age of Discovery
+
+![secondage](SecondAge.png)
 
 **Colonization.** The Nephalim take to the seas in their giant canoes! Paddling for what couldn’t have been more than 5 minutes, they hastily arrive on the shores of Lake Loch Island; a new land awaits! Eager settlers flock to the new village and before long the bustling coastal town of Kanoodear was born. But soft, what light through yonder window breaks? Tis the lizardfolk across the water, surely this expansion will be consequence free...
 
