@@ -155,7 +155,8 @@ def turn_32():
             exit = True
             return
         elif(val == 1):
-            print(chance_tables.hostiles_table[dice.roll_1d6()])
+            roll = dice.roll_1d6()
+            print(chance_tables.hostiles_table[roll])
             if(roll > 1 and roll < 4):
                 print("\t" + chance_tables.race_table[dice.roll_2d6()])
         utils.wait4enter()
@@ -224,7 +225,7 @@ def turn_41_helper(roll):
         print("A nearby hostile force has attacked!")
         print("destroy a fort or settlement and replace it with a ruin, or claim it for the new invaders.")
     elif(roll == 14):
-        print("Choose one neighboring faction and roll to add a settlement for them.")
+        print("Choose one neighboring faction and add a ["+chance_tables.settlement_table[dice.roll_1d6()]+"] type settlement for them.")
     elif(roll == 15):
         print("Your Explorers have discovered a valuable new resource! Place a new resource symbol, distant from your Capital.")
     elif(roll == 16):
