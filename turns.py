@@ -385,7 +385,7 @@ def turn_61_helper(roll):
         print("You have been attacked!!")
         print("Destroy a fort, city wall, or settlement and replace it with a ruin.")
     elif(roll == 12):
-        print("Choose one hostile neighbor and add a settlement for them of type ["+chance_tables.settlement_table[dice.roll_1d6]+"]")
+        print("Choose one hostile neighbor and add a settlement for them of type ["+chance_tables.settlement_table[dice.roll_1d6()]+"]")
     elif(roll == 13):
         print("Select any two neighboring factions.")
         print("choose which is the attacker and defender, then prepare for War!")
