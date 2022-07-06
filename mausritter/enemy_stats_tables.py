@@ -1,4 +1,6 @@
 #enemy_stats_tables.py
+#HP,STR,DEX,WIL,Armor,Attack_Description,Desire_Description
+#See page 22-24 of rulebook
 centipede_stats=[
     8,10,12,8,1,
     "d6 venemous bit (damages DEX instead of STR)\nCritical: Venom takes effect, d12 damage to STR",

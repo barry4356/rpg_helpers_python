@@ -1,6 +1,6 @@
 # chance_tables.py
-
 # Stocking Adventure Site Room
+# See Table Page 36 of Rulebook
 room_type = ["Empty", "Empty", "Obstacle", "Trap", "Puzzle", "Lair"]
 creature_present = [
     [True, True, True, False, False, False],
@@ -25,6 +25,7 @@ empty_feature = [
     "Scattered animal teeth", "Shiny candy-wrapper banners", "Snake Skull Doorway", "Steady dripping water", "Stern statue of ancient maus",
     "Uneven and cracked floor", "White quartz altar"
 ]
+#See Table Page 37 of rulebook
 obstacle_feature = [
     "Locked door. Key can be found in another room. Knocking the door down takes time and makes noise.",
     "Steep climb. Without special equipment, mice risk exhaustion or falling.",
@@ -55,6 +56,7 @@ puzzle_feature = [
 ]
 lair_feature = ["Temporary encampment", "Recently taken from another creature", "Built by mice to hold the creature",
     "Protecting young", "Permanent home, newly settled", "Permanent home, comfortably appointed"]
+#See Tables page 38-39 of Rulebook
 treasure_type= ["Magic Sword", "Random Spell", "Trinket", "Valuable Treasure", "Unusual Treasure", "Large Treasure",
     "Large Treasure", "Large Treasure", "Useful Treasure", "Useful Treasure", "d6x100 pips", "d6x50 pips", "d6x50 pips",
     "d6x50 pips", "d6x10 pips", "d6x10 pips", "d6x10 pips", "d6x5 pips", "d6x5 pips", "d6x5 pips"]
@@ -83,9 +85,10 @@ cursed_sword_detail = [
     "If you see an ally take damage, take a Frightened Condition; Fulfilling a mouse’s dying wish",
     "Spells cast in your presence always mark usage; Destroying an owl sorcerer’s source of power"
 ]
+#See Table Page 13 of Rulebook
 spells = ["Fireball", "Heal", "Magic Missile", "Fear", "Darkness", "Restore", "Be Understood", "Ghost Beetle",
     "Light", "Invisible Ring", "Knock", "Grease", "Grow", "Invisibility", "Catnip"]
-
+#See Table Page 21 of Rulebook
 reactions = [
     "Hostile. How have the mice angered them?",
     "Unfriendly. How can they be appeased?",
