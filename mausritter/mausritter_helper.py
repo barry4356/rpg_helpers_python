@@ -9,14 +9,11 @@ def main_menu():
     while exit != True:
         utils.print_header("MAUSRITTER HELPER")
         print("Menu Selection...")
-
         print("1 - Adventure Site Utils")
         print("2 - Combat Helper")
         print("0 - Exit")
-    
         val = utils.get_input()
         print("\n")
-    
         if(val == 0):
             if utils.areyousure():
                 exit = True
