@@ -55,7 +55,7 @@ def create_dungeon_room():
     if room_type_str == "Lair":
         print("\tLair Detail: " + chance_table_dungeon.lair_feature[dice.roll_1d6()-1])
 
-    print ("Creature Present: " + str(creature_present))
+    print ("-\nCreature Present: " + str(creature_present))
     if creature_present:
         creature_roll = dice.roll_1d6()
         print("\tCreature Roll: " + str(creature_roll))
@@ -70,7 +70,7 @@ def create_dungeon_room():
         print("\tCreature: Reaction = "+chance_table_dungeon.reactions[reaction_roll-2])
 
 
-    print ("Treasure Present: " + str(treasure_present))
+    print ("-\nTreasure Present: " + str(treasure_present))
     if treasure_present:
         treasure_type = dice.roll_1d20() - 1
         treasure_type_str = chance_table_dungeon.treasure_type[treasure_type]
