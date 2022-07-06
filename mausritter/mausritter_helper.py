@@ -2,6 +2,7 @@
 import dice
 import utils
 import dungeon
+import combat
         
 def dice_menu():
     exit = False;
@@ -42,7 +43,7 @@ while exit != True:
     print("Menu Selection...")
 
     print("1 - Adventure Site Utils")
-    print("2 - Roll Dice")
+    print("2 - Combat Helper")
     print("0 - Exit")
     
     val = utils.get_input()
@@ -53,4 +54,4 @@ while exit != True:
     elif (val == 1):
         print(dungeon.menu())
     elif (val == 2):
-        dice_menu()
+        print(combat.menu())
