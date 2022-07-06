@@ -1,5 +1,6 @@
 #dice.py
 import random
+import utils
 
 def roll_1d6():
     return (random.randrange(6) + 1)
@@ -43,17 +44,17 @@ def menu():
         if(val == 0):
             exit = True
         elif(val == 1):
-            print(dice.roll_1d6())
+            print(roll_1d6())
         elif(val == 2):
-            print(dice.roll_2d6())
+            print(roll_2d6())
         elif(val == 3):
-            print(dice.roll_3d6())
+            print(roll_3d6())
         elif(val == 4):
-            print(dice.roll_1d8())
+            print(roll_1d8())
         elif(val == 5):
-            print(dice.roll_2d8())
+            print(roll_2d8())
         elif(val == 6):
-            print(dice.roll_1d15())
+            print(roll_1d15())
         elif(val == 7):
-            print(dice.roll_1d20())
+            print(roll_1d20())
         print()
