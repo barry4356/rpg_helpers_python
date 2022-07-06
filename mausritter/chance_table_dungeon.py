@@ -1,7 +1,7 @@
 # chance_tables.py
 
 # Stocking Adventure Site Room
-room_type = ["empty", "empty", "Obstacle", "Trap", "Puzzle", "Lair"]
+room_type = ["Empty", "Empty", "Obstacle", "Trap", "Puzzle", "Lair"]
 creature_present = [
     [True, True, True, False, False, False],
     [True, True, True, False, False, False],
@@ -71,7 +71,7 @@ large = ["Oversized silver spoon (2 slots, 300p)", "Ivory comb (4 slots, 400p)",
     "Ancient mouse throne (6 slots, 1000p)", "Giant golden wristwatch (4 slots, 1000p)"]
 useful = ["d6 packs of rations, well preserved", "d6 bundles of torches", "Mundane weapon",
     "Mundane armour", "Mundane utility item", "Lost mouse, willing to help"]
-magic_sword_class = ["Medium","Medium","Medium","Light","Heavy"]
+magic_sword_class = ["Medium","Medium","Medium","Medium","Light","Heavy"]
 magic_sword_types = ["Wrought Iron", "Intricate Fae Design", "Rusty Nail", "Snake Fang", "Toy Soldier's Sabre", "Water-Worn Glass", "Wolf Tooth", 
         "Silver Sewing Needle", "Thorny Rose Stem", "Congealed Shadow"]
 magic_sword_cursed = [True, False, False, False, False, False]
