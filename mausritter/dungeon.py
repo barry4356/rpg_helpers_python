@@ -19,9 +19,11 @@ def create_dungeon_room():
     if room_type_str == "Puzzle":
         puzzle_feature_number = dice.roll_1d6()-1
         print("\tPuzzle Detail: " + chance_table_dungeon.puzzle_feature[puzzle_feature_number])
-        if puzzle_feature_number == 0 or puzzle_feature_number == 3 or puzzle_feature_number == 4:
+        if puzzle_feature_number == 0 or puzzle_feature_number == 2 or puzzle_feature_number == 3 or puzzle_feature_number == 4:
             print("\tPUZZLE HAS TREASURE!!")
             treasure_type = dice.roll_1d20() - 1
+            if puzzle_feature_number == 2:
+                treasure_type = 0
             treasure_type_str = chance_table_dungeon.treasure_type[treasure_type]
             print("\t\tPuzzle Treasure Type: " + treasure_type_str)
             if treasure_type_str == "Magic Sword":
