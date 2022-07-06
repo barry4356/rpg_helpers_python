@@ -1,5 +1,5 @@
 #enemy_stats_tables.py
-centiped_stats=[
+centipede_stats=[
     8,10,12,8,1,
     "d6 venemous bit (damages DEX instead of STR)\nCritical: Venom takes effect, d12 damage to STR",
     "Wants to wander and devour"
@@ -23,38 +23,38 @@ faerie_stats=[
     "Wants to further the Faerie Queen's strange agenda"
     ]
 
-centiped_stats=[
-    8,10,12,8,1,
-    "d6 venemous bit (damages DEX instead of STR)\nCritical: Venom takes effect, d12 damage to STR",
-    "Wants to wander and devour"
+ghost_stats=[
+    9,5,10,10,0,
+    "ghostly power, d8 chilling touch (damages WIL)\nCritical damage: Possess the creature\nOnly harmed by silver or magic weapons",
+    "Wants freedom from the pain that binds them to the mortal realm"
     ]
 
-centiped_stats=[
-    8,10,12,8,1,
-    "d6 venemous bit (damages DEX instead of STR)\nCritical: Venom takes effect, d12 damage to STR",
-    "Wants to wander and devour"
+mouse_stats=[
+    3,9,9,9,0,
+    "d6 sword or d6 bow",
+    "Wants to feel safe"
     ]
 
-centiped_stats=[
-    8,10,12,8,1,
-    "d6 venemous bit (damages DEX instead of STR)\nCritical: Venom takes effect, d12 damage to STR",
-    "Wants to wander and devour"
+owl_stats=[
+    15,15,15,15,1,
+    "d10 bite\nFlies 3x normal speed. Knows two spells",
+    "Wants to collect rare knowledge and spells"
     ]
 
-centiped_stats=[
-    8,10,12,8,1,
-    "d6 venemous bit (damages DEX instead of STR)\nCritical: Venom takes effect, d12 damage to STR",
-    "Wants to wander and devour"
+snake_stats=[
+    12,12,10,10,2,
+    "d8 bite\nCritical damage: Swallow whole, d4 STR damage per Round until rescued or escape",
+    "Wants to sleep undisturbed"
     ]
 
-centiped_stats=[
-    8,10,12,8,1,
-    "d6 venemous bit (damages DEX instead of STR)\nCritical: Venom takes effect, d12 damage to STR",
-    "Wants to wander and devour"
+rat_stats=[
+    3,12,8,8,0,
+    "d6 cleaver",
+    "Wants easy wealth, to take from the weak"
     ]
 
-centiped_stats=[
-    8,10,12,8,1,
-    "d6 venemous bit (damages DEX instead of STR)\nCritical: Venom takes effect, d12 damage to STR",
-    "Wants to wander and devour"
+spider_stats=[
+    6,8,15,10,1,
+    "d6 poison bite (damages DEX instead of STR)\nCritical damage: Carry away in web",
+    "Wants to feed its babies"
     ]
