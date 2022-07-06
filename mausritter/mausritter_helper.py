@@ -3,6 +3,7 @@ import turns
 import war
 import dice
 import utils
+import dungeon
 
 def get_input():
     val = "INVALID"
@@ -100,6 +101,6 @@ while exit != True:
     if(val == 0):
         exit = True
     elif (val == 1):
-        print(turn_menu())
+        print(dungeon.menu())
     elif (val == 2):
         dice_menu()
