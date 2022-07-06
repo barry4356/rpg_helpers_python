@@ -83,3 +83,5 @@ cursed_sword_detail = [
     "If you see an ally take damage, take a Frightened Condition; Fulfilling a mouse’s dying wish",
     "Spells cast in your presence always mark usage; Destroying an owl sorcerer’s source of power"
 ]
+spells = ["Fireball", "Heal", "Magic Missile", "Fear", "Darkness", "Restore", "Be Understood", "Ghost Beetle",
+    "Light", "Invisible Ring", "Knock", "Grease", "Grow", "Invisibility", "Catnip"]

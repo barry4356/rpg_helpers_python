@@ -22,6 +22,9 @@ def create_dungeon_room():
         print("\tLair Detail: " + chance_table_dungeon.lair_feature[dice.roll_1d6()-1])
 
     print ("Creature Present: " + str(creature_present))
+    if creature_present:
+        print("\tCreature Roll: " + str(dice.roll_1d6()))
+
     print ("Treasure Present: " + str(treasure_present))
     if treasure_present:
         treasure_type = dice.roll_1d20() - 1
@@ -33,7 +36,26 @@ def create_dungeon_room():
             magic_sword_cursed = chance_table_dungeon.magic_sword_cursed[dice.roll_1d6()-1]
             if magic_sword_cursed:
                 print("\tMagic Sword Curse;Solution: "+chance_table_dungeon.cursed_sword_detail[dice.roll_1d6()-1])
-    
+        if treasure_type_str == "Random Spell":
+            print("\tSpell Type: "+chance_table_dungeon.spells[dice.roll_1d15()-1])
+        if treasure_type_str == "Trinket":
+             print("\tTrinket Detail: "+chance_table_dungeon.trinket[dice.roll_1d6()-1])
+        if treasure_type_str == "Valuable Treasure":
+             print("\tValuable Treasure: "+chance_table_dungeon.valuable[dice.roll_1d6()-1])
+        if treasure_type_str == "Unusual Treasure":
+             print("\tUnusual Treasure: "+chance_table_dungeon.unusual[dice.roll_1d6()-1])
+        if treasure_type_str == "Useful Treasure":
+             print("\tUseful Treasure: "+chance_table_dungeon.useful[dice.roll_1d6()-1])
+        if treasure_type_str == "Large Treasure":
+             print("\tLarge Treasure: "+chance_table_dungeon.large[dice.roll_1d6()-1])
+        if treasure_type_str == "d6x100 pips":
+            print("\tpips: " + str(dice.roll_1d6()*100))
+        if treasure_type_str == "d6x50 pips":
+            print("\tpips: " + str(dice.roll_1d6()*50))
+        if treasure_type_str == "d6x10 pips":
+            print("\tpips: " + str(dice.roll_1d6()*10))
+        if treasure_type_str == "d6x5 pips":
+            print("\tpips: " + str(dice.roll_1d6()*5))    
 
 def menu():
     exit = False;
