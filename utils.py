@@ -32,3 +32,31 @@ def get_input():
 def wait4enter():
     print()
     input("Press Enter to continue...")
+
+def menu(func_list,desc_list,header,is_main):
+    print(func_list)
+    if len(func_list) != len(desc_list):
+        print("ERROR: utils.menu needs two lists of same size!!")
+        return
+    exit = False;
+    while exit != True:
+        print_header(header)
+        print("Menu Selection...")
+        index=0
+        for desc in desc_list:
+            index=index+1
+            print(str(index)+" - "+desc)
+        if is_main:
+            print("0 - Exit")
+        else:
+            print("0 - Back")
+        val = int(get_input())
+        print("\n")
+        if(val == 0):
+            if is_main:
+                if areyousure():
+                    exit = True
+            else:
+                exit = True
+        elif val <= len(func_list):
+            print(func_list[val-1]())
