@@ -2,6 +2,12 @@
 import random
 import utils
 
+def coin_flip():
+    if random.randint(0, 1) == 1:
+        return True
+    else:
+        return False
+
 def roll_custom(dice_size):
     return (random.randrange(dice_size)+1)
 
@@ -22,6 +28,9 @@ def roll_1d8():
 def roll_2d8():
     val = roll_1d8() + roll_1d8()
     return (val)
+
+def roll_1d10():
+    return (random.randrange(10) + 1)
 
 def roll_1d15():
     return (random.randrange(15) + 1)
