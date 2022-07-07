@@ -33,3 +33,32 @@ physical_detail = [
     "Danger","Deerider","Grant","Halva","Maker","Pipp","Seedfall","Snow",
     "Summerholme","Thorne","Tunneler","White","Winterholme","Witter"
 ]
+#See Table in Rulebook Page 7
+background = [
+    "Test subject","Kitchen forager","Cage dweller","Hedge witch","Leatherworker",
+    "Street tough","Mendicant priest","Beetleherd","Ale brewer","Fishermouse",
+    "Blacksmith","Wireworker","Woodcutter","Bat cultist","Tin miner","Trash collector",
+    "Wall rover","Merchant","Raft crew","Worm wrangler","Sparrow rider","Sewer guide",
+    "Prison guard","Fungus farmer","Dam builder","Cartographer","Trap thief","Vagabond",
+    "Grain farmer","Message runner","Troubadour","Gambler","Sap tapper","Bee keeper",
+    "Librarian","Pauper noblemouse"
+]
+itema = [
+    "Spell: Magic missile","Shield & jerkin (Light armour)","Spell: Be understood",
+    "Spell: Heal","Shield & jerkin (Light armour)","Dagger (Light, d6)","Spell: Restore",
+    "Hireling: Loyal beetle","Hireling: Drunken torchbearer","Net","Hammer (Medium, d6/d8)",
+    "Wire, spool","Axe (Medium, d6/d8)","Spell: Darkness","Pickaxe (Medium, d6/d8)",
+    "Trashhook (Heavy, d10)","Fishhook","Hireling: Pack rat","Hammer (Medium, d6/d8)",
+    "Pole, 6inch","Fishhook","Metal file","Chain, 6inch","Dried mushroom (as rations)",
+    "Shovel","Quill & ink","Block of cheese","Tent","Spear (Heavy, d10)","Bedroll",
+    "Musical instrument","Set of loaded dice","Bucket","Jar of honey",
+    "Scrap of obscure book","Felt hat"
+]
+itemb = [
+    "Lead coat (Heavy armour)","Cookpots","Bottle of milk","Incense stick","Shears",
+    "Flask of coffee","Holy symbol","Pole, 6inch","Small barrel of ale","Needle (Light, d6)",
+    "Metal file","Electric lantern","Twine, roll","Bag of bat teeth","Lantern","Mirror",
+    "Thread, spool","20p IOU from a noblemouse","Wooden spikes","Soap","Goggles","Thread, spool",
+    "Spear (Heavy, d10)","Spore mask","Wooden spikes","Compass","Glue","Treasure map, dubious",
+    "Whistle","Documents, sealed","Disguise kit","Mirror","Wooden spikes","Net","Quill & ink","Perfume"
+]

@@ -42,7 +42,15 @@ def get_details():
     return birthsign, disposition, coat, pattern, physical_detail
 
 def roll_main_character():
-    print("WIP")
+    hp = roll_henchman()
+    pips = dice.roll_1d6()
+    hp_index = (hp - 1) * 6
+    background_index = (hp_index + pips) - 1
+    starting_item = maus_table.background[background_index]
+    itema = maus_table.itema[background_index]
+    itemb = maus_table.itemb[background_index]
+    print("\tPips: "+str(pips)+"\t\tItem: "+itema+"\tItem: "+itemb)
+    
 
 def roll_henchman():
     strength, dex, wil, hp = get_stats()
@@ -52,6 +60,7 @@ def roll_henchman():
     print("\tStrength: "+str(strength)+" \tDEX: "+str(dex)+" \tWIL: "+str(wil)+" \tHP: "+str(hp))
     print("\tBirthsign: "+birthsign+"\tDisposition: "+disposition)
     print("\tCoat: "+coat+"\t\tPattern: "+pattern+"\tDetail: "+physical_detail)
+    return hp
 
 
 def roll_henchmen():
@@ -62,6 +71,6 @@ def roll_henchmen():
         print("-")
 
 def menu():
-    func_list = [roll_henchmen]
-    desc_list = ["Create Henchmen"]
+    func_list = [roll_henchmen,roll_main_character]
+    desc_list = ["Create Henchmen","Create Player Character"]
     utils.menu(func_list,desc_list,"Maus Creator",False)
