@@ -2,6 +2,9 @@
 import random
 import utils
 
+def roll_custom(dice_size):
+    return (random.randrange(dice_size)+1)
+
 def roll_1d6():
     return (random.randrange(6) + 1)
     
