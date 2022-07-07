@@ -38,7 +38,7 @@ def get_details():
     disposition = maus_table.disposition[birthsign_num]
     coat = maus_table.coat[dice.roll_1d6()-1]
     pattern = maus_table.pattern[dice.roll_1d6()-1]
-    physical_detail = maus_table.pattern[dice.roll_1d6()-1]
+    physical_detail = maus_table.physical_detail[dice.roll_1d6()-1]
     return birthsign, disposition, coat, pattern, physical_detail
 
 def roll_main_character():
@@ -59,7 +59,7 @@ def roll_henchman():
     print("Maus: "+name)
     print("\tStrength: "+str(strength)+" \tDEX: "+str(dex)+" \tWIL: "+str(wil)+" \tHP: "+str(hp))
     print("\tBirthsign: "+birthsign+"\tDisposition: "+disposition)
-    print("\tCoat: "+coat+"\t\tPattern: "+pattern+"\tDetail: "+physical_detail)
+    print("\tCoat: "+coat+"\tPattern: "+pattern+"\t\tDetail: "+physical_detail)
     return hp
 
 

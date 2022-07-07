@@ -29,9 +29,12 @@ disposition = [
 coat = ["Chocolate","Black","White","Tan","Grey","Blue"]
 pattern = ["Solid","Brindle","Patchy","Banded","Marbled","Flecked"]
 physical_detail = [
-    "Baiter","Black","Buckthorne","Burley","Butterball","Catreizen",
-    "Danger","Deerider","Grant","Halva","Maker","Pipp","Seedfall","Snow",
-    "Summerholme","Thorne","Tunneler","White","Winterholme","Witter"
+    "Scarred body","Groomed fur","Corpulent body","Dreadlocks","Skeletal body","Dyed fur",
+    "Willowy body","Shaved fur","Tiny body","Frizzy fur","Massive body","Silky fur","War paint",
+    "Night black eyes","Foreign clothes","Eye patch","Elegant clothes","Blood red eyes",
+    "Patched clothes","Wise eyes","Fashionable clothes","Sharp eyes","Unwashed clothes",
+    "Luminous eyes","Missing ear","Cropped tail","Lumpy face","Whip-like tail","Beautiful face",
+    "Tufted tail","Round face","Stubby tail","Delicate face","Prehensile tail","Elongated face","Curly tail"
 ]
 #See Table in Rulebook Page 7
 background = [
