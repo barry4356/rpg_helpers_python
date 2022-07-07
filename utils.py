@@ -34,7 +34,6 @@ def wait4enter():
     input("Press Enter to continue...")
 
 def menu(func_list,desc_list,header,is_main):
-    print(func_list)
     if len(func_list) != len(desc_list):
         print("ERROR: utils.menu needs two lists of same size!!")
         return
@@ -59,4 +58,4 @@ def menu(func_list,desc_list,header,is_main):
             else:
                 exit = True
         elif val <= len(func_list):
-            print(func_list[val-1]())
+            func_list[val-1]()

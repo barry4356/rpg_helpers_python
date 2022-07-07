@@ -119,16 +119,6 @@ def create_dungeon_room():
             print("\tpips: " + str(dice.roll_1d6()*5))    
 
 def menu():
-    exit = False;
-    while exit != True:
-        utils.print_header("Adventure-Site Menu")
-        print("1 - Create New Room")
-        print("2 - Roll Encounter")
-        print("0 - Main Menu")
-        val = utils.get_input()
-        if(val == 0):
-            exit = True
-        elif(val == 1):
-            create_dungeon_room()
-        elif(val == 2):
-            roll_encounter()
+    func_list = [create_dungeon_room, roll_encounter]
+    desc_list = ["Create New Room", "Roll Encounter"]
+    utils.menu(func_list,desc_list,"Adventure-Site Menu",False)
