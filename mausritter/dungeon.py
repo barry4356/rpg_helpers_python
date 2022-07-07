@@ -3,6 +3,20 @@ import utils
 import chance_table_dungeon
 import dice
 
+def roll_encounter():
+    utils.print_header("Encounter")
+    creature_roll = dice.roll_1d6()
+    print("Creature Roll: " + str(creature_roll))
+    if creature_roll < 4:
+        print("Creature: Common Encounter")
+    elif creature_roll < 6:
+        print("Creature: Uncommon Encounter; Slightly Unusual")
+    else:
+        print("Creature: Strange or Dangerous Encounter")
+
+    reaction_roll = dice.roll_2d6()
+    print("Creature: Reaction = "+chance_table_dungeon.reactions[reaction_roll-2])
+
 def create_dungeon_room():
     utils.print_header("Room")
     room_type = dice.roll_1d6() - 1
@@ -109,9 +123,12 @@ def menu():
     while exit != True:
         utils.print_header("Adventure-Site Menu")
         print("1 - Create New Room")
+        print("2 - Roll Encounter")
         print("0 - Main Menu")
         val = utils.get_input()
         if(val == 0):
             exit = True
         elif(val == 1):
             create_dungeon_room()
+        elif(val == 2):
+            roll_encounter()
