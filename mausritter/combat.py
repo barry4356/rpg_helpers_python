@@ -59,7 +59,7 @@ def begin_damage_tracking():
         print("8  - Snake")
         print("9  - Rat")
         print("10 - Spider")
-        print("0 - Main Menu")
+        print("0 - Back")
         val = utils.get_input()
         if(val == 0):
             exit = True
