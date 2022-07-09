@@ -6,4 +6,3 @@ else
 	export PYTHONPATH=$PYTHONPATH:$PWD
 fi
 python mausritter/mausritter_helper.py
-sleep 100

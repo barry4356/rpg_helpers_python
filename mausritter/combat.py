@@ -115,7 +115,7 @@ def track_damage(name,hp,strength,dex,wil,arm,atk_str,wants_str):
             print("\nENEMY IS DEAD!!")
         elif hp == 0:
             print("\nENEMY NEEDS TO MAKE A STRENGTH SAVE")
-        print("\nHow much damage did we do??")
+        print("\nHow much damage did we do (before armor)??")
         print("0 - Back")
         val = utils.get_input()
         if val == 0:
@@ -124,9 +124,15 @@ def track_damage(name,hp,strength,dex,wil,arm,atk_str,wants_str):
                 print("Well Struck!")
             exit = True
         else:
-            hp,strength = do_damage(hp,strength,val)
+            hp,strength = do_damage(hp,strength,arm,val)
 
-def do_damage(hp,strength,dam):
+def do_damage(hp,strength,arm,dam):
+    if dam < arm:
+        dam = 0
+        print("Armor prevented damage!")
+    else:
+        dam = int(dam - arm)
+        print("Armor blocks ["+str(arm)+"], New Damage ["+str(dam)+"]")
     if hp > dam:
         hp = hp - dam
     elif dam == hp:
