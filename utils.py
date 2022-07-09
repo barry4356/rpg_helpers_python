@@ -19,8 +19,8 @@ def print_header(title):
     print("=============== " + title + " ===============")
     print()
     
-def get_input():
-    val = "INVALID"
+def get_input(default=0.0):
+    val = default
     print()
     try:
         val = float(input("Enter Selection: "))
@@ -30,13 +30,12 @@ def get_input():
     return val
     
 def get_input_int(default=0):
-    val = "INVALID"
+    val = default
     print()
     try:
         val = int(input("Enter Selection: "))
     except ValueError:
         print("Invalid")
-        val = default
     print()
     return val
 
