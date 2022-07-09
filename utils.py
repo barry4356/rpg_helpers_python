@@ -28,6 +28,17 @@ def get_input():
         print("Invalid")
     print()
     return val
+    
+def get_input_int(default=0):
+    val = "INVALID"
+    print()
+    try:
+        val = int(input("Enter Selection: "))
+    except ValueError:
+        print("Invalid")
+        val = default
+    print()
+    return val
 
 def wait4enter():
     print()
@@ -49,7 +60,7 @@ def menu(func_list,desc_list,header,is_main):
             print("0 - Exit")
         else:
             print("0 - Back")
-        val = int(get_input())
+        val = get_input_int(100)
         print("\n")
         if(val == 0):
             if is_main:

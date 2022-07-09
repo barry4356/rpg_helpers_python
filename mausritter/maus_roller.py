@@ -65,7 +65,7 @@ def roll_henchman():
 
 def roll_henchmen():
     print("How many henchmen are we rolling?")
-    val = int(utils.get_input())
+    val = utils.get_input_int()
     for index in range(val):
         roll_henchman()
         print("-")
