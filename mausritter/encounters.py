@@ -3,6 +3,7 @@ import dice
 import utils
 import additional_tables
 import chance_table_encounter
+import chance_table_dungeon
 import random_adventure_table
 
 def roll_encounter(tabs=0):
@@ -14,7 +15,8 @@ def roll_encounter(tabs=0):
     if creature_roll < 4:
         print(indent+"Creature: Common Encounter")
         creature_type_roll = dice.roll_1d10()-1
-        print(indent+"Creature Selected (Experimental): "+additional_tables.small[creature_type_roll])
+        creature_type = additional_tables.small[creature_type_roll]
+        print(indent+"Creature Selected (Experimental): "+creature_type)
     elif creature_roll < 6:
         print(indent+"Creature: Uncommon Encounter; Slightly Unusual")
         creature_type_roll = dice.roll_1d6()-1
@@ -27,10 +29,16 @@ def roll_encounter(tabs=0):
     else:
         print(indent+"Creature: Strange or Dangerous Encounter")
         creature_type_roll = dice.roll_1d6()-1
-        print(indent+"Creature Selected (Experimental): "+additional_tables.large[creature_type_roll])
+        creature_type = additional_tables.large[creature_type_roll]
+        print(indent+"Creature Selected (Experimental): "+creature_type)
 
     reaction_roll = dice.roll_2d6()
     print(indent+"Creature: Reaction = "+chance_table_encounter.reactions[reaction_roll-2])
+    if "faerie" in creature_type:
+        print(indent+"Knows spell ["+dice.roll_on_table(chance_table_dungeon.spells)+"]")
+    if "owl" in creature_type:
+        print(indent+"Knows spells ["+dice.roll_on_table(chance_table_dungeon.spells)+
+            "] and ["+dice.roll_on_table(chance_table_dungeon.spells)+"]")
 
 
 def adventure_generator():
