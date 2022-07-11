@@ -1,4 +1,4 @@
-#travel_tables.py
+#weather_tables.py
 #Tables used to roll travel conditions
 
 #See Rule book page 44
@@ -28,7 +28,7 @@ winter_weather=[
     "Bitter Cold; Make STR save or gain an Exhausted Condition",
     "Overcast","Overcast", "Overcast", "Clear and Crisp"]
 
-sprint_weather=[
+spring_weather=[
     "Rain Storm; Make STR save or gain an Exhausted Condition",
     "Drizzle","Drizzle", "Drizzle", "Overcast",
     "Overcast","Overcast", "Bright and Sunny", "Bright and Sunny",

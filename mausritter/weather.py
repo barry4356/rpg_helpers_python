@@ -1,7 +1,6 @@
 #weather.py
-import travel_tables
+import weather_tables
 import utils
-import travel_tables
 import dice
 
 def summer_weather():
@@ -18,7 +17,13 @@ def spring_weather():
 
 def roll_daily_weather(season):
     if season == "Summer":
-        print("Today's Weather: "+travel_tables.summer_weather[dice.roll_2d6()-2])
+        print("Today's Weather: "+weather_tables.summer_weather[dice.roll_2d6()-2])
+    elif season == "Fall":
+        print("Today's Weather: "+weather_tables.fall_weather[dice.roll_2d6()-2])
+    elif season == "Winter":
+        print("Today's Weather: "+weather_tables.winter_weather[dice.roll_2d6()-2])
+    elif season == "Spring":
+        print("Today's Weather: "+weather_tables.spring_weather[dice.roll_2d6()-2])
 
 def daily_weather_menu():
     func_list = [summer_weather,fall_weather,winter_weather,spring_weather]
