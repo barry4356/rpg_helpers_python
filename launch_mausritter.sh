@@ -5,4 +5,4 @@ if [ -z $PYTHONPATH ]; then
 else
 	export PYTHONPATH=$PYTHONPATH:$PWD:${PWD}/mausritter:${PWD}/mausritter/tables
 fi
-python mausritter/mausritter_helper.py
+python mausritter/mausritter_main.py
