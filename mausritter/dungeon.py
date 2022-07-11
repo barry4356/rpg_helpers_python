@@ -24,7 +24,7 @@ def roll_treasure(treasure_type=100,tabs=0):
         if magic_sword_cursed:
             print(indent+"Magic Sword Curse;Solution: "+chance_table_dungeon.cursed_sword_detail[dice.roll_1d6()-1])
     if treasure_type_str == "Random Spell":
-        print(indent+"Spell Type: "+chance_table_dungeon.spells[dice.roll_1d15()-1])
+        print(indent+"Spell Type: "+dice.roll_on_table(chance_table_dungeon.spells))
     if treasure_type_str == "Trinket":
         print(indent+"Trinket Detail: "+chance_table_dungeon.trinket[dice.roll_1d6()-1])
     if treasure_type_str == "Valuable Treasure":
@@ -67,14 +67,11 @@ def create_dungeon_room():
             else:
                 treasure_type_index = dice.roll_1d20() - 1
             roll_treasure(treasure_type=treasure_type_index,tabs=2)
-
     if room_type_str == "Lair":
         print("\tLair Detail: " + chance_table_dungeon.lair_feature[dice.roll_1d6()-1])
-
     print ("-\nCreature Present: " + str(creature_present))
     if creature_present:
         encounters.roll_encounter(1)
-
     print ("-\nTreasure Present: " + str(treasure_present))
     if treasure_present:
         roll_treasure(tabs=1)

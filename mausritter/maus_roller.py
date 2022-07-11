@@ -28,8 +28,8 @@ def get_stats():
 
 
 def get_mausname():
-    first_name = maus_table.birthname[dice.roll_custom(len(maus_table.birthname)-1)]
-    last_name = maus_table.matriname[dice.roll_custom(len(maus_table.matriname)-1)]
+    first_name = dice.roll_on_table(maus_table.birthname)
+    last_name = dice.roll_on_table(maus_table.matriname)
     return str(first_name+" "+last_name)
 
 def get_details():
