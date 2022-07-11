@@ -45,7 +45,7 @@ def roll_1d15():
 def roll_1d20():
     return (random.randrange(20) + 1)
     
-#Roll on arbitrary-sized table, all values equal chance
+#Roll on arbitrary-sized table, all chances are equally weighted
 def roll_on_table(input_table):
     table_size = len(input_table)
     return(input_table[roll_custom(table_size)-1])
