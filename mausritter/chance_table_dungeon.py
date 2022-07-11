@@ -88,17 +88,3 @@ cursed_sword_detail = [
 #See Table Page 13 of Rulebook
 spells = ["Fireball", "Heal", "Magic Missile", "Fear", "Darkness", "Restore", "Be Understood", "Ghost Beetle",
     "Light", "Invisible Ring", "Knock", "Grease", "Grow", "Invisibility", "Catnip"]
-#See Table Page 21 of Rulebook
-reactions = [
-    "Hostile. How have the mice angered them?",
-    "Unfriendly. How can they be appeased?",
-    "Unfriendly. How can they be appeased?",
-    "Unfriendly. How can they be appeased?",
-    "Unsure. What could win them over?",
-    "Unsure. What could win them over?",
-    "Unsure. What could win them over?",
-    "Talkative. What could they trade?",
-    "Talkative. What could they trade?",
-    "Talkative. What could they trade?",
-    "Helpful. How can they help the mice?"
-]

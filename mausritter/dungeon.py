@@ -3,32 +3,11 @@ import utils
 import chance_table_dungeon
 import dice
 import additional_tables
+import encounters
 
-def roll_encounter():
+def print_encounter():
     utils.print_header("Encounter")
-    creature_roll = dice.roll_1d6()
-    print("Creature Roll: " + str(creature_roll))
-    if creature_roll < 4:
-        print("Creature: Common Encounter")
-        creature_type_roll = dice.roll_1d10()-1
-        print("Creature Selected (Experimental): "+additional_tables.small[creature_type_roll])
-    elif creature_roll < 6:
-        print("Creature: Uncommon Encounter; Slightly Unusual")
-        creature_type_roll = dice.roll_1d6()-1
-        creature_type = ""
-        if dice.coin_flip():
-            creature_type = additional_tables.medium[creature_type_roll]
-        else:
-            creature_type = additional_tables.tiny[creature_type_roll]
-        print("Creature Selected (Experimental): "+creature_type)
-
-    else:
-        print("Creature: Strange or Dangerous Encounter")
-        creature_type_roll = dice.roll_1d6()-1
-        print("Creature Selected (Experimental): "+additional_tables.large[creature_type_roll])
-
-    reaction_roll = dice.roll_2d6()
-    print("Creature: Reaction = "+chance_table_dungeon.reactions[reaction_roll-2])
+    encounters.roll_encounter()
 
 def create_dungeon_room():
     utils.print_header("Room")
@@ -86,29 +65,7 @@ def create_dungeon_room():
 
     print ("-\nCreature Present: " + str(creature_present))
     if creature_present:
-        creature_roll = dice.roll_1d6()
-        print("\tCreature Roll: " + str(creature_roll))
-        if creature_roll < 4:
-            print("\tCreature: Common Encounter")
-            creature_type_roll = dice.roll_1d10()-1
-            print("\tCreature Selected (Experimental): "+additional_tables.small[creature_type_roll])
-        elif creature_roll < 6:
-            print("\tCreature: Uncommon Encounter; Slightly Unusual")
-            creature_type_roll = dice.roll_1d6()-1
-            creature_type = ""
-            if dice.coin_flip():
-                creature_type = additional_tables.medium[creature_type_roll]
-            else:
-                creature_type = additional_tables.tiny[creature_type_roll]
-            print("\tCreature Selected (Experimental): "+creature_type)
-        else:
-            print("\tCreature: Strange or Dangerous Encounter")
-            creature_type_roll = dice.roll_1d6()-1
-            print("\tCreature Selected (Experimental): "+additional_tables.large[creature_type_roll])
-
-        reaction_roll = dice.roll_2d6()
-        print("\tCreature: Reaction = "+chance_table_dungeon.reactions[reaction_roll-2])
-
+        encounters.roll_encounter(1)
 
     print ("-\nTreasure Present: " + str(treasure_present))
     if treasure_present:
@@ -143,6 +100,6 @@ def create_dungeon_room():
             print("\tpips: " + str(dice.roll_1d6()*5))    
 
 def menu():
-    func_list = [create_dungeon_room, roll_encounter]
+    func_list = [create_dungeon_room, print_encounter]
     desc_list = ["Create New Room", "Roll Encounter"]
     utils.menu(func_list,desc_list,"Adventure-Site Menu",False)
