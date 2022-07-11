@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ -z $PYTHONPATH ]; then
-	export PYTHONPATH=$PWD
+	export PYTHONPATH=$PWD:${PWD}/mausritter:${PWD}/mausritter/tables
 else
-	export PYTHONPATH=$PYTHONPATH:$PWD
+	export PYTHONPATH=$PYTHONPATH:$PWD:${PWD}/mausritter:${PWD}/mausritter/tables
 fi
 python mausritter/mausritter_helper.py
