@@ -31,12 +31,11 @@ def roll_encounter(tabs=0):
         creature_type_roll = dice.roll_1d6()-1
         creature_type = additional_tables.large[creature_type_roll]
         print(indent+"Creature Selected (Experimental): "+creature_type)
-
     reaction_roll = dice.roll_2d6()
     print(indent+"Creature: Reaction = "+chance_table_encounter.reactions[reaction_roll-2])
-    if "faerie" in creature_type:
+    if "faerie" in creature_type.lower():
         print(indent+"Knows spell ["+dice.roll_on_table(chance_table_dungeon.spells)+"]")
-    if "owl" in creature_type:
+    if "owl" in creature_type.lower():
         print(indent+"Knows spells ["+dice.roll_on_table(chance_table_dungeon.spells)+
             "] and ["+dice.roll_on_table(chance_table_dungeon.spells)+"]")
 
