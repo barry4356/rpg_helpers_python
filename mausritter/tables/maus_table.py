@@ -155,5 +155,4 @@ npc_relationship = [
 	"Serve the same lord",
 	"Never met before"
 ]
-
 npc_status = ["Poor","Common","Common","Burghermouse","Guildmouse","Noblemaus"]

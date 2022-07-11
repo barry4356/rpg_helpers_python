@@ -77,6 +77,6 @@ def create_dungeon_room():
         roll_treasure(tabs=1)
 
 def menu():
-    func_list = [create_dungeon_room, print_encounter]
-    desc_list = ["Create New Room", "Roll Encounter"]
+    func_list = [create_dungeon_room, print_encounter, encounters.check_encounter]
+    desc_list = ["Create New Room", "Roll Encounter","Check for Encounter"]
     utils.menu(func_list,desc_list,"Adventure-Site Menu",False)

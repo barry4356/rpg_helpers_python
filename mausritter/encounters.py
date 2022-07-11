@@ -40,3 +40,7 @@ def adventure_generator():
     complication_str = dice.roll_on_table(random_adventure_table.complication)
     print("The adventurers find a ["+creature_str+"] who ["+problem_str+"]. Unfortunately ["+complication_str+"].")
     print("Can our brave mice sally forth to solve this dilema?")
+
+def check_encounter():
+    print("Rolling Encounter Check (Encounter, Omen, None)...")
+    print("Encounter Check: ["+dice.roll_on_table(chance_table_encounter.encounter_chances)+"]")
