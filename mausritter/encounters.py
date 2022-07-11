@@ -24,7 +24,6 @@ def roll_encounter(tabs=0):
         else:
             creature_type = additional_tables.tiny[creature_type_roll]
         print(indent+"Creature Selected (Experimental): "+creature_type)
-
     else:
         print(indent+"Creature: Strange or Dangerous Encounter")
         creature_type_roll = dice.roll_1d6()-1

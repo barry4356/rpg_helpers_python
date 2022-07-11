@@ -41,6 +41,14 @@ def get_details():
     physical_detail = maus_table.physical_detail[dice.roll_1d6()-1]
     return birthsign, disposition, coat, pattern, physical_detail
 
+def get_npc_appearance():
+    status = dice.roll_on_table(maus_table.npc_status)
+    appearance = dice.roll_on_table(maus_table.npc_appearance)
+    quirk = dice.roll_on_table(maus_table.npc_quirk)
+    wants = dice.roll_on_table(maus_table.npc_wants)
+    relationship = dice.roll_on_table(maus_table.npc_relationship)
+    return status, appearance, quirk, wants, relationship
+
 def roll_main_character():
     hp = roll_henchman()
     pips = dice.roll_1d6()
@@ -70,7 +78,34 @@ def roll_henchmen():
         roll_henchman()
         print("-")
 
+def roll_npcs():
+    print("How many NPCs are we rolling?")
+    val = utils.get_input_int()
+    for index in range(val):
+        roll_npc()
+        print("-")
+
+def roll_npc():
+    name = get_mausname()
+    birthsign, disposition, coat, pattern, physical_detail = get_details()
+    status, appearance, quirk, wants, relationship = get_npc_appearance()
+    print("Maus: "+name+"\t\tSocial Status: "+status)
+    print("\tBirthsign: "+birthsign+"\tDisposition: "+disposition)
+    print("\tAppearance: "+appearance+"\tQuirk: "+quirk+"\tWants: "+wants)
+    npc_status = ["Poor","Common","Common","Burghermouse","Guildmouse","Noblemaus"]
+    if status == "Poor":
+        cost = dice.roll_1d6()
+    elif status == "Common":
+        cost = dice.roll_1d6() * 10
+    elif status == "Burghermouse":
+        cost = dice.roll_1d6() * 50
+    elif status == "Guildmouse":
+        cost = dice.roll_1d4() * 100
+    elif status == "Noblemaus":
+        cost = dice.roll_1d4() * 1000
+    print("\tCost: ["+str(cost)+"]")
+
 def menu():
-    func_list = [roll_henchmen,roll_main_character]
-    desc_list = ["Create Henchmen","Create Player Character"]
+    func_list = [roll_henchmen,roll_main_character,roll_npcs]
+    desc_list = ["Create Henchmen","Create Player Character","Create Villagers/NPCs"]
     utils.menu(func_list,desc_list,"Maus Creator",False)

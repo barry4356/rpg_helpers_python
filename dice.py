@@ -13,6 +13,10 @@ def coin_flip():
 def roll_custom(dice_size):
     return (random.randrange(dice_size)+1)
 
+#Roll D4(s)
+def roll_1d4():
+    return(random.randrange(4) + 1)
+
 #Roll D6(s)
 def roll_1d6():
     return (random.randrange(6) + 1)

@@ -65,3 +65,95 @@ itemb = [
     "Spear (Heavy, d10)","Spore mask","Wooden spikes","Compass","Glue","Treasure map, dubious",
     "Whistle","Documents, sealed","Disguise kit","Mirror","Wooden spikes","Net","Quill & ink","Perfume"
 ]
+
+#See Table on Page 42 of Rulebook
+npc_appearance = [
+	"Soulful eyes",
+	"Bright, patched clothes",
+	"Wreath of daisies",
+	"Grubby clothes",
+	"Large floppy hat",
+	"Pockets full of seed",
+	"Bent twig walking stick",
+	"Carries rusted pinsword",
+	"Long, wild fur",
+	"Very, very old",
+	"Bandaged tail",
+	"Tail tied with a bow",
+	"Missing an ear",
+	"Long whiskers",
+	"Twinkling eyes",
+	"Huge, heavy black cloak",
+	"Old battle scars",
+	"Very young",
+	"Shaved fur",
+	"Braided fur"
+]
+npc_quirk = [
+	"Constantly grooming",
+	"Obsessed with weather",
+	"Very high energy",
+	"Traveled, knowledgeable",
+	"Cursed by a wizard",
+	"Scares easily",
+	"Ashamed of past crimes",
+	"Very competitive",
+	"Flamboyant drunkard",
+	"Extremely polite",
+	"Unreservedly honest",
+	"Slow, careful speech",
+	"Quick, erratic speech",
+	"Secret servant of a cat",
+	"Raised by rats",
+	"Outcast from home",
+	"Many pet insects",
+	"Hates being outdoors",
+	"Local hero",
+	"Very twitchy whiskers"
+]
+npc_wants = [
+	"Freedom",
+	"Safety",
+	"Escape",
+	"Excitement",
+	"Power",
+	"Meaning",
+	"Health",
+	"Wealth",
+	"Protection",
+	"Love",
+	"To protect ",
+	"Food",
+	"Friendship",
+	"Rest",
+	"Knowledge ",
+	"Savagery",
+	"Beauty",
+	"Revenge",
+	"To serve",
+	"Fun"
+]
+npc_relationship = [
+	"Parent",
+	"Sibling",
+	"Cousin",
+	"Second cousin",
+	"Grandparent",
+	"Related, but don’t know it",
+	"Married",
+	"Former lovers",
+	"In love, unrequited",
+	"Drinking buddies",
+	"Debt owed",
+	"Long and tumultuous",
+	"Sworn enemies",
+	"Guild brothers",
+	"Childhood friends",
+	"One stole from the other",
+	"Worked together",
+	"Grew up together",
+	"Serve the same lord",
+	"Never met before"
+]
+
+npc_status = ["Poor","Common","Common","Burghermouse","Guildmouse","Noblemaus"]
