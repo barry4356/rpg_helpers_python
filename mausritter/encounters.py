@@ -1,7 +1,9 @@
 #encounters.py
 import dice
+import utils
 import additional_tables
 import chance_table_encounter
+import random_adventure_table
 
 def roll_encounter(tabs=0):
     indent=""
@@ -30,3 +32,12 @@ def roll_encounter(tabs=0):
 
     reaction_roll = dice.roll_2d6()
     print(indent+"Creature: Reaction = "+chance_table_encounter.reactions[reaction_roll-2])
+
+
+def adventure_generator():
+    utils.print_header("Generated Adventure")
+    creature_str = dice.roll_on_table(random_adventure_table.creature)
+    problem_str = dice.roll_on_table(random_adventure_table.problem)
+    complication_str = dice.roll_on_table(random_adventure_table.complication)
+    print("The adventurers find a ["+creature_str+"] who ["+problem_str+"]. Unfortunately ["+complication_str+"].")
+    print("Can our brave mice sally forth to solve this dilema?")
