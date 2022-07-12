@@ -4,24 +4,28 @@ import dice
 import maus_table
 import utils
 
-def get_stats():
+def get_stats(is_pc=False):
     str_dice = [0,0,0]
     str_dice[0] = dice.roll_1d6()
     str_dice[1] = dice.roll_1d6()
-    str_dice[2] = dice.roll_1d6()
-    str_dice.remove(min(str_dice))
+    #If Player-character, roll a third die
+    if is_pc:
+        str_dice[2] = dice.roll_1d6()
+        str_dice.remove(min(str_dice))
     strength = sum(str_dice)
     dex_dice = [0,0,0]
     dex_dice[0] = dice.roll_1d6()
     dex_dice[1] = dice.roll_1d6()
-    dex_dice[2] = dice.roll_1d6()
-    dex_dice.remove(min(dex_dice))
+    if is_pc:
+        dex_dice[2] = dice.roll_1d6()
+        dex_dice.remove(min(dex_dice))
     dex = sum(dex_dice)
     wil_dice = [0,0,0]
     wil_dice[0] = dice.roll_1d6()
     wil_dice[1] = dice.roll_1d6()
-    wil_dice[2] = dice.roll_1d6()
-    wil_dice.remove(min(wil_dice))
+    if is_pc:
+        wil_dice[2] = dice.roll_1d6()
+        wil_dice.remove(min(wil_dice))
     wil = sum(wil_dice)
     hp = dice.roll_1d6()
     return strength, dex, wil, hp
@@ -50,7 +54,7 @@ def get_npc_appearance():
     return status, appearance, quirk, wants, relationship
 
 def roll_main_character():
-    hp = roll_henchman()
+    hp = roll_henchman(is_pc=True)
     pips = dice.roll_1d6()
     hp_index = (hp - 1) * 6
     background_index = (hp_index + pips) - 1
