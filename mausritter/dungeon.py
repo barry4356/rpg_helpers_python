@@ -83,12 +83,12 @@ def create_dungeon_room():
         print("\tLair Detail: " + chance_table_dungeon.lair_feature[dice.roll_1d6()-1])
     print ("-\nCreature Present: " + str(creature_present))
     if creature_present:
-        encounters.roll_encounter(1)
+        encounters.roll_encounter(tabs=1,is_dungeon_room=True)
     print ("-\nTreasure Present: " + str(treasure_present))
     if treasure_present:
         roll_treasure(tabs=1)
 
 def menu():
-    func_list = [create_dungeon_room, print_encounter, encounters.check_encounter,encounters.adventure_generator,roll_treasure,check_magic_sword]
-    desc_list = ["Create New Room", "Roll Encounter","Check for Encounter","Random Adventure","Roll Random Treasure","Check sword for curse"]
+    func_list = [create_dungeon_room, encounters.check_encounter, print_encounter, encounters.adventure_generator,roll_treasure,check_magic_sword]
+    desc_list = ["Create New Room","Roll for Encounter", "Create Encounter","Random Adventure","Roll Random Treasure","Check sword for curse"]
     utils.menu(func_list,desc_list,"Adventure Menu",False)
