@@ -41,10 +41,6 @@ def roll_2d8():
 def roll_1d10():
     return (random.randrange(10) + 1)
 
-#TODO Make this use custom?
-def roll_1d15():
-    return (random.randrange(15) + 1)
-
 #Roll D20(s)
 def roll_1d20():
     return (random.randrange(20) + 1)
