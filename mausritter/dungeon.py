@@ -32,13 +32,19 @@ def roll_treasure(treasure_type=100,tabs=0):
     if treasure_type_str == "Random Spell":
         print(indent+"Spell Type: "+dice.roll_on_table(chance_table_dungeon.spells))
     if treasure_type_str == "Trinket":
-        print(indent+"Trinket Detail: "+chance_table_dungeon.trinket[dice.roll_1d6()-1])
+        treasure_str = dice.roll_on_table(chance_table_dungeon.trinket)
+        print(indent+"Trinket Detail: "+treasure_str)
+        if "d6" in treasure_str.lower():
+            print (indent+"d6 roll ["+str(dice.roll_1d6())+"]")
     if treasure_type_str == "Valuable Treasure":
         print(indent+"Valuable Treasure: "+chance_table_dungeon.valuable[dice.roll_1d6()-1])
     if treasure_type_str == "Unusual Treasure":
         print(indent+"Unusual Treasure: "+chance_table_dungeon.unusual[dice.roll_1d6()-1])
     if treasure_type_str == "Useful Treasure":
-        print(indent+"Useful Treasure: "+chance_table_dungeon.useful[dice.roll_1d6()-1])
+        treasure_str = dice.roll_on_table(chance_table_dungeon.useful)
+        print(indent+"Useful Treasure: "+treasure_str)
+        if "d6" in treasure_str.lower():
+            print (indent+"d6 roll ["+str(dice.roll_1d6())+"]")
     if treasure_type_str == "Large Treasure":
         print(indent+"Large Treasure: "+chance_table_dungeon.large[dice.roll_1d6()-1])
     if treasure_type_str == "d6x100 pips":
