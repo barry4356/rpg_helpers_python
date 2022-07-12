@@ -3,46 +3,7 @@ import utils
 import chance_table_dungeon
 import dice
 import enemy_stats_tables
-
-def print_combat():
-    print()
-    print("          )     *                            ")
-    print("   (   ( /(   (  `      (     (       *   )  ")
-    print("   )\  )\())  )\))(   ( )\    )\    ` )  /(  ")
-    print(" (((_)((_)\  ((_)()\  )((_)((((_)(   ( )(_)) ")
-    print(" )\___  ((_) (_()((_)((_)_  )\ _ )\ (_(_())  ")
-    print("((/ __|/ _ \ |  \/  | | _ ) (_)_\(_)|_   _|  ")
-    print(" | (__| (_) || |\/| | | _ \  / _ \    | |    ")
-    print("  \___|\___/ |_|  |_| |___/ /_/ \_\   |_|    ")
-                                             
-def printdeath():
-    print()
-    print("                           ,--.")
-    print("                          {    }")
-    print("                          K,   }")
-    print("                         /  `Y`")
-    print("                    _   /   /")
-    print("                   {_'-K.__/")
-    print("                     `/-.__L._")
-    print("                     /  ' /`\_}")
-    print("                    /  ' / ")
-    print("            ____   /  ' /")
-    print("     ,-'~~~~    ~~/  ' /_")
-    print("   ,'             ``~~~%%',")
-    print("  (                     %  Y")
-    print(" {                      %% I")
-    print("{      -                 %  `.")
-    print("|       ',                %  )")
-    print("|        |   ,..__      __. Y")
-    print("|    .,_./  Y ' / ^Y   J   )|")
-    print("\           |' /   |   |   ||")
-    print(" \          L_/    . _ (_,.'(")
-    print("  \,   ,      ^^""' / |      )")
-    print("    \_  \          /,L]     /")
-    print("      '-_`-,       ` `   ./`")
-    print("         `-(_            )")
-    print("             ^^\..___,.--`")
-    print()
+import ascii_art
 
 def begin_damage_tracking():
     exit = False;
@@ -120,7 +81,7 @@ def track_damage(name,hp,strength,dex,wil,arm,atk_str,wants_str):
         val = utils.get_input(0.1)
         if val == 0:
             if strength == 0:
-                printdeath()
+                ascii_art.printdeath()
                 print("Well Struck!")
             exit = True
         else:
@@ -147,7 +108,7 @@ def do_damage(hp,strength,arm,dam):
     return int(hp),int(strength)
 
 def menu():
-    print_combat()
+    ascii_art.print_combat()
     exit = False;
     while exit != True:
         utils.print_header("Combat Menu")
