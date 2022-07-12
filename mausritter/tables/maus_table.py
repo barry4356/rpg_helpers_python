@@ -13,12 +13,15 @@ birthname = [
     "Clive","Colby","Dill","Dock","Eared","Edmund","Elmer","Ernest","Fennel","Festus",
     "Francis","Gil","Hawthorn","Heath","Horatio","Jack","Jasper","Konrad","Larkspur","Laurel",
     "Lorenz","Mace","Oliver","Orin","Reepicheep","Rowan","Simon","Sorrel","Stilton","Tarragon",
-    "Warren","Wattle","Whitacre","Wormwood","Yarrow"
+    "Warren","Wattle","Whitacre","Wormwood","Yarrow",
+	"Stanley","Jewel","Norman","Rasputin","Montey","Peanut","Robin","Nibbles","Fibi","Ginger",
+	"Buster","Hobbs"
 ]
 matriname = [
     "Baiter","Black","Buckthorne","Burley","Butterball","Catreizen","Danger","Deerider","Grant",
     "Halva","Maker","Pipp","Seedfall","Snow","Summerholme","Thorne","Tunneler","White",
-    "Winterholme","Witter"
+    "Winterholme","Witter","Fairbairn","Tinyfoot","Diggle","Maggot","Greenhand","Swiftfoot",
+	"Goodbody", "Thornburrow","Noakesburrow","Undertree"
 ]
 #See Table in Rulebook Page 6
 birthsign = ["Star","Wheel","Acorn","Storm","Moon","Mother"]
