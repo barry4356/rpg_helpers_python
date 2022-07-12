@@ -9,6 +9,14 @@ def print_encounter():
     utils.print_header("Encounter")
     encounters.roll_encounter()
 
+def check_magic_sword():
+    magic_sword_cursed = chance_table_dungeon.magic_sword_cursed[dice.roll_1d6()-1]
+    if magic_sword_cursed:
+        print("Oh no! The Sword is cursed!!")
+        print("Curse; Solution: ["+chance_table_dungeon.cursed_sword_detail[dice.roll_1d6()-1]+"]")
+    else:
+        print("Phew! no curse on this one")
+
 def roll_treasure(treasure_type=100,tabs=0):
     if treasure_type == 100:
         treasure_type = dice.roll_1d20() - 1
@@ -20,9 +28,7 @@ def roll_treasure(treasure_type=100,tabs=0):
     if treasure_type_str == "Magic Sword":
         print(indent+"Magic Sword Class: "+chance_table_dungeon.magic_sword_class[dice.roll_1d6()-1])
         print(indent+"Magic Sword Type: "+chance_table_dungeon.magic_sword_types[dice.roll_1d6()-1])
-        magic_sword_cursed = chance_table_dungeon.magic_sword_cursed[dice.roll_1d6()-1]
-        if magic_sword_cursed:
-            print(indent+"Magic Sword Curse;Solution: "+chance_table_dungeon.cursed_sword_detail[dice.roll_1d6()-1])
+        print(indent+"HOPE IT'S NOT CURSED....")
     if treasure_type_str == "Random Spell":
         print(indent+"Spell Type: "+dice.roll_on_table(chance_table_dungeon.spells))
     if treasure_type_str == "Trinket":
@@ -77,6 +83,6 @@ def create_dungeon_room():
         roll_treasure(tabs=1)
 
 def menu():
-    func_list = [create_dungeon_room, print_encounter, encounters.check_encounter,encounters.adventure_generator,roll_treasure]
-    desc_list = ["Create New Room", "Roll Encounter","Check for Encounter","Random Adventure","Roll Random Treasure"]
+    func_list = [create_dungeon_room, print_encounter, encounters.check_encounter,encounters.adventure_generator,roll_treasure,check_magic_sword]
+    desc_list = ["Create New Room", "Roll Encounter","Check for Encounter","Random Adventure","Roll Random Treasure","Check sword for curse"]
     utils.menu(func_list,desc_list,"Adventure Menu",False)
