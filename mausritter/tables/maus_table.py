@@ -1,7 +1,7 @@
 #maus_table.py
 #Tables used to roll maus characters
 
-#See Table on Second Page of Rulebook
+#See Table on Second Page of Rulebook; Added some extra names
 birthname = [
     "Ada","Agate","Agnes","Aloe","April","Azalea","Bay","Belladonna","Blossom",
     "Brie","Brynn","Cherry","Claire","Crocus","Dahlia","Daisy","Else","Emerald","Erin",
