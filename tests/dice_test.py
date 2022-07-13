@@ -55,6 +55,18 @@ def test_d8_vs_2d6(sample_size = 100000):
     print ("Dice (2-1)D6: \t"+str(results_d6)+"\tSum: "+str(d6_sum))
     print ("Dice D8: \t"+str(results_d8)+"\tSum: "+str(d8_sum))
 
+def coin_flip_test(sample_size = 100000):
+    heads = 0
+    tails = 0
+    for i in range(sample_size):
+        if dice.coin_flip():
+            heads = heads + 1
+        else:
+            tails = tails + 1
+    print("Heads: "+str(int(heads/sample_size*100))+"%")
+    print("Tails: "+str(int(tails/sample_size*100))+"%")
+
+
 print("Custom Dice Test")
 test_custom_dice()
 print()
@@ -66,5 +78,8 @@ roll_on_table_test()
 print()
 print("1D8 vs (2-1)D6")
 test_d8_vs_2d6()
+print()
+print("Coin Flip Test")
+coin_flip_test()
 print()
 
