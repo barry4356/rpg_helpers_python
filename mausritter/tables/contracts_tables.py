@@ -7,7 +7,7 @@ title_table=["druglord","war-criminal","warlord","rogue","rebel","degenerate",
              "turncoat","terrorist","pedophile","mobster","kingpin","vagrant","deserter"]
 crime_table=["mausnapping","murder","mass-murder","indecency","petty-theft",
              "tompeepery","pip-laundering","fondling","assault","shoplifting",
-             "homicide","skulduggery"]
+             "homicide","skulduggery","tax-evasion","mausslaughter","rabbit-rustling"]
 
 #Value between 1 and 100 (horde sized enemies are higher)
 #Higher value means fewer accomplices, but higher pip reward:
