@@ -2,7 +2,7 @@
 #EXPERIMENTAL
 #All tables below can be added to w/o fear of breaking logic
 species_table=[
-    "maus","rat","owl","faerie","ghost","centipede","spider","crow","frog","snake"
+    "Maus","Rat","Owl","Faerie","Ghost","Centipede","Spider","Crow","Frog","Snake"
 ]
 title_table=[
     "druglord","war-criminal","warlord","rogue","rebel","degenerate",
