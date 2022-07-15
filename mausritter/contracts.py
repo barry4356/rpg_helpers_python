@@ -16,8 +16,8 @@ def roll_contract():
     species = dice.roll_on_table(contracts_tables.species_table)
     title = dice.roll_on_table(contracts_tables.title_table)
     crime = dice.roll_on_table(contracts_tables.crime_table)
-    henchmen = roll_henchmen(species)
-    reward = roll_reward(species,henchmen)
+    henchmen = roll_henchmen(species.lower())
+    reward = roll_reward(species.lower(),henchmen)
     tile = dice.roll_1d20()
     return species, title, crime, reward, tile,henchmen
 
