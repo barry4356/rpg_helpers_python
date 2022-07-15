@@ -9,7 +9,7 @@ crime_table=["mausnapping","murder","mass-murder","indecency","petty-theft",
              "tompeepery","pip-laundering","fondling","assault","shoplifting",
              "homicide","skulduggery"]
 
-#Value between 1 and 100
+#Value between 1 and 100 (horde sized enemies are higher)
 #Higher value means fewer accomplices, but higher pip reward:
 # Max number of accomplices = 100 / power_level
 # Min Pips per head = power_level * cash_multiplier
