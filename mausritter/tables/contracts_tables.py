@@ -3,9 +3,11 @@
 #All tables below can be added to w/o fear of breaking logic
 species_table=["maus","rat","owl","faerie","ghost","centipede","spider","crow"]
 title_table=["druglord","war-criminal","warlord","rogue","rebel","degenerate",
-            "deviant","mogul","spy","smuggler","bully","double-crosser","turncoat","terrorist",
-            "pedophile","mobster","kingpin","vagrant"]
-crime_table=["mausnapping","murder","mass-murder","indecency","petty-theft","tompeepery","pip-laundering","fondling","assault","shoplifting","homicide"]
+            "deviant","mogul","spy","smuggler","bully","double-crosser",
+             "turncoat","terrorist","pedophile","mobster","kingpin","vagrant"]
+crime_table=["mausnapping","murder","mass-murder","indecency","petty-theft",
+             "tompeepery","pip-laundering","fondling","assault","shoplifting",
+             "homicide"]
 
 #Value between 1 and 100
 #Higher value means fewer accomplices, but higher pip reward
