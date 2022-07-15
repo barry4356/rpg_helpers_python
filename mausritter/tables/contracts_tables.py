@@ -12,7 +12,7 @@ crime_table=["mausnapping","murder","mass-murder","indecency","petty-theft","tom
 power_level={
         "maus":10,
         "rat":15,
-        "owl":50,
+        "owl":100,
         "faerie":60,
         "ghost":55,
         "centipede":30,
