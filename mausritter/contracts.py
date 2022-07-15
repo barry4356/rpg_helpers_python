@@ -32,6 +32,6 @@ def roll_henchmen(species):
 def roll_reward(species,henchmen):
     power_level = contracts_tables.power_level[species] * (henchmen+1)
     #Reward is based on the species power level, times number of henchmen
-    reward = (power_level * 20) + dice.roll_1d20()
+    reward = (power_level * 10) + dice.roll_1d20()
     return reward
 
