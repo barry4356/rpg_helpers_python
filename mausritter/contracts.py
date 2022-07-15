@@ -29,9 +29,11 @@ def roll_henchmen(species):
     max_henchmen = int(100 / power_level)
     return dice.roll_custom(max_henchmen+1)-1
 
+#Reward is based on the species power level, times number of henchmen
 def roll_reward(species,henchmen):
     power_level = contracts_tables.power_level[species] * (henchmen+1)
-    #Reward is based on the species power level, times number of henchmen
-    reward = (power_level * 10) + dice.roll_1d20()
+    reward = (power_level * contracts_tables.cash_multiplier)
+    #Add a random bonus on top of the base reward
+    reward = dice.roll_custom(reward) + reward
     return reward
 
