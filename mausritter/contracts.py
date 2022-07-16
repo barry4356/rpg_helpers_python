@@ -26,7 +26,7 @@ def roll_contract():
 def roll_henchmen(species):
     power_level = contracts_tables.power_level[species]
     #Number of henchmen is capped based on species power-level
-    max_henchmen = int(100 / power_level)
+    max_henchmen = utils.round(100 / power_level)
     return dice.roll_custom(max_henchmen+1)-1
 
 #Reward is based on the species power level, times number of henchmen

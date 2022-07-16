@@ -1,5 +1,12 @@
 #utils.py
 
+def round(number_input):
+    number_int = int(number_input)
+    remainder = number_input - float(number_int)
+    if remainder >= 0.5:
+        number_int = number_int + 1
+    return int(number_int)
+
 def areyousure():
     exit = False;
     while exit != True:
