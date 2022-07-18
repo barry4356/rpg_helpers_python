@@ -26,9 +26,7 @@ def hide_something():
             else:
                 exit = True
     hidden_location = random.randint(minval,maxval)
-    f = open("mausritter/data/"+object_name+".hidden", "w")
-    f.write(str(hidden_location))
-    f.close
+    utils.write_file("mausritter/data/"+object_name+".hidden",hidden_location)
 
 def check_for_object():
     utils.print_header("Look for Object")
@@ -52,10 +50,7 @@ def check_for_object():
             print("INVALID")
 
 def check_tile(my_object):
-    tile = ""
-    with open("mausritter/data/"+my_object+".hidden",'r') as file:
-        tile = file.read()
-        file.close
+    tile = utils.read_file("mausritter/data/"+my_object+".hidden")
     exit = False
     while exit != True:
         print("What tile are you looking in for the "+my_object+"?")
