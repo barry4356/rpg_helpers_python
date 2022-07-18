@@ -46,6 +46,16 @@ def get_input_int(default=0):
     print()
     return val
 
+def get_input_str(default=""):
+    val = default
+    print()
+    try:
+        val = input("Enter Selection: ")
+    except ValueError:
+        print("Invalid")
+    print()
+    return val
+
 def wait4enter():
     print()
     input("Press Enter to continue...")
@@ -54,7 +64,7 @@ def menu(func_list,desc_list,header,is_main):
     if len(func_list) != len(desc_list):
         print("ERROR: utils.menu needs two lists of same size!!")
         return
-    exit = False;
+    exit = False
     while exit != True:
         print_header(header)
         print("Menu Selection...")
