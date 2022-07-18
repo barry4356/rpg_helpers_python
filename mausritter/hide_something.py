@@ -85,8 +85,6 @@ def delete_object():
         else:
             print("INVALID INPUT")
 
-        
-
 def menu():
     func_list=[hide_something,check_for_object,delete_object]
     desc_list=["Hide Something","Check if I found it","Delete a hidden object"]
