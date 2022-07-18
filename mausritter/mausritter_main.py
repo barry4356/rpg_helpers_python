@@ -5,7 +5,6 @@ import dungeon
 import combat
 import maus_roller
 import weather
-import encounters
 import hexmap_builder
 import ascii_art
 import hide_something
