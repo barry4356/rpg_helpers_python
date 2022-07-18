@@ -40,6 +40,6 @@ def test_get_stats(sample_size=100000):
     print (array_to_pcnt(results_dex))
     print (array_to_pcnt(results_hp))
 
-print("Test: get_stats")
+print("Test: maus_roller_test::get_stats")
 test_get_stats()
 print()
