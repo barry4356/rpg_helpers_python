@@ -30,7 +30,12 @@ def hide_something():
     f.write(str(hidden_location))
     f.close
 
+def check_for_object():
+    print("TOOL IS UNDER CONSTRUCTION")
+    hidden_object_filenames = utils.get_files(path="./mausritter/data/",suffix=".maus")
+
+
 def menu():
-    func_list=[hide_something]
-    desc_list=["Hide Something"]
+    func_list=[hide_something,check_for_object]
+    desc_list=["Hide Something","Check if I found it"]
     utils.menu(func_list,desc_list,"Hide Something in Random Tile",False)

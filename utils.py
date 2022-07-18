@@ -1,4 +1,13 @@
 #utils.py
+import os
+
+def get_files(suffix="", path=""):
+    onlyfiles = os.listdir(path)
+    returnfiles = []
+    for myfile in onlyfiles:
+        if suffix in myfile:
+            returnfiles.append(myfile)
+    return returnfiles
 
 def round(number_input):
     number_int = int(number_input)
