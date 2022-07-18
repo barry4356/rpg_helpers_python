@@ -26,14 +26,14 @@ def hide_something():
             else:
                 exit = True
     hidden_location = random.randint(minval,maxval)
-    f = open("mausritter/data/"+object_name+".maus", "w")
+    f = open("mausritter/data/"+object_name+".hidden", "w")
     f.write(str(hidden_location))
     f.close
 
 def check_for_object():
     utils.print_header("Look for Object")
-    hidden_object_filenames = utils.get_files(path="./mausritter/data/",suffix=".maus")
-    hidden_objects = list({x.replace('.maus','') for x in hidden_object_filenames})
+    hidden_object_filenames = utils.get_files(path="./mausritter/data/",suffix=".hidden")
+    hidden_objects = list({x.replace('.hidden','') for x in hidden_object_filenames})
     exit = False
     while exit != True:
         object_index = 0
@@ -53,7 +53,7 @@ def check_for_object():
 
 def check_tile(my_object):
     tile = ""
-    with open("mausritter/data/"+my_object+".maus",'r') as file:
+    with open("mausritter/data/"+my_object+".hidden",'r') as file:
         tile = file.read()
         file.close
     exit = False
@@ -74,7 +74,7 @@ def delete_object():
     exit = False
     while exit != True:
         hidden_object_filenames = utils.get_files(path="./mausritter/data/",suffix=".maus")
-        hidden_objects = list({x.replace('.maus','') for x in hidden_object_filenames})
+        hidden_objects = list({x.replace('.hidden','') for x in hidden_object_filenames})
         object_index = 0
         for my_object in hidden_objects:
             object_index = object_index+1
@@ -86,7 +86,7 @@ def delete_object():
         if val == 0:
             exit = True
         elif val <= len(hidden_objects):
-            utils.remove_file("mausritter/data/"+hidden_objects[val-1]+".maus")
+            utils.remove_file("mausritter/data/"+hidden_objects[val-1]+".hidden")
         else:
             print("INVALID INPUT")
 
