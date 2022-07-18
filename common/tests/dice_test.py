@@ -41,10 +41,7 @@ def test_d8_vs_2d6(sample_size = 100000):
     results_d8 = [0] * (10)
     results_d6 = [0] * (10)
     for index in range(sample_size):
-        d6_roll = dice.roll_1d6()
-        d6_rollb = dice.roll_1d6()
-        if d6_rollb > d6_roll:
-            d6_roll = d6_rollb
+        d6_roll = dice.roll_2d6_keep1()
         d8_roll = dice.roll_1d8()
         results_d6[d6_roll] = results_d6[d6_roll]+1
         results_d8[d8_roll] = results_d8[d8_roll]+1
@@ -66,6 +63,13 @@ def coin_flip_test(sample_size = 100000):
     print("Heads: "+str(int(heads/sample_size*100))+"%")
     print("Tails: "+str(int(tails/sample_size*100))+"%")
 
+def test_3d6_keep2(sample_size = 100000):
+    results = [0] * (14)
+    for index in range(sample_size):
+        roll = dice.roll_3d6_keep2()
+        results[roll] = results[roll]+1
+    results = array_to_pcnt(results)
+    print ("Dice D8: \t"+str(results))
 
 print("Custom Dice Test")
 test_custom_dice()
@@ -82,4 +86,6 @@ print()
 print("Coin Flip Test")
 coin_flip_test()
 print()
-
+print("Test 3d6 Keep 2")
+test_3d6_keep2(sample_size=1000000)
+print()

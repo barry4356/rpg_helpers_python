@@ -25,9 +25,25 @@ def roll_2d6():
     val = roll_1d6() + roll_1d6()
     return (val)
     
+def roll_2d6_keep1():
+    val1 = roll_1d6()
+    val2 = roll_1d6()
+    if val1 > val2:
+        return val1
+    else:
+        return val2
+
 def roll_3d6():
     val = roll_1d6() + roll_1d6() + roll_1d6()
     return (val)
+
+def roll_3d6_keep2():
+    dice = [0,0,0]
+    dice[0] = roll_1d6()
+    dice[1] = roll_1d6()
+    dice[2] = roll_1d6()
+    dice.remove(min(dice))
+    return sum(dice)
 
 #Roll D8(s)
 def roll_1d8():

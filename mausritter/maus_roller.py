@@ -5,28 +5,15 @@ import maus_table
 import utils
 
 def get_stats(is_pc=False):
-    str_dice = [0,0,0]
-    str_dice[0] = dice.roll_1d6()
-    str_dice[1] = dice.roll_1d6()
-    #If Player-character, roll a third die
+    #If player-character, roll 3d6 and drop lowest
     if is_pc:
-        str_dice[2] = dice.roll_1d6()
-        str_dice.remove(min(str_dice))
-    strength = sum(str_dice)
-    dex_dice = [0,0,0]
-    dex_dice[0] = dice.roll_1d6()
-    dex_dice[1] = dice.roll_1d6()
-    if is_pc:
-        dex_dice[2] = dice.roll_1d6()
-        dex_dice.remove(min(dex_dice))
-    dex = sum(dex_dice)
-    wil_dice = [0,0,0]
-    wil_dice[0] = dice.roll_1d6()
-    wil_dice[1] = dice.roll_1d6()
-    if is_pc:
-        wil_dice[2] = dice.roll_1d6()
-        wil_dice.remove(min(wil_dice))
-    wil = sum(wil_dice)
+        strength = dice.roll_3d6_keep2()
+        dex = dice.roll_3d6_keep2()
+        wil = dice.roll_3d6_keep2()
+    else:
+        strength = dice.roll_2d6()
+        dex = dice.roll_2d6()
+        wil = dice.roll_2d6()
     hp = dice.roll_1d6()
     return strength, dex, wil, hp
 
@@ -64,8 +51,8 @@ def roll_main_character():
     print("\tPips: "+str(pips)+"\t\tItem: "+itema+"\tItem: "+itemb)
     
 
-def roll_henchman():
-    strength, dex, wil, hp = get_stats()
+def roll_henchman(is_pc=False):
+    strength, dex, wil, hp = get_stats(is_pc)
     name = get_mausname()
     birthsign, disposition, coat, pattern, physical_detail = get_details()
     print("Maus: "+name)
