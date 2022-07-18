@@ -9,6 +9,12 @@ def get_files(suffix="", path=""):
             returnfiles.append(myfile)
     return returnfiles
 
+def remove_file(my_filename):
+    if os.path.exists(my_filename):
+        os.remove(my_filename)
+    else:
+        print("ERROR: Failed to Remove file"+str(my_filename))
+
 def round(number_input):
     number_int = int(number_input)
     remainder = number_input - float(number_int)
