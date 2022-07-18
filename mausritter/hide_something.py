@@ -73,7 +73,7 @@ def delete_object():
     utils.print_header("Delete Hidden Object")
     exit = False
     while exit != True:
-        hidden_object_filenames = utils.get_files(path="./mausritter/data/",suffix=".maus")
+        hidden_object_filenames = utils.get_files(path="./mausritter/data/",suffix=".hidden")
         hidden_objects = list({x.replace('.hidden','') for x in hidden_object_filenames})
         object_index = 0
         for my_object in hidden_objects:
