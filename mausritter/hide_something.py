@@ -33,6 +33,42 @@ def hide_something():
 def check_for_object():
     print("TOOL IS UNDER CONSTRUCTION")
     hidden_object_filenames = utils.get_files(path="./mausritter/data/",suffix=".maus")
+    hidden_objects = list({x.replace('.maus','') for x in hidden_object_filenames})
+    exit = False
+    while exit != True:
+        object_index = 0
+        for my_object in hidden_objects:
+            object_index = object_index+1
+            print(str(object_index)+" - "+my_object)
+        print("0 - Back")
+        print("which item are we looking for?")
+        val = utils.get_input_int()
+        print("\n")
+        if val == 0:
+            exit = True
+        elif val <= len(hidden_objects):
+            print(val)
+            check_tile(hidden_objects[val-1])
+        else:
+            print("INVALID")
+
+def check_tile(my_object):
+    tile = ""
+    with open("mausritter/data/"+my_object+".maus",'r') as file:
+        tile = file.read()
+        file.close
+    exit = False
+    while exit != True:
+        print("What tile are you looking in?")
+        print("0 - Back")
+        val = str(utils.get_input_int())
+        print("\n")
+        if val == tile:
+            print("You found the "+my_object+"!!")
+        elif val == "0":
+            exit = True
+        else:
+            print("You haven't found the "+my_object)
 
 
 def menu():
