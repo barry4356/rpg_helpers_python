@@ -11,15 +11,15 @@ def coin_flip():
 
 #Rolls a custom-sized die
 def roll_custom(dice_size):
-    return (random.randrange(dice_size)+1)
+    return (random.randint(1,dice_size))
 
 #Roll D4(s)
 def roll_1d4():
-    return(random.randrange(4) + 1)
+    return(roll_custom(4))
 
 #Roll D6(s)
 def roll_1d6():
-    return (random.randrange(6) + 1)
+    return (roll_custom(6))
     
 def roll_2d6():
     val = roll_1d6() + roll_1d6()
@@ -31,7 +31,7 @@ def roll_3d6():
 
 #Roll D8(s)
 def roll_1d8():
-    return (random.randrange(8) + 1)
+    return (roll_custom(8))
 
 def roll_2d8():
     val = roll_1d8() + roll_1d8()
@@ -39,11 +39,11 @@ def roll_2d8():
 
 #Roll D10(s)
 def roll_1d10():
-    return (random.randrange(10) + 1)
+    return (roll_custom(10))
 
 #Roll D20(s)
 def roll_1d20():
-    return (random.randrange(20) + 1)
+    return (roll_custom(20))
     
 #Roll on arbitrary-sized table, all chances are equally weighted
 def roll_on_table(input_table):
