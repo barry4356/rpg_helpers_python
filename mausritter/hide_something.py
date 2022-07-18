@@ -69,8 +69,30 @@ def check_tile(my_object):
         else:
             print("You haven't found the "+my_object)
 
+def delete_object():
+    utils.print_header("Delete Hidden Object")
+    exit = False
+    while exit != True:
+        hidden_object_filenames = utils.get_files(path="./mausritter/data/",suffix=".maus")
+        hidden_objects = list({x.replace('.maus','') for x in hidden_object_filenames})
+        object_index = 0
+        for my_object in hidden_objects:
+            object_index = object_index+1
+            print(str(object_index)+" - "+my_object)
+        print("\n0 - Back")
+        print("which object are we deleting?")
+        val = utils.get_input_int()
+        print("\n")
+        if val == 0:
+            exit = True
+        elif val <= len(hidden_objects):
+            utils.remove_file("mausritter/data/"+hidden_objects[val-1]+".maus")
+        else:
+            print("INVALID INPUT")
+
+        
 
 def menu():
-    func_list=[hide_something,check_for_object]
-    desc_list=["Hide Something","Check if I found it"]
+    func_list=[hide_something,check_for_object,delete_object]
+    desc_list=["Hide Something","Check if I found it","Delete a hidden object"]
     utils.menu(func_list,desc_list,"Hide Something in Random Tile",False)
