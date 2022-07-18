@@ -17,7 +17,6 @@ def get_stats(is_pc=False):
     hp = dice.roll_1d6()
     return strength, dex, wil, hp
 
-
 def get_mausname():
     first_name = dice.roll_on_table(maus_table.birthname)
     last_name = dice.roll_on_table(maus_table.matriname)
@@ -50,7 +49,6 @@ def roll_main_character():
     itemb = maus_table.itemb[background_index]
     print("\tPips: "+str(pips)+"\t\tItem: "+itema+"\tItem: "+itemb)
     
-
 def roll_henchman(is_pc=False):
     strength, dex, wil, hp = get_stats(is_pc)
     name = get_mausname()
@@ -60,7 +58,6 @@ def roll_henchman(is_pc=False):
     print("\tBirthsign: "+birthsign+"\tDisposition: "+disposition)
     print("\tCoat: "+coat+"\tPattern: "+pattern+"\t\tDetail: "+physical_detail)
     return hp
-
 
 def roll_henchmen():
     print("How many henchmen are we rolling?")
