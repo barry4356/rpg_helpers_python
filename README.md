@@ -19,6 +19,7 @@ flowchart LR
   A --> D[Maus Creator]
   A --> E[Weather Utils]
   A --> F[Hexmap Builder]
+  A --> V[Hide Something]
   B --> G[Create New Room]
   B --> H[Roll for Encounter]
   B --> I[Create Encounter]
