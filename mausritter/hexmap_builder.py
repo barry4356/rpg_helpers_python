@@ -12,6 +12,7 @@ def convert_maus_to_fae(input_string):
     input_string = input_string.replace("Humans","Fae")
     input_string = input_string.replace("human","fae")
     input_string = input_string.replace("Human","Fae")
+    input_string = input_string.replace("their fur","their hair")
     return input_string
 
 def rnp_settlement():
