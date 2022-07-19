@@ -341,4 +341,3 @@ tavern_specialty = [
     "Honey-roasted seeds",
     "Mushroom stew"
 ]
-

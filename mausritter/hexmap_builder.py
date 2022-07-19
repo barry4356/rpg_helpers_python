@@ -3,6 +3,17 @@ import hexmap_builder_tables
 import dice
 import utils
 
+def convert_maus_to_fae(input_string):
+    input_string = input_string.replace("mouse","fae")
+    input_string = input_string.replace("Mouse","Fae")
+    input_string = input_string.replace("mice","fae")
+    input_string = input_string.replace("Mice","Fae")
+    input_string = input_string.replace("humans","fae")
+    input_string = input_string.replace("Humans","Fae")
+    input_string = input_string.replace("human","fae")
+    input_string = input_string.replace("Human","Fae")
+    return input_string
+
 def rnp_settlement():
     inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty = roll_settlement()
     print_settlement(inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty)
@@ -71,7 +82,36 @@ def print_hex():
         print("Settlement present: "+name)
         print_settlement(inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty)
 
+def print_fae_hex():
+    hex_type, landmark, details, settlement_present = roll_hex()
+    landmark = convert_maus_to_fae(landmark)
+    details = convert_maus_to_fae(details)
+    fae_settlement_present = False
+    utils.print_header("Fae World Hex (Experimental)")
+    if "humantown" in hex_type.lower():
+        hex_type = "FaerieTown"
+        fae_settlement_present = True
+    if "fortress" in details.lower() or "castle" in details.lower() or "construction" in details.lower():
+        details = "Faerie Castle"
+    print("Hex Type: "+hex_type+"\tLandmark: "+landmark)
+    if not settlement_present and not fae_settlement_present:
+        print("Details: "+details)
+    elif fae_settlement_present:
+        inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty = roll_settlement()
+        print("Faerie Settlement present: "+name)
+        size = convert_maus_to_fae(size)
+        industry = convert_maus_to_fae(industry)
+        event = convert_maus_to_fae(event)
+        governance = convert_maus_to_fae(governance)
+        print_settlement(inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty)
+    else:
+        inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty = roll_settlement()
+        print("Maus Settlement present: "+name)
+        print_settlement(inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty)
+
+
+
 def menu():
-    func_list = [print_hex,rnp_settlement]
-    desc_list = ["Create New Hex","Roll New Settlement"]
+    func_list = [print_hex,rnp_settlement,print_fae_hex]
+    desc_list = ["Create New Hex","Roll New Settlement","Create New Faerie Hex"]
     utils.menu(func_list,desc_list,"Adventure Menu",False)
