@@ -104,6 +104,7 @@ def print_fae_hex():
         industry = convert_maus_to_fae(industry)
         event = convert_maus_to_fae(event)
         governance = convert_maus_to_fae(governance)
+        inhabitants = convert_maus_to_fae(inhabitants)
         print_settlement(inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty)
     else:
         inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty = roll_settlement()
@@ -114,5 +115,5 @@ def print_fae_hex():
 
 def menu():
     func_list = [print_hex,rnp_settlement,print_fae_hex]
-    desc_list = ["Create New Hex","Roll New Settlement","Create New Faerie Hex"]
+    desc_list = ["Create New Overworld Hex","Roll New Maus Settlement","Create New Faerie Hex"]
     utils.menu(func_list,desc_list,"Adventure Menu",False)
