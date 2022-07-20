@@ -7,6 +7,7 @@ import chance_table_dungeon
 import random_adventure_table
 import dungeon
 import treasure_tables
+import treasure
 
 def roll_encounter(tabs=0,is_dungeon_room=False):
     indent=""
@@ -53,7 +54,7 @@ def adventure_generator():
     complication_str = dice.roll_on_table(random_adventure_table.complication)
     print("The adventurers find a ["+creature_str+"] who ["+problem_str+"]. Unfortunately ["+complication_str+"].")
     print("The ["+creature_str+"] Offers a reward of:")
-    dungeon.roll_treasure(treasure_type=10,tabs=1)
+    treasure.roll_treasure(treasure_type=10,tabs=1)
     print("Can our brave mice sally forth to solve this dilema?")
 
 def check_encounter():
