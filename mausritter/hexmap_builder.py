@@ -27,7 +27,7 @@ def roll_settlement():
     size_roll = dice.roll_1d6()
     size = hexmap_builder_tables.settlement_size[size_roll-1]
     gov_roll = dice.roll_1d6() + size_roll
-    governance = hexmap_builder_tables.settlement_governance[gov_roll-1]
+    governance = hexmap_builder_tables.settlement_governance[gov_roll-2]
     industry = dice.roll_on_table(hexmap_builder_tables.settlement_industry)
     event = dice.roll_on_table(hexmap_builder_tables.settlement_event)
     name = (dice.roll_on_table(hexmap_builder_tables.settlement_nameA) + 
