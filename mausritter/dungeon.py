@@ -91,6 +91,6 @@ def create_dungeon_room():
         roll_treasure(tabs=1)
 
 def menu():
-    func_list = [create_dungeon_room, encounters.check_encounter, print_encounter, encounters.adventure_generator,roll_treasure,check_magic_sword,contracts.print_contract]
-    desc_list = ["Create New Room","Roll for Encounter", "Create Encounter","Random Adventure","Roll Random Treasure","Check sword for curse","Check Wanted Poster"]
+    func_list = [create_dungeon_room, encounters.check_encounter, encounters.adventure_generator,roll_treasure,check_magic_sword,contracts.print_contract]
+    desc_list = ["Create New Room","Roll for Encounter", "Random Adventure","Roll Random Treasure","Check sword for curse","Check Wanted Poster"]
     utils.menu(func_list,desc_list,"Adventure Menu",False)
