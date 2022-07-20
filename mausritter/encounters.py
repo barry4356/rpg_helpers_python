@@ -6,6 +6,7 @@ import chance_table_encounter
 import chance_table_dungeon
 import random_adventure_table
 import dungeon
+import treasure_tables
 
 def roll_encounter(tabs=0,is_dungeon_room=False):
     indent=""
@@ -39,10 +40,10 @@ def roll_encounter(tabs=0,is_dungeon_room=False):
     reaction_roll = dice.roll_2d6()
     print(indent+": Reaction = "+chance_table_encounter.reactions[reaction_roll-2])
     if "faerie" in creature_type.lower():
-        print(indent+": Knows spell ["+dice.roll_on_table(chance_table_dungeon.spells)+"]")
+        print(indent+": Knows spell ["+dice.roll_on_table(treasure_tables.spells)+"]")
     if "owl" in creature_type.lower():
-        print(indent+": Knows spells ["+dice.roll_on_table(chance_table_dungeon.spells)+
-            "] and ["+dice.roll_on_table(chance_table_dungeon.spells)+"]")
+        print(indent+": Knows spells ["+dice.roll_on_table(treasure_tables.spells)+
+            "] and ["+dice.roll_on_table(treasure_tables.spells)+"]")
 
 
 def adventure_generator():

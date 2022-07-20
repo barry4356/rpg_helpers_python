@@ -1,6 +1,7 @@
 #lookup_tables.py
 import weather_tables
 import chance_table_dungeon
+import treasure_tables
 
 weather_table_name_list=[
     "Summer Weather","Fall Weather",
@@ -19,6 +20,6 @@ magic_table_name_list=[
     "Cursed Sword Detail","Spell List"
 ]
 magic_table_list=[
-    chance_table_dungeon.magic_sword_class,chance_table_dungeon.magic_sword_types,
-    chance_table_dungeon.cursed_sword_detail,chance_table_dungeon.spells
+    treasure_tables.magic_sword_class,treasure_tables.magic_sword_types,
+    treasure_tables.cursed_sword_detail,treasure_tables.spells
 ]
