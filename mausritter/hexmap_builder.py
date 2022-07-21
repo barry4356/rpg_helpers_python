@@ -105,6 +105,7 @@ def print_fae_hex():
         event = convert_maus_to_fae(event)
         governance = convert_maus_to_fae(governance)
         inhabitants = convert_maus_to_fae(inhabitants)
+        feature = convert_maus_to_fae(feature)
         print_settlement(inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty)
     else:
         inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty = roll_settlement()

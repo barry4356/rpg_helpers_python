@@ -1,6 +1,11 @@
 #enemy_stats_tables.py
 #HP,STR,DEX,WIL,Armor,Attack_Description,Desire_Description
 #See page 22-24 of rulebook
+cat_stats=[
+    15,15,15,10,1,
+    "d6 swipe, d8 bite.",
+    "Wants to be served. If mice pledge fealty and give bribes, they may be allowed to live"
+]
 centipede_stats=[
     8,10,12,8,1,
     "d6 venemous bit (damages DEX instead of STR)\nCritical: Venom takes effect, d12 damage to STR",
@@ -60,3 +65,17 @@ spider_stats=[
     "d6 poison bite (damages DEX instead of STR)\nCritical damage: Carry away in web",
     "Wants to feed its babies"
     ]
+
+stats_lookup={
+    "cat" : cat_stats,
+    "centipede" : centipede_stats,
+    "crow" : crow_stats,
+    "frog" : frog_stats,
+    "faerie" : faerie_stats,
+    "ghost" : ghost_stats,
+    "mouse" : mouse_stats,
+    "owl" : owl_stats,
+    "snake" : snake_stats,
+    "rat" : rat_stats,
+    "spider" : spider_stats
+}

@@ -1,6 +1,23 @@
 #utils.py
 import os
 
+def array_select_menu(array=[],header=""):
+    exit = False
+    while exit != True:
+        print_header(header)
+        print("Input Selection...")
+        index=0
+        for option in array:
+            index=index+1
+            print(str(index)+" - "+option)
+        print("0 - Back")
+        val = get_input_int(100)
+        print("\n")
+        if(val == 0):
+            return ""
+        elif val <= len(array):
+            return(array[val-1])
+
 def get_files(suffix="", path=""):
     onlyfiles = os.listdir(path)
     returnfiles = []

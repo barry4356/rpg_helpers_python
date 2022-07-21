@@ -1,9 +1,11 @@
 #dungeon.py
 import utils
 import chance_table_dungeon
+import chance_table_encounter
 import dice
 import enemy_stats_tables
 import ascii_art
+import dungeon
 
 def begin_damage_tracking():
     exit = False;
@@ -109,13 +111,7 @@ def do_damage(hp,strength,arm,dam):
 
 def menu():
     ascii_art.print_combat()
-    exit = False;
-    while exit != True:
-        utils.print_header("Combat Menu")
-        print("1 - Enemy Damage Tracker")
-        print("0 - Main Menu")
-        val = utils.get_input()
-        if(val == 0):
-            exit = True
-        elif(val == 1):
-            begin_damage_tracking()
+    func_list = [begin_damage_tracking,dungeon.roll_creature_menu]
+    desc_list = ["Enemy Damage Tracker","Roll New Creature"]
+    utils.menu(func_list,desc_list,"Combat Menu",False)
+
