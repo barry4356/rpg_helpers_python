@@ -28,6 +28,7 @@ flowchart LR
   B --> L[Check sword for curse]
   B --> M[Check Wanted Poster]
   C --> N[Enemy Damage Tracker]
+  C --> V[Roll New Creature]
   D --> O[Create Henchmen]
   D --> P[Create Player Character]
   D --> Q[Create Villagers/NPCs]
@@ -35,4 +36,5 @@ flowchart LR
   E --> S[Create Seasonal Event]
   F --> T[Create New Hex]
   F --> U[Roll New Settlement]
+  V --> W[Create New Faerie Hex]
 ```
