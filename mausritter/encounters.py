@@ -69,9 +69,8 @@ def roll_encounter(tabs=0,is_dungeon_room=False):
         detail_roll = dice.roll_1d6()
         print(indent+": Optional NPC Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
     else:
-        print(detail_ary)
         detail_roll = dice.roll_1d6()
-        print(indent+": Optional Creature Sub-Type Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
+        print(indent+": Optional Creature Detail Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
 
 
 def adventure_generator():
