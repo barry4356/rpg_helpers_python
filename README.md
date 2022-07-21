@@ -22,7 +22,6 @@ flowchart LR
   A --> V[Hide Something]
   B --> G[Create New Room]
   B --> H[Roll for Encounter]
-  B --> I[Create Encounter]
   B --> J[Random Adventure]
   B --> K[Roll Random Treasure]
   B --> L[Check sword for curse]
