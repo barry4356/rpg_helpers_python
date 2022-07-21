@@ -49,10 +49,14 @@ def roll_encounter(tabs=0,is_dungeon_room=False):
     detail_ary = get_creature_detail(creature_type)
     if "faerie" in creature_type.lower():
         print(indent+": Knows spell ["+dice.roll_on_table(treasure_tables.spells)+"]")
-    if "owl" in creature_type.lower():
+        detail_roll = dice.roll_1d6()
+        print(indent+": Nefarious Plot: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
+    elif "owl" in creature_type.lower():
         print(indent+": Knows spells ["+dice.roll_on_table(treasure_tables.spells)+
             "] and ["+dice.roll_on_table(treasure_tables.spells)+"]")
-    if "crow" in creature_type.lower():
+        detail_roll = dice.roll_1d6()
+        print(indent+": Optional NPC Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
+    elif "crow" in creature_type.lower():
         song_roll1 = dice.roll_1d6()
         song_roll2 = dice.roll_1d6()
         while song_roll1 == song_roll2:
@@ -61,6 +65,13 @@ def roll_encounter(tabs=0,is_dungeon_room=False):
             "] and ["+str(detail_ary[song_roll2-1][0])+"]")
         print(indent+":\t"+detail_ary[song_roll1-1][0]+": "+detail_ary[song_roll1-1][1])
         print(indent+":\t"+detail_ary[song_roll2-1][0]+": "+detail_ary[song_roll2-1][1])
+    elif "cat" in creature_type.lower() or "frog" in creature_type.lower() or "mouse" in creature_type.lower():
+        detail_roll = dice.roll_1d6()
+        print(indent+": Optional NPC Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
+    else:
+        print(detail_ary)
+        detail_roll = dice.roll_1d6()
+        print(indent+": Optional Creature Sub-Type Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
 
 
 def adventure_generator():
