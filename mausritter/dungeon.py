@@ -85,7 +85,7 @@ def roll_creature_menu():
     if not creature:
         return
     print(creature+" Stats")
-    print_stats(enemy_stats_tables.stats_lookup[creature])
+    print_stats(enemy_stats_tables.enemy_stats[creature])
     print_creature_detail(creature)
     roll_creature_menu()
 
