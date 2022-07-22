@@ -3,7 +3,7 @@ import dice
 import utils
 import additional_tables
 import creature_tables
-import chance_table_dungeon
+import dungeon_tables
 import random_adventure_table
 import dungeon
 import treasure_tables
@@ -71,6 +71,7 @@ def roll_encounter(tabs=0,is_dungeon_room=False):
     else:
         detail_roll = dice.roll_1d6()
         print(indent+": Optional Creature Detail Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
+    print(indent+": Communication: "+str(detail_ary[6]))
 
 
 def adventure_generator():

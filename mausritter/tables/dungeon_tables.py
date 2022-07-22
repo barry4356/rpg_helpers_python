@@ -1,4 +1,4 @@
-# chance_tables.py
+# dungeon_tables.py
 # Stocking Adventure Site Room
 # See Table Page 36 of Rulebook
 room_type = ["Empty", "Empty", "Obstacle", "Trap", "Puzzle", "Lair"]

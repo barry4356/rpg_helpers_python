@@ -99,7 +99,8 @@ creature_details={
         ["Solomon","Plays cruel games with captives"],
         ["Hammurabi","Rules with harsh, unbending logic"],
         ["Nefertiti","Loves art, poetry and beautiful things"],
-        ["Zenobia","Formin an army of conquest, wants to rule"]
+        ["Zenobia","Formin an army of conquest, wants to rule"],
+        ["Make a WIL save to see if communication is possible"]
     ]
     ,
     "centipede" :
@@ -109,7 +110,8 @@ creature_details={
         ["Tiger","Yellow and black bands, d8 damage bite"],
         ["Glutton","Always hungry, never stops growing"],
         ["Racer","A delicacy, if you can catch them"],
-        ["Feathered","Can glide short distances"]
+        ["Feathered","Can glide short distances"],
+        ["Can't directly communicate"]
     ]
     ,
     
@@ -120,7 +122,8 @@ creature_details={
         ["Sight","Vaguely foretell a future event"],
         ["Wind","Powerful gust. Make STR save or knocked down."],
         ["Past","See past event concerning those present"],
-        ["Truth","All who hear: Cannot lie while the song lasts"]
+        ["Truth","All who hear: Cannot lie while the song lasts"],
+        ["Can't directly communicate"]
     ]
     ,
     
@@ -131,7 +134,8 @@ creature_details={
         ["Lurf","Unsound sense of honor, rash in anger"],
         ["Slup","Set on slaying a great beast, no matter the cost"],
         ["Uuu","Desperate to prove their strength at jousting"],
-        ["Puc","Searching for the legendary Mug of Truth"]
+        ["Puc","Searching for the legendary Mug of Truth"],
+        ["Can't directly communicate"]
     ]
     ,
     
@@ -142,7 +146,8 @@ creature_details={
         ["Playing Music","that bewitches mice into their service"],
         ["Using a Glamour","to appear as a mouse in distress"],
         ["Rotting","the food in winter storehouses"],
-        ["Tricking","a settlement out of their legal standing"]
+        ["Tricking","a settlement out of their legal standing"],
+        ["Make a WIL save to see if communication is possible"]
     ]
     ,
     
@@ -153,7 +158,8 @@ creature_details={
         ["Entrap","Pull a creature into the spirit realm for a Round"],
         ["Doom","Give Frightened Condition to a creature"],
         ["Rot","Destroys all rations carried by a creature"],
-        ["Incorporeal","Float into wall/floor, reappear elsewhere"]
+        ["Incorporeal","Float into wall/floor, reappear elsewhere"],
+        ["Make a WIL save to see if communication is possible"]
     ]
     ,
     
@@ -164,7 +170,8 @@ creature_details={
         ["Hayseed","Trying to steal enough to buy back their farm"],
         ["Mandrake","Con artist. Appears unthreatening"],
         ["Marigold","Loves fire. Fears its absence"],
-        ["Leif","Massive mouse exiled from far away land"]
+        ["Leif","Massive mouse exiled from far away land"],
+        ["Can easily communicate"]
     ]
     ,
     
@@ -175,7 +182,8 @@ creature_details={
         ["Prospero","Creates chimeric servants"],
         ["Sparrowhawk","Can shape-shift into any other bird"],
         ["Crowley","Binds ghosts into spells"],
-        ["Lechuza","Human witch trapped in owl form"]
+        ["Lechuza","Human witch trapped in owl form"],
+        ["Can't directly communicate"]
     ]
     ,
     
@@ -186,7 +194,8 @@ creature_details={
         ["Bone","Snake skeleton, raised from the dead"],
         ["Eel","Lives underwater. Raises stolen snake eggs"],
         ["Scroll","Born with a spell etched into its scales"],
-        ["Drake","Has wings, breathes small gouts of fame"]
+        ["Drake","Has wings, breathes small gouts of fame"],
+        ["Can't directly communicate"]
     ]
     ,
     
@@ -197,7 +206,8 @@ creature_details={
         ["Lab Rats","Bizarre looks, innate magical abilities"],
         ["Trashknights","1 armour tin breastplates and helms"],
         ["Gentlerats","Top hats and rumpled suits"],
-        ["The Kings","Tails locked together in gordian knot"]
+        ["The Kings","Tails locked together in gordian knot"],
+        ["Can speak and communicate"]
     ]
     ,
     
@@ -208,7 +218,8 @@ creature_details={
         ["Longlegs","Mostly peaceful, can walk on water"],
         ["Architect","Weave confusing tunnels of webs"],
         ["Blink","As an action, can teleport d6 x 10"],
-        ["Ghost","Can only be harmed by silver or magic weapons"]
+        ["Ghost","Can only be harmed by silver or magic weapons"],
+        ["Can't directly communicate"]
     ]
     
 }

@@ -1,6 +1,6 @@
 #dungeon.py
 import utils
-import chance_table_dungeon
+import dungeon_tables
 import creature_tables
 import dice
 import additional_tables
@@ -16,19 +16,19 @@ def print_encounter():
 def create_dungeon_room():
     utils.print_header("Room")
     room_type = dice.roll_1d6() - 1
-    room_type_str = chance_table_dungeon.room_type[room_type]
-    creature_present = chance_table_dungeon.creature_present[room_type][dice.roll_1d6()-1]
-    treasure_present = chance_table_dungeon.treasure_present[room_type][dice.roll_1d6()-1]
+    room_type_str = dungeon_tables.room_type[room_type]
+    creature_present = dungeon_tables.creature_present[room_type][dice.roll_1d6()-1]
+    treasure_present = dungeon_tables.treasure_present[room_type][dice.roll_1d6()-1]
     print ("Room Type: " + room_type_str)
     if room_type_str == "Empty":
-        print("\tEmpty Detail: " + chance_table_dungeon.empty_feature[dice.roll_1d20()-1])
+        print("\tEmpty Detail: " + dungeon_tables.empty_feature[dice.roll_1d20()-1])
     if room_type_str == "Obstacle":
-        print("\tObstacle Detail: " + chance_table_dungeon.obstacle_feature[dice.roll_1d8()-1])
+        print("\tObstacle Detail: " + dungeon_tables.obstacle_feature[dice.roll_1d8()-1])
     if room_type_str == "Trap":
-        print("\tTrap Detail: " + chance_table_dungeon.trap_feature[dice.roll_1d8()-1])
+        print("\tTrap Detail: " + dungeon_tables.trap_feature[dice.roll_1d8()-1])
     if room_type_str == "Puzzle":
         puzzle_feature_number = dice.roll_1d6()-1
-        puzzle_detail = chance_table_dungeon.puzzle_feature[puzzle_feature_number]
+        puzzle_detail = dungeon_tables.puzzle_feature[puzzle_feature_number]
         print("\tPuzzle Detail: " + puzzle_detail)
         if "treasure" in puzzle_detail.lower() or "sword" in puzzle_detail.lower() :
             print("\tPUZZLE HAS TREASURE!!")
@@ -38,7 +38,7 @@ def create_dungeon_room():
                 treasure_type_index = dice.roll_1d20() - 1
             treasure.roll_treasure(treasure_type=treasure_type_index,tabs=2)
     if room_type_str == "Lair":
-        print("\tLair Detail: " + chance_table_dungeon.lair_feature[dice.roll_1d6()-1])
+        print("\tLair Detail: " + dungeon_tables.lair_feature[dice.roll_1d6()-1])
     print ("-\nCreature Present: " + str(creature_present))
     if creature_present:
         encounters.roll_encounter(tabs=1,is_dungeon_room=True)
@@ -76,6 +76,7 @@ def print_creature_detail(creature):
         print("\t"+detail_ary[song_roll2-1][0]+": "+detail_ary[song_roll2-1][1])
     detail_roll = dice.roll_1d6()
     print("Detail:\n"+detail_ary[detail_roll-1][0]+":\t"+detail_ary[detail_roll-1][1])
+    print("Communication: "+str(detail_ary[6]))
     print ("")
 
 def roll_creature_menu():

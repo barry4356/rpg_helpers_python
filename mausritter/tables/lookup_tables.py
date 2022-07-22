@@ -1,6 +1,5 @@
 #lookup_tables.py
 import weather_tables
-import chance_table_dungeon
 import treasure_tables
 
 weather_table_name_list=[

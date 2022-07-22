@@ -1,6 +1,5 @@
 #dungeon.py
 import utils
-import chance_table_dungeon
 import dice
 import creature_tables
 import ascii_art
