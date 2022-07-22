@@ -1,8 +1,7 @@
 #dungeon.py
 import utils
 import chance_table_dungeon
-import chance_table_encounter
-import enemy_stats_tables
+import creature_tables
 import dice
 import additional_tables
 import encounters
@@ -81,11 +80,11 @@ def print_creature_detail(creature):
 
 def roll_creature_menu():
     header = "Roll a Creature"
-    creature = utils.array_select_menu(array=chance_table_encounter.creatures,header=header)
+    creature = utils.array_select_menu(array=creature_tables.creatures,header=header)
     if not creature:
         return
     print(creature+" Stats")
-    print_stats(enemy_stats_tables.enemy_stats[creature])
+    print_stats(creature_tables.enemy_stats[creature])
     print_creature_detail(creature)
     roll_creature_menu()
 

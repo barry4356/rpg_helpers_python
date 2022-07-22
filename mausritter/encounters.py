@@ -2,7 +2,7 @@
 import dice
 import utils
 import additional_tables
-import chance_table_encounter
+import creature_tables
 import chance_table_dungeon
 import random_adventure_table
 import dungeon
@@ -10,10 +10,10 @@ import treasure_tables
 import treasure
 
 def get_creature_detail(creature_name):
-    for creature_shortname in chance_table_encounter.creatures:
+    for creature_shortname in creature_tables.creatures:
         if creature_shortname in creature_name.lower():
             creature_name = creature_shortname
-    return(chance_table_encounter.creature_details[creature_name.lower()])
+    return(creature_tables.creature_details[creature_name.lower()])
 
 def roll_encounter(tabs=0,is_dungeon_room=False):
     indent=""
@@ -45,7 +45,7 @@ def roll_encounter(tabs=0,is_dungeon_room=False):
         creature_type = additional_tables.large[creature_type_roll]
         print(indent+" Selected (Experimental): "+creature_type)
     reaction_roll = dice.roll_2d6()
-    print(indent+": Reaction = "+chance_table_encounter.reactions[reaction_roll-2])
+    print(indent+": Reaction = "+creature_tables.reactions[reaction_roll-2])
     detail_ary = get_creature_detail(creature_type)
     if "faerie" in creature_type.lower():
         print(indent+": Knows spell ["+dice.roll_on_table(treasure_tables.spells)+"]")

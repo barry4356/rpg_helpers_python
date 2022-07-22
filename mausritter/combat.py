@@ -1,20 +1,19 @@
 #dungeon.py
 import utils
 import chance_table_dungeon
-import chance_table_encounter
 import dice
-import enemy_stats_tables
+import creature_tables
 import ascii_art
 import dungeon
 
 def begin_damage_tracking():
-    creature = utils.array_select_menu(array=chance_table_encounter.creatures, header="Choose Enemy")
+    creature = utils.array_select_menu(array=creature_tables.creatures, header="Choose Enemy")
     stats = get_stats(creature)
     track_damage(creature,stats[0],stats[1],stats[2],stats[3],stats[4],
         stats[5],stats[6])
 
 def get_stats(creature_name):
-    return (enemy_stats_tables.enemy_stats[creature_name])
+    return (creature_tables.enemy_stats[creature_name])
 
 def track_damage(name,hp,strength,dex,wil,arm,atk_str,wants_str):
     exit = False;
