@@ -6,4 +6,4 @@ else
 	export PYTHONPATH=$PYTHONPATH:$PWD/../:$PWD:${PWD}/../.../common:${PWD}/../tables
 fi
 echo "Testing Treasure Roller..."
-python treasure_test.py > treasure_test.txt
+python treasure_test.py > results/treasure_test.txt
