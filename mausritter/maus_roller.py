@@ -107,13 +107,14 @@ def rolmaus(argv=[]):
             for i in range(num_henchmen):
                 roll_henchman()
         else:
-            roll_henchman
+            roll_henchman()
     elif argv[0] == "-n":
         if len(argv) > 1:
             num_npc = int(argv[1])
             for i in range(num_npc):
                 roll_npc()
         else:
-            roll_npc
+            roll_npc()
     else:
         roll_main_character()
+    print()

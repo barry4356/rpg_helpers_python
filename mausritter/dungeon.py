@@ -89,10 +89,13 @@ def roll_creature_menu():
     print_creature_detail(creature)
     roll_creature_menu()
 
-
 def menu():
     func_list = [create_dungeon_room, encounters.check_encounter, encounters.adventure_generator,
         treasure.roll_treasure,treasure.check_magic_sword,contracts.print_contract]
     desc_list = ["Create New Room","Roll for Encounter", "Random Adventure",
         "Roll Random Treasure","Check sword for curse","Check Wanted Poster"]
     utils.menu(func_list,desc_list,"Adventure Menu",False)
+
+def nwrm(argv=[]):
+    create_dungeon_room()
+    print()

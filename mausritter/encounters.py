@@ -95,3 +95,12 @@ def check_encounter():
         print("Rolled Omen")
     else:
         print("No Encounter")
+
+def enctr(argv=[]):
+    if len(argv) == 0:
+        check_encounter()
+    elif argv[0] == "-f":
+        dungeon.print_encounter()
+    else:
+        check_encounter()
+    print()
