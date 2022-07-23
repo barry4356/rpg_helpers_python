@@ -97,3 +97,23 @@ def menu():
     func_list = [roll_henchmen,roll_main_character,roll_npcs]
     desc_list = ["Create Henchmen","Create Player Character","Create Villagers/NPCs"]
     utils.menu(func_list,desc_list,"Maus Creator",False)
+
+def rolmaus(argv=[]):
+    if len(argv) == 0:
+        roll_main_character()
+    elif argv[0] == "-h":
+        if len(argv) > 1:
+            num_henchmen = int(argv[1])
+            for i in range(num_henchmen):
+                roll_henchman()
+        else:
+            roll_henchman
+    elif argv[0] == "-n":
+        if len(argv) > 1:
+            num_npc = int(argv[1])
+            for i in range(num_npc):
+                roll_npc()
+        else:
+            roll_npc
+    else:
+        roll_main_character()
