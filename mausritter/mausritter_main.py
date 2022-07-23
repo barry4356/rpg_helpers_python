@@ -19,12 +19,14 @@ def print_help(args=[]):
     print("enctr : Roll to see if there's a new encounter (1d6)")
     print("enctr -f : Force an encounter")
     print("nwrm : Create a new adventure area room")
+    print("dmg : Open enemy damage tracker menu")
+    print("dmg [creature_name] : Open enemy damage tracker for specified creature")
     print("exit : Close Terminal")
     print()
 
 def mausritter_terminal():
-    command_list = ["help","rolmaus","enctr","nwrm"]
-    func_list = [print_help,maus_roller.rolmaus,encounters.enctr,dungeon.nwrm]
+    command_list = ["help","rolmaus","enctr","nwrm","dmg"]
+    func_list = [print_help,maus_roller.rolmaus,encounters.enctr,dungeon.nwrm,combat.dmg]
     utils.terminal(func_list,command_list,header="maus_terminal")
 
 def main_menu():

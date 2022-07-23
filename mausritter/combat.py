@@ -5,8 +5,11 @@ import creature_tables
 import ascii_art
 import dungeon
 
-def begin_damage_tracking():
-    creature = utils.array_select_menu(array=creature_tables.creatures, header="Choose Enemy")
+def begin_damage_tracking(creature=""):
+    if not creature:
+        creature = utils.array_select_menu(array=creature_tables.creatures, header="Choose Enemy")
+    if not creature:
+        return
     stats = get_stats(creature)
     track_damage(creature,stats[0],stats[1],stats[2],stats[3],stats[4],
         stats[5],stats[6])
@@ -63,3 +66,10 @@ def menu():
     desc_list = ["Enemy Damage Tracker","Roll New Creature"]
     utils.menu(func_list,desc_list,"Combat Menu",False)
 
+def dmg(argv=[]):
+    if len(argv) == 0:
+        begin_damage_tracking()
+    elif argv[0] in creature_tables.creatures:
+        begin_damage_tracking(argv[0])
+    else:
+        begin_damage_tracking()
