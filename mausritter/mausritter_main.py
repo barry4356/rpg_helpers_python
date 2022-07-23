@@ -12,16 +12,18 @@ import table_lookups
 import encounters
 
 def print_help(args=[]):
+    tabwidth=22
     utils.print_header("Help - List of Commands")
-    print("rolmaus : Roll a new Player Character Maus")
-    print("rolmaus -h [number] : Roll a new Henchman Maus (optional number to roll multiple)")
-    print("rolmaus -n [number] : Roll a new Maus NPC (Optional number to roll multiple")
-    print("enctr : Roll to see if there's a new encounter (1d6)")
-    print("enctr -f : Force an encounter")
-    print("nwrm : Create a new adventure area room")
-    print("dmg : Open enemy damage tracker menu")
-    print("dmg [creature_name] : Open enemy damage tracker for specified creature")
-    print("exit : Close Terminal")
+    print("dmg\t Open enemy damage tracker menu".expandtabs(tabwidth))
+    print("dmg [creature_name]\t Open enemy damage tracker for specified creature".expandtabs(tabwidth))
+    print("enctr\t Roll to see if there's a new encounter (1d6)".expandtabs(tabwidth))
+    print("enctr -f\t Force an encounter".expandtabs(tabwidth))
+    print("nwrm\t Create a new adventure area room".expandtabs(tabwidth))
+    print("rolmaus\t Roll a new Player Character Maus".expandtabs(tabwidth))
+    print("rolmaus -h [number]\t Roll a new Henchman Maus (optional number to roll multiple)".expandtabs(tabwidth))
+    print("rolmaus -n [number]\t Roll a new Maus NPC (Optional number to roll multiple".expandtabs(tabwidth))
+    print()
+    print("exit\t Close Terminal".expandtabs(tabwidth))
     print()
 
 def mausritter_terminal():
