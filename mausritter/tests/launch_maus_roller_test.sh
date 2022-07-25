@@ -5,4 +5,5 @@ if [ -z $PYTHONPATH ]; then
 else
 	export PYTHONPATH=$PYTHONPATH:$PWD/../:$PWD:${PWD}/../.../common:${PWD}/../tables
 fi
-python maus_roller_test.py
+echo "Testing Maus Roller Tools..." 
+python maus_roller_test.py > results/maus_roller_test.txt
