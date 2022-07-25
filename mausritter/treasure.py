@@ -18,6 +18,7 @@ def roll_treasure(treasure_type=100,tabs=0):
         indent = indent+"\t"
     treasure_type_str = treasure_tables.treasure_type[treasure_type]
     print(indent+"Treasure Type: " + treasure_type_str)
+    indent = indent+"\t"
     if treasure_type_str == "Magic Sword":
         print(indent+"Magic Sword Class: "+treasure_tables.magic_sword_class[dice.roll_1d6()-1])
         print(indent+"Magic Sword Type: "+treasure_tables.magic_sword_types[dice.roll_1d6()-1])

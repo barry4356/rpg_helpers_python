@@ -45,6 +45,7 @@ def create_dungeon_room():
     print ("-\nTreasure Present: " + str(treasure_present))
     if treasure_present:
         treasure.roll_treasure(tabs=1)
+        treasure.roll_treasure(tabs=1)
 
 def print_stats(stats):
     hp = stats[0]
