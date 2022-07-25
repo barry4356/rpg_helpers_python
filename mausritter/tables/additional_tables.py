@@ -3,10 +3,13 @@
 #Pulled from Proposed Additional Rules (Experimental)
 
 large=["cat","snake","snake","crow","crow","owl"]
-medium=["rat w/ d6 cleaver","rat w/ d6 cleaver","rat w/ d6 cleaver","frog","frog","frog"]
+medium=[
+    "rat w/ d6 cleaver","rat w/ d6 cleaver","rat w/ d6 cleaver",
+    "centipede","ghost","faerie w/ d8 Silver Rapier"
+]
 small=[
     "mouse w/ d6 sword","mouse w/ d8 Bow","mouse w/ d6 sword","mouse w/ d8 Bow","frog w/ d10 spear",
-    "frog w/ d10 spear","frog w/ d10 spear","frog w/ d10 spear","faerie w/ d8 Silver Rapier","ghost"
+    "frog w/ d10 spear","frog w/ d10 spear","frog w/ d10 spear","frog w/ d10 spear","ghost"
 ]
 tiny=["spider","spider","spider","centipede","centipede","centipede"]
 
