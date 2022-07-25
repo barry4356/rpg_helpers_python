@@ -63,3 +63,18 @@ def menu():
     func_list = [daily_weather_menu,seasonal_event_menu]
     desc_list = ["Check Today's Weather","Create Seasonal Event"]
     utils.menu(func_list,desc_list,"Weather Menu",False)
+
+def chkw(argv=[]):
+    if len(argv) > 0:
+        if "sum" in argv[0].lower():
+            summer_weather()
+        elif "fal" in argv[0].lower() or "aut" in argv[0].lower():
+            fall_weather()
+        elif "win" in argv[0].lower():
+            winter_weather()
+        elif "spr" in argv[0].lower():
+            spring_weather()
+        else:
+            daily_weather_menu()
+    else:
+        daily_weather_menu()

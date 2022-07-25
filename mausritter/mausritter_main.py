@@ -14,6 +14,11 @@ import encounters
 def print_help(args=[]):
     tabwidth=22
     utils.print_header("Help - List of Commands")
+    help_list = [
+        
+    ]
+    print("chkw\t Check today's weather (opens menu)".expandtabs(tabwidth))
+    print("chkw [season]\t Check today's weather (specify current season)".expandtabs(tabwidth))
     print("dmg\t Open enemy damage tracker menu".expandtabs(tabwidth))
     print("dmg [creature_name]\t Open enemy damage tracker for specified creature".expandtabs(tabwidth))
     print("enctr\t Roll to see if there's a new encounter".expandtabs(tabwidth))
@@ -27,8 +32,10 @@ def print_help(args=[]):
     print()
 
 def mausritter_terminal():
-    command_list = ["help","rolmaus","enctr","nwrm","dmg"]
-    func_list = [print_help,maus_roller.rolmaus,encounters.enctr,dungeon.nwrm,combat.dmg]
+    command_list = ["help","rolmaus","enctr","nwrm","dmg",
+        "chkw"]
+    func_list = [print_help,maus_roller.rolmaus,encounters.enctr,dungeon.nwrm,combat.dmg,
+        weather.chkw]
     utils.terminal(func_list,command_list,header="maus_terminal")
 
 def main_menu():
