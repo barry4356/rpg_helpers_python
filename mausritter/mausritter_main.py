@@ -17,7 +17,8 @@ def print_help(args=[]):
     tabwidth=22
     utils.print_header("Help - List of Commands")
     help_list = [
-        "creature\t Create a new random creature"
+        "creature\t Create a new random creature",
+        "creature [type]\t Create a random instance of specific creature"
         "dmg\t Open enemy damage tracker menu",
         "dmg [creature_name]\t Open enemy damage tracker for specified creature",
         "enctr\t Roll to see if there's a new encounter",
@@ -28,12 +29,12 @@ def print_help(args=[]):
         "nwrm\t Create a new adventure area room",
         "roladv\t Roll a random adventure",
         "rolmaus\t Roll a new Player Character Maus",
-        "rolmaus -h [number]\t Roll a new Henchman Maus (number to roll multiple)",
-        "rolmaus -n [number]\t Roll a new Maus NPC (number to roll multiple",
+        "rolmaus -h [number]\t Roll a Henchman Maus (number to roll multiple)",
+        "rolmaus -n [number]\t Roll a Maus NPC (number to roll multiple",
         "roltres\t Roll a random treasure",
         "swchk\t Check a new sword for a curse",
         "wanted\t Check local wanted poster",
-        "wanted [num1] [num2]\t Check wanted poster, w/ min/max tiles",
+        "wanted [num1] [num2]\t Check wanted poster, with min/max tiles",
         "weather\t Check today's weather (opens menu)",
         "weather [season]\t Check today's weather (specify current season)",
         "",
