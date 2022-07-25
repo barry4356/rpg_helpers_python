@@ -15,20 +15,21 @@ def print_help(args=[]):
     tabwidth=22
     utils.print_header("Help - List of Commands")
     help_list = [
-        
+        "chkw\t Check today's weather (opens menu)",
+        "chkw [season]\t Check today's weather (specify current season)",
+        "dmg\t Open enemy damage tracker menu",
+        "dmg [creature_name]\t Open enemy damage tracker for specified creature",
+        "enctr\t Roll to see if there's a new encounter",
+        "enctr -f\t Force an encounter",
+        "nwrm\t Create a new adventure area room",
+        "rolmaus\t Roll a new Player Character Maus",
+        "rolmaus -h [number]\t Roll a new Henchman Maus (number to roll multiple)",
+        "rolmaus -n [number]\t Roll a new Maus NPC (number to roll multiple",
+        "",
+        "exit\t Close Terminal"
     ]
-    print("chkw\t Check today's weather (opens menu)".expandtabs(tabwidth))
-    print("chkw [season]\t Check today's weather (specify current season)".expandtabs(tabwidth))
-    print("dmg\t Open enemy damage tracker menu".expandtabs(tabwidth))
-    print("dmg [creature_name]\t Open enemy damage tracker for specified creature".expandtabs(tabwidth))
-    print("enctr\t Roll to see if there's a new encounter".expandtabs(tabwidth))
-    print("enctr -f\t Force an encounter".expandtabs(tabwidth))
-    print("nwrm\t Create a new adventure area room".expandtabs(tabwidth))
-    print("rolmaus\t Roll a new Player Character Maus".expandtabs(tabwidth))
-    print("rolmaus -h [number]\t Roll a new Henchman Maus (number to roll multiple)".expandtabs(tabwidth))
-    print("rolmaus -n [number]\t Roll a new Maus NPC (number to roll multiple".expandtabs(tabwidth))
-    print()
-    print("exit\t Close Terminal".expandtabs(tabwidth))
+    for line in help_list:
+        print(line.expandtabs(tabwidth))
     print()
 
 def mausritter_terminal():
