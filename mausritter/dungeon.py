@@ -26,8 +26,9 @@ def create_dungeon_room():
         print("\tObstacle Detail: " + dungeon_tables.obstacle_feature[dice.roll_1d8()-1])
     if room_type_str == "Trap":
         print("\tTrap Detail: " + dungeon_tables.trap_feature[dice.roll_1d8()-1])
-        print("\tTRAP HAS TREASURE!!")
-        treasure.roll_treasure(tabs=2)
+        if treasure_present:
+            print("\tTRAP HAS TREASURE!!")
+            treasure.roll_treasure(tabs=2)
     if room_type_str == "Puzzle":
         puzzle_feature_number = dice.roll_1d6()-1
         puzzle_detail = dungeon_tables.puzzle_feature[puzzle_feature_number]
@@ -45,7 +46,7 @@ def create_dungeon_room():
     if creature_present:
         is_dangerous = encounters.roll_encounter(tabs=1,is_dungeon_room=True)
         if is_dangerous and treasure_present:
-            print("\tCREATURE IS GUARDING TREASURE!")
+            print("\tCREATURE IS GUARDING TREASURE!!")
             treasure.roll_treasure(tabs=2)
     print ("-\nTreasure Present: " + str(treasure_present))
     if treasure_present:

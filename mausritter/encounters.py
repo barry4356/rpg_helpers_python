@@ -46,7 +46,7 @@ def roll_encounter(tabs=0,is_dungeon_room=False):
         creature_type = additional_tables.large[creature_type_roll]
         print(indent+" Selected (Experimental): "+creature_type)
     reaction_roll = dice.roll_2d6()
-    if reaction_roll >= 6:
+    if reaction_roll <= 8:
         dangerous = True
     print(indent+": Reaction = "+creature_tables.reactions[reaction_roll-2])
     detail_ary = get_creature_detail(creature_type)
