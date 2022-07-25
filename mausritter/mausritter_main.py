@@ -28,6 +28,7 @@ def print_help(args=[]):
         "hex\t Roll a new Map Hex",
         "hex -f\t Roll a new faerie world Map Hex",
         "hex -s\t Roll a new mouse settlement",
+        "hide\t Open Hide Something Menu",
         "nwrm\t Create a new adventure area room",
         "roladv\t Roll a random adventure",
         "rolmaus\t Roll a new Player Character Maus",
@@ -51,11 +52,11 @@ def mausritter_terminal():
     print_help()
     command_list = ["help","rolmaus","enctr","nwrm","dmg",
         "weather","wanted","hex","swchk","roltres",
-        "roladv","creature","event"
+        "roladv","creature","event","hide"
     ]
     func_list = [print_help,maus_roller.rolmaus,encounters.enctr,dungeon.nwrm,combat.dmg,
         weather.weather,contracts.wanted,hexmap_builder.hex,treasure.swchk,treasure.roltres,
-        encounters.roladv, dungeon.creature, weather.event
+        encounters.roladv, dungeon.creature, weather.event, hide_something.hide
     ]
     utils.terminal(func_list,command_list,header="maus_terminal")
 

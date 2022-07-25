@@ -89,3 +89,10 @@ def menu():
     func_list=[hide_something,check_for_object,delete_object]
     desc_list=["Hide Something","Check if I found it","Delete a hidden object"]
     utils.menu(func_list,desc_list,"Hide Something in Random Tile",False)
+
+def hide(argv=[]):
+    if len(argv) == 0:
+        menu()
+    else:
+        menu()
+    print()
