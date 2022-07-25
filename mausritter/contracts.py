@@ -2,23 +2,24 @@
 import dice
 import utils
 import additional_tables
+import random
 
 #EXPERIMENTAL
 #Used to generate random contracts
 
-def print_contract():
+def print_contract(min_tile=1,max_tile=20):
     utils.print_header("WANTED (Experimental)")
-    species, title, crime, reward, tile, henchmen = roll_contract()
+    species, title, crime, reward, tile, henchmen = roll_contract(min_tile,max_tile)
     print("WANTED: "+species+" "+title+", for "+crime+". Reward of "+str(reward)+"pips offered.... dead or alive")
     print("Last seen in tile "+str(tile)+" with "+str(henchmen)+" accomplices")
 
-def roll_contract():
+def roll_contract(min_tile=1,max_tile=20):
     species = dice.roll_on_table(additional_tables.species_table)
     title = dice.roll_on_table(additional_tables.title_table)
     crime = dice.roll_on_table(additional_tables.crime_table)
     henchmen = roll_henchmen(species.lower())
     reward = roll_reward(species.lower(),henchmen)
-    tile = dice.roll_1d20()
+    tile = random.randint(min_tile,max_tile)
     return species, title, crime, reward, tile,henchmen
 
 #Experimental
@@ -37,3 +38,18 @@ def roll_reward(species,henchmen):
     reward = dice.roll_custom(reward) + reward
     return reward
 
+def wanted(argv=[]):
+    if len(argv) >= 2:
+        try:
+            min_tile=int(argv[0])
+            max_tile=int(argv[1])
+        except ValueError:
+            min_tile = 1
+            max_tile = 20
+        if min_tile <= max_tile:
+            print_contract(min_tile, max_tile)
+        else:
+            print_contract()
+    else:
+        print_contract()
+    print()

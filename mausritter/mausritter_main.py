@@ -10,13 +10,12 @@ import ascii_art
 import hide_something
 import table_lookups
 import encounters
+import contracts
 
 def print_help(args=[]):
     tabwidth=22
     utils.print_header("Help - List of Commands")
     help_list = [
-        "chkw\t Check today's weather (opens menu)",
-        "chkw [season]\t Check today's weather (specify current season)",
         "dmg\t Open enemy damage tracker menu",
         "dmg [creature_name]\t Open enemy damage tracker for specified creature",
         "enctr\t Roll to see if there's a new encounter",
@@ -25,6 +24,10 @@ def print_help(args=[]):
         "rolmaus\t Roll a new Player Character Maus",
         "rolmaus -h [number]\t Roll a new Henchman Maus (number to roll multiple)",
         "rolmaus -n [number]\t Roll a new Maus NPC (number to roll multiple",
+        "wanted\t Check local wanted poster",
+        "wanted [num1] [num2]\t Check wanted poster, w/ min/max tiles",
+        "weather\t Check today's weather (opens menu)",
+        "weather [season]\t Check today's weather (specify current season)",
         "",
         "exit\t Close Terminal"
     ]
@@ -34,9 +37,9 @@ def print_help(args=[]):
 
 def mausritter_terminal():
     command_list = ["help","rolmaus","enctr","nwrm","dmg",
-        "chkw"]
+        "weather","wanted"]
     func_list = [print_help,maus_roller.rolmaus,encounters.enctr,dungeon.nwrm,combat.dmg,
-        weather.chkw]
+        weather.weather,contracts.wanted]
     utils.terminal(func_list,command_list,header="maus_terminal")
 
 def main_menu():
