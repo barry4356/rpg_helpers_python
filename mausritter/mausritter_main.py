@@ -14,7 +14,7 @@ import contracts
 import treasure
 
 def print_help(args=[]):
-    tabwidth=22
+    tabwidth=24
     utils.print_header("Help - List of Commands")
     help_list = [
         "creature\t Create a new random creature",
@@ -30,7 +30,7 @@ def print_help(args=[]):
         "hex -s\t Roll a new mouse settlement",
         "hide\t Open Hide Something Menu",
         "hide [name] [min] [max]\t Hide object 'name' somewhere between 2 tiles",
-        "hide [name] [tile]\t Check for hidden object 'name' at specific spot"
+        "hide [name] [tile]\t Check for hidden object 'name' at specific spot",
         "nwrm\t Create a new adventure area room",
         "roladv\t Roll a random adventure",
         "rolmaus\t Roll a new Player Character Maus",
