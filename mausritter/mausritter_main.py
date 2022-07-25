@@ -18,11 +18,13 @@ def print_help(args=[]):
     utils.print_header("Help - List of Commands")
     help_list = [
         "creature\t Create a new random creature",
-        "creature [type]\t Create a random instance of specific creature"
+        "creature [type]\t Create a random instance of specific creature",
         "dmg\t Open enemy damage tracker menu",
         "dmg [creature_name]\t Open enemy damage tracker for specified creature",
         "enctr\t Roll to see if there's a new encounter",
         "enctr -f\t Force an encounter",
+        "event\t Open menu to roll a new seasonal event",
+        "event [season]\t Roll a new seasonal event for specified season"
         "hex\t Roll a new Map Hex",
         "hex -f\t Roll a new faerie world Map Hex",
         "hex -s\t Roll a new mouse settlement",
@@ -49,11 +51,11 @@ def mausritter_terminal():
     print_help()
     command_list = ["help","rolmaus","enctr","nwrm","dmg",
         "weather","wanted","hex","swchk","roltres",
-        "roladv","creature"
+        "roladv","creature","event"
     ]
     func_list = [print_help,maus_roller.rolmaus,encounters.enctr,dungeon.nwrm,combat.dmg,
         weather.weather,contracts.wanted,hexmap_builder.hex,treasure.swchk,treasure.roltres,
-        encounters.roladv, dungeon.creature
+        encounters.roladv, dungeon.creature, weather.event
     ]
     utils.terminal(func_list,command_list,header="maus_terminal")
 

@@ -79,3 +79,19 @@ def weather(argv=[]):
     else:
         daily_weather_menu()
     print()
+
+def event(argv=[]):
+    if len(argv) == 0:
+        seasonal_event_menu()
+    else:
+        if "win" in argv[0].lower():
+            winter_event()
+        elif "sum" in argv[0].lower():
+            summer_event()
+        elif "fal" in argv[0].lower() or "aut" in argv[0].lower():
+            fall_event()
+        elif "spr" in argv[0].lower():
+            spring_event()
+        else:
+            seasonal_event_menu()
+    print()
