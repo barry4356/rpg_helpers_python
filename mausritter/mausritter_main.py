@@ -29,6 +29,8 @@ def print_help(args=[]):
         "hex -f\t Roll a new faerie world Map Hex",
         "hex -s\t Roll a new mouse settlement",
         "hide\t Open Hide Something Menu",
+        "hide [name] [min] [max]\t Hide object 'name' somewhere between 2 tiles",
+        "hide [name] [tile]\t Check for hidden object 'name' at specific spot"
         "nwrm\t Create a new adventure area room",
         "roladv\t Roll a random adventure",
         "rolmaus\t Roll a new Player Character Maus",
@@ -49,7 +51,6 @@ def print_help(args=[]):
     print()
 
 def mausritter_terminal():
-    print_help()
     command_list = ["help","rolmaus","enctr","nwrm","dmg",
         "weather","wanted","hex","swchk","roltres",
         "roladv","creature","event","hide"
