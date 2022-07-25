@@ -43,6 +43,7 @@ def print_help(args=[]):
         "weather\t Check today's weather (opens menu)",
         "weather [season]\t Check today's weather (specify current season)",
         "",
+        "p\t Repeat most recent command",
         "help\t Print this list of helpful commands",
         "exit\t Close Terminal"
     ]

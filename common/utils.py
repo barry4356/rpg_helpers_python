@@ -147,13 +147,18 @@ def terminal(func_list,command_list,header="terminal"):
     if len(func_list) != len(command_list):
         print("ERROR: utils.terminal needs two lists of same size!!")
         return
+    last_command = ""
     exit_terminal = False
     while exit_terminal != True:
         val = get_input_terminal(header=header)
         if(val.lower() == "exit"):
             exit_terminal = True
         else:
+            if(val.lower() == "p"):
+                val = last_command
+                print(header+"> "+last_command)
             process_terminal_input(func_list=func_list,command_list=command_list,input_val=val.lower())
+            last_command = val.lower()
 
 def process_terminal_input(func_list,command_list,input_val=""):
     input_arr = input_val.split(' ')
