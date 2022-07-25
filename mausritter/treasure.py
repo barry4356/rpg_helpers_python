@@ -48,3 +48,11 @@ def roll_treasure(treasure_type=100,tabs=0):
         print(indent+"pips: " + str(dice.roll_1d6()*10))
     if treasure_type_str == "d6x5 pips":
         print(indent+"pips: " + str(dice.roll_1d6()*5))
+
+def swchk(argv=[]):
+    check_magic_sword()
+    print()
+
+def roltres(argv=[]):
+    roll_treasure()
+    print()

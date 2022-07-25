@@ -79,15 +79,17 @@ def print_creature_detail(creature):
     print("Communication: "+str(detail_ary[6]))
     print ("")
 
-def roll_creature_menu():
+def roll_creature_menu(creature="",oneoff=False):
     header = "Roll a Creature"
-    creature = utils.array_select_menu(array=creature_tables.creatures,header=header)
+    if creature not in creature_tables.creatures:
+        creature = utils.array_select_menu(array=creature_tables.creatures,header=header)
     if not creature:
         return
     print(creature+" Stats")
     print_stats(creature_tables.enemy_stats[creature])
     print_creature_detail(creature)
-    roll_creature_menu()
+    if not oneoff:
+        roll_creature_menu()
 
 def menu():
     func_list = [create_dungeon_room, encounters.check_encounter, encounters.adventure_generator,
@@ -98,4 +100,11 @@ def menu():
 
 def nwrm(argv=[]):
     create_dungeon_room()
+    print()
+
+def creature(argv=[]):
+    if len(argv) == 0:
+        roll_creature_menu()
+    else:
+        roll_creature_menu(argv[0],oneoff=True)
     print()

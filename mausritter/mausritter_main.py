@@ -11,11 +11,13 @@ import hide_something
 import table_lookups
 import encounters
 import contracts
+import treasure
 
 def print_help(args=[]):
     tabwidth=22
     utils.print_header("Help - List of Commands")
     help_list = [
+        "creature\t Create a new random creature"
         "dmg\t Open enemy damage tracker menu",
         "dmg [creature_name]\t Open enemy damage tracker for specified creature",
         "enctr\t Roll to see if there's a new encounter",
@@ -24,9 +26,12 @@ def print_help(args=[]):
         "hex -f\t Roll a new faerie world Map Hex",
         "hex -s\t Roll a new mouse settlement",
         "nwrm\t Create a new adventure area room",
+        "roladv\t Roll a random adventure",
         "rolmaus\t Roll a new Player Character Maus",
         "rolmaus -h [number]\t Roll a new Henchman Maus (number to roll multiple)",
         "rolmaus -n [number]\t Roll a new Maus NPC (number to roll multiple",
+        "roltres\t Roll a random treasure",
+        "swchk\t Check a new sword for a curse",
         "wanted\t Check local wanted poster",
         "wanted [num1] [num2]\t Check wanted poster, w/ min/max tiles",
         "weather\t Check today's weather (opens menu)",
@@ -42,9 +47,13 @@ def print_help(args=[]):
 def mausritter_terminal():
     print_help()
     command_list = ["help","rolmaus","enctr","nwrm","dmg",
-        "weather","wanted","hex"]
+        "weather","wanted","hex","swchk","roltres",
+        "roladv","creature"
+    ]
     func_list = [print_help,maus_roller.rolmaus,encounters.enctr,dungeon.nwrm,combat.dmg,
-        weather.weather,contracts.wanted,hexmap_builder.hex]
+        weather.weather,contracts.wanted,hexmap_builder.hex,treasure.swchk,treasure.roltres,
+        encounters.roladv, dungeon.creature
+    ]
     utils.terminal(func_list,command_list,header="maus_terminal")
 
 def main_menu():

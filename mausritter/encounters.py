@@ -104,3 +104,7 @@ def enctr(argv=[]):
     else:
         check_encounter()
     print()
+
+def roladv(argv=[]):
+    adventure_generator()
+    print()
