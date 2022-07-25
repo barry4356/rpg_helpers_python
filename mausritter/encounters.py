@@ -3,9 +3,7 @@ import dice
 import utils
 import additional_tables
 import creature_tables
-import dungeon_tables
 import random_adventure_table
-import dungeon
 import treasure_tables
 import treasure
 
@@ -14,6 +12,11 @@ def get_creature_detail(creature_name):
         if creature_shortname in creature_name.lower():
             creature_name = creature_shortname
     return(creature_tables.creature_details[creature_name.lower()])
+
+
+def print_encounter():
+    utils.print_header("Encounter")
+    roll_encounter()
 
 def roll_encounter(tabs=0,is_dungeon_room=False):
     dangerous = False
@@ -93,7 +96,7 @@ def check_encounter():
     print("Encounter Roll: ["+str(encounter_roll)+"]")
     if encounter_roll == 1:
         print("Random Encounter!")
-        dungeon.print_encounter()
+        print_encounter()
     elif encounter_roll == 2:
         print("Rolled Omen")
     else:
@@ -103,7 +106,7 @@ def enctr(argv=[]):
     if len(argv) == 0:
         check_encounter()
     elif argv[0] == "-f":
-        dungeon.print_encounter()
+        print_encounter()
     else:
         check_encounter()
     print()

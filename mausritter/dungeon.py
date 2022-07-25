@@ -9,10 +9,6 @@ import contracts
 import treasure
 import treasure_tables
 
-def print_encounter():
-    utils.print_header("Encounter")
-    encounters.roll_encounter()
-
 def create_dungeon_room():
     utils.print_header("Room")
     room_type = dice.roll_1d6() - 1
