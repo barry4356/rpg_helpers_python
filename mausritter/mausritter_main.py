@@ -32,6 +32,7 @@ def print_help(args=[]):
         "weather\t Check today's weather (opens menu)",
         "weather [season]\t Check today's weather (specify current season)",
         "",
+        "help\t Print this list of helpful commands",
         "exit\t Close Terminal"
     ]
     for line in help_list:
@@ -39,6 +40,7 @@ def print_help(args=[]):
     print()
 
 def mausritter_terminal():
+    print_help()
     command_list = ["help","rolmaus","enctr","nwrm","dmg",
         "weather","wanted","hex"]
     func_list = [print_help,maus_roller.rolmaus,encounters.enctr,dungeon.nwrm,combat.dmg,

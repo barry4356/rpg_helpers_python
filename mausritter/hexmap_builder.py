@@ -112,8 +112,6 @@ def print_fae_hex():
         print("Maus Settlement present: "+name)
         print_settlement(inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty)
 
-
-
 def menu():
     func_list = [print_hex,rnp_settlement,print_fae_hex]
     desc_list = ["Create New Overworld Hex","Roll New Maus Settlement","Create New Faerie Hex"]
