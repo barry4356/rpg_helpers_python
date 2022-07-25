@@ -20,6 +20,9 @@ def print_help(args=[]):
         "dmg [creature_name]\t Open enemy damage tracker for specified creature",
         "enctr\t Roll to see if there's a new encounter",
         "enctr -f\t Force an encounter",
+        "hex\t Roll a new Map Hex",
+        "hex -f\t Roll a new faerie world Map Hex",
+        "hex -s\t Roll a new mouse settlement",
         "nwrm\t Create a new adventure area room",
         "rolmaus\t Roll a new Player Character Maus",
         "rolmaus -h [number]\t Roll a new Henchman Maus (number to roll multiple)",
@@ -37,9 +40,9 @@ def print_help(args=[]):
 
 def mausritter_terminal():
     command_list = ["help","rolmaus","enctr","nwrm","dmg",
-        "weather","wanted"]
+        "weather","wanted","hex"]
     func_list = [print_help,maus_roller.rolmaus,encounters.enctr,dungeon.nwrm,combat.dmg,
-        weather.weather,contracts.wanted]
+        weather.weather,contracts.wanted,hexmap_builder.hex]
     utils.terminal(func_list,command_list,header="maus_terminal")
 
 def main_menu():
