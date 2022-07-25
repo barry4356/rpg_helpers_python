@@ -4,12 +4,12 @@
 
 large=["cat","snake","snake","crow","crow","owl"]
 medium=[
-    "rat w/ d6 cleaver","rat w/ d6 cleaver","rat w/ d6 cleaver",
+    "frog w/ d10 spear","frog w/ d10 spear","frog w/ d10 spear",
     "centipede","ghost","faerie w/ d8 Silver Rapier"
 ]
 small=[
-    "mouse w/ d6 sword","mouse w/ d8 Bow","mouse w/ d6 sword","mouse w/ d8 Bow","frog w/ d10 spear",
-    "frog w/ d10 spear","frog w/ d10 spear","frog w/ d10 spear","frog w/ d10 spear","ghost"
+    "mouse w/ d6 sword","mouse w/ d8 Bow","mouse w/ d6 sword","mouse w/ d8 Bow","rat w/ d6 cleaver",
+    "rat w/ d6 cleaver","rat w/ d6 cleaver","rat w/ d6 cleaver","rat w/ d6 cleaver","rat w/ d6 cleaver"
 ]
 tiny=["spider","spider","spider","centipede","centipede","centipede"]
 
