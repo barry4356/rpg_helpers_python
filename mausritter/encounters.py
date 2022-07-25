@@ -16,6 +16,7 @@ def get_creature_detail(creature_name):
     return(creature_tables.creature_details[creature_name.lower()])
 
 def roll_encounter(tabs=0,is_dungeon_room=False):
+    dangerous = False
     indent=""
     for index in range(tabs):
         indent = (indent+"\t")
@@ -45,6 +46,8 @@ def roll_encounter(tabs=0,is_dungeon_room=False):
         creature_type = additional_tables.large[creature_type_roll]
         print(indent+" Selected (Experimental): "+creature_type)
     reaction_roll = dice.roll_2d6()
+    if reaction_roll >= 6:
+        dangerous = True
     print(indent+": Reaction = "+creature_tables.reactions[reaction_roll-2])
     detail_ary = get_creature_detail(creature_type)
     if "faerie" in creature_type.lower():
@@ -72,7 +75,7 @@ def roll_encounter(tabs=0,is_dungeon_room=False):
         detail_roll = dice.roll_1d6()
         print(indent+": Optional Creature Detail Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
     print(indent+": Communication: "+str(detail_ary[6]))
-
+    return dangerous
 
 def adventure_generator():
     utils.print_header("Generated Adventure")
