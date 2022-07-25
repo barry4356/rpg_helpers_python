@@ -46,6 +46,10 @@ def create_dungeon_room():
     if treasure_present:
         treasure.roll_treasure(tabs=1)
         treasure.roll_treasure(tabs=1)
+        if creature_present:
+            treasure.roll_treasure(tabs=1)
+        if "trap" in room_type_str.lower():
+            treasure.roll_treasure(tabs=1)
 
 def print_stats(stats):
     hp = stats[0]
