@@ -24,7 +24,7 @@ def print_help(args=[]):
         "enctr\t Roll to see if there's a new encounter",
         "enctr -f\t Force an encounter",
         "event\t Open menu to roll a new seasonal event",
-        "event [season]\t Roll a new seasonal event for specified season"
+        "event [season]\t Roll a new seasonal event for specified season",
         "hex\t Roll a new Map Hex",
         "hex -f\t Roll a new faerie world Map Hex",
         "hex -s\t Roll a new mouse settlement",
