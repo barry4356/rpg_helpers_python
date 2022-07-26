@@ -76,4 +76,5 @@ def main_menu():
     ]
     utils.menu(func_list,desc_list,"MAUSRITTER HELPER",True)
 
-main_menu()
+if __name__ == "__main__":
+    main_menu()
