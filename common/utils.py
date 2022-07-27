@@ -1,5 +1,4 @@
 #utils.py
-import os
 
 def array_select_menu(array=[],header=""):
     exit = False
@@ -17,36 +16,6 @@ def array_select_menu(array=[],header=""):
             return ""
         elif val <= len(array):
             return(array[val-1])
-
-def get_files(suffix="", path=""):
-    onlyfiles = os.listdir(path)
-    returnfiles = []
-    for myfile in onlyfiles:
-        if suffix in myfile:
-            returnfiles.append(myfile)
-    return returnfiles
-
-def remove_file(my_filename):
-    if os.path.exists(my_filename):
-        os.remove(my_filename)
-    else:
-        print("ERROR: Failed to Remove file "+str(my_filename))
-
-def write_file(my_filename,my_filecontent):
-    try:
-        with open(my_filename,'w') as file:
-            file.write(str(my_filecontent))
-    except IOError:
-        print("ERROR: Failed to write file "+my_filename)
-
-def read_file(my_filename):
-    return_string = ""
-    try:
-        with open(my_filename,'r') as file:
-            return_string = file.read()
-    except IOError:
-        print("ERROR: Failed to read file "+my_filename)
-    return return_string
 
 def round(number_input):
     number_int = int(number_input)

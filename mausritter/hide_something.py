@@ -1,6 +1,7 @@
 #hide_something.py
 import utils
 import random
+import fileops
 
 def hide_something(object_name="",minval=-1,maxval=-1):
     if not object_name:
@@ -28,11 +29,11 @@ def hide_something(object_name="",minval=-1,maxval=-1):
                 else:
                     exit = True
     hidden_location = random.randint(minval,maxval)
-    utils.write_file("mausritter/data/"+object_name+".hidden",hidden_location)
+    fileops.write_file("mausritter/data/"+object_name+".hidden",hidden_location)
 
 def check_for_object():
     utils.print_header("Look for Object")
-    hidden_object_filenames = utils.get_files(path="./mausritter/data/",suffix=".hidden")
+    hidden_object_filenames = fileops.get_files(path="./mausritter/data/",suffix=".hidden")
     hidden_objects = list({x.replace('.hidden','') for x in hidden_object_filenames})
     exit = False
     while exit != True:
@@ -52,7 +53,7 @@ def check_for_object():
             print("INVALID")
 
 def check_tile(my_object,val=-1):
-    tile = int(utils.read_file("mausritter/data/"+my_object+".hidden"))
+    tile = int(fileops.read_file("mausritter/data/"+my_object+".hidden"))
     if tile <= 0:
         exit = False
         while exit != True:
@@ -71,7 +72,7 @@ def delete_object():
     utils.print_header("Delete Hidden Object")
     exit = False
     while exit != True:
-        hidden_object_filenames = utils.get_files(path="./mausritter/data/",suffix=".hidden")
+        hidden_object_filenames = fileops.get_files(path="./mausritter/data/",suffix=".hidden")
         hidden_objects = list({x.replace('.hidden','') for x in hidden_object_filenames})
         object_index = 0
         for my_object in hidden_objects:
@@ -84,7 +85,7 @@ def delete_object():
         if val == 0:
             exit = True
         elif val <= len(hidden_objects):
-            utils.remove_file("mausritter/data/"+hidden_objects[val-1]+".hidden")
+            fileops.remove_file("mausritter/data/"+hidden_objects[val-1]+".hidden")
         else:
             print("INVALID INPUT")
 
