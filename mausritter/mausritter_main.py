@@ -12,6 +12,7 @@ import table_lookups
 import encounters
 import contracts
 import treasure
+import custom_terminal
 
 def print_help(args=[]):
     tabwidth=24
@@ -62,7 +63,7 @@ def mausritter_terminal():
         weather.weather,contracts.wanted,hexmap_builder.hex,treasure.swchk,treasure.roltres,
         encounters.roladv, dungeon.creature, weather.event, hide_something.hide
     ]
-    utils.terminal(func_list,command_list,header="maus_terminal")
+    custom_terminal.terminal(func_list,command_list,header="maus_terminal")
 
 def main_menu():
     ascii_art.print_mausritter()
