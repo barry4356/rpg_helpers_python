@@ -4,9 +4,6 @@ import readline
 
 class MyCompleter(object):  # Custom completer
 
-    previous_commands = []
-    command_index = 0
-
     def __init__(self, options):
         self.options = sorted(options)
 
@@ -29,11 +26,6 @@ class MyCompleter(object):  # Custom completer
 
     def reset_index():
         command_index = 0
-
-    def up_arrow():
-        if previous_commands:
-            command_index = command_index + 1
-            return previous_commands[command_index - 1]
 
 def array_select_menu(array=[],header=""):
     exit = False
@@ -181,8 +173,6 @@ def terminal(func_list,command_list,header="terminal"):
     completer = MyCompleter(command_list)
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
-    #readline.parse_and_bind('"\\e[A": up_arrow')
-    #readline.parse_and_bind('tab: up_arrow')
     if len(func_list) != len(command_list):
         print("ERROR: utils.terminal needs two lists of same size!!")
         return
