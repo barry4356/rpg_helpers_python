@@ -35,7 +35,7 @@ def terminal(func_list,command_list,header="terminal"):
     readline.set_completer(completer.complete)
     readline.parse_and_bind('tab: complete')
     if len(func_list) != len(command_list):
-        print("ERROR: utils.terminal needs two lists of same size!!")
+        print("ERROR: terminal needs two lists of same size!!")
         return
     last_command = ""
     exit_terminal = False
