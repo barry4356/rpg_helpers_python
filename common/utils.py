@@ -193,9 +193,6 @@ def terminal(func_list,command_list,header="terminal"):
         if(val.lower() == "exit"):
             exit_terminal = True
         else:
-            if(val.lower() == "p"):
-                val = last_command
-                print(header+"> "+last_command)
             process_terminal_input(func_list=func_list,command_list=command_list,input_val=val.lower())
             last_command = val.lower()
 
