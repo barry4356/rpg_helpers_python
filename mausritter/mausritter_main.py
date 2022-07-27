@@ -17,6 +17,9 @@ def print_help(args=[]):
     tabwidth=24
     utils.print_header("Help - List of Commands")
     help_list = [
+        "Note: You can use [TAB] to auto-complete commands",
+        "      You can use [up/down] arrows to use previous commands",
+        "",
         "creature\t Create a new random creature",
         "creature [type]\t Create a random instance of specific creature",
         "dmg\t Open enemy damage tracker menu",
@@ -43,7 +46,6 @@ def print_help(args=[]):
         "weather\t Check today's weather (opens menu)",
         "weather [season]\t Check today's weather (specify current season)",
         "",
-        "p\t Repeat most recent command",
         "help\t Print this list of helpful commands",
         "exit\t Close Terminal"
     ]
