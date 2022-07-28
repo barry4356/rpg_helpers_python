@@ -55,7 +55,15 @@ def get_input(default=0.0):
         print("Invalid")
     print()
     return val
-    
+
+def to_int(input_val):
+    return_val = 0
+    try:
+        return_val = int(input_val)
+    except ValueError:
+        print("Invalid Input")
+    return return_val
+
 def get_input_int(default=0):
     val = default
     print()
