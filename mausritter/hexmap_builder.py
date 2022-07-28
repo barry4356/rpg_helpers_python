@@ -2,6 +2,7 @@
 import hexmap_builder_tables
 import dice
 import utils
+import hexmap_utils
 
 def convert_maus_to_fae(input_string):
     input_string = input_string.replace("mouse","fae")
@@ -113,9 +114,9 @@ def print_fae_hex():
         print_settlement(inhabitants, size, feature, governance, industry, event, name, tavern_name, tavern_specialty)
 
 def menu():
-    func_list = [print_hex,rnp_settlement,print_fae_hex]
-    desc_list = ["Create New Overworld Hex","Roll New Maus Settlement","Create New Faerie Hex"]
-    utils.menu(func_list,desc_list,"Adventure Menu",False)
+    func_list = [print_hex,rnp_settlement,print_fae_hex,hexmap_utils.menu]
+    desc_list = ["Create New Overworld Hex","Roll New Maus Settlement","Create New Faerie Hex","Hex Utilities"]
+    utils.menu(func_list,desc_list,"Hexmap Menu",False)
 
 def hex(argv=[]):
     if len(argv) == 1:
