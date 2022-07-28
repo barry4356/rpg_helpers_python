@@ -32,7 +32,7 @@ def print_help(args=[]):
         "hex\t Roll a new Map Hex",
         "hex -f\t Roll a new faerie world Map Hex",
         "hex -s\t Roll a new mouse settlement",
-        "hex -c [number]\t Check where a new hex tile number is located (ie get context)"
+        "hex -c [number]\t Check where a new hex tile number is located (ie get context)",
         "hide\t Open Hide Something Menu",
         "hide [name] [min] [max]\t Hide object 'name' somewhere between 2 tiles",
         "hide [name] [tile]\t Check for hidden object 'name' at specific spot",
