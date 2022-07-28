@@ -1,6 +1,11 @@
 #hexmath.py
 import utils
 
+def tile_distance(tile1, tile2):
+    coord1 = hex_to_coord(tile1)
+    coord2 = hex_to_coord(tile2)
+    return coord_distance(coord1,coord2)
+
 def coord_distance(coord1=[],coord2=[]):
     if len(coord1) != 2 or len(coord2) != 2:
         return 0

@@ -24,6 +24,12 @@ def test_layer_min_max():
         layer_min, layer_max = hexmath.layer_min_max(layer)
         print("Layer ["+str(layer)+"] Min ["+str(layer_min)+"] Max ["+str(layer_max)+"]")
 
+def test_tile_distance():
+    for tile in [1,2,3,4,60]:
+        for tile2 in [10,11,12,13,45]:
+            distance = int(hexmath.tile_distance(tile,tile2))
+            print("Tile1 ["+str(tile)+"] Tile 2["+str(tile2)+"] Distance ["+str(distance)+"]")
+
 print("Testing get_layer...")
 test_get_layer()
 print()
@@ -35,4 +41,7 @@ test_hex_to_coord()
 print()
 print("Testing coord_to_hex...")
 test_coord_to_hex()
+print()
+print("Testing tile_distance...")
+test_tile_distance()
 print()
