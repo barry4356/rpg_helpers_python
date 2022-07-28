@@ -128,6 +128,9 @@ def hex(argv=[]):
         elif argv[0] == "-c":
             if len(argv) > 1:
                 hexmap_utils.get_hex_context(utils.to_int(argv[1]))
+        elif argv[0] == "-br":
+            if len(argv) > 2:
+                hexmap_utils.compare_hex_tiles(utils.to_int(argv[1]),utils.to_int(argv[2]))
     else:
         print_hex()
     print()

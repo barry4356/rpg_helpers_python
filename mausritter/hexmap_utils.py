@@ -2,6 +2,13 @@
 import utils
 import hexmath
 
+def compare_hex_tiles(tile1, tile2):
+    distance = hexmath.tile_distance(tile1, tile2)
+    bearing = hexmath.tile_bearing(tile1, tile2)
+    print("Origin: Tile ["+str(tile1)+"] \nDestination: Tile ["+str(tile2)+"]")
+    print("Distance: ["+str(int(distance))+"] Tiles")
+    print("Bearing: ["+str(bearing)+"]")
+
 def get_hex_context(tile):
     layer = hexmath.get_layer(tile)
     north_edge, ne_edge, east_edge, se_edge, south_edge, sw_edge, west_edge, nw_edge = hexmath.get_hex_edges(layer)

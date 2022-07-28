@@ -24,6 +24,35 @@ def tile_distance(tile1, tile2):
     coord2 = hex_to_coord(tile2)
     return coord_distance(coord1,coord2)
 
+def tile_bearing(tile1, tile2):
+    coord1 = hex_to_coord(tile1)
+    coord2 = hex_to_coord(tile2)
+    return coord_bearing(coord1,coord2)
+
+def coord_bearing(coord1=[],coord2=[]):
+    if len(coord1) != 2 or len(coord2) != 2:
+        return ""
+    if coord1[0] < coord2[0]:
+        if coord1[1] == coord2[1]:
+            return "N"
+        elif coord1[1] < coord2[1]:
+            return "NE"
+        elif coord1[1] > coord2[1]:
+            return "NW"
+    elif coord1[0] == coord2[0]:
+        if coord1[1] < coord2[1]:
+            return "E"
+        elif coord1[1] > coord2[1]:
+            return "W"
+    elif coord1[0] > coord2[0]:
+        if coord1[1] == coord2[1]:
+            return "S"
+        elif coord1[1] < coord2[1]:
+            return "SE"
+        elif coord1[1] > coord2[1]:
+            return "SW"
+    return ""
+
 def coord_distance(coord1=[],coord2=[]):
     if len(coord1) != 2 or len(coord2) != 2:
         return 0

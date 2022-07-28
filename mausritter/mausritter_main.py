@@ -15,7 +15,7 @@ import treasure
 import custom_terminal
 
 def print_help(args=[]):
-    tabwidth=24
+    tabwidth=28
     utils.print_header("Help - List of Commands")
     help_list = [
         "Note: You can use [TAB] to auto-complete commands",
@@ -30,9 +30,10 @@ def print_help(args=[]):
         "event\t Open menu to roll a new seasonal event",
         "event [season]\t Roll a new seasonal event for specified season",
         "hex\t Roll a new Map Hex",
+        "hex -br [number1] [number2]\t Find Bearing/Range between two hex tiles",
+        "hex -c [number]\t Check where a new hex tile number is located (ie get context)",
         "hex -f\t Roll a new faerie world Map Hex",
         "hex -s\t Roll a new mouse settlement",
-        "hex -c [number]\t Check where a new hex tile number is located (ie get context)",
         "hide\t Open Hide Something Menu",
         "hide [name] [min] [max]\t Hide object 'name' somewhere between 2 tiles",
         "hide [name] [tile]\t Check for hidden object 'name' at specific spot",
