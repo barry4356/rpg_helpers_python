@@ -1,6 +1,24 @@
 #hexmath.py
 import utils
 
+def get_hex_edges(layer_num):
+    layer_min, layer_max = layer_min_max(layer_num)
+    layer_size = layer_max - layer_min + 1
+    north_edge = layer_min
+    ne_edge = layer_min + (layer_num-1)
+    se_edge = layer_min + (2 * (layer_num-1))
+    south_edge = layer_min + (3 * (layer_num - 1))
+    sw_edge = layer_min + (4 * (layer_num - 1))
+    nw_edge = layer_min + (5 * (layer_num - 1))
+    east_edge = 0
+    west_edge = 0
+    if layer_num % 2 != 0:
+    #If layer is odd, consider east/west edges
+        if ((north_edge + south_edge) / 2).is_integer():
+            east_edge = int(((north_edge + south_edge) / 2))
+            west_edge = south_edge + (south_edge - east_edge)
+    return north_edge, ne_edge, east_edge, se_edge, south_edge, sw_edge, west_edge, nw_edge
+
 def tile_distance(tile1, tile2):
     coord1 = hex_to_coord(tile1)
     coord2 = hex_to_coord(tile2)

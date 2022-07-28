@@ -30,6 +30,11 @@ def test_tile_distance():
             distance = int(hexmath.tile_distance(tile,tile2))
             print("Tile1 ["+str(tile)+"] Tile 2["+str(tile2)+"] Distance ["+str(distance)+"]")
 
+def test_get_hex_edges():
+    for layer in [5,2]:
+        print("Layer: "+str(layer)+" edges: ")
+        print(hexmath.get_hex_edges(layer))
+
 print("Testing get_layer...")
 test_get_layer()
 print()
@@ -44,4 +49,7 @@ test_coord_to_hex()
 print()
 print("Testing tile_distance...")
 test_tile_distance()
+print()
+print("Testing get_hex_edges...")
+test_get_hex_edges()
 print()
