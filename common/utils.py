@@ -24,6 +24,9 @@ def round(number_input):
         number_int = number_int + 1
     return int(number_int)
 
+def sqrt(input_num):
+    return input_num**(1/2)
+
 def areyousure():
     exit = False;
     while exit != True:
