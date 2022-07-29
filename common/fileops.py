@@ -6,7 +6,7 @@ def serialize_dict(input_dict,output_file):
     separator="->"
     serialized_str=""
     for key, value in input_dict.items():
-        serialized_str = (serialized_str+key+separator+value+"\n")
+        serialized_str = (serialized_str+key+separator+str(value)+"\n")
     write_file(output_file,serialized_str)
 
 #Read a dict in from a file

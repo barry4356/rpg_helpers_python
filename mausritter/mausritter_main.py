@@ -13,6 +13,7 @@ import encounters
 import contracts
 import treasure
 import custom_terminal
+import nobles
 
 def print_help(args=[]):
     tabwidth=28
@@ -59,11 +60,11 @@ def print_help(args=[]):
 def mausritter_terminal():
     command_list = ["help","rolmaus","enctr","nwrm","dmg",
         "weather","wanted","hex","swchk","roltres",
-        "roladv","creature","event","hide"
+        "roladv","creature","event","hide","noble"
     ]
     func_list = [print_help,maus_roller.rolmaus,encounters.enctr,dungeon.nwrm,combat.dmg,
         weather.weather,contracts.wanted,hexmap_builder.hex,treasure.swchk,treasure.roltres,
-        encounters.roladv, dungeon.creature, weather.event, hide_something.hide
+        encounters.roladv, dungeon.creature, weather.event, hide_something.hide,nobles.noble
     ]
     custom_terminal.terminal(func_list,command_list,header="maus_terminal")
 
