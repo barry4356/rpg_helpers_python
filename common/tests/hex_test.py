@@ -1,5 +1,11 @@
 #hex_test.py
 import hexmath
+import fileops
+
+def test_dict_utils():
+    fileops.serialize_dict({"key1":"value1","key2":"value2"},"results.txt")
+    my_dict = fileops.deserialize_dict("results.txt")
+    print(my_dict)
 
 def test_get_layer():
     for tilenum in range(61):
@@ -52,4 +58,7 @@ test_tile_distance()
 print()
 print("Testing get_hex_edges...")
 test_get_hex_edges()
+print()
+print("Testing some dict utils...")
+test_dict_utils()
 print()

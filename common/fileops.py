@@ -1,6 +1,27 @@
 #fileops.py
 import os
 
+#Write out a dict to a file
+def serialize_dict(input_dict,output_file):
+    separator="->"
+    serialized_str=""
+    for key, value in input_dict.items():
+        serialized_str = (serialized_str+key+separator+value+"\n")
+    write_file(output_file,serialized_str)
+
+#Read a dict in from a file
+def deserialize_dict(input_file):
+    separator="->"
+    deserialized_dict={}
+    raw_string = read_file(input_file)
+    raw_string = raw_string.split("\n")
+    for my_string in raw_string:
+        my_string = my_string.split(separator)
+        if len(my_string) != 2:
+            break
+        deserialized_dict[my_string[0]] = my_string[1]
+    return deserialized_dict
+
 def get_files(suffix="", path=""):
     onlyfiles = os.listdir(path)
     returnfiles = []
