@@ -1,10 +1,11 @@
 #nobles.tables.py
 #EXPERIMENTAL: All of these tables are custom/new
 nobleman_firstname=[
-"Furdinand", "Terrance"
+    "Furdinand", "Terrance","Jasper","Tarragon","Ambrose","Ambrosia",
 ]
 nobleman_lastname=[
-"Fuzzybottom","Brindlesworth"
+    "Fuzzybottom","Brindlesworth","Sardothian","Ratnarok","Mousolini","Thornburrow",
+    "Noakesburrow","Undertree","Winterholme","Galathynius","Wedgeworth"
 ]
 mission_type=[
     "bounty"
@@ -20,6 +21,6 @@ mission_goals={
     ]
 }
 lairs=[
-    "noble's keep", "tavern's basement","old mining outpost","caverns",
-    "bandit hideout", "spire in an ancient tree", "fortress", "ancient ruins"
+    "noble's keep", "tavern's basement","old mining outpost","cavern",
+    "bandit hideout", "spire in an ancient tree", "fortress", "ancient ruin"
 ]

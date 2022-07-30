@@ -16,7 +16,7 @@ import custom_terminal
 import nobles
 
 def print_help(args=[]):
-    tabwidth=28
+    tabwidth=33
     utils.print_header("Help - List of Commands")
     help_list = [
         "Note: You can use [TAB] to auto-complete commands",
@@ -38,6 +38,11 @@ def print_help(args=[]):
         "hide\t Open Hide Something Menu",
         "hide [name] [min] [max]\t Hide object 'name' somewhere between 2 tiles",
         "hide [name] [tile]\t Check for hidden object 'name' at specific spot",
+        "noble -t [tile_number]\t Create a random noble at hex location [tile_number]",
+        "noble -t [tile_number] -n [name]\t Create a noble [name] at location [tile_number]",
+        "noble -ls\t Show a list of nobles that currently exist and their number",
+        "noble -rm [number]\t Remove a noble spcefied by [number]",
+        "noble -talk [number]\t Talk with a noble specified by [number]",
         "nwrm\t Create a new adventure area room",
         "roladv\t Roll a random adventure",
         "rolmaus\t Roll a new Player Character Maus",
