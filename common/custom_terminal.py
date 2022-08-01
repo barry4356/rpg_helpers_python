@@ -1,6 +1,9 @@
 #custom_terminal.py
 
-import readline
+try:
+    import readline
+except ImportError:
+    import pyreadline as readline
 
 class MyCompleter(object):  # Custom completer
     def __init__(self, options):

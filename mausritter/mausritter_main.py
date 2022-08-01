@@ -39,7 +39,7 @@ def print_help(args=[]):
         "hide [name] [min] [max]\t Hide object 'name' somewhere between 2 tiles",
         "hide [name] [tile]\t Check for hidden object 'name' at specific spot",
         "noble -t [tile_number]\t Create a random noble at hex location [tile_number]",
-        "noble -t [tile_number] -n [name]\t Create a noble [name] at location [tile_number]",
+        "noble -t [tile_number] -n \"name\"\t Create a noble [name] at location [tile_number]",
         "noble -ls\t Show a list of nobles that currently exist and their number",
         "noble -rm [number]\t Remove a noble spcefied by [number]",
         "noble -talk [number]\t Talk with a noble specified by [number]",

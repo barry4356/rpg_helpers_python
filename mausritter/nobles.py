@@ -56,7 +56,7 @@ def create_noble(name="",race="mouse",tile_located=""):
     new_noble["race"] = race
     new_noble["tile_located"] = tile_located
     new_noble["mission"] = mission
-    print(new_noble["name"])
+    print("Creating Noble: "+new_noble["name"]+" at location hex tile: "+str(new_noble["tile_located"]))
     write_noble(new_noble)
 
 def list_nobles():
@@ -68,7 +68,7 @@ def list_nobles():
     index = 0
     for noble in nobles:
         index = index+1
-        noble_str=(str(index)+" - "+noble+"\tTile: "+noble_dicts[index-1]["tile_located"]).expandtabs(15)
+        noble_str=(str(index)+" - "+noble+"\tTile: "+noble_dicts[index-1]["tile_located"]).expandtabs(30)
         print(noble_str)
 
 def delete_noble(noble_num):
@@ -110,16 +110,16 @@ def noble(argv=[]):
     noble_name = ""
     race=""
     for argument in argv:
-        if argument.lower() == "-ls":
+        if argument.lower() == "-ls" or argument.lower() == "ls":
             list_nobles()
             return
-        elif argument.lower() == "-rm":
+        elif argument.lower() == "-rm" or argument.lower() == "rm":
             dash_rm = True
         elif argument.lower() == "-t":
             dash_t = True
         elif argument.lower() == "-n":
-            dash_n = 1
-        elif argument.lower() == "-talk":
+            dash_n = True
+        elif argument.lower() == "-talk" or argument.lower() == "talk":
             dash_talk = True
         elif dash_rm:
             delete_noble(utils.to_int(argument))
@@ -127,14 +127,14 @@ def noble(argv=[]):
         elif dash_t:
             noble_tile = utils.to_int(argument)
             dash_t = False
-        elif dash_n == 1:
-            noble_name = argument
-            dash_n = 2
-        elif dash_n == 2:
-            noble_name = noble_name + " " + argument
         elif dash_talk:
             talk_noble(utils.to_int(argument))
             return
+        elif dash_n:
+            noble_name = (noble_name+argument).replace("\"","")
+            if argument[-1] == '"':
+                dash_n = False
+       
 
     if noble_tile:
         create_noble(name=noble_name, tile_located=noble_tile)
