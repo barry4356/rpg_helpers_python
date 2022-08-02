@@ -46,7 +46,7 @@ def terminal(func_list,command_list,header="terminal"):
         if(val.lower() == "exit"):
             exit_terminal = True
         else:
-            process_terminal_input(func_list=func_list,command_list=command_list,input_val=val.lower())
+            process_terminal_input(func_list=func_list,command_list=command_list,input_val=val)
 
 def process_terminal_input(func_list,command_list,input_val=""):
     input_arr = input_val.split(' ')
