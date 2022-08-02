@@ -185,6 +185,9 @@ def noble(argv=[]):
             else:
                 noble_name = noble_name + " "
     if noble_tile:
+        #Remove trailing space
+        if noble_name[-1] == " ":
+            noble_name = noble_name[:-1]
         create_noble(name=noble_name, tile_located=noble_tile)
     else:
         print("Must specify a tile (eg. noble -t 7)")
