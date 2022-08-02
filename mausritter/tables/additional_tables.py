@@ -36,6 +36,7 @@ crime_table=[
 # Max Pips per head = 2 * (power_level * cash_multiplier)
 power_level={
     "maus":10,
+    "mouse":10,
     "rat":15,
     "frog":20,
     "owl":100,

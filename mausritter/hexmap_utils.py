@@ -1,6 +1,7 @@
 #hexmap_utils.py
 import utils
 import hexmath
+import dice
 
 def compare_hex_tiles(tile1, tile2):
     distance = hexmath.tile_distance(tile1, tile2)
@@ -25,6 +26,14 @@ def hexcontext_menu():
     print("What tile are you looking for context for?")
     val = utils.get_input_int()
     get_hex_context(val)
+
+def random_hex_in_area(center_tile=0, min_radius=0, max_radius=0):
+    for index in range (10000):
+        random_tile = dice.roll_custom(1000)
+        distance = hexmath.tile_distance(center_tile,random_tile)
+        if distance <= max_radius and distance >= min_radius:
+            return random_tile
+    return 0
 
 def menu():
     func_list = [hexcontext_menu]

@@ -8,7 +8,7 @@ nobleman_lastname=[
     "Noakesburrow","Undertree","Winterholme","Galathynius","Wedgeworth"
 ]
 mission_type=[
-    "bounty"
+    "bounty","fetch"
 ]
 mission_goals={
     "bounty" :
@@ -18,6 +18,12 @@ mission_goals={
         "slaughtered in such a way as to send a message",
         "negotiated into a... business agreement. Through any means necessary",
         "interrogated for their knowledge about the nobleman's dealings"
+    ],
+    "fetch" :
+    [
+        "an ancient family sword (HOPE IT'S NOT CURSED)",
+        "an ancient family heirloom",
+        "a long lost heir to their holdings"
     ]
 }
 lairs=[

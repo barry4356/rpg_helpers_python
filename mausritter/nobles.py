@@ -6,12 +6,15 @@ import utils
 import fileops
 import additional_tables
 import maus_table
+import hexmap_utils
+import hexmath
 
 #Noble Data Structure:
 #name         - Name of noble
 #race         - race of noble
 #Appearance   - Notable feature
 #Quirk        - Notable quirk
+#Demeanor     - Neutral / Friendly / Unfriendly
 #tile_located - hexmap location of noble
 #mission      - mission provided by noble (random)
 
@@ -31,13 +34,15 @@ def roll_mission(noble_name,mission_type="", tile_located=0,target_race=""):
     if not mission_type:
         mission_type = dice.roll_on_table(nobles_tables.mission_type)
     mission_goals = dice.roll_on_table(nobles_tables.mission_goals[mission_type])
-    #TODO tile and pip calculations
-    tile = dice.roll_1d20()
-    pips = dice.roll_1d20() * 100
+    #TODO pip calculations
+    tile = hexmap_utils.random_hex_in_area(center_tile=tile_located,max_radius=9,min_radius=3)
+    pip_dist_multiplier = (hexmath.tile_distance(tile_located,tile)) / 3
     target_name = roll_noblename()
     if not target_race:
         target_race = dice.roll_on_table(creature_tables.creatures)
     if mission_type.lower() == "bounty":
+        pip_base = additional_tables.power_level[target_race] * additional_tables.cash_multiplier * pip_dist_multiplier * 4
+        pips = int(pip_base + dice.roll_1d20() * 100 + dice.roll_1d20() * 10 + dice.roll_1d20())
         mission_string = noble_name+" is offereing his gratitude, and "+str(pips)+"pips for a favor of sorts...+"
         mission_string = mission_string+"They desire "+target_name+", a "+target_race+" "
         mission_string = mission_string+dice.roll_on_table(additional_tables.title_table)+", to be "
@@ -45,6 +50,12 @@ def roll_mission(noble_name,mission_type="", tile_located=0,target_race=""):
         mission_string = mission_string+"+Target can be found in hex tile "+str(tile)+", in a secret "
         mission_string = mission_string+dice.roll_on_table(nobles_tables.lairs)+".+"
         mission_string = mission_string+"Expect 1d6 Bodyguards on location."
+    elif mission_type.lower() == "fetch":
+        pips = int(dice.roll_custom(100) + pip_dist_multiplier * 1000)
+        mission_string = noble_name+" is offereing his gratitude, and "+str(pips)+"pips for a favor of sorts...+"
+        mission_string = mission_string+"They desire the safe return of "+mission_goals+".+"
+        mission_string = mission_string+"+Target can be found in hex tile "+str(tile)+", in a secret "
+        mission_string = mission_string+dice.roll_on_table(nobles_tables.lairs)+"."
     return mission_string
 
 def create_noble(name="",race="mouse",tile_located=""):
@@ -64,6 +75,7 @@ def create_noble(name="",race="mouse",tile_located=""):
     new_noble["quirk"] = quirk
     new_noble["tile_located"] = tile_located
     new_noble["mission"] = mission
+    new_noble["demeanor"] = "Neutral"
     print("Creating Noble: "+new_noble["name"]+" at location hex tile: "+str(new_noble["tile_located"]))
     write_noble(new_noble)
 
@@ -103,18 +115,47 @@ def talk_noble(noble_num):
         return
     noble_dict = fileops.deserialize_dict("mausritter/data/"+nobles[noble_num-1]+".noble")
     utils.print_header(noble_dict["name"])
-    print("Appearance: "+noble_dict["appearance"]+"\t"+"Quirk: "+noble_dict["quirk"]+"\n")
-    print(noble_dict["name"]+", a "+noble_dict["race"]+" Nobleman, has an important mission for you...\n")
+    print("Appearance: "+noble_dict["appearance"]+"\t"+"Quirk: "+noble_dict["quirk"])
+    print("Demeanor: "+noble_dict["demeanor"]+"\n")
     mission_str = noble_dict["mission"]
     print(mission_str.replace("+","\n"))
     print()
     
+def noble_success(noble_num=0):
+    if not noble_num:
+        print("ERROR: Number must be greater than zero!")
+        return
+    nobles=fileops.get_files(path="mausritter/data",suffix=".noble")
+    nobles = list({x.replace('.noble','') for x in nobles})
+    if noble_num > len(nobles):
+        print("ERROR: Invalid Number (use 'noble -ls' to see list of valid numbers)")
+        return
+    noble_dict = fileops.deserialize_dict("mausritter/data/"+nobles[noble_num-1]+".noble")
+    noble_dict["mission"] = (noble_dict["name"] + " is in debt to you. His holdings are at your disposal.")
+    noble_dict["demeanor"] = "Friendly"
+    write_noble(noble_dict)
+
+def noble_failure(noble_num=0):
+    if not noble_num:
+        print("ERROR: Number must be greater than zero!")
+        return
+    nobles=fileops.get_files(path="mausritter/data",suffix=".noble")
+    nobles = list({x.replace('.noble','') for x in nobles})
+    if noble_num > len(nobles):
+        print("ERROR: Invalid Number (use 'noble -ls' to see list of valid numbers)")
+        return
+    noble_dict = fileops.deserialize_dict("mausritter/data/"+nobles[noble_num-1]+".noble")
+    noble_dict["mission"] = roll_mission(noble_name=noble_dict["name"],mission_type="", tile_located=noble_dict["tile_located"],target_race=noble_dict["race"])
+    noble_dict["demeanor"] = "Unfriendly"
+    write_noble(noble_dict)
 
 def noble(argv=[]):
     dash_t = False 
     dash_n = 0
     dash_rm = False
     dash_talk = False
+    dash_s = False
+    dash_f = False
     noble_tile = 0
     noble_name = ""
     race=""
@@ -130,6 +171,10 @@ def noble(argv=[]):
             dash_n = True
         elif argument.lower() == "-talk" or argument.lower() == "talk":
             dash_talk = True
+        elif argument.lower() == "-s" or "-success" in argument.lower():
+            dash_s = True
+        elif argument.lower() == "-f" or "-fail" in argument.lower():
+            dash_f = True
         elif dash_rm:
             delete_noble(utils.to_int(argument))
             return
@@ -139,14 +184,18 @@ def noble(argv=[]):
         elif dash_talk:
             talk_noble(utils.to_int(argument))
             return
+        elif dash_s:
+            noble_success(utils.to_int(argument))
+            return
+        elif dash_f:
+            noble_failure(utils.to_int(argument))
+            return
         elif dash_n:
             noble_name = (noble_name+argument).replace("\"","")
             if argument[-1] == '"':
                 dash_n = False
             else:
                 noble_name = noble_name + " "
-       
-
     if noble_tile:
         create_noble(name=noble_name, tile_located=noble_tile)
     else:
