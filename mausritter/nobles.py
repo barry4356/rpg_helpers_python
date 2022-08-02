@@ -153,8 +153,9 @@ def noble(argv=[]):
             return
         elif argument.lower() == "-rm" or argument.lower() == "rm":
             dash_rm = True
-        elif argument.lower() == "-t":
+        elif argument.lower() == "-t" or "-tile" in argument.lower():
             dash_t = True
+            dash_n = False
         elif argument.lower() == "-n" or "-name" in argument.lower():
             dash_n = True
         elif argument.lower() == "-talk" or argument.lower() == "talk":
