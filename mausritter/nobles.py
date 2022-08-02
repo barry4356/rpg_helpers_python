@@ -9,19 +9,6 @@ import maus_table
 import hexmap_utils
 import hexmath
 
-#Noble Data Structure:
-#name         - Name of noble
-#race         - race of noble
-#Appearance   - Notable feature
-#Quirk        - Notable quirk
-#Demeanor     - Neutral / Friendly / Unfriendly
-#tile_located - hexmap location of noble
-#mission      - mission provided by noble (random)
-
-#Mission Data String Format (espionage)
-#[name] is offering his gratitude, and [pips]pips for a favor of sorts...
-#They desire [target], a [race] [descriptor] to be [mission]. 
-#Target can be found in hex tile [tile], in a secret [adventure area]
 def write_noble(new_noble):
     filename = "mausritter/data/"+new_noble["name"].replace(" ","_")+".noble"
     fileops.serialize_dict(new_noble,filename)
@@ -36,12 +23,13 @@ def roll_mission(noble_name,mission_type="", tile_located=0,target_race=""):
     mission_goals = dice.roll_on_table(nobles_tables.mission_goals[mission_type])
     #TODO pip calculations
     tile = hexmap_utils.random_hex_in_area(center_tile=tile_located,max_radius=9,min_radius=3)
-    pip_dist_multiplier = (hexmath.tile_distance(tile_located,tile)) / 3
+    pip_dist_multiplier = (hexmath.tile_distance(tile_located,tile))
+    pip_travel_base = (hexmath.tile_distance(tile_located,tile)) * 350
     target_name = roll_noblename()
     if not target_race:
         target_race = dice.roll_on_table(creature_tables.creatures)
     if mission_type.lower() == "bounty":
-        pip_base = additional_tables.power_level[target_race] * additional_tables.cash_multiplier * pip_dist_multiplier * 4
+        pip_base = (5 * additional_tables.power_level[target_race] * additional_tables.cash_multiplier) + pip_travel_base
         pips = int(pip_base + dice.roll_1d20() * 100 + dice.roll_1d20() * 10 + dice.roll_1d20())
         mission_string = noble_name+" is offereing his gratitude, and "+str(pips)+"pips for a favor of sorts...+"
         mission_string = mission_string+"They desire "+target_name+", a "+target_race+" "
@@ -51,7 +39,7 @@ def roll_mission(noble_name,mission_type="", tile_located=0,target_race=""):
         mission_string = mission_string+dice.roll_on_table(nobles_tables.lairs)+".+"
         mission_string = mission_string+"Expect 1d6 Bodyguards on location."
     elif mission_type.lower() == "fetch":
-        pips = int(dice.roll_custom(100) + pip_dist_multiplier * 1000)
+        pips = int(dice.roll_custom(100) + pip_travel_base)
         mission_string = noble_name+" is offereing his gratitude, and "+str(pips)+"pips for a favor of sorts...+"
         mission_string = mission_string+"They desire the safe return of "+mission_goals+".+"
         mission_string = mission_string+"+Target can be found in hex tile "+str(tile)+", in a secret "

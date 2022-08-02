@@ -46,6 +46,6 @@ power_level={
     "spider":40,
     "crow":30,
     "snake":50,
-    "cat":400
+    "cat":200
 }
 cash_multiplier = 10
