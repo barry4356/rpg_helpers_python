@@ -43,6 +43,8 @@ def print_help(args=[]):
         "noble -ls\t Show a list of nobles that currently exist and their number",
         "noble -rm [number]\t Remove a noble spcefied by [number]",
         "noble -talk [number]\t Talk with a noble specified by [number]",
+        "noble -f [number]\t Denote that you've failed a noble's quest",
+        "noble -s [number]\t Denote that you've succeeded a noble's quest",
         "nwrm\t Create a new adventure area room",
         "roladv\t Roll a random adventure",
         "rolmaus\t Roll a new Player Character Maus",
