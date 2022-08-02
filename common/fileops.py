@@ -23,8 +23,12 @@ def deserialize_dict(input_file):
     return deserialized_dict
 
 def get_files(suffix="", path=""):
-    onlyfiles = os.listdir(path)
     returnfiles = []
+    try:
+        onlyfiles = os.listdir(path)
+    except FileNotFoundError:
+        print ("ERROR: No such directory ["+path+"]")
+        return returnfiles
     for myfile in onlyfiles:
         if suffix in myfile:
             returnfiles.append(myfile)
@@ -36,7 +40,16 @@ def remove_file(my_filename):
     else:
         print("ERROR: Failed to Remove file "+str(my_filename))
 
+def mkdir_file(filename=""):
+    if not filename:
+        print("ERROR: NULL Filename")
+    file_dir = os.path.dirname(os.path.abspath(filename))
+    isExist = os.path.exists(file_dir)
+    if not isExist:
+        os.makedirs(file_dir)
+
 def write_file(my_filename,my_filecontent):
+    mkdir_file(filename=my_filename)
     try:
         with open(my_filename,'w') as file:
             file.write(str(my_filecontent))
