@@ -9,7 +9,7 @@ medium=[
 ]
 small=[
     "mouse w/ d6 sword","mouse w/ d8 Bow","mouse w/ d6 sword","mouse w/ d8 Bow","rat w/ d6 cleaver",
-    "rat w/ d6 cleaver","rat w/ d6 cleaver","rat w/ d6 cleaver","rat w/ d6 cleaver","rat w/ d6 cleaver"
+    "rat w/ d6 cleaver","rat w/ d6 cleaver","rat w/ d6 cleaver","frog w/ d6 tongue","frog w/ d6 tongue"
 ]
 tiny=["spider","spider","spider","centipede","centipede","centipede"]
 
