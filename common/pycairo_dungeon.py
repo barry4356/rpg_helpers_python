@@ -1,9 +1,9 @@
 import cairo
 import random
+import numpy as np
 
 map_width = 50 # number of squares wide
 map_height = 50 # number of squares tall
-my_map = []
 
 min_room_size = 6
 max_room_size = 20
@@ -31,9 +31,9 @@ def check_for_overlap(room, rooms):
 
 def init_map():
     """Initializes the map of key/value pairs."""
-    my_width = [0] * map_width
-    for index in range(map_height):
-        my_map.append(my_width)
+    s = (map_height,map_width)
+    my_map = np.zeros(s)
+    return my_map
 
 class Room:
     """Defines a room of the dungeon."""
@@ -43,7 +43,7 @@ class Room:
         self.width = width
         self.height = height
 
-def init_rooms():
+def init_rooms(my_map):
     """Initializes the rooms in the dungeon."""
     total_rooms = random.randrange(min_rooms,max_rooms)
     for i in range(max_iters):
@@ -60,10 +60,17 @@ def init_rooms():
     else:
         rooms.append(room)
     for room in rooms:
-        for y in range(room.y, room.y+room.height):
-            for x in range(room.x, room.x+room.width):
-                if x < map_width and y < map_height:
-                    my_map[x][y] = 1
+        #for y in range(room.y, room.y+room.height):
+        #    for x in range(room.x, room.x+room.width):
+        #        if x < map_width and y < map_height:
+        #            my_map[x][y] = 1
+        for index, row in np.ndenumerate(my_map):
+            if index[0] < room.y or index[0] > room.y+room.height or index [1] < room.x or index[1] > room.x+room.width:
+                continue
+            else:
+                my_map[index[0]][index[1]] = 1
+        np.set_printoptions(threshold=np.inf)
+        return(my_map)
 
 def connect_rooms():
     """Draws passages randomly between the rooms."""
@@ -82,9 +89,7 @@ def connect_rooms():
     for y in range(roomB.y, roomA.y):
         my_map[roomA.x][y] = 1
 
-def draw_dungeon():
-    for index in range(len(my_map)):
-        print(my_map[index])
+def draw_dungeon(my_map):
     """Draw the dungeon with cario rectangles."""
     surface = cairo.ImageSurface(cairo.FORMAT_RGB24,500,500)
     ctx = cairo.Context(surface)
@@ -101,10 +106,10 @@ def draw_dungeon():
     print("Total rooms: " + str(len(rooms)))
 
 def generate_dungeon():
-    init_map()
-    init_rooms()
-    connect_rooms()
-    draw_dungeon()
+    my_map = init_map()
+    my_map = init_rooms(my_map)
+    #connect_rooms()
+    draw_dungeon(my_map)
 
 if __name__ == "__main__":
     generate_dungeon()
