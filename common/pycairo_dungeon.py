@@ -48,29 +48,24 @@ def init_rooms(my_map):
     total_rooms = random.randrange(min_rooms,max_rooms)
     for i in range(max_iters):
         for r in range(total_rooms):
+            x = random.randrange(0,map_width)
+            y = random.randrange(0,map_height)
+            width = random.randrange(min_room_size,max_room_size)
+            height = random.randrange(min_room_size,max_room_size)
+            room = Room(x,y,width,height)
+            if check_for_overlap(room, rooms):
+                pass
+            else:
+                rooms.append(room)
             if len(rooms) >= max_rooms:
                 break
-    x = random.randrange(0,map_width)
-    y = random.randrange(0,map_height)
-    width = random.randrange(min_room_size,max_room_size)
-    height = random.randrange(min_room_size,max_room_size)
-    room = Room(x,y,width,height)
-    if check_for_overlap(room, rooms):
-        pass
-    else:
-        rooms.append(room)
     for room in rooms:
-        #for y in range(room.y, room.y+room.height):
-        #    for x in range(room.x, room.x+room.width):
-        #        if x < map_width and y < map_height:
-        #            my_map[x][y] = 1
         for index, row in np.ndenumerate(my_map):
             if index[0] < room.y or index[0] > room.y+room.height or index [1] < room.x or index[1] > room.x+room.width:
                 continue
             else:
                 my_map[index[0]][index[1]] = 1
-        np.set_printoptions(threshold=np.inf)
-        return(my_map)
+    return(my_map)
 
 def connect_rooms():
     """Draws passages randomly between the rooms."""
