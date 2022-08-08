@@ -84,14 +84,13 @@ def connect_rooms():
     for y in range(roomB.y, roomA.y):
         my_map[roomA.x][y] = 1
 
-def draw_dungeon(my_map, room_coordinates=[], map_name="Map Name"):
+def draw_dungeon(my_map, map_name="Map Name"):
     """Draw the dungeon with cario rectangles."""
     """If the Room coordinates are provided, add labels."""
     surface = cairo.ImageSurface(cairo.FORMAT_RGB24,map_width*10,map_height*10)
     ctx = cairo.Context(surface)
     for y in range(map_height):
         for x in range(map_width):
-            r = random.randrange(1,10)
             if my_map[x][y] == 0:
                 ctx.set_source_rgb(0.3,0.3,0.3)
             else:
@@ -106,6 +105,17 @@ def draw_dungeon(my_map, room_coordinates=[], map_name="Map Name"):
                      cairo.FONT_WEIGHT_NORMAL)
     ctx.move_to(map_width/4, map_width/1.5)
     ctx.show_text(map_name)
+    #Draw Room Labels
+    room_number = 0
+    for room in rooms:
+        room_number = room_number + 1
+        ctx.set_source_rgb(1, 0, 0)
+        ctx.set_font_size(map_width / 3)
+        ctx.select_font_face("Arial",
+                     cairo.FONT_SLANT_NORMAL,
+                     cairo.FONT_WEIGHT_NORMAL)
+        ctx.move_to((room.y+.5*room.height)*10, (room.x+.5*room.width)*10)
+        ctx.show_text(str(room_number))
     #Write to png file
     surface.write_to_png("dungeon.png")
     print("Total rooms: " + str(len(rooms)))
@@ -121,8 +131,3 @@ if __name__ == "__main__":
 
 def __str__(self):
     return f"A room at ({self.x},{self.y})"
-
-
-
-
-
