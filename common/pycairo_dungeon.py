@@ -23,8 +23,8 @@ def check_for_overlap(room, rooms):
         ymax1 = room.y + room.height
         ymin2 = current_room.y
         ymax2 = current_room.y + current_room.height
-        if (xmin1 <= xmax2 and xmax1 >= xmin2) and \
-           (ymin1 <= ymax2 and ymax1 >= ymin2):
+        if (xmin1 <= xmax2+1 and xmax1 >= xmin2-1) and \
+           (ymin1 <= ymax2+1 and ymax1 >= ymin2-1):
             return True
     return False
 
@@ -104,7 +104,7 @@ def draw_dungeon(my_map, room_coordinates=[], map_name="Map Name"):
     ctx.select_font_face("Arial",
                      cairo.FONT_SLANT_NORMAL,
                      cairo.FONT_WEIGHT_NORMAL)
-    ctx.move_to(map_width/3, map_width/3)
+    ctx.move_to(map_width/4, map_width/1.5)
     ctx.show_text(map_name)
     #Write to png file
     surface.write_to_png("dungeon.png")
