@@ -4,6 +4,7 @@ import numpy as np
 from pyDungeon_utils import check_room_overlap
 from pyDungeon_utils import sort_rooms_x
 from pyDungeon_hallways import connect_points
+from pyDungeon_classes import Room
 
 map_width = 50 # number of squares wide
 map_height = 50 # number of squares tall
@@ -22,15 +23,6 @@ def init_map():
     s = (map_height,map_width)
     my_map = np.zeros(s)
     return my_map
-
-class Room:
-    """Defines a room of the dungeon."""
-    def __init__(self,x,y,width,height):
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
-        self.room_number = 0
 
 def init_rooms():
     """Initializes the rooms in the dungeon."""
