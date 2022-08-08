@@ -11,6 +11,7 @@ max_rooms = 10
 min_rooms = 5
 max_iters = 3
 rooms = []
+my_map = []
 
 def check_for_overlap(room, rooms):
     """Return false if the room overlaps any other room."""
@@ -31,6 +32,7 @@ def check_for_overlap(room, rooms):
 
 def init_map():
     """Initializes the map of key/value pairs."""
+    global my_map
     s = (map_height,map_width)
     my_map = np.zeros(s)
     return my_map
@@ -43,7 +45,7 @@ class Room:
         self.width = width
         self.height = height
 
-def init_rooms(my_map):
+def init_rooms():
     """Initializes the rooms in the dungeon."""
     total_rooms = random.randrange(min_rooms,max_rooms)
     for i in range(max_iters):
@@ -77,7 +79,6 @@ def init_rooms(my_map):
                 continue
             else:
                 my_map[index[0]][index[1]] = 1
-    return(my_map)
 
 def connect_rooms():
     """Draws passages randomly between the rooms."""
@@ -96,7 +97,7 @@ def connect_rooms():
     for y in range(roomB.y, roomA.y):
         my_map[roomA.x][y] = 1
 
-def draw_dungeon(my_map, map_name="Map Name"):
+def draw_dungeon(map_name="Map Name"):
     """Draw the dungeon with cario rectangles."""
     """If the Room coordinates are provided, add labels."""
     surface = cairo.ImageSurface(cairo.FORMAT_RGB24,map_width*10,map_height*10)
@@ -133,10 +134,10 @@ def draw_dungeon(my_map, map_name="Map Name"):
     print("Total rooms: " + str(len(rooms)))
 
 def generate_dungeon():
-    my_map = init_map()
-    my_map = init_rooms(my_map)
+    init_map()
+    init_rooms()
     #connect_rooms()
-    draw_dungeon(my_map)
+    draw_dungeon()
 
 if __name__ == "__main__":
     generate_dungeon()
