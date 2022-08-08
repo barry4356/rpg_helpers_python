@@ -3,6 +3,7 @@ import random
 import numpy as np
 from pyDungeon_utils import check_room_overlap
 from pyDungeon_utils import sort_rooms_x
+from pyDungeon_hallways import connect_points
 
 map_width = 50 # number of squares wide
 map_height = 50 # number of squares tall
@@ -29,9 +30,11 @@ class Room:
         self.y = y
         self.width = width
         self.height = height
+        self.room_number = 0
 
 def init_rooms():
     """Initializes the rooms in the dungeon."""
+    room_number = 0
     total_rooms = random.randrange(min_rooms,max_rooms)
     for i in range(max_iters):
         for r in range(total_rooms):
@@ -55,6 +58,8 @@ def init_rooms():
             if check_room_overlap(room, rooms):
                 pass
             else:
+                room_number = room_number + 1
+                room.room_number = room_number
                 rooms.append(room)
             if len(rooms) >= max_rooms:
                 break
@@ -67,21 +72,51 @@ def init_rooms():
 
 def connect_rooms():
     """Draws passages randomly between the rooms."""
+    global my_map
+    for room in rooms:
+        #print("Room: ["+str(room.room_number)+"] Width: ["+str(room.width)+"] Height: ["+str(room.height)+"]")
+        first_point = []
+        second_point = []
+        #Right->Left, Right->Bottom, Right->Top
+        rl = False
+        rb = False
+        rt = False
+        #first_elbow = random.randint(int(room.width*.3),int(room.width*.5))
+        first_elbow = room.width
+        #Either add hallway to the right edge
+        if random.randint(0, 1) == 1:
+            for roomB in rooms:
+                if roomB.x > room.x + room.width + first_elbow:
+                    first_point = [room.x+room.width,random.randint(room.y,room.y+room.height)]
+                    if roomB.y > first_point[1] + first_elbow + roomB.height:
+                        second_point = [random.randint(roomB.x,roomB.x+room.width),roomB.y+roomB.height]
+                        print("RB")
+                        rb = True
+        else:
+        #Or the bottom edge
+            print()
+        if first_point and second_point:
+            if rb == True:
+                current_point=first_point
+                for i in range(first_elbow):
+                    my_map[current_point[1]][current_point[0]] = 1
+                    current_point = [current_point[0]+1,current_point[1]]
+
     #random.shuffle(rooms)
-    sorted_rooms = sort_rooms_x(rooms)
-    roomA = rooms[0]
-    roomB = rooms[0]
-    for i in range(len(rooms)-1):
-        roomA = rooms[i]
-        roomB = rooms[i+1]
-    for x in range(roomA.x,roomB.x):
-        my_map[x][roomA.y] = 1
-    for y in range(roomA.y, roomB.y):
-        my_map[roomA.x][y] = 1
-    for x in range(roomB.x,roomA.x):
-        my_map[x][roomA.y] = 1
-    for y in range(roomB.y, roomA.y):
-        my_map[roomA.x][y] = 1
+    #sorted_rooms_x = sort_rooms_x(rooms)
+    #roomA = rooms[0]
+    #roomB = rooms[0]
+    #for i in range(len(rooms)-1):
+    #    roomA = rooms[i]
+    #    roomB = rooms[i+1]
+    #for x in range(roomA.x,roomB.x):
+    #    my_map[x][roomA.y] = 1
+    #for y in range(roomA.y, roomB.y):
+    #    my_map[roomA.x][y] = 1
+    #for x in range(roomB.x,roomA.x):
+    #    my_map[x][roomA.y] = 1
+    #for y in range(roomB.y, roomA.y):
+    #    my_map[roomA.x][y] = 1
 
 def draw_dungeon(map_name="Map Name"):
     """Draw the dungeon with cario rectangles."""
@@ -90,7 +125,7 @@ def draw_dungeon(map_name="Map Name"):
     ctx = cairo.Context(surface)
     for y in range(map_height):
         for x in range(map_width):
-            if my_map[x][y] == 0:
+            if my_map[y][x] == 0:
                 ctx.set_source_rgb(0.3,0.3,0.3)
             else:
                 ctx.set_source_rgb(0.5,0.5,0.5)
@@ -105,16 +140,14 @@ def draw_dungeon(map_name="Map Name"):
     ctx.move_to(map_width/4, map_width/1.5)
     ctx.show_text(map_name)
     #Draw Room Labels
-    room_number = 0
     for room in rooms:
-        room_number = room_number + 1
         ctx.set_source_rgb(1, 0, 0)
         ctx.set_font_size(map_width / 3)
         ctx.select_font_face("Arial",
                      cairo.FONT_SLANT_NORMAL,
                      cairo.FONT_WEIGHT_NORMAL)
-        ctx.move_to((room.y+.5*room.height)*10, (room.x+.5*room.width)*10)
-        ctx.show_text(str(room_number))
+        ctx.move_to((room.x+.5*room.width)*10, (room.y+.5*room.height)*10)
+        ctx.show_text(str(room.room_number))
     #Write to png file
     surface.write_to_png("dungeon.png")
     print("Total rooms: " + str(len(rooms)))
