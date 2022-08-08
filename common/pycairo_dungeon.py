@@ -5,10 +5,10 @@ import numpy as np
 map_width = 50 # number of squares wide
 map_height = 50 # number of squares tall
 
-min_room_size = 6
+min_room_size = 10
 max_room_size = 20
 max_rooms = 10
-min_rooms = 3
+min_rooms = 5
 max_iters = 3
 rooms = []
 
@@ -84,12 +84,13 @@ def connect_rooms():
     for y in range(roomB.y, roomA.y):
         my_map[roomA.x][y] = 1
 
-def draw_dungeon(my_map):
+def draw_dungeon(my_map, room_coordinates=[], map_name="Map Name"):
     """Draw the dungeon with cario rectangles."""
-    surface = cairo.ImageSurface(cairo.FORMAT_RGB24,500,500)
+    """If the Room coordinates are provided, add labels."""
+    surface = cairo.ImageSurface(cairo.FORMAT_RGB24,map_width*10,map_height*10)
     ctx = cairo.Context(surface)
-    for y in range(50):
-        for x in range(50):
+    for y in range(map_height):
+        for x in range(map_width):
             r = random.randrange(1,10)
             if my_map[x][y] == 0:
                 ctx.set_source_rgb(0.3,0.3,0.3)
@@ -97,6 +98,15 @@ def draw_dungeon(my_map):
                 ctx.set_source_rgb(0.5,0.5,0.5)
             ctx.rectangle(x*10, y*10, 10, 10)
             ctx.fill()
+    # Draw Map Label
+    ctx.set_source_rgb(1, 0, 0)
+    ctx.set_font_size(map_width / 3)
+    ctx.select_font_face("Arial",
+                     cairo.FONT_SLANT_NORMAL,
+                     cairo.FONT_WEIGHT_NORMAL)
+    ctx.move_to(map_width/3, map_width/3)
+    ctx.show_text(map_name)
+    #Write to png file
     surface.write_to_png("dungeon.png")
     print("Total rooms: " + str(len(rooms)))
 
