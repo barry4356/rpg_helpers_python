@@ -48,8 +48,8 @@ def init_rooms(my_map):
     total_rooms = random.randrange(min_rooms,max_rooms)
     for i in range(max_iters):
         for r in range(total_rooms):
-            x = random.randrange(0,map_width)
-            y = random.randrange(0,map_height)
+            x = random.randrange(1,(map_width-min_room_size-1))
+            y = random.randrange(1,(map_height-min_room_size-1))
             #Try and keep rooms within the boundaries
             max_width = max_room_size
             max_height = max_room_size
