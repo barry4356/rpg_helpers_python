@@ -81,16 +81,15 @@ def connect_rooms():
         rl = False
         rb = False
         rt = False
-        #first_elbow = random.randint(int(room.width*.3),int(room.width*.5))
-        first_elbow = room.width
+        first_elbow = random.randint(int(room.width*.3),int(room.width*.5))
         #Either add hallway to the right edge
         if random.randint(0, 1) == 1:
             for roomB in rooms:
                 if roomB.x > room.x + room.width + first_elbow:
                     first_point = [room.x+room.width,random.randint(room.y,room.y+room.height)]
-                    if roomB.y > first_point[1] + first_elbow + roomB.height:
+                    if roomB.y < first_point[1] - first_elbow - roomB.height and roomB.x > room.x+room.width:
                         second_point = [random.randint(roomB.x,roomB.x+room.width),roomB.y+roomB.height]
-                        print("RB")
+                        print("RB- Room ["+str(room.room_number)+"] Connect to Room ["+str(roomB.room_number)+"]")
                         rb = True
         else:
         #Or the bottom edge
@@ -101,6 +100,9 @@ def connect_rooms():
                 for i in range(first_elbow):
                     my_map[current_point[1]][current_point[0]] = 1
                     current_point = [current_point[0]+1,current_point[1]]
+                for i in range(second_point[1],current_point[1]):
+                    my_map[current_point[1]][current_point[0]] = 1
+                    current_point = [current_point[0],current_point[1]-1]
 
     #random.shuffle(rooms)
     #sorted_rooms_x = sort_rooms_x(rooms)
