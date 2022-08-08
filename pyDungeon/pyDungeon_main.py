@@ -1,6 +1,7 @@
 import cairo
 import random
 import numpy as np
+from pyDungeon_utils import check_room_overlap
 
 map_width = 50 # number of squares wide
 map_height = 50 # number of squares tall
@@ -12,23 +13,6 @@ min_rooms = 5
 max_iters = 3
 rooms = []
 my_map = []
-
-def check_for_overlap(room, rooms):
-    """Return false if the room overlaps any other room."""
-    for current_room in rooms:
-        xmin1 = room.x
-        xmax1 = room.x + room.width
-        xmin2 = current_room.x
-        xmax2 = current_room.x + current_room.width
-        ymin1 = room.y
-        ymax1 = room.y + room.height
-        ymin2 = current_room.y
-        ymax2 = current_room.y + current_room.height
-        if (xmin1 <= xmax2+1 and xmax1 >= xmin2-1) and \
-           (ymin1 <= ymax2+1 and ymax1 >= ymin2-1):
-            return True
-    return False
-
 
 def init_map():
     """Initializes the map of key/value pairs."""
@@ -67,7 +51,7 @@ def init_rooms():
             width = random.randrange(min_room_size,max_width)
             height = random.randrange(min_room_size,max_height)
             room = Room(x,y,width,height)
-            if check_for_overlap(room, rooms):
+            if check_room_overlap(room, rooms):
                 pass
             else:
                 rooms.append(room)
