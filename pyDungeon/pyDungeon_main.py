@@ -8,11 +8,11 @@ from pyDungeon_hallways import print_nodes
 from pyDungeon_classes import Room
 from pyDungeon_classes import Node
 
-map_width = 55 # number of squares wide
-map_height = 55 # number of squares tall
+map_width = 60 # number of squares wide
+map_height = 60 # number of squares tall
 
 min_room_size = 4
-max_room_size = 20
+max_room_size = 15
 max_rooms = 14
 min_rooms = 12
 max_iters = 3
