@@ -2,6 +2,7 @@ import cairo
 import random
 import numpy as np
 from pyDungeon_utils import check_room_overlap
+from pyDungeon_utils import sort_rooms_x
 
 map_width = 50 # number of squares wide
 map_height = 50 # number of squares tall
@@ -66,7 +67,8 @@ def init_rooms():
 
 def connect_rooms():
     """Draws passages randomly between the rooms."""
-    random.shuffle(rooms)
+    #random.shuffle(rooms)
+    sorted_rooms = sort_rooms_x(rooms)
     roomA = rooms[0]
     roomB = rooms[0]
     for i in range(len(rooms)-1):

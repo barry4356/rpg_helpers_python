@@ -1,5 +1,6 @@
 #pyDungeon_utils.py
 
+#Check if a room overlaps with any in the list
 def check_room_overlap(room, rooms):
     """Return false if the room overlaps any other room."""
     for current_room in rooms:
@@ -15,3 +16,9 @@ def check_room_overlap(room, rooms):
            (ymin1 <= ymax2+1 and ymax1 >= ymin2-1):
             return True
     return False
+
+#Sort rooms by room.x value
+def sort_rooms_x(rooms):
+    rooms_sorted = rooms
+    rooms_sorted.sort(key=lambda x: x.x)
+    return rooms_sorted
