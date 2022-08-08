@@ -9,7 +9,7 @@ class Room:
         self.height = height
         self.room_number = 0
         self.nodes = []
-    def add_node(node):
+    def add_node(self,node):
         self.nodes.append(node.label)
 
 class Node:
@@ -19,5 +19,6 @@ class Node:
         self.y = y
         self.label = label
         self.connections = []
+        self.room = ""
     def add_connection(node):
         self.connections.append([node.label])

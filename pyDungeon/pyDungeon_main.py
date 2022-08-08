@@ -3,19 +3,24 @@ import random
 import numpy as np
 from pyDungeon_utils import check_room_overlap
 from pyDungeon_utils import sort_rooms_x
-from pyDungeon_hallways import connect_points
+from pyDungeon_utils import print_rooms
+from pyDungeon_hallways import print_nodes
 from pyDungeon_classes import Room
+from pyDungeon_classes import Node
 
-map_width = 50 # number of squares wide
-map_height = 50 # number of squares tall
+map_width = 55 # number of squares wide
+map_height = 55 # number of squares tall
 
 min_room_size = 4
 max_room_size = 20
-max_rooms = 10
-min_rooms = 5
+max_rooms = 14
+min_rooms = 12
 max_iters = 3
 rooms = []
 my_map = []
+my_nodex = []
+node_label = 'a'
+nodes = []
 
 def init_map():
     """Initializes the map of key/value pairs."""
@@ -65,44 +70,51 @@ def init_rooms():
 def connect_rooms():
     """Draws passages randomly between the rooms."""
     global my_map
+    global node_label
     for room in rooms:
         for roomB in rooms:
             #Check if we have a room below our bottom edge
             if roomB.y > room.y + room.height:
                 if roomB.x < room.x + room.width and roomB.x + roomB.width > room.x:
-                    print("SOUTH: Connecting Room ["+str(room.room_number)+"] to Room ["+str(roomB.room_number)+"]")
+                    #print("SOUTH: Connecting Room ["+str(room.room_number)+"] to Room ["+str(roomB.room_number)+"]")
                     lowest_x = max(roomB.x,room.x)
                     highest_x = min(roomB.x+roomB.width,room.x+room.width)
-                    starting_point = [random.randint(lowest_x,highest_x), room.y+room.height]
+                    starting_point = [random.randint(lowest_x,highest_x), room.y+room.height+1]
+                    my_map[starting_point[1]-1][starting_point[0]] = 3
+                    newNode = Node(starting_point[0],starting_point[1]-1,node_label)
+                    newNode.room = room.room_number
+                    room.add_node(newNode)
+                    nodes.append(newNode)
+                    node_label = chr(ord(node_label) + 1)
                     for y in range(starting_point[1],roomB.y):
                         my_map[y][starting_point[0]] = 2
+                    my_map[roomB.y][starting_point[0]] = 3
+                    newNode = Node(starting_point[0],roomB.y,node_label)
+                    newNode.room = roomB.room_number
+                    nodes.append(newNode)
+                    roomB.add_node(newNode)
+                    node_label = chr(ord(node_label) + 1)
                     break
             #Check if we have a room to the right of our left edge
             if roomB.x > room.x + room.width:
                 if roomB.y < room.y + room.height and roomB.y + roomB.height > room.y:
-                    print("EAST: Connecting Room ["+str(room.room_number)+"] to Room ["+str(roomB.room_number)+"]")
+                    #print("EAST: Connecting Room ["+str(room.room_number)+"] to Room ["+str(roomB.room_number)+"]")
                     lowest_y = max(roomB.y,room.y)
                     highest_y = min(roomB.y+roomB.height,room.y+room.height)
-                    starting_point = [room.x+room.width,random.randint(lowest_y,highest_y)]
+                    starting_point = [room.x+room.width+1,random.randint(lowest_y,highest_y)]
+                    my_map[starting_point[1]][starting_point[0]-1] = 3
+                    newNode = Node(starting_point[0]-1,starting_point[1],node_label)
+                    newNode.room = room.room_number
+                    nodes.append(newNode)
+                    node_label = chr(ord(node_label) + 1)
                     for x in range(starting_point[0],roomB.x):
                         my_map[starting_point[1]][x] = 2
+                    my_map[starting_point[1]][roomB.x] = 3
+                    newNode = Node(roomB.x,starting_point[1],node_label)
+                    newNode.room = room.room_number
+                    nodes.append(newNode)
+                    node_label = chr(ord(node_label) + 1)
                     break
-
-    #random.shuffle(rooms)
-    #sorted_rooms_x = sort_rooms_x(rooms)
-    #roomA = rooms[0]
-    #roomB = rooms[0]
-    #for i in range(len(rooms)-1):
-    #    roomA = rooms[i]
-    #    roomB = rooms[i+1]
-    #for x in range(roomA.x,roomB.x):
-    #    my_map[x][roomA.y] = 1
-    #for y in range(roomA.y, roomB.y):
-    #    my_map[roomA.x][y] = 1
-    #for x in range(roomB.x,roomA.x):
-    #    my_map[x][roomA.y] = 1
-    #for y in range(roomB.y, roomA.y):
-    #    my_map[roomA.x][y] = 1
 
 def draw_dungeon(map_name="Map Name"):
     """Draw the dungeon with cario rectangles."""
@@ -113,7 +125,11 @@ def draw_dungeon(map_name="Map Name"):
         for x in range(map_width):
             if my_map[y][x] == 0:
                 ctx.set_source_rgb(0.3,0.3,0.3)
-            else:
+            elif my_map[y][x] == 1:
+                ctx.set_source_rgb(0.5,0.5,0.5)
+            elif my_map[y][x] == 2:
+                ctx.set_source_rgb(1,1,1)
+            elif my_map[y][x] == 3:
                 ctx.set_source_rgb(0.5,0.5,0.5)
             ctx.rectangle(x*10, y*10, 10, 10)
             ctx.fill()
@@ -134,18 +150,29 @@ def draw_dungeon(map_name="Map Name"):
                      cairo.FONT_WEIGHT_NORMAL)
         ctx.move_to((room.x+.5*room.width)*10, (room.y+.5*room.height)*10)
         ctx.show_text(str(room.room_number))
+    #Draw Node Labels
+    for node in nodes:
+        ctx.set_source_rgb(1, 0, 0)
+        ctx.set_font_size(map_width / 4)
+        ctx.select_font_face("Arial",
+                     cairo.FONT_SLANT_NORMAL,
+                     cairo.FONT_WEIGHT_NORMAL)
+        ctx.move_to((node.x)*10, (node.y)*10)
+        ctx.show_text(str(node.label))
     #Write to png file
     surface.write_to_png("dungeon.png")
     print("Total rooms: " + str(len(rooms)))
 
-def generate_dungeon():
+def test_generate():
     init_map()
     init_rooms()
     connect_rooms()
+    #print_nodes(nodes)
+    #print_rooms(rooms)
     draw_dungeon()
 
 if __name__ == "__main__":
-    generate_dungeon()
+    test_generate()
 
 def __str__(self):
     return f"A room at ({self.x},{self.y})"
