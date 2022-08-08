@@ -26,3 +26,6 @@ def sort_rooms_x(rooms):
 def print_rooms(rooms):
     for room in rooms:
         print("Room: ["+str(room.room_number)+"]")
+        for node in room.nodes:
+            print("\tNode: ["+node+"]")
+        print("")

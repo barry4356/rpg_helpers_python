@@ -106,6 +106,7 @@ def connect_rooms():
                     newNode = Node(starting_point[0]-1,starting_point[1],node_label)
                     newNode.room = room.room_number
                     nodes.append(newNode)
+                    room.add_node(newNode)
                     node_label = chr(ord(node_label) + 1)
                     for x in range(starting_point[0],roomB.x):
                         my_map[starting_point[1]][x] = 2
@@ -113,6 +114,7 @@ def connect_rooms():
                     newNode = Node(roomB.x,starting_point[1],node_label)
                     newNode.room = room.room_number
                     nodes.append(newNode)
+                    roomB.add_node(newNode)
                     node_label = chr(ord(node_label) + 1)
                     break
 
@@ -168,7 +170,7 @@ def test_generate():
     init_rooms()
     connect_rooms()
     #print_nodes(nodes)
-    #print_rooms(rooms)
+    print_rooms(rooms)
     draw_dungeon()
 
 if __name__ == "__main__":
