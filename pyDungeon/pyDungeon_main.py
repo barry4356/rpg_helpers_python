@@ -130,7 +130,7 @@ def draw_dungeon(map_name="Map Name"):
             elif my_map[y][x] == 1:
                 ctx.set_source_rgb(0.5,0.5,0.5)
             elif my_map[y][x] == 2:
-                ctx.set_source_rgb(1,1,1)
+                ctx.set_source_rgb(0.4,0.4,0.4)
             elif my_map[y][x] == 3:
                 ctx.set_source_rgb(0.5,0.5,0.5)
             ctx.rectangle(x*10, y*10, 10, 10)
@@ -154,7 +154,7 @@ def draw_dungeon(map_name="Map Name"):
         ctx.show_text(str(room.room_number))
     #Draw Node Labels
     for node in nodes:
-        ctx.set_source_rgb(1, 0, 0)
+        ctx.set_source_rgb(0.5, 0, 0)
         ctx.set_font_size(map_width / 4)
         ctx.select_font_face("Arial",
                      cairo.FONT_SLANT_NORMAL,
