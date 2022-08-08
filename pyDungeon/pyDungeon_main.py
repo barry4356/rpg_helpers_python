@@ -4,7 +4,7 @@ import numpy as np
 from pyDungeon_utils import check_room_overlap
 from pyDungeon_utils import sort_rooms_x
 from pyDungeon_utils import print_rooms
-from pyDungeon_hallways import print_nodes
+from pyDungeon_utils import print_nodes
 from pyDungeon_classes import Room
 from pyDungeon_classes import Node
 
@@ -165,12 +165,20 @@ def draw_dungeon(map_name="Map Name"):
     surface.write_to_png("dungeon.png")
     print("Total rooms: " + str(len(rooms)))
 
+def create_entrance():
+    print()
+    #Choose quadrant of map
+    #Find closest Room
+    #Create Hallway Entrance
+    #Place PC position
+
 def test_generate():
     init_map()
     init_rooms()
     connect_rooms()
     #print_nodes(nodes)
-    print_rooms(rooms)
+    #print_rooms(rooms)
+    create_entrance()
     draw_dungeon()
 
 if __name__ == "__main__":
