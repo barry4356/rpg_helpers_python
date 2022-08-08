@@ -66,35 +66,27 @@ def connect_rooms():
     """Draws passages randomly between the rooms."""
     global my_map
     for room in rooms:
-        #print("Room: ["+str(room.room_number)+"] Width: ["+str(room.width)+"] Height: ["+str(room.height)+"]")
-        first_point = []
-        second_point = []
-        #Right->Left, Right->Bottom, Right->Top
-        rl = False
-        rb = False
-        rt = False
-        first_elbow = random.randint(int(room.width*.3),int(room.width*.5))
-        #Either add hallway to the right edge
-        if random.randint(0, 1) == 1:
-            for roomB in rooms:
-                if roomB.x > room.x + room.width + first_elbow:
-                    first_point = [room.x+room.width,random.randint(room.y,room.y+room.height)]
-                    if roomB.y < first_point[1] - first_elbow - roomB.height and roomB.x > room.x+room.width:
-                        second_point = [random.randint(roomB.x,roomB.x+room.width),roomB.y+roomB.height]
-                        print("RB- Room ["+str(room.room_number)+"] Connect to Room ["+str(roomB.room_number)+"]")
-                        rb = True
-        else:
-        #Or the bottom edge
-            print()
-        if first_point and second_point:
-            if rb == True:
-                current_point=first_point
-                for i in range(first_elbow):
-                    my_map[current_point[1]][current_point[0]] = 1
-                    current_point = [current_point[0]+1,current_point[1]]
-                for i in range(second_point[1],current_point[1]):
-                    my_map[current_point[1]][current_point[0]] = 1
-                    current_point = [current_point[0],current_point[1]-1]
+        for roomB in rooms:
+            #Check if we have a room below our bottom edge
+            if roomB.y > room.y + room.height:
+                if roomB.x < room.x + room.width and roomB.x + roomB.width > room.x:
+                    print("SOUTH: Connecting Room ["+str(room.room_number)+"] to Room ["+str(roomB.room_number)+"]")
+                    lowest_x = max(roomB.x,room.x)
+                    highest_x = min(roomB.x+roomB.width,room.x+room.width)
+                    starting_point = [random.randint(lowest_x,highest_x), room.y+room.height]
+                    for y in range(starting_point[1],roomB.y):
+                        my_map[y][starting_point[0]] = 2
+                    break
+            #Check if we have a room to the right of our left edge
+            if roomB.x > room.x + room.width:
+                if roomB.y < room.y + room.height and roomB.y + roomB.height > room.y:
+                    print("EAST: Connecting Room ["+str(room.room_number)+"] to Room ["+str(roomB.room_number)+"]")
+                    lowest_y = max(roomB.y,room.y)
+                    highest_y = min(roomB.y+roomB.height,room.y+room.height)
+                    starting_point = [room.x+room.width,random.randint(lowest_y,highest_y)]
+                    for x in range(starting_point[0],roomB.x):
+                        my_map[starting_point[1]][x] = 2
+                    break
 
     #random.shuffle(rooms)
     #sorted_rooms_x = sort_rooms_x(rooms)
@@ -149,7 +141,7 @@ def draw_dungeon(map_name="Map Name"):
 def generate_dungeon():
     init_map()
     init_rooms()
-    #connect_rooms()
+    connect_rooms()
     draw_dungeon()
 
 if __name__ == "__main__":
