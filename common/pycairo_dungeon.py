@@ -5,7 +5,7 @@ import numpy as np
 map_width = 50 # number of squares wide
 map_height = 50 # number of squares tall
 
-min_room_size = 10
+min_room_size = 4
 max_room_size = 20
 max_rooms = 10
 min_rooms = 5
@@ -50,8 +50,20 @@ def init_rooms(my_map):
         for r in range(total_rooms):
             x = random.randrange(0,map_width)
             y = random.randrange(0,map_height)
-            width = random.randrange(min_room_size,max_room_size)
-            height = random.randrange(min_room_size,max_room_size)
+            #Try and keep rooms within the boundaries
+            max_width = max_room_size
+            max_height = max_room_size
+            if max_width >= map_width - x:
+                max_width = map_width - x - 1
+            if max_height >= map_height - y:
+                max_height = map_height - y - 1
+            #Don't let rooms get smaller than min size
+            if max_width <= min_room_size:
+                max_width = min_room_size + 1
+            if max_height <= min_room_size:
+                max_height = min_room_size + 1
+            width = random.randrange(min_room_size,max_width)
+            height = random.randrange(min_room_size,max_height)
             room = Room(x,y,width,height)
             if check_for_overlap(room, rooms):
                 pass
