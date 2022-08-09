@@ -3,8 +3,6 @@ import numpy as np
 from pyDungeon_utils import check_room_overlap
 from pyDungeon_utils import sort_rooms_x
 from pyDungeon_utils import sort_rooms_y
-from pyDungeon_utils import print_rooms
-from pyDungeon_utils import print_nodes
 from pyDungeon_utils import draw_dungeon
 from pyDungeon_classes import Room
 from pyDungeon_classes import Node
@@ -132,7 +130,7 @@ def create_entrance():
         if room_closest.x <= (map_width/15):
             quadrant = quadrant + 1
         else:
-            print("Start from the left, to room: "+str(room_closest.room_number))
+            #print("Start from the left, to room: "+str(room_closest.room_number))
             starting_point = [0,random.randint(room_closest.y,room_closest.y+room_closest.height)]
             for x in range(1,room_closest.x):
                 my_map[starting_point[1]][x] = 3
@@ -141,13 +139,13 @@ def create_entrance():
         #Start from the bottom
         rooms_sorted = sort_rooms_y(rooms)
         room_closest = rooms_sorted[-1]
-        print("room closest y ["+str(room_closest.y)+"] map height ["+str(map_height)+"]")
+        #print("room closest y ["+str(room_closest.y)+"] map height ["+str(map_height)+"]")
         if room_closest.y+room_closest.height >= map_height - (map_height/15):
             quadrant = quadrant + 1
         else:
-            print("Start from the bottom, to room: "+str(room_closest.room_number))
+            #print("Start from the bottom, to room: "+str(room_closest.room_number))
             starting_point = [random.randint(room_closest.x,room_closest.x+room_closest.width),map_height-1]
-            print(starting_point)
+            #print(starting_point)
             for y in range(room_closest.y+room_closest.height,map_height-1):
                 my_map[y][starting_point[0]] = 3
             prime_node = Node(starting_point[0],room_closest.y+room_closest.height,node_label)
@@ -158,9 +156,9 @@ def create_entrance():
         if room_closest.x+room_closest.width >= map_width - (map_width/15):
             quadrant = quadrant + 1
         else:
-            print("Start from the right, to room: "+str(room_closest.room_number))
+            #print("Start from the right, to room: "+str(room_closest.room_number))
             starting_point = [map_width-1,random.randint(room_closest.y,room_closest.y+room_closest.height)]
-            print(starting_point)
+            #print(starting_point)
             for x in range(room_closest.x+room_closest.width,map_width-1):
                 my_map[starting_point[1]][x] = 3
             prime_node = Node(room_closest.x+room_closest.width,starting_point[1],node_label)
@@ -168,7 +166,7 @@ def create_entrance():
         #Start from the top
         rooms_sorted = sort_rooms_y(rooms)
         room_closest = rooms_sorted[0]
-        print("Start from the top, to room: "+str(room_closest.room_number))
+        #print("Start from the top, to room: "+str(room_closest.room_number))
         starting_point = [random.randint(room_closest.x,room_closest.x+room_closest.width),0]
         for y in range(1,room_closest.y):
             my_map[y][starting_point[0]] = 3
@@ -182,18 +180,11 @@ def create_entrance():
     nodes.append(prime_node)
     node_label = chr(ord(node_label) + 1)
 
-    #Find closest Room
-    #Create Hallway Entrance
-    #Place PC position
-
 def test_generate():
     init_map()
     init_rooms()
     connect_rooms()
-    #print_nodes(nodes)
-    #print_rooms(rooms)
     create_entrance()
-    print_nodes(nodes)
     draw_dungeon(my_map, map_width, map_height, rooms, nodes, pc_point)
 
 if __name__ == "__main__":
