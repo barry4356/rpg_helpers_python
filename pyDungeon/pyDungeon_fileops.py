@@ -15,6 +15,9 @@ def store_room(my_room):
 def store_node(my_node):
     print("store_node")
 
+def store_matrix(my_matrix):
+    print("store_matrix")
+
 def read_map(map_file):
     print("read_map")
 
@@ -23,3 +26,6 @@ def read_room(room_file):
 
 def read_node(node_file):
     print("read_node")
+
+def read_matrix(matrix_file):
+    print("read_matrix")
