@@ -4,8 +4,6 @@ import numpy as np
 from pyDungeon_utils import check_room_overlap
 from pyDungeon_utils import sort_rooms_x
 from pyDungeon_utils import sort_rooms_y
-from pyDungeon_utils import print_rooms
-from pyDungeon_utils import print_nodes
 from pyDungeon_classes import Room
 from pyDungeon_classes import Node
 
@@ -242,7 +240,10 @@ def test_generate():
     #print_nodes(nodes)
     #print_rooms(rooms)
     create_entrance()
-    print_nodes(nodes)
+    #for node in nodes:
+    #    node.print_node()
+    #for room in rooms:
+    #    room.print_room()
     draw_dungeon()
 
 if __name__ == "__main__":

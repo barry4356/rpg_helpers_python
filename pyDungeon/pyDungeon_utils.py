@@ -28,23 +28,3 @@ def sort_rooms_y(rooms):
     rooms_sorted = rooms
     rooms_sorted.sort(key=lambda x: x.y)
     return rooms_sorted
-
-def print_rooms(rooms):
-    for room in rooms:
-        print("Room: ["+str(room.room_number)+"]")
-        for node in room.nodes:
-            print("\tNode: ["+node+"]")
-        print("")
-
-def print_nodes(nodes=[]):
-    if not nodes:
-        return
-    for node in nodes:
-        print()
-        print("Node ["+node.label+"]")
-        print("Location ["+str(node.x)+","+str(node.y)+"]")
-        print("Connections:")
-        for connection in node.connections:
-            print("\t["+str(connection)+"]")
-        print("Room: ["+str(node.room)+"]")
-        print("==========")

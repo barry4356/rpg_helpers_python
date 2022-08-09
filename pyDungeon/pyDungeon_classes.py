@@ -11,7 +11,7 @@ class Room:
         self.nodes = []
     def add_node(self,node):
         self.nodes.append(node.label)
-    def print_room():
+    def print_room(self):
         print("Room: ["+str(self.room_number)+"]")
         for node in self.nodes:
             print("\tNode: ["+node+"]")
@@ -27,7 +27,7 @@ class Node:
         self.room = ""
     def add_connection(self,node):
         self.connections.append([node.label])
-    def print_node():
+    def print_node(self):
         print()
         print("Node ["+self.label+"]")
         print("Location ["+str(self.x)+","+str(self.y)+"]")
@@ -39,8 +39,10 @@ class Node:
 
 class Map:
     """Defines a full set of map data."""
-    def __init__(map_name="Map Name"):
+    def __init__(map_width, map_height, map_name="Map Name"):
         self.map_name = map_name
+        self.map_width = map_width
+        self.map_height = map_height
         self.rooms = []
         self.nodes = []
         self.matrix = []
