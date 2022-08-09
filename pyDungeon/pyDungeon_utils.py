@@ -23,6 +23,12 @@ def sort_rooms_x(rooms):
     rooms_sorted.sort(key=lambda x: x.x)
     return rooms_sorted
 
+#Sort rooms by room.x value
+def sort_rooms_y(rooms):
+    rooms_sorted = rooms
+    rooms_sorted.sort(key=lambda x: x.y)
+    return rooms_sorted
+
 def print_rooms(rooms):
     for room in rooms:
         print("Room: ["+str(room.room_number)+"]")

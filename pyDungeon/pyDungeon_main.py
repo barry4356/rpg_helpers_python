@@ -3,6 +3,7 @@ import random
 import numpy as np
 from pyDungeon_utils import check_room_overlap
 from pyDungeon_utils import sort_rooms_x
+from pyDungeon_utils import sort_rooms_y
 from pyDungeon_utils import print_rooms
 from pyDungeon_utils import print_nodes
 from pyDungeon_classes import Room
@@ -21,6 +22,7 @@ my_map = []
 my_nodex = []
 node_label = 'a'
 nodes = []
+pc_point = [0,0]
 
 def init_map():
     """Initializes the map of key/value pairs."""
@@ -125,7 +127,9 @@ def draw_dungeon(map_name="Map Name"):
     ctx = cairo.Context(surface)
     for y in range(map_height):
         for x in range(map_width):
-            if my_map[y][x] == 0:
+            if x == pc_point[0] and y == pc_point[1]:
+                ctx.set_source_rgb(1,1,1)
+            elif my_map[y][x] == 0:
                 ctx.set_source_rgb(0.3,0.3,0.3)
             elif my_map[y][x] == 1:
                 ctx.set_source_rgb(0.5,0.5,0.5)
@@ -166,8 +170,56 @@ def draw_dungeon(map_name="Map Name"):
     print("Total rooms: " + str(len(rooms)))
 
 def create_entrance():
-    print()
     #Choose quadrant of map
+    #quadrant = random.randint(1,4)
+    quadrant = 1
+    if quadrant == 1:
+        #Start from the left
+        rooms_sorted = sort_rooms_x(rooms)
+        room_closest = rooms_sorted[0]
+        if room_closest.x <= (map_width/15):
+            quadrant = quadrant + 1
+        else:
+            print("Start from the left, to room: "+str(room_closest.room_number))
+            starting_point = [0,random.randint(room_closest.y,room_closest.y+room_closest.height)]
+            for x in range(1,room_closest.x):
+                my_map[starting_point[1]][x] = 3
+    if quadrant == 2:
+        #Start from the bottom
+        rooms_sorted = sort_rooms_y(rooms)
+        room_closest = rooms_sorted[-1]
+        print("room closest y ["+str(room_closest.y)+"] map height ["+str(map_height)+"]")
+        if room_closest.y+room_closest.height >= map_height - (map_height/15):
+            quadrant = quadrant + 1
+        else:
+            print("Start from the bottom, to room: "+str(room_closest.room_number))
+            starting_point = [random.randint(room_closest.x,room_closest.x+room_closest.width),map_height-1]
+            print(starting_point)
+            for y in range(room_closest.y+room_closest.height,map_height-1):
+                my_map[y][starting_point[0]] = 3
+    if quadrant == 3:
+        #Start from the right
+        rooms_sorted = sort_rooms_x(rooms)
+        room_closest = rooms_sorted[-1]
+        if room_closest.x+room_closest.width >= map_width - (map_width/15):
+            quadrant = quadrant + 1
+        else:
+            print("Start from the right, to room: "+str(room_closest.room_number))
+            starting_point = [map_width-1,random.randint(room_closest.y,room_closest.y+room_closest.height)]
+            print(starting_point)
+            for x in range(room_closest.x+room_closest.width,map_width-1):
+                my_map[starting_point[1]][x] = 3
+    if quadrant == 4:
+        #Start from the top
+        rooms_sorted = sort_rooms_y(rooms)
+        room_closest = rooms_sorted[0]
+        print("Start from the top, to room: "+str(room_closest.room_number))
+        starting_point = [random.randint(room_closest.x,room_closest.x+room_closest.width),0]
+        for y in range(1,room_closest.y):
+            my_map[y][starting_point[0]] = 3
+    global pc_point
+    pc_point = starting_point
+
     #Find closest Room
     #Create Hallway Entrance
     #Place PC position
