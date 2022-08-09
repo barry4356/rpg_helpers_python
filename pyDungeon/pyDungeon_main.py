@@ -1,4 +1,3 @@
-import cairo
 import random
 import numpy as np
 from pyDungeon_utils import check_room_overlap
@@ -6,6 +5,7 @@ from pyDungeon_utils import sort_rooms_x
 from pyDungeon_utils import sort_rooms_y
 from pyDungeon_utils import print_rooms
 from pyDungeon_utils import print_nodes
+from pyDungeon_utils import draw_dungeon
 from pyDungeon_classes import Room
 from pyDungeon_classes import Node
 
@@ -120,55 +120,6 @@ def connect_rooms():
                     node_label = chr(ord(node_label) + 1)
                     break
 
-def draw_dungeon(map_name="Map Name"):
-    """Draw the dungeon with cario rectangles."""
-    """If the Room coordinates are provided, add labels."""
-    surface = cairo.ImageSurface(cairo.FORMAT_RGB24,map_width*10,map_height*10)
-    ctx = cairo.Context(surface)
-    for y in range(map_height):
-        for x in range(map_width):
-            if x == pc_point[0] and y == pc_point[1]:
-                ctx.set_source_rgb(1,1,1)
-            elif my_map[y][x] == 0:
-                ctx.set_source_rgb(0.3,0.3,0.3)
-            elif my_map[y][x] == 1:
-                ctx.set_source_rgb(0.5,0.5,0.5)
-            elif my_map[y][x] == 2:
-                ctx.set_source_rgb(0.4,0.4,0.4)
-            elif my_map[y][x] == 3:
-                ctx.set_source_rgb(0.5,0.5,0.5)
-            ctx.rectangle(x*10, y*10, 10, 10)
-            ctx.fill()
-    # Draw Map Label
-    ctx.set_source_rgb(1, 0, 0)
-    ctx.set_font_size(map_width / 3)
-    ctx.select_font_face("Arial",
-                     cairo.FONT_SLANT_NORMAL,
-                     cairo.FONT_WEIGHT_NORMAL)
-    ctx.move_to(map_width/4, map_width/1.5)
-    ctx.show_text(map_name)
-    #Draw Room Labels
-    for room in rooms:
-        ctx.set_source_rgb(1, 0, 0)
-        ctx.set_font_size(map_width / 3)
-        ctx.select_font_face("Arial",
-                     cairo.FONT_SLANT_NORMAL,
-                     cairo.FONT_WEIGHT_NORMAL)
-        ctx.move_to((room.x+.5*room.width)*10, (room.y+.5*room.height)*10)
-        ctx.show_text(str(room.room_number))
-    #Draw Node Labels
-    for node in nodes:
-        ctx.set_source_rgb(0.5, 0, 0)
-        ctx.set_font_size(map_width / 4)
-        ctx.select_font_face("Arial",
-                     cairo.FONT_SLANT_NORMAL,
-                     cairo.FONT_WEIGHT_NORMAL)
-        ctx.move_to((node.x)*10, (node.y)*10)
-        ctx.show_text(str(node.label))
-    #Write to png file
-    surface.write_to_png("dungeon.png")
-    print("Total rooms: " + str(len(rooms)))
-
 def create_entrance():
     #Choose quadrant of map
     #quadrant = random.randint(1,4)
@@ -243,7 +194,7 @@ def test_generate():
     #print_rooms(rooms)
     create_entrance()
     print_nodes(nodes)
-    draw_dungeon()
+    draw_dungeon(my_map, map_width, map_height, rooms, nodes, pc_point)
 
 if __name__ == "__main__":
     test_generate()
