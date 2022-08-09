@@ -172,6 +172,7 @@ def draw_dungeon(map_name="Map Name"):
 def create_entrance():
     #Choose quadrant of map
     #quadrant = random.randint(1,4)
+    global node_label
     quadrant = 1
     if quadrant == 1:
         #Start from the left
@@ -184,6 +185,7 @@ def create_entrance():
             starting_point = [0,random.randint(room_closest.y,room_closest.y+room_closest.height)]
             for x in range(1,room_closest.x):
                 my_map[starting_point[1]][x] = 3
+            prime_node = Node(room_closest.x,starting_point[1],node_label)
     if quadrant == 2:
         #Start from the bottom
         rooms_sorted = sort_rooms_y(rooms)
@@ -197,6 +199,7 @@ def create_entrance():
             print(starting_point)
             for y in range(room_closest.y+room_closest.height,map_height-1):
                 my_map[y][starting_point[0]] = 3
+            prime_node = Node(starting_point[0],room_closest.y+room_closest.height,node_label)
     if quadrant == 3:
         #Start from the right
         rooms_sorted = sort_rooms_x(rooms)
@@ -209,6 +212,7 @@ def create_entrance():
             print(starting_point)
             for x in range(room_closest.x+room_closest.width,map_width-1):
                 my_map[starting_point[1]][x] = 3
+            prime_node = Node(room_closest.x+room_closest.width,starting_point[1],node_label)
     if quadrant == 4:
         #Start from the top
         rooms_sorted = sort_rooms_y(rooms)
@@ -217,8 +221,15 @@ def create_entrance():
         starting_point = [random.randint(room_closest.x,room_closest.x+room_closest.width),0]
         for y in range(1,room_closest.y):
             my_map[y][starting_point[0]] = 3
+        prime_node = Node(starting_point[0],room_closest.y,node_label)
     global pc_point
     pc_point = starting_point
+    start_node = Node(pc_point[0],pc_point[1],"start")
+    start_node.add_connection(prime_node)
+    prime_node.add_connection(start_node)
+    nodes.append(start_node)
+    nodes.append(prime_node)
+    node_label = chr(ord(node_label) + 1)
 
     #Find closest Room
     #Create Hallway Entrance
@@ -231,6 +242,7 @@ def test_generate():
     #print_nodes(nodes)
     #print_rooms(rooms)
     create_entrance()
+    print_nodes(nodes)
     draw_dungeon()
 
 if __name__ == "__main__":

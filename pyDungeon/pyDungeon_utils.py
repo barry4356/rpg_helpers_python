@@ -45,6 +45,6 @@ def print_nodes(nodes=[]):
         print("Location ["+str(node.x)+","+str(node.y)+"]")
         print("Connections:")
         for connection in node.connections:
-            print("\t["+connection+"]")
+            print("\t["+str(connection)+"]")
         print("Room: ["+str(node.room)+"]")
         print("==========")

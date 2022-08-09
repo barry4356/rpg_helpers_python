@@ -20,5 +20,5 @@ class Node:
         self.label = label
         self.connections = []
         self.room = ""
-    def add_connection(node):
+    def add_connection(self,node):
         self.connections.append([node.label])
