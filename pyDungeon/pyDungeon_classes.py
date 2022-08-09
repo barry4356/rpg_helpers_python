@@ -39,7 +39,8 @@ class Node:
 
 class Map:
     """Defines a full set of map data."""
-    def __init__(self,x,y,label):
+    def __init__(map_name="Map Name"):
+        self.map_name = map_name
         self.rooms = []
         self.nodes = []
         self.matrix = []
