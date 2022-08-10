@@ -101,12 +101,12 @@ def unmask_line(mask_matrix,point1,point2):
     if point1[0] == point2[0]:
         x = point1[0]
         for y in range(point1[1],point2[1]):
-            mask_matrix[y][x]
+            mask_matrix[y][x] = 1
     #If we have a line down the y axis
     elif point1[1] == point2[1]:
         y = point1[1]
         for x in range(point1[0],point2[0]):
-            mask_matrix[y][x]
+            mask_matrix[y][x] = 1
     else:
     #If we have some other line
         for x in range(point1[0],point2[0]):
@@ -115,4 +115,15 @@ def unmask_line(mask_matrix,point1,point2):
     return mask_matrix
 
 def unmask_nodes(mask_matrix,node1,node2):
-    return(unmask_line(mask_matrix,[node1.x,node1.y],[node2.x,node2.y]))
+    mask_matrix=unmask_node(mask_matrix,node1)
+    mask_matrix=unmask_node(mask_matrix,node2)
+    mask_matrix=unmask_line(mask_matrix,[node1.x,node1.y],[node2.x,node2.y])
+    return mask_matrix
+
+def unmask_node(mask_matrix,node):
+    #slop = 0
+    #for x in range(node.x-slop,node.x+slop):
+    #    for y in range(node.y-slop,node.y+slop):
+    #        mask_matrix[y][x]=1
+    mask_matrix[node.y][node.x]=1
+    return mask_matrix
