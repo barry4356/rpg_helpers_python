@@ -30,46 +30,46 @@ def sort_rooms_y(rooms):
     rooms_sorted.sort(key=lambda x: x.y)
     return rooms_sorted
         
-def draw_dungeon(my_map, map_width, map_height, rooms, nodes, pc_point, map_name="Map Name"):
+def draw_dungeon(my_map):
     """Draw the dungeon with cario rectangles."""
     """If the Room coordinates are provided, add labels."""
-    surface = cairo.ImageSurface(cairo.FORMAT_RGB24,map_width*10,map_height*10)
+    surface = cairo.ImageSurface(cairo.FORMAT_RGB24,my_map.map_width*10,my_map.map_height*10)
     ctx = cairo.Context(surface)
-    for y in range(map_height):
-        for x in range(map_width):
-            if x == pc_point[0] and y == pc_point[1]:
+    for y in range(my_map.map_height):
+        for x in range(my_map.map_width):
+            if x == my_map.player_location[0] and y == my_map.player_location[1]:
                 ctx.set_source_rgb(1,1,1)
-            elif my_map[y][x] == 0:
+            elif my_map.matrix[y][x] == 0:
                 ctx.set_source_rgb(0.3,0.3,0.3)
-            elif my_map[y][x] == 1:
+            elif my_map.matrix[y][x] == 1:
                 ctx.set_source_rgb(0.5,0.5,0.5)
-            elif my_map[y][x] == 2:
+            elif my_map.matrix[y][x] == 2:
                 ctx.set_source_rgb(0.4,0.4,0.4)
-            elif my_map[y][x] == 3:
+            elif my_map.matrix[y][x] == 3:
                 ctx.set_source_rgb(0.5,0.5,0.5)
             ctx.rectangle(x*10, y*10, 10, 10)
             ctx.fill()
     # Draw Map Label
     ctx.set_source_rgb(1, 0, 0)
-    ctx.set_font_size(map_width / 3)
+    ctx.set_font_size(my_map.map_width / 3)
     ctx.select_font_face("Arial",
                      cairo.FONT_SLANT_NORMAL,
                      cairo.FONT_WEIGHT_NORMAL)
-    ctx.move_to(map_width/4, map_width/1.5)
-    ctx.show_text(map_name)
+    ctx.move_to(my_map.map_width/4, my_map.map_width/1.5)
+    ctx.show_text(my_map.map_name)
     #Draw Room Labels
-    for room in rooms:
+    for room in my_map.rooms:
         ctx.set_source_rgb(1, 0, 0)
-        ctx.set_font_size(map_width / 3)
+        ctx.set_font_size(my_map.map_width / 3)
         ctx.select_font_face("Arial",
                      cairo.FONT_SLANT_NORMAL,
                      cairo.FONT_WEIGHT_NORMAL)
         ctx.move_to((room.x+.5*room.width)*10, (room.y+.5*room.height)*10)
         ctx.show_text(str(room.room_number))
     #Draw Node Labels
-    for node in nodes:
+    for node in my_map.nodes:
         ctx.set_source_rgb(0.5, 0, 0)
-        ctx.set_font_size(map_width / 4)
+        ctx.set_font_size(my_map.map_width / 4)
         ctx.select_font_face("Arial",
                      cairo.FONT_SLANT_NORMAL,
                      cairo.FONT_WEIGHT_NORMAL)
@@ -77,4 +77,4 @@ def draw_dungeon(my_map, map_width, map_height, rooms, nodes, pc_point, map_name
         ctx.show_text(str(node.label))
     #Write to png file
     surface.write_to_png("dungeon.png")
-    print("Total rooms: " + str(len(rooms)))
+    print("Total rooms: " + str(len(my_map.rooms)))

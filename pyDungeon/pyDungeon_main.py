@@ -194,7 +194,7 @@ def test_generate():
         finalMap.rooms.append(room)
     for node in nodes:
         finalMap.nodes.append(node)
-    draw_dungeon(my_map, map_width, map_height, rooms, nodes, pc_point)
+    draw_dungeon(finalMap)
 
 if __name__ == "__main__":
     test_generate()
