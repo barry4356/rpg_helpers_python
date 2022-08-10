@@ -92,15 +92,17 @@ def connect_rooms():
                     newNode = Node(starting_point[0],starting_point[1]-1,node_label)
                     newNode.room = room.room_number
                     room.add_node(newNode)
-                    nodes.append(newNode)
                     node_label = chr(ord(node_label) + 1)
                     for y in range(starting_point[1],roomB.y):
                         my_map[y][starting_point[0]] = 2
                     my_map[roomB.y][starting_point[0]] = 3
-                    newNode = Node(starting_point[0],roomB.y,node_label)
-                    newNode.room = roomB.room_number
+                    newNodeB = Node(starting_point[0],roomB.y,node_label)
+                    newNodeB.room = roomB.room_number
+                    newNode.connections.append(newNodeB.label)
+                    newNodeB.connections.append(newNode.label)
                     nodes.append(newNode)
-                    roomB.add_node(newNode)
+                    nodes.append(newNodeB)
+                    roomB.add_node(newNodeB)
                     node_label = chr(ord(node_label) + 1)
                     break
             #Check if we have a room to the right of our left edge
@@ -119,9 +121,12 @@ def connect_rooms():
                     for x in range(starting_point[0],roomB.x):
                         my_map[starting_point[1]][x] = 2
                     my_map[starting_point[1]][roomB.x] = 3
-                    newNode = Node(roomB.x,starting_point[1],node_label)
-                    newNode.room = room.room_number
+                    newNodeB = Node(roomB.x,starting_point[1],node_label)
+                    newNodeB.room = room.room_number
+                    newNode.connections.append(newNodeB.label)
+                    newNodeB.connections.append(newNode.label)
                     nodes.append(newNode)
+                    nodes.append(newNodeB)
                     roomB.add_node(newNode)
                     node_label = chr(ord(node_label) + 1)
                     break
