@@ -6,6 +6,7 @@ from pyDungeon_utils import sort_rooms_y
 from pyDungeon_utils import draw_dungeon
 from pyDungeon_classes import Room
 from pyDungeon_classes import Node
+from pyDungeon_classes import Map
 
 map_width = 60 # number of squares wide
 map_height = 60 # number of squares tall
@@ -176,6 +177,7 @@ def create_entrance():
     start_node = Node(pc_point[0],pc_point[1],"start")
     start_node.add_connection(prime_node)
     prime_node.add_connection(start_node)
+    prime_node.room = room_closest.room_number
     nodes.append(start_node)
     nodes.append(prime_node)
     node_label = chr(ord(node_label) + 1)
@@ -185,6 +187,13 @@ def test_generate():
     init_rooms()
     connect_rooms()
     create_entrance()
+    finalMap = Map(map_width,map_height)
+    finalMap.matrix = my_map
+    finalMap.player_location = pc_point
+    for room in rooms:
+        finalMap.rooms.append(room)
+    for node in nodes:
+        finalMap.nodes.append(node)
     draw_dungeon(my_map, map_width, map_height, rooms, nodes, pc_point)
 
 if __name__ == "__main__":

@@ -39,7 +39,7 @@ class Node:
 
 class Map:
     """Defines a full set of map data."""
-    def __init__(map_width, map_height, map_name="Map Name"):
+    def __init__(self, map_width, map_height, map_name="Map Name"):
         self.map_name = map_name
         self.map_width = map_width
         self.map_height = map_height
@@ -47,4 +47,13 @@ class Map:
         self.nodes = []
         self.matrix = []
         self.player_location = []
-        self.room = ""
+    def print_map(self):
+        print("-------------------")
+        print("Map Name: "+self.map_name)
+        print("Map Width: "+str(self.map_width))
+        print("Map Height: "+str(self.map_height))
+        print("Player Location: "+str(self.player_location))
+        for room in self.rooms:
+            room.print_room()
+        for node in self.nodes:
+            node.print_node()
