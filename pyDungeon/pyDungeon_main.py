@@ -203,7 +203,7 @@ def demo_generate():
     finalMap.matrix = my_map
     finalMap.player_location = pc_point
     finalMap.mask_matrix = my_mask
-    finalMap.map_name = "Demo Map"
+    finalMap.map_name = "DemoMap"
     for room in rooms:
         finalMap.rooms.append(room)
     for node in nodes:
