@@ -128,3 +128,8 @@ def find_node(nodes,label):
     for node in nodes:
         if node.label == label:
             return node
+
+def find_room(rooms,room_number):
+    for room in rooms:
+        if room.room_number == room_number:
+            return room

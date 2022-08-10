@@ -16,17 +16,31 @@ def main_menu():
     utils.print_header("Dungeon Crawler Demo")
     exit_now = False
     while exit_now != True:
-        "Which direction do you want to go?"
-        index = 0
-        for connection in my_node.connections:
-            index = index + 1
-            print(str(index)+"- Move to ["+str(connection[0])+"]")
-        print("\n0 - Exit Demo")
-        input_val = utils.get_input_int()
-        if input_val == 0:
+        direction_options = []
+        direction_options.append(my_node.connections[0][0])
+        if my_node.room:
+            my_room = pyDungeon_utils.find_room(my_map.rooms,my_node.room)
+            print(my_room.room_number)
+            for temp_node in my_room.nodes:
+                print(temp_node)
+                direction_options.append(temp_node)
+                temp_node_ptr = pyDungeon_utils.find_node(my_map.nodes,temp_node)
+        selection = utils.array_select_menu(direction_options,"Which direction do you want to go?")
+        if not selection:
             exit_now = True
         else:
-            print("Move...")
+            my_node = pyDungeon_utils.find_node(my_map.nodes,selection)
+            my_map.print_map()
+        #index = 0
+        #for connection in my_node.connections:
+        #    index = index + 1
+        #    print(str(index)+"- Move to ["+str(connection[0])+"]")
+        #print("\n0 - Exit Demo")
+        #input_val = utils.get_input_int()
+        #if input_val == 0:
+        #    exit_now = True
+        #else:
+        #    print("Move...")
 
 
 if __name__ == "__main__":
