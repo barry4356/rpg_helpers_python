@@ -113,3 +113,6 @@ def unmask_line(mask_matrix,point1,point2):
             for y in range(point1[1],point2[1]):
                 mask_matrix[y][x] = 1
     return mask_matrix
+
+def unmask_nodes(mask_matrix,node1,node2):
+    return(unmask_line(mask_matrix,[node1.x,node1.y],[node2.x,node2.y]))

@@ -6,6 +6,7 @@ from pyDungeon_utils import sort_rooms_y
 from pyDungeon_utils import draw_dungeon
 from pyDungeon_utils import unmask_room
 from pyDungeon_utils import unmask_line
+from pyDungeon_utils import unmask_nodes
 from pyDungeon_classes import Room
 from pyDungeon_classes import Node
 from pyDungeon_classes import Map
@@ -198,9 +199,9 @@ def test_generate():
     finalMap.player_location = pc_point
     my_mask = unmask_room(my_mask,rooms[0])
     #my_mask = unmask_line(my_mask,[nodes[0].x,nodes[0].y],[nodes[1].x,nodes[1].y])
-    for x in range(int(map_width/2)):
-        for y in range(int(map_width/2)):
-            my_mask = unmask_line(my_mask,[0,0],[x,y])
+    for node1 in nodes:
+        for node2 in nodes:
+            my_mask = unmask_nodes(my_mask,node1,node2)
     finalMap.mask_matrix = my_mask
     for room in rooms:
         finalMap.rooms.append(room)
