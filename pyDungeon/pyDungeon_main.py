@@ -4,6 +4,8 @@ from pyDungeon_utils import check_room_overlap
 from pyDungeon_utils import sort_rooms_x
 from pyDungeon_utils import sort_rooms_y
 from pyDungeon_utils import draw_dungeon
+from pyDungeon_utils import unmask_room
+from pyDungeon_utils import unmask_line
 from pyDungeon_classes import Room
 from pyDungeon_classes import Node
 from pyDungeon_classes import Map
@@ -186,6 +188,7 @@ def create_entrance():
     node_label = chr(ord(node_label) + 1)
 
 def test_generate():
+    global my_mask
     init_map()
     init_rooms()
     connect_rooms()
@@ -193,6 +196,11 @@ def test_generate():
     finalMap = Map(map_width,map_height)
     finalMap.matrix = my_map
     finalMap.player_location = pc_point
+    my_mask = unmask_room(my_mask,rooms[0])
+    #my_mask = unmask_line(my_mask,[nodes[0].x,nodes[0].y],[nodes[1].x,nodes[1].y])
+    for x in range(int(map_width/2)):
+        for y in range(int(map_width/2)):
+            my_mask = unmask_line(my_mask,[0,0],[x,y])
     finalMap.mask_matrix = my_mask
     for room in rooms:
         finalMap.rooms.append(room)

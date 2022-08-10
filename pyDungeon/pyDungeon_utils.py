@@ -86,10 +86,30 @@ def draw_dungeon(my_map, fogOfWar=False):
     surface.write_to_png("dungeon.png")
     #print("Total rooms: " + str(len(my_map.rooms)))
 
+#update our mask to reveal a room
 def unmask_room(mask_matrix,room):
     for index, row in np.ndenumerate(mask_matrix):
             if index[0] < room.y or index[0] > room.y+room.height or index [1] < room.x or index[1] > room.x+room.width:
                 continue
             else:
                 mask_matrix[index[0]][index[1]] = 1
+    return mask_matrix
+
+#update our mask to reveal map between two points
+def unmask_line(mask_matrix,point1,point2):
+    #If we have a line down the x axis
+    if point1[0] == point2[0]:
+        x = point1[0]
+        for y in range(point1[1],point2[1]):
+            mask_matrix[y][x]
+    #If we have a line down the y axis
+    elif point1[1] == point2[1]:
+        y = point1[1]
+        for x in range(point1[0],point2[0]):
+            mask_matrix[y][x]
+    else:
+    #If we have some other line
+        for x in range(point1[0],point2[0]):
+            for y in range(point1[1],point2[1]):
+                mask_matrix[y][x] = 1
     return mask_matrix
