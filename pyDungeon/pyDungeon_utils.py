@@ -31,7 +31,7 @@ def sort_rooms_y(rooms):
     rooms_sorted.sort(key=lambda x: x.y)
     return rooms_sorted
         
-def draw_dungeon(my_map, fogOfWar=False):
+def draw_dungeon(my_map, fogOfWar=False, filename=""):
     """Draw the dungeon with cario rectangles."""
     """If fog of war is enabled, include the mask."""
     surface = cairo.ImageSurface(cairo.FORMAT_RGB24,my_map.map_width*10,my_map.map_height*10)
@@ -83,7 +83,10 @@ def draw_dungeon(my_map, fogOfWar=False):
             ctx.move_to((node.x)*10, (node.y)*10)
             ctx.show_text(str(node.label))
     #Write to png file
-    surface.write_to_png(my_map.map_name+".png")
+    if filename:
+        surface.write_to_png(filename)
+    else:
+        surface.write_to_png(my_map.map_name+".png")
     #print("Total rooms: " + str(len(my_map.rooms)))
 
 #update our mask to reveal a room

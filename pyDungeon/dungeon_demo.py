@@ -15,6 +15,7 @@ def main_menu():
     if first_node:
         my_map.mask_matrix = pyDungeon_utils.unmask_nodes(my_map.mask_matrix,my_node,first_node)
         pyDungeon_utils.draw_dungeon(my_map,fogOfWar=True)
+        pyDungeon_utils.draw_dungeon(my_map,fogOfWar=False,filename="DemoDungeonRevealed.png")
     utils.print_header("Dungeon Crawler Demo")
     exit_now = False
     while exit_now != True:
