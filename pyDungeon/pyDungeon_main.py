@@ -190,6 +190,7 @@ def create_entrance():
     start_node.add_connection(prime_node)
     prime_node.add_connection(start_node)
     prime_node.room = room_closest.room_number
+    room_closest.add_node(prime_node)
     nodes.append(start_node)
     nodes.append(prime_node)
     node_label = chr(ord(node_label) + 1)

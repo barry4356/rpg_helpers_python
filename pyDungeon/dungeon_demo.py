@@ -33,8 +33,9 @@ def main_menu():
             my_room = pyDungeon_utils.find_room(my_map.rooms,my_node.room)
             my_map.mask_matrix = pyDungeon_utils.unmask_room(my_map.mask_matrix,my_room)
             for temp_node in my_room.nodes:
-                #print("DEBUG: Node in our room: "+temp_node)
-                direction_options.append(temp_node)
+                #Add other nodes from our current room
+                if temp_node != my_node.label:
+                    direction_options.append(temp_node)
                 temp_node_ptr = pyDungeon_utils.find_node(my_map.nodes,temp_node)
         pyDungeon_utils.draw_dungeon(my_map,fogOfWar=True)
         im = Image.open("DemoMap.png")
