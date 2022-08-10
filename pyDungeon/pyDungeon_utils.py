@@ -83,7 +83,7 @@ def draw_dungeon(my_map, fogOfWar=False):
             ctx.move_to((node.x)*10, (node.y)*10)
             ctx.show_text(str(node.label))
     #Write to png file
-    surface.write_to_png("dungeon.png")
+    surface.write_to_png(my_map.map_name+".png")
     #print("Total rooms: " + str(len(my_map.rooms)))
 
 #update our mask to reveal a room
@@ -121,9 +121,10 @@ def unmask_nodes(mask_matrix,node1,node2):
     return mask_matrix
 
 def unmask_node(mask_matrix,node):
-    #slop = 0
-    #for x in range(node.x-slop,node.x+slop):
-    #    for y in range(node.y-slop,node.y+slop):
-    #        mask_matrix[y][x]=1
     mask_matrix[node.y][node.x]=1
     return mask_matrix
+
+def find_node(nodes,label):
+    for node in nodes:
+        if node.label == label:
+            return node

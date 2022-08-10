@@ -7,6 +7,7 @@ from pyDungeon_utils import draw_dungeon
 from pyDungeon_utils import unmask_room
 from pyDungeon_utils import unmask_line
 from pyDungeon_utils import unmask_nodes
+from pyDungeon_utils import unmask_node
 from pyDungeon_classes import Room
 from pyDungeon_classes import Node
 from pyDungeon_classes import Map
@@ -188,6 +189,23 @@ def create_entrance():
     nodes.append(prime_node)
     node_label = chr(ord(node_label) + 1)
 
+def demo_generate():
+    init_map()
+    init_rooms()
+    connect_rooms()
+    create_entrance()
+    finalMap = Map(map_width,map_height)
+    finalMap.matrix = my_map
+    finalMap.player_location = pc_point
+    finalMap.mask_matrix = my_mask
+    finalMap.map_name = "Demo Map"
+    for room in rooms:
+        finalMap.rooms.append(room)
+    for node in nodes:
+        finalMap.nodes.append(node)
+    draw_dungeon(finalMap,fogOfWar=True)
+    return finalMap
+
 def test_generate():
     global my_mask
     init_map()
@@ -197,11 +215,8 @@ def test_generate():
     finalMap = Map(map_width,map_height)
     finalMap.matrix = my_map
     finalMap.player_location = pc_point
-    my_mask = unmask_room(my_mask,rooms[0])
-    #my_mask = unmask_line(my_mask,[nodes[0].x,nodes[0].y],[nodes[1].x,nodes[1].y])
-    for node1 in nodes:
-        for node2 in nodes:
-            my_mask = unmask_nodes(my_mask,node1,node2)
+    my_mask = unmask_node(my_mask,nodes[0])
+    my_mask = unmask_node(my_mask,nodes[1])
     finalMap.mask_matrix = my_mask
     for room in rooms:
         finalMap.rooms.append(room)

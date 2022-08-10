@@ -1,0 +1,33 @@
+#mappa_imperium_helper.py
+import utils
+import pyDungeon_main
+import pyDungeon_utils
+
+def generate_map():
+    return pyDungeon_main.demo_generate()
+
+def main_menu():
+    my_map = generate_map()
+    my_node = pyDungeon_utils.find_node(my_map.nodes,"start")
+    first_node = pyDungeon_utils.find_node(my_map.nodes,my_node.connections[0][0])
+    if first_node:
+        my_map.mask_matrix = pyDungeon_utils.unmask_nodes(my_map.mask_matrix,my_node,first_node)
+        pyDungeon_utils.draw_dungeon(my_map,fogOfWar=True)
+    utils.print_header("Dungeon Crawler Demo")
+    exit_now = False
+    while exit_now != True:
+        "Which direction do you want to go?"
+        index = 0
+        for connection in my_node.connections:
+            index = index + 1
+            print(str(index)+"- Move to ["+str(connection[0])+"]")
+        print("\n0 - Exit Demo")
+        input_val = utils.get_input_int()
+        if input_val == 0:
+            exit_now = True
+        else:
+            print("Move...")
+
+
+if __name__ == "__main__":
+    main_menu()
