@@ -46,6 +46,7 @@ class Map:
         self.rooms = []
         self.nodes = []
         self.matrix = []
+        self.mask_matrix = []
         self.player_location = []
     def print_map(self):
         print("-------------------")

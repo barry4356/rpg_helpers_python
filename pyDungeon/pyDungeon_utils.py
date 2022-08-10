@@ -30,15 +30,17 @@ def sort_rooms_y(rooms):
     rooms_sorted.sort(key=lambda x: x.y)
     return rooms_sorted
         
-def draw_dungeon(my_map):
+def draw_dungeon(my_map, fogOfWar=False):
     """Draw the dungeon with cario rectangles."""
-    """If the Room coordinates are provided, add labels."""
+    """If fog of war is enabled, include the mask."""
     surface = cairo.ImageSurface(cairo.FORMAT_RGB24,my_map.map_width*10,my_map.map_height*10)
     ctx = cairo.Context(surface)
     for y in range(my_map.map_height):
         for x in range(my_map.map_width):
             if x == my_map.player_location[0] and y == my_map.player_location[1]:
                 ctx.set_source_rgb(1,1,1)
+            elif fogOfWar and my_map.mask_matrix[y][x] == 0:
+                ctx.set_source_rgb(0.3,0.3,0.3)
             elif my_map.matrix[y][x] == 0:
                 ctx.set_source_rgb(0.3,0.3,0.3)
             elif my_map.matrix[y][x] == 1:
@@ -64,8 +66,11 @@ def draw_dungeon(my_map):
         ctx.select_font_face("Arial",
                      cairo.FONT_SLANT_NORMAL,
                      cairo.FONT_WEIGHT_NORMAL)
-        ctx.move_to((room.x+.5*room.width)*10, (room.y+.5*room.height)*10)
-        ctx.show_text(str(room.room_number))
+        label_x = int(room.x+.5*room.width)
+        label_y = int(room.y+.5*room.height)
+        if not (fogOfWar and my_map.mask_matrix[label_y][label_x] == 0):
+            ctx.move_to(label_x*10, label_y*10)
+            ctx.show_text(str(room.room_number))
     #Draw Node Labels
     for node in my_map.nodes:
         ctx.set_source_rgb(0.5, 0, 0)

@@ -18,6 +18,7 @@ min_rooms = 12
 max_iters = 3
 rooms = []
 my_map = []
+my_mask = []
 my_nodex = []
 node_label = 'a'
 nodes = []
@@ -26,8 +27,10 @@ pc_point = [0,0]
 def init_map():
     """Initializes the map of key/value pairs."""
     global my_map
+    global my_mask
     s = (map_height,map_width)
     my_map = np.zeros(s)
+    my_mask = np.zeros(s)
     return my_map
 
 def init_rooms():
@@ -190,11 +193,12 @@ def test_generate():
     finalMap = Map(map_width,map_height)
     finalMap.matrix = my_map
     finalMap.player_location = pc_point
+    finalMap.mask_matrix = my_mask
     for room in rooms:
         finalMap.rooms.append(room)
     for node in nodes:
         finalMap.nodes.append(node)
-    draw_dungeon(finalMap)
+    draw_dungeon(finalMap, fogOfWar=False)
 
 if __name__ == "__main__":
     test_generate()
