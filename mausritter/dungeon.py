@@ -9,28 +9,42 @@ import contracts
 import treasure
 import treasure_tables
 
+def print_dungeon_room():
+    utils.print_header("Room")
+    text_array = create_dungeon_room()
+    for line in text_array:
+        print(line)
+
 def create_dungeon_room():
+    text_array = []
     utils.print_header("Room")
     room_type = dice.roll_1d6() - 1
     room_type_str = dungeon_tables.room_type[room_type]
     creature_present = dungeon_tables.creature_present[room_type][dice.roll_1d6()-1]
     treasure_present = dungeon_tables.treasure_present[room_type][dice.roll_1d6()-1]
     print ("Room Type: " + room_type_str)
+    text_array.append("Room Type: " + room_type_str)
     if room_type_str == "Empty":
         print("\tEmpty Detail: " + dungeon_tables.empty_feature[dice.roll_1d20()-1])
+        text_array.append("\tEmpty Detail: " + dungeon_tables.empty_feature[dice.roll_1d20()-1])
     if room_type_str == "Obstacle":
         print("\tObstacle Detail: " + dungeon_tables.obstacle_feature[dice.roll_1d8()-1])
+        text_array.append("\tObstacle Detail: " + dungeon_tables.obstacle_feature[dice.roll_1d8()-1])
     if room_type_str == "Trap":
         print("\tTrap Detail: " + dungeon_tables.trap_feature[dice.roll_1d8()-1])
+        text_array.append("\tTrap Detail: " + dungeon_tables.trap_feature[dice.roll_1d8()-1])
         if treasure_present:
             print("\tTRAP HAS TREASURE!!")
+            text_array.append("\tTRAP HAS TREASURE!!")
             treasure.roll_treasure(tabs=2)
     if room_type_str == "Puzzle":
         puzzle_feature_number = dice.roll_1d6()-1
         puzzle_detail = dungeon_tables.puzzle_feature[puzzle_feature_number]
         print("\tPuzzle Detail: " + puzzle_detail)
+        text_array.append("\tPuzzle Detail: " + puzzle_detail)
         if "treasure" in puzzle_detail.lower() or "sword" in puzzle_detail.lower() :
             print("\tPUZZLE HAS TREASURE!!")
+            text_array.append("\tPUZZLE HAS TREASURE!!")
             if "sword" in puzzle_detail.lower():
                 treasure_type_index = 0
             else:
@@ -38,16 +52,23 @@ def create_dungeon_room():
             treasure.roll_treasure(treasure_type=treasure_type_index,tabs=2)
     if room_type_str == "Lair":
         print("\tLair Detail: " + dungeon_tables.lair_feature[dice.roll_1d6()-1])
+        text_array.append("\tLair Detail: " + dungeon_tables.lair_feature[dice.roll_1d6()-1])
     print ("-\nCreature Present: " + str(creature_present))
+    text_array.append("-")
+    text_array.append("Creature Present: " + str(creature_present))
     if creature_present:
         is_dangerous = encounters.roll_encounter(tabs=1,is_dungeon_room=True)
         if is_dangerous and treasure_present:
             print("\tCREATURE IS GUARDING TREASURE!!")
+            text_array.append("\tCREATURE IS GUARDING TREASURE!!")
             treasure.roll_treasure(tabs=2)
     print ("-\nTreasure Present: " + str(treasure_present))
+    text_array.append("-")
+    text_array.append("Treasure Present: " + str(treasure_present))
     if treasure_present:
         treasure.roll_treasure(tabs=1)
         treasure.roll_treasure(tabs=1)
+    return text_array
 
 def print_stats(stats):
     hp = stats[0]
@@ -103,6 +124,7 @@ def menu():
 
 def nwrm(argv=[]):
     create_dungeon_room()
+    #print_dungeon_room()
     print()
 
 def creature(argv=[]):
