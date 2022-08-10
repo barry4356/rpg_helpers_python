@@ -36,7 +36,7 @@ def create_dungeon_room():
         if treasure_present:
             print("\tTRAP HAS TREASURE!!")
             text_array.append("\tTRAP HAS TREASURE!!")
-            treasure.roll_treasure(tabs=2)
+            tex_array.append(treasure.roll_treasure(tabs=2))
     if room_type_str == "Puzzle":
         puzzle_feature_number = dice.roll_1d6()-1
         puzzle_detail = dungeon_tables.puzzle_feature[puzzle_feature_number]
@@ -49,7 +49,7 @@ def create_dungeon_room():
                 treasure_type_index = 0
             else:
                 treasure_type_index = dice.roll_1d20() - 1
-            treasure.roll_treasure(treasure_type=treasure_type_index,tabs=2)
+            text_array.append(treasure.roll_treasure(treasure_type=treasure_type_index,tabs=2))
     if room_type_str == "Lair":
         print("\tLair Detail: " + dungeon_tables.lair_feature[dice.roll_1d6()-1])
         text_array.append("\tLair Detail: " + dungeon_tables.lair_feature[dice.roll_1d6()-1])
@@ -66,8 +66,8 @@ def create_dungeon_room():
     text_array.append("-")
     text_array.append("Treasure Present: " + str(treasure_present))
     if treasure_present:
-        treasure.roll_treasure(tabs=1)
-        treasure.roll_treasure(tabs=1)
+        text_array.append(treasure.roll_treasure(tabs=1))
+        text_array.append(treasure.roll_treasure(tabs=1))
     return text_array
 
 def print_stats(stats):
