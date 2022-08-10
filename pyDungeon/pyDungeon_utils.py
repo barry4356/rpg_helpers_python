@@ -102,15 +102,21 @@ def unmask_line(mask_matrix,point1,point2):
         x = point1[0]
         for y in range(point1[1],point2[1]):
             mask_matrix[y][x] = 1
+        for y in range(point2[1],point1[1]):
+            mask_matrix[y][x] = 1
     #If we have a line down the y axis
     elif point1[1] == point2[1]:
         y = point1[1]
         for x in range(point1[0],point2[0]):
             mask_matrix[y][x] = 1
+        for x in range(point2[0],point1[0]):
+            mask_matrix[y][x] = 1
     else:
     #If we have some other line
         for x in range(point1[0],point2[0]):
             for y in range(point1[1],point2[1]):
+                mask_matrix[y][x] = 1
+            for y in range(point2[1],point1[1]):
                 mask_matrix[y][x] = 1
     return mask_matrix
 

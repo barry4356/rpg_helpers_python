@@ -122,12 +122,12 @@ def connect_rooms():
                         my_map[starting_point[1]][x] = 2
                     my_map[starting_point[1]][roomB.x] = 3
                     newNodeB = Node(roomB.x,starting_point[1],node_label)
-                    newNodeB.room = room.room_number
+                    newNodeB.room = roomB.room_number
                     newNode.connections.append(newNodeB.label)
                     newNodeB.connections.append(newNode.label)
                     nodes.append(newNode)
                     nodes.append(newNodeB)
-                    roomB.add_node(newNode)
+                    roomB.add_node(newNodeB)
                     node_label = chr(ord(node_label) + 1)
                     break
 
