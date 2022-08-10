@@ -37,13 +37,15 @@ def main_menu():
         im = Image.open("DemoMap.png")
         im.show()
         direction_options = list(set(direction_options))
-        selection = utils.array_select_menu(direction_options,"In Room "+str(current_room_number)+". Which direction do you want to go?")
+        selection = utils.array_select_menu(direction_options,
+            "In Room "+str(current_room_number)+". Which direction do you want to go?",is_main=True)
         if not selection:
             exit_now = True
         else:
             my_map.mask_matrix = pyDungeon_utils.unmask_nodes(my_map.mask_matrix,my_node,
                                     pyDungeon_utils.find_node(my_map.nodes,selection))
             my_node = pyDungeon_utils.find_node(my_map.nodes,selection)
+            my_map.player_location = [my_node.x,my_node.y]
         for proc in psutil.process_iter():
             if "eog" in proc.name():
                 proc.kill()

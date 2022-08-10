@@ -1,6 +1,6 @@
 #utils.py
 
-def array_select_menu(array=[],header=""):
+def array_select_menu(array=[],header="",is_main=False):
     exit = False
     while exit != True:
         print_header(header)
@@ -9,7 +9,10 @@ def array_select_menu(array=[],header=""):
         for option in array:
             index=index+1
             print(str(index)+" - "+option)
-        print("0 - Back")
+        if is_main:
+            print("\n0 - Exit")
+        else:
+            print("0 - Back")
         val = get_input_int(100)
         print("\n")
         if(val == 0):
