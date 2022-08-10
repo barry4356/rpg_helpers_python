@@ -4,6 +4,7 @@ import pyDungeon_main
 import pyDungeon_utils
 from PIL import Image
 import psutil
+import webbrowser
 
 def generate_map():
     return pyDungeon_main.demo_generate()
@@ -18,6 +19,8 @@ def main_menu():
         pyDungeon_utils.draw_dungeon(my_map,fogOfWar=False,filename="DemoDungeonRevealed.png")
     utils.print_header("Dungeon Crawler Demo")
     exit_now = False
+    browser = webbrowser.get("firefox")
+    browser.open("DemoMap.png")
     while exit_now != True:
         current_room_number = 0
         direction_options = []
@@ -34,9 +37,10 @@ def main_menu():
                 direction_options.append(temp_node)
                 temp_node_ptr = pyDungeon_utils.find_node(my_map.nodes,temp_node)
         pyDungeon_utils.draw_dungeon(my_map,fogOfWar=True)
-        im = Image.open("DemoMap.png")
-        im.show()
+        #im = Image.open("DemoMap.png")
+        #im.show()
         direction_options = list(set(direction_options))
+        #webbrowser.open("DemoMap.png",new=0)
         selection = utils.array_select_menu(direction_options,
             "In Room "+str(current_room_number)+". Which direction do you want to go?",is_main=True)
         if not selection:
@@ -49,7 +53,7 @@ def main_menu():
         for proc in psutil.process_iter():
             if "eog" in proc.name():
                 proc.kill()
-        im.close()
+        #im.close()
 
 
 if __name__ == "__main__":
