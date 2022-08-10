@@ -2,6 +2,11 @@
 import dice
 import treasure_tables
 
+def print_treasure():
+    text_array = roll_treasure
+    for line in text_array:
+        print (line)
+
 def check_magic_sword():
     magic_sword_cursed = treasure_tables.magic_sword_cursed[dice.roll_1d6()-1]
     if magic_sword_cursed:
@@ -74,4 +79,5 @@ def swchk(argv=[]):
 
 def roltres(argv=[]):
     roll_treasure()
+    #print_treasure()
     print()
