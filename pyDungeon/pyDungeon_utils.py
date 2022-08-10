@@ -78,8 +78,9 @@ def draw_dungeon(my_map, fogOfWar=False):
         ctx.select_font_face("Arial",
                      cairo.FONT_SLANT_NORMAL,
                      cairo.FONT_WEIGHT_NORMAL)
-        ctx.move_to((node.x)*10, (node.y)*10)
-        ctx.show_text(str(node.label))
+        if not (fogOfWar and my_map.mask_matrix[node.y][node.x] == 0):
+            ctx.move_to((node.x)*10, (node.y)*10)
+            ctx.show_text(str(node.label))
     #Write to png file
     surface.write_to_png("dungeon.png")
     print("Total rooms: " + str(len(my_map.rooms)))
