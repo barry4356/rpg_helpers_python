@@ -40,7 +40,7 @@ def draw_dungeon(my_map, fogOfWar=False, filename=""):
     for y in range(my_map.map_height):
         for x in range(my_map.map_width):
             if x == my_map.player_location[0] and y == my_map.player_location[1]:
-                ctx.set_source_rgb(1,1,1)
+                ctx.set_source_rgb(*pyDungeon_colors.White)
             elif fogOfWar and my_map.mask_matrix[y][x] == 0:
                 ctx.set_source_rgb(*pyDungeon_colors.darkGray)
             elif my_map.matrix[y][x] == pyDungeon_colors.wall_enum:
