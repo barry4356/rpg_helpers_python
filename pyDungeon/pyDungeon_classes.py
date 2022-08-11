@@ -3,10 +3,10 @@
 class Room:
     """Defines a room of the dungeon."""
     def __init__(self,x,y,width,height):
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
+        self.x = int(x)
+        self.y = int(y)
+        self.width = int(width)
+        self.height = int(height)
         self.room_number = 0
         self.nodes = []
         self.description = []

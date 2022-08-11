@@ -81,7 +81,7 @@ def read_map(map_file):
             my_map.rooms.append(read_room(savelocation+key+".room"))
         if "node" in key:
             my_map.nodes.append(read_node(savelocation+key+".node"))
-    my_map.print_map()
+    return my_map
 
 def read_room(room_file):
     room_dict = fileops.deserialize_dict(room_file)

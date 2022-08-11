@@ -229,8 +229,10 @@ def test_generate():
         finalMap.rooms.append(room)
     for node in nodes:
         finalMap.nodes.append(node)
-    draw_dungeon(finalMap, fogOfWar=False)
+    draw_dungeon(finalMap, fogOfWar=False, filename="control.png")
     pyDungeon_fileops.store_map(finalMap)
+    new_map = pyDungeon_fileops.read_map("maps/Map_Name/Map_Name.map")
+    draw_dungeon(new_map, fogOfWar=False, filename="test.png")
 
 if __name__ == "__main__":
     test_generate()
