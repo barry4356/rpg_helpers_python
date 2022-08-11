@@ -13,12 +13,14 @@ def get_creature_detail(creature_name):
             creature_name = creature_shortname
     return(creature_tables.creature_details[creature_name.lower()])
 
-
 def print_encounter():
     utils.print_header("Encounter")
-    roll_encounter()
+    is_dangerous, text_array = roll_encounter()
+    for line in text_array:
+        print(line)
 
 def roll_encounter(tabs=0,is_dungeon_room=False):
+    text_array = []
     dangerous = False
     indent=""
     for index in range(tabs):
@@ -28,57 +30,57 @@ def roll_encounter(tabs=0,is_dungeon_room=False):
     else:
         indent = (indent+"Encounter")
     creature_roll = dice.roll_1d6()
-    print(indent+" Roll: " + str(creature_roll))
+    text_array.append(indent+" Roll: " + str(creature_roll))
     if creature_roll < 4:
-        print(indent+": Common Encounter")
+        text_array.append(indent+": Common Encounter")
         creature_type_roll = dice.roll_1d10()-1
         creature_type = additional_tables.small[creature_type_roll]
-        print(indent+" Selected (Experimental): "+creature_type)
+        text_array.append(indent+" Selected (Experimental): "+creature_type)
     elif creature_roll < 6:
-        print(indent+": Uncommon Encounter; Slightly Unusual")
+        text_array.append(indent+": Uncommon Encounter; Slightly Unusual")
         creature_type_roll = dice.roll_1d6()-1
         creature_type = ""
         if dice.coin_flip():
             creature_type = additional_tables.medium[creature_type_roll]
         else:
             creature_type = additional_tables.tiny[creature_type_roll]
-        print(indent+" Selected (Experimental): "+creature_type)
+        text_array.append(indent+" Selected (Experimental): "+creature_type)
     else:
-        print(indent+": Strange or Dangerous Encounter")
+        text_array.append(indent+": Strange or Dangerous Encounter")
         creature_type_roll = dice.roll_1d6()-1
         creature_type = additional_tables.large[creature_type_roll]
-        print(indent+" Selected (Experimental): "+creature_type)
+        text_array.append(indent+" Selected (Experimental): "+creature_type)
     reaction_roll = dice.roll_2d6()
     if reaction_roll <= 8:
         dangerous = True
-    print(indent+": Reaction = "+creature_tables.reactions[reaction_roll-2])
+    text_array.append(indent+": Reaction = "+creature_tables.reactions[reaction_roll-2])
     detail_ary = get_creature_detail(creature_type)
     if "faerie" in creature_type.lower():
-        print(indent+": Knows spell ["+dice.roll_on_table(treasure_tables.spells)+"]")
+        text_array.append(indent+": Knows spell ["+dice.roll_on_table(treasure_tables.spells)+"]")
         detail_roll = dice.roll_1d6()
-        print(indent+": Nefarious Plot: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
+        text_array.append(indent+": Nefarious Plot: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
     elif "owl" in creature_type.lower():
-        print(indent+": Knows spells ["+dice.roll_on_table(treasure_tables.spells)+
+        text_array.append(indent+": Knows spells ["+dice.roll_on_table(treasure_tables.spells)+
             "] and ["+dice.roll_on_table(treasure_tables.spells)+"]")
         detail_roll = dice.roll_1d6()
-        print(indent+": Optional NPC Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
+        text_array.append(indent+": Optional NPC Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
     elif "crow" in creature_type.lower():
         song_roll1 = dice.roll_1d6()
         song_roll2 = dice.roll_1d6()
         while song_roll1 == song_roll2:
             song_roll2 = dice.roll_1d6()
-        print(indent+": Knows songs ["+str(detail_ary[song_roll1-1][0])+
+        text_array.append(indent+": Knows songs ["+str(detail_ary[song_roll1-1][0])+
             "] and ["+str(detail_ary[song_roll2-1][0])+"]")
-        print(indent+":\t"+detail_ary[song_roll1-1][0]+": "+detail_ary[song_roll1-1][1])
-        print(indent+":\t"+detail_ary[song_roll2-1][0]+": "+detail_ary[song_roll2-1][1])
+        text_array.append(indent+":\t"+detail_ary[song_roll1-1][0]+": "+detail_ary[song_roll1-1][1])
+        text_array.append(indent+":\t"+detail_ary[song_roll2-1][0]+": "+detail_ary[song_roll2-1][1])
     elif "cat" in creature_type.lower() or "frog" in creature_type.lower() or "mouse" in creature_type.lower():
         detail_roll = dice.roll_1d6()
-        print(indent+": Optional NPC Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
+        text_array.append(indent+": Optional NPC Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
     else:
         detail_roll = dice.roll_1d6()
-        print(indent+": Optional Creature Detail Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
-    print(indent+": Communication: "+str(detail_ary[6]))
-    return dangerous
+        text_array.append(indent+": Optional Creature Detail Roll: "+detail_ary[detail_roll-1][0]+", "+detail_ary[detail_roll-1][1])
+    text_array.append(indent+": Communication: "+str(detail_ary[6]))
+    return dangerous, text_array
 
 def adventure_generator():
     utils.print_header("Generated Adventure")
