@@ -11,6 +11,7 @@ from pyDungeon_utils import unmask_node
 from pyDungeon_classes import Room
 from pyDungeon_classes import Node
 from pyDungeon_classes import Map
+from pyDungeon_killOrphans import kill_orphans
 import pyDungeon_fileops
 
 map_width = 60 # number of squares wide
@@ -229,10 +230,11 @@ def test_generate():
         finalMap.rooms.append(room)
     for node in nodes:
         finalMap.nodes.append(node)
-    draw_dungeon(finalMap, fogOfWar=True, filename="control.png")
-    pyDungeon_fileops.store_map(finalMap)
-    new_map = pyDungeon_fileops.read_map("maps/Map_Name/Map_Name.map")
-    draw_dungeon(new_map, fogOfWar=True, filename="test.png")
+    draw_dungeon(finalMap, fogOfWar=False, filename="control.png")
+    kill_orphans(finalMap)
+    #pyDungeon_fileops.store_map(finalMap)
+    #new_map = pyDungeon_fileops.read_map("maps/Map_Name/Map_Name.map")
+    #draw_dungeon(new_map, fogOfWar=True, filename="test.png")
 
 if __name__ == "__main__":
     test_generate()
