@@ -75,7 +75,7 @@ def read_map(map_file):
     my_map.player_location = list(map(int,map_dict["PC_location"].split(",")))
     savelocation = os.path.dirname(map_file)+"/"
     my_map.matrix = read_matrix(savelocation+my_map.map_name.replace(" ","_")+".matrix",my_map.map_width,my_map.map_height)
-    my_map.mask = read_matrix(savelocation+my_map.map_name.replace(" ","_")+".mask",my_map.map_width,my_map.map_height)
+    my_map.mask_matrix = read_matrix(savelocation+my_map.map_name.replace(" ","_")+".mask",my_map.map_width,my_map.map_height)
     for key in map_dict.keys():
         if "room" in key:
             my_map.rooms.append(read_room(savelocation+key+".room"))
