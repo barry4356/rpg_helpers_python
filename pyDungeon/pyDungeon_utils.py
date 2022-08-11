@@ -43,13 +43,13 @@ def draw_dungeon(my_map, fogOfWar=False, filename=""):
                 ctx.set_source_rgb(1,1,1)
             elif fogOfWar and my_map.mask_matrix[y][x] == 0:
                 ctx.set_source_rgb(*pyDungeon_colors.darkGray)
-            elif my_map.matrix[y][x] == 0:
+            elif my_map.matrix[y][x] == pyDungeon_colors.wall_enum:
                 ctx.set_source_rgb(*pyDungeon_colors.darkGray)
-            elif my_map.matrix[y][x] == 1:
+            elif my_map.matrix[y][x] == pyDungeon_colors.room_enum:
                 ctx.set_source_rgb(*pyDungeon_colors.lightGray)
-            elif my_map.matrix[y][x] == 2:
+            elif my_map.matrix[y][x] == pyDungeon_colors.hall_enum:
                 ctx.set_source_rgb(*pyDungeon_colors.lightGray)
-            elif my_map.matrix[y][x] == 3:
+            elif my_map.matrix[y][x] == pyDungeon_colors.node_enum:
                 ctx.set_source_rgb(*pyDungeon_colors.lightGray)
             ctx.rectangle(x*10, y*10, 10, 10)
             ctx.fill()
