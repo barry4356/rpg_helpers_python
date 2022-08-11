@@ -11,6 +11,7 @@ from pyDungeon_utils import unmask_node
 from pyDungeon_classes import Room
 from pyDungeon_classes import Node
 from pyDungeon_classes import Map
+import pyDungeon_fileops
 
 map_width = 60 # number of squares wide
 map_height = 60 # number of squares tall
@@ -229,6 +230,7 @@ def test_generate():
     for node in nodes:
         finalMap.nodes.append(node)
     draw_dungeon(finalMap, fogOfWar=False)
+    pyDungeon_fileops.store_map(finalMap)
 
 if __name__ == "__main__":
     test_generate()
