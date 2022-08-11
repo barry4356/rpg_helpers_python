@@ -1,6 +1,7 @@
 #pyDungeon_utils.py
 import cairo
 import numpy as np
+import pyDungeon_colors
 
 #Check if a room overlaps with any in the list
 def check_room_overlap(room, rooms):
@@ -41,19 +42,19 @@ def draw_dungeon(my_map, fogOfWar=False, filename=""):
             if x == my_map.player_location[0] and y == my_map.player_location[1]:
                 ctx.set_source_rgb(1,1,1)
             elif fogOfWar and my_map.mask_matrix[y][x] == 0:
-                ctx.set_source_rgb(0.3,0.3,0.3)
+                ctx.set_source_rgb(*pyDungeon_colors.darkGray)
             elif my_map.matrix[y][x] == 0:
-                ctx.set_source_rgb(0.3,0.3,0.3)
+                ctx.set_source_rgb(*pyDungeon_colors.darkGray)
             elif my_map.matrix[y][x] == 1:
-                ctx.set_source_rgb(0.5,0.5,0.5)
+                ctx.set_source_rgb(*pyDungeon_colors.lightGray)
             elif my_map.matrix[y][x] == 2:
-                ctx.set_source_rgb(0.4,0.4,0.4)
+                ctx.set_source_rgb(*pyDungeon_colors.lightGray)
             elif my_map.matrix[y][x] == 3:
-                ctx.set_source_rgb(0.5,0.5,0.5)
+                ctx.set_source_rgb(*pyDungeon_colors.lightGray)
             ctx.rectangle(x*10, y*10, 10, 10)
             ctx.fill()
     # Draw Map Label
-    ctx.set_source_rgb(1, 0, 0)
+    ctx.set_source_rgb(*pyDungeon_colors.Red)
     ctx.set_font_size(my_map.map_width / 3)
     ctx.select_font_face("Arial",
                      cairo.FONT_SLANT_NORMAL,
@@ -62,7 +63,7 @@ def draw_dungeon(my_map, fogOfWar=False, filename=""):
     ctx.show_text(my_map.map_name)
     #Draw Room Labels
     for room in my_map.rooms:
-        ctx.set_source_rgb(1, 0, 0)
+        ctx.set_source_rgb(*pyDungeon_colors.Red)
         ctx.set_font_size(my_map.map_width / 3)
         ctx.select_font_face("Arial",
                      cairo.FONT_SLANT_NORMAL,
@@ -74,7 +75,7 @@ def draw_dungeon(my_map, fogOfWar=False, filename=""):
             ctx.show_text(str(room.room_number))
     #Draw Node Labels
     for node in my_map.nodes:
-        ctx.set_source_rgb(0.5, 0, 0)
+        ctx.set_source_rgb(*pyDungeon_colors.DarkRed)
         ctx.set_font_size(my_map.map_width / 4)
         ctx.select_font_face("Arial",
                      cairo.FONT_SLANT_NORMAL,

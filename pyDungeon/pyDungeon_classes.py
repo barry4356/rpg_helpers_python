@@ -9,13 +9,18 @@ class Room:
         self.height = height
         self.room_number = 0
         self.nodes = []
+        self.description = []
     def add_node(self,node):
         self.nodes.append(node.label)
     def print_room(self):
+        print("\n-----------")
         print("Room: ["+str(self.room_number)+"]")
         for node in self.nodes:
             print("\tNode: ["+node+"]")
-        print("")
+        print("Description")
+        for line in description:
+            print(line)
+        print("-----------\n")
 
 class Node:
     """Defines a coordinate point that can be navigated through."""

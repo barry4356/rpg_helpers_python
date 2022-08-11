@@ -117,7 +117,6 @@ def menu():
     utils.menu(func_list,desc_list,"Adventure Menu",False)
 
 def nwrm(argv=[]):
-    #create_dungeon_room()
     print_dungeon_room()
     print()
 
