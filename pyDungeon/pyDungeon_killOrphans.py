@@ -8,7 +8,6 @@ def kill_orphans(my_map,start_label="start"):
     rooms_discovered_set = set([])
     for room in my_map.rooms:
         room_list.add(room.room_number)
-    print (room_list)
     # Travel each node from the start
     node_list = set([])
     node_list.add(start_label)
@@ -18,13 +17,12 @@ def kill_orphans(my_map,start_label="start"):
         rooms_discovered_set, node_list_new = walk_nodes(my_map,node_list)
         if node_list_new == node_list:
             break
-        #print(node_list)
-        print(node_list_new)
         node_list = node_list_new
-    print (rooms_discovered_set)
-    # Log how many rooms are explored
     # Find list of Rooms that are orphaned
+    orphaned_rooms = room_list - rooms_discovered_set
     # Create a connection from each orphaned to a nearby non-orphan
+    for room in orphaned_rooms:
+        print(room)
     return my_map
 
 def walk_nodes(my_map,node_list):
@@ -44,3 +42,6 @@ def walk_nodes(my_map,node_list):
                 for node in actual_room.nodes:
                     node_list_out.add(node)
     return rooms_set,node_list_out
+
+def connect_orphans(my_map,good_rooms,bad_rooms):
+    print("connect_orphans")
