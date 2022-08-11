@@ -1,6 +1,11 @@
 #pyDungeon_fileops.py
 
 import fileops
+import os
+from pyDungeon_classes import Map
+from pyDungeon_classes import Room
+from pyDungeon_classes import Node
+import numpy as np
 
 def store_map(my_map,savelocation="maps/"):
     map_dict = {}
@@ -24,6 +29,7 @@ def store_map(my_map,savelocation="maps/"):
     map_dict["mask_matrix"]=mask_matrix_filename
     store_matrix(my_map.mask_matrix,savelocation+mask_matrix_filename)
     fileops.serialize_dict(map_dict,savelocation+my_map.map_name.replace(" ","_")+".map")
+    read_map(savelocation+my_map.map_name.replace(" ","_")+".map") #TEST CODE
 
 def store_room(my_room,filename):
     room_dict = {}
@@ -58,18 +64,57 @@ def store_matrix(my_matrix,filename):
     matrix_dict = {}
     index = 0
     for line in my_matrix:
-        matrix_dict[str(index)] = line
+        matrix_dict[str(index)] = line.tolist()
         index = index + 1
     fileops.serialize_dict(matrix_dict,filename)
 
 def read_map(map_file):
-    print("read_map")
+    map_dict = fileops.deserialize_dict(map_file)
+    my_map = Map(map_width=map_dict["map_width"],map_height=map_dict["map_height"],map_name=map_dict["map_name"])
+    #Convert string into a set of two ints (x,y coordinates)
+    my_map.player_location = list(map(int,map_dict["PC_location"].split(",")))
+    savelocation = os.path.dirname(map_file)+"/"
+    my_map.matrix = read_matrix(savelocation+my_map.map_name.replace(" ","_")+".matrix",my_map.map_width,my_map.map_height)
+    my_map.mask = read_matrix(savelocation+my_map.map_name.replace(" ","_")+".mask",my_map.map_width,my_map.map_height)
+    for key in map_dict.keys():
+        if "room" in key:
+            my_map.rooms.append(read_room(savelocation+key+".room"))
+        if "node" in key:
+            my_map.nodes.append(read_node(savelocation+key+".node"))
+    my_map.print_map()
 
 def read_room(room_file):
-    print("read_room")
+    room_dict = fileops.deserialize_dict(room_file)
+    my_room = Room(x=room_dict["x"],y=room_dict["y"],width=room_dict["width"],height=room_dict["height"])
+    my_room.room_number = room_dict["room_number"]
+    for key in room_dict.keys():
+        if "node" in key:
+            my_room.nodes.append(room_dict[key])
+    for key in room_dict.keys():
+        if "description" in key:
+            my_room.description.append(room_dict[key])
+    return my_room
 
 def read_node(node_file):
-    print("read_node")
+    node_dict = fileops.deserialize_dict(node_file)
+    my_node = Node(x=node_dict["x"],y=node_dict["y"],label=node_dict["label"])
+    my_node.room = node_dict["room"]
+    for key in node_dict.keys():
+        if "connection" in key:
+            my_node.connections.append(node_dict[key])
+    return my_node
 
-def read_matrix(matrix_file):
-    print("read_matrix")
+def read_matrix(matrix_file,map_width,map_height):
+    s = (map_height,map_width)
+    my_matrix = np.zeros(s)
+    matrix_dict = fileops.deserialize_dict(matrix_file)
+    y = 0
+    for key in matrix_dict.keys():
+        x = 0
+        for value in matrix_dict[key].split(","):
+            value = value.replace("[","")
+            value = value.replace("]","")
+            my_matrix[y][x] = int(float(value))
+            x = x + 1
+        y = y + 1
+    return my_matrix

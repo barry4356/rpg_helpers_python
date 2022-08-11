@@ -18,15 +18,15 @@ class Room:
         for node in self.nodes:
             print("\tNode: ["+node+"]")
         print("Description")
-        for line in description:
+        for line in self.description:
             print(line)
         print("-----------\n")
 
 class Node:
     """Defines a coordinate point that can be navigated through."""
     def __init__(self,x,y,label):
-        self.x = x
-        self.y = y
+        self.x = int(x)
+        self.y = int(y)
         self.label = label
         self.connections = []
         self.room = ""
@@ -46,8 +46,8 @@ class Map:
     """Defines a full set of map data."""
     def __init__(self, map_width, map_height, map_name="Map Name"):
         self.map_name = map_name
-        self.map_width = map_width
-        self.map_height = map_height
+        self.map_width = int(map_width)
+        self.map_height = int(map_height)
         self.rooms = []
         self.nodes = []
         self.matrix = []
