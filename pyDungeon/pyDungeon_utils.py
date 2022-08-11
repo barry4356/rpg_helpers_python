@@ -48,7 +48,7 @@ def draw_dungeon(my_map, fogOfWar=False, filename=""):
             elif my_map.matrix[y][x] == pyDungeon_colors.room_enum:
                 ctx.set_source_rgb(*pyDungeon_colors.lightGray)
             elif my_map.matrix[y][x] == pyDungeon_colors.hall_enum:
-                ctx.set_source_rgb(*pyDungeon_colors.lightGray)
+                ctx.set_source_rgb(*pyDungeon_colors.Gray)
             elif my_map.matrix[y][x] == pyDungeon_colors.node_enum:
                 ctx.set_source_rgb(*pyDungeon_colors.lightGray)
             ctx.rectangle(x*10, y*10, 10, 10)

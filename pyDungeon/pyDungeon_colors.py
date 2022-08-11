@@ -3,6 +3,7 @@
 import enum
 
 darkGray    = [0.3,0.3,0.3]
+Gray        = [0.4,0.4,0.4]
 lightGray   = [0.5,0.5,0.5]
 Red         = [1,0,0]
 DarkRed     = [0.5,0,0]
