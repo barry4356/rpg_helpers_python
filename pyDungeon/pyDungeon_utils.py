@@ -2,6 +2,7 @@
 import cairo
 import numpy as np
 import pyDungeon_colors
+from hexmath import coord_distance
 
 #Check if a room overlaps with any in the list
 def check_room_overlap(room, rooms):
@@ -143,3 +144,31 @@ def find_room(rooms,room_number):
     for room in rooms:
         if room.room_number == room_number:
             return room
+
+def closest_room(rooms,my_room_number):
+    closest_room = rooms[0]
+    closest_distance = 10000
+    my_point1 = [0,0]
+    my_point2 = [0,0]
+    my_point3 = [0,0]
+    my_point4 = [0,0]
+    for room in rooms:
+        if room.room_number == my_room_number:
+            my_point1 = [room.x,room.y]
+            my_point2 = [room.x+room.width,room.y]
+            my_point3 = [room.x,room.y+room.height]
+            my_point4 = [room.x+room.width,room.y+room.height]
+    for room in rooms:
+        if room.room_number = my_room_number:
+            break
+        point1 = [room.x,room.y]
+        point2 = [room.x+room.width,room.y]
+        point3 = [room.x,room.y+room.height]
+        point4 = [room.x+room.width,room.y+room.height]
+        for point in (point1, point2, point3, point4):
+            for my_point in (my_point1,my_point2,my_point3,my_point4):
+                if coord_distance(point,my_point) < closest_distance:
+                    closest_room = room
+    print ("Closest Room: "+closest_room.room_number)
+
+    print("closest_room")

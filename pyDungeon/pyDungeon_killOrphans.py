@@ -21,6 +21,8 @@ def kill_orphans(my_map,start_label="start"):
     # Find list of Rooms that are orphaned
     orphaned_rooms = room_list - rooms_discovered_set
     # Create a connection from each orphaned to a nearby non-orphan
+    if len(orphaned_rooms) >= 1:
+        connect_orphans(my_map,rooms_discovered_set,orphaned_rooms)
     for room in orphaned_rooms:
         print(room)
     return my_map
@@ -45,3 +47,4 @@ def walk_nodes(my_map,node_list):
 
 def connect_orphans(my_map,good_rooms,bad_rooms):
     print("connect_orphans")
+    closest_room(good_rooms,bad_rooms[0])
