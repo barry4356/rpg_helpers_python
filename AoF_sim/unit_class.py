@@ -26,7 +26,22 @@ class unit():
 
     def gen_empty_stats(self):
         empty_stats = {}
+        empty_stats['name'] = ''
         empty_stats['quality'] = 0
         empty_stats['defense'] = 0
         empty_stats['attacks'] = []
+        empty_stats['models'] = 0
+        empty_stats['impact'] = 0
+        empty_stats['lance'] = False
+        empty_stats['counter'] = False
         return empty_stats
+
+    def charge(self, enemy_unit, fatigued=False, defender_fatigued=False):
+        #TODO: Implement this as a single 'charge' simulation
+        results = {}
+        return results
+
+    def shoot(self, enemy_unit):
+        #TODO: Implement this as a single 'ranged attack' simulation
+        results = {}
+        return results
