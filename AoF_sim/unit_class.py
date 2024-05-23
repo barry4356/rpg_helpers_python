@@ -20,41 +20,20 @@ class unit():
                 self.stats[mykey] = temp_stats[mykey]
             elif mykey in empty_stats.keys():
                 self.stats[mykey] = empty_stats[mykey]
-        if 'units' not in temp_stats.keys():
+        if 'models' not in temp_stats.keys():
             return
-        new_units = []
-        empty_unit = self.gen_empty_unit()
-        for temp_unit in temp_stats['units']:
-            new_unit = {}
-            for mykey in empty_unit:
-                if mykey in temp_unit.keys():
-                    new_unit[mykey] = temp_unit[mykey]
+        new_models = []
+        empty_model = self.gen_empty_model()
+        for temp_model in temp_stats['models']:
+            new_model = {}
+            for mykey in empty_model:
+                if mykey in temp_model.keys():
+                    new_model[mykey] = temp_model[mykey]
                 else:
-                    new_unit[mykey] = empty_unit[mykey]
-            new_units.append(new_unit)
-        self.stats['units'] = new_units
+                    new_model[mykey] = empty_model[mykey]
+            new_models.append(new_model)
+        self.stats['models'] = new_models
             
-
-    def to_string(self):
-        return (json.dumps(self.stats, indent=2))
-
-    def gen_empty_unit(self):
-        empty_unit = {}
-        empty_unit['name'] = ''
-        empty_unit['quality'] = 0
-        empty_unit['defense'] = 0
-        empty_unit['attacks'] = []
-        empty_unit['models'] = 0
-        empty_unit['impact'] = 0
-        empty_unit['lance'] = False
-        empty_unit['counter'] = False
-        return empty_unit
-
-    def gen_empty_stats(self):
-        empty_stats = {}
-        empty_stats['name'] = ''
-        empty_stats['units'] = []
-        return empty_stats
 
     def charge(self, enemy_unit, fatigued=False, defender_fatigued=False):
         #TODO: Implement this as a single 'charge' simulation
@@ -65,3 +44,24 @@ class unit():
         #TODO: Implement this as a single 'ranged attack' simulation
         results = {}
         return results
+
+    def to_string(self):
+        return (json.dumps(self.stats, indent=2))
+
+    def gen_empty_model(self):
+        empty_model = {}
+        empty_model['name'] = ''
+        empty_model['quality'] = 0
+        empty_model['defense'] = 0
+        empty_model['attacks'] = []
+        empty_model['models'] = 0
+        empty_model['impact'] = 0
+        empty_model['lance'] = False
+        empty_model['counter'] = False
+        return empty_model
+
+    def gen_empty_stats(self):
+        empty_stats = {}
+        empty_stats['name'] = ''
+        empty_stats['models'] = []
+        return empty_stats
