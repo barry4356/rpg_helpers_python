@@ -34,27 +34,22 @@ class unit():
             new_models.append(new_model)
         self.stats['models'] = new_models
             
-
-    def charge(self, enemy_unit, fatigued=False, defender_fatigued=False):
-        #TODO: Implement this as a single 'charge' simulation
-        results = {}
-        return results
-
-    def shoot(self, enemy_unit):
-        #TODO: Implement this as a single 'ranged attack' simulation
-        results = {}
-        return results
-
     def to_string(self):
         return (json.dumps(self.stats, indent=2))
+
+    def gen_empty_weapon(self):
+        empty_weapon = {}
+        empty_weapon['name'] = ''
+        empty_weapon['hits'] = 0
+        empty_weapon['ranged'] = False
+        empty_weapon['melee'] = False
 
     def gen_empty_model(self):
         empty_model = {}
         empty_model['name'] = ''
         empty_model['quality'] = 0
         empty_model['defense'] = 0
-        empty_model['attacks'] = []
-        empty_model['models'] = 0
+        empty_model['weapons'] = []
         empty_model['impact'] = 0
         empty_model['lance'] = False
         empty_model['counter'] = False
