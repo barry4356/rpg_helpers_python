@@ -20,20 +20,40 @@ class unit():
                 self.stats[mykey] = temp_stats[mykey]
             elif mykey in empty_stats.keys():
                 self.stats[mykey] = empty_stats[mykey]
+        if 'units' not in temp_stats.keys():
+            return
+        new_units = []
+        empty_unit = self.gen_empty_unit()
+        for temp_unit in temp_stats['units']:
+            new_unit = {}
+            for mykey in empty_unit:
+                if mykey in temp_unit.keys():
+                    new_unit[mykey] = temp_unit[mykey]
+                else:
+                    new_unit[mykey] = empty_unit[mykey]
+            new_units.append(new_unit)
+        self.stats['units'] = new_units
+            
 
     def to_string(self):
         return (json.dumps(self.stats, indent=2))
 
+    def gen_empty_unit(self):
+        empty_unit = {}
+        empty_unit['name'] = ''
+        empty_unit['quality'] = 0
+        empty_unit['defense'] = 0
+        empty_unit['attacks'] = []
+        empty_unit['models'] = 0
+        empty_unit['impact'] = 0
+        empty_unit['lance'] = False
+        empty_unit['counter'] = False
+        return empty_unit
+
     def gen_empty_stats(self):
         empty_stats = {}
         empty_stats['name'] = ''
-        empty_stats['quality'] = 0
-        empty_stats['defense'] = 0
-        empty_stats['attacks'] = []
-        empty_stats['models'] = 0
-        empty_stats['impact'] = 0
-        empty_stats['lance'] = False
-        empty_stats['counter'] = False
+        empty_stats['units'] = []
         return empty_stats
 
     def charge(self, enemy_unit, fatigued=False, defender_fatigued=False):
