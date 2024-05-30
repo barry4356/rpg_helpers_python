@@ -31,11 +31,18 @@ class unit():
         for temp_model in temp_stats['models']:
             new_model = {}
             for mykey in empty_model:
+                # Populate model from file; use empty instance for missing keys
                 if mykey in temp_model.keys():
                     new_model[mykey] = temp_model[mykey]
                 else:
                     new_model[mykey] = empty_model[mykey]
-            #TODO Handle each weapon
+            # Populate weapons from file; use empty instance for missing keys
+            empty_weapon = self.gen_empty_weapon()
+            if 'weapons' in temp_model.keys():
+                for temp_weapon in temp_model['weapons']:
+                    for weapkey in empty_weapon:
+                        if weapkey not in temp_weapon.keys():
+                            temp_weapon[weapkey] = empty_weapon[weapkey]
             new_models.append(new_model)
         self.stats['models'] = new_models
             
