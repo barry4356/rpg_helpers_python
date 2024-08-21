@@ -38,10 +38,10 @@ def gen_mission(difficulty=0):
     mission['Travel Event']['Title'] = campaign_tables.travel_event[travel_roll]
     mission['Travel Event']['Description'] = campaign_tables.travel_event_desc[travel_roll]
     mission['Primary Objective'] = {}
-    mission['Primary Objective']['Title'] = roll_on_table(campaign_tables.primary_objectives)
+    mission['Primary Objective']['Title'] = dice.roll_on_table(campaign_tables.primary_objectives)
     mission['Primary Objective']['Description'] = campaign_tables.primary_objectives_desc[mission['Primary Objective']['Title']]
     mission['Secondary Objective'] = {}
-    mission['Secondary Objective']['Title'] = roll_on_table(campaign_tables.secondary_objectives)
+    mission['Secondary Objective']['Title'] = dice.roll_on_table(campaign_tables.secondary_objectives)
     mission['Secondary Objective']['Description'] = campaign_tables.secondary_objectives_desc[mission['Secondary Objective']['Title']]
     # Place Search Tokens
     mission['Search Tokens'] = {}

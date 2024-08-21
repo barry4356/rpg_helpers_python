@@ -45,14 +45,14 @@ secondary_objectives=[
         "Dominate"
 ]
 
-secondary_objectives_desc=[
+secondary_objectives_desc={
    "Interrogate" : 'One random enemy unit from the reinforcements becomes the AI goal. When that unit is destroyed, replace it with a marker. Heroes within 1" may take a skill action, and if they pass a Wil test the objective is completed.',
    "Capture" : 'Place one objective marker within 6“ of the reinforcement table corner, which becomes the AI goal. At the end of each round, the marker moves 12" towards the opposite table corner, and if it moves within 3" of it, then it is removed from play. If no enemy unit is within 3" of the marker, heroes within 1" of it may take a skill action, and if they pass a Str test, then the marker is removed and the objective is completed.',
    "Escort" : 'Place one objective marker in the hero deployment zone, which becomes the AI goal. Heroes may pick up the marker by using a skill action and passing a Str test whilst within 1", and drop it on the spot if they take any damage. The objective is completed once a hero carries the marker within 3" of the opposite table corner in which the heroes deployed.',
    "Sabotage" : 'Place one objective marker within 6" of the reinforcement table corner, which becomes the AI goal. Heroes may use a skill action whilst within 1“ of a marker, and if they pass a Dex test the marker is removed and the objective is completed.',
    "Ransack" : 'Place one objective marker at the centre of the table, which becomes the AI goal. At the end of each round, if a hero is within 3" of the marker whilst enemies aren\'t, one hero within 3" of it may take a Dex test, and add a token to it if passed. The objective is completed once the marker has 2 tokens.',
    "Dominate" : 'Place one objective marker at the centre of each table quarter, which becomes the AI goal. At the end of each round, if a hero is within 1" of the marker whilst enemies aren’t, one hero within 3" of each may take a Wil test, and if passed the marker is removed. The objective is completed once two objectives have been removed.'
-]
+}
 
 
 
