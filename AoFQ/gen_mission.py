@@ -1,6 +1,7 @@
 #gen_mission.py
 
 import campaign_tables
+import ascii_art
 import dice
 import json
 import argparse
@@ -90,5 +91,6 @@ elif args.legacy or args.narrative:
     use_current = args.current
     use_narrative = args.narrative
 
+print(ascii_art.title)
 #Generate mission
 gen_mission(0, use_legacy, use_current, use_narrative)
