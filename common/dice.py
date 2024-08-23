@@ -64,7 +64,11 @@ def roll_1d10():
 #Roll D20(s)
 def roll_1d20():
     return (roll_custom(20))
-    
+
+def shuffle(array):
+    random.shuffle(array)
+    return array
+
 #Roll on arbitrary-sized table, all chances are equally weighted
 def roll_on_table(input_table):
     table_size = len(input_table)

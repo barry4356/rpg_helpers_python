@@ -1,8 +1,10 @@
 #gen_mission.py
 
 import campaign_tables
+import ascii_art
 import dice
 import json
+import argparse
 
 def place_search_token(taken_locations):
     Location = ""
@@ -20,17 +22,16 @@ def place_search_token(taken_locations):
     return Location
 
 def place_sentries():
+    table_quarters = [1, 2, 3, 4]
     Locations = []
-    sentry_roll1 = dice.roll_1d4()
-    sentry_roll2 = dice.roll_1d4()
-    if sentry_roll1 == sentry_roll2:
-        Locations = place_sentries()
-        return Locations
-    Locations.append("Sentry Group 1: Center of Table Quarter Number ["+str(sentry_roll1)+"]")
-    Locations.append("Sentry Group 2: Center of Table Quarter Number ["+str(sentry_roll2)+"]")
+    table_quarters = dice.shuffle(table_quarters)
+    Locations.append("Sentry Group 1: Center of Table Quarter Number ["+str(table_quarters[0])+"]")
+    Locations.append("Sentry Group 2: Center of Table Quarter Number ["+str(table_quarters[1])+"]")
+    Locations.append("Sentry Group 3: Center of Table Quarter Number ["+str(table_quarters[2])+"]")
+    Locations.append("Sentry Group 4: Center of Table Quarter Number ["+str(table_quarters[3])+"]")
     return Locations
 
-def gen_mission(difficulty=0):
+def gen_mission(difficulty, use_legacy, use_current, use_narrative):
     # Roll on each table
     mission = {}
     mission['Travel Event'] = {}
@@ -38,10 +39,24 @@ def gen_mission(difficulty=0):
     mission['Travel Event']['Title'] = campaign_tables.travel_event[travel_roll]
     mission['Travel Event']['Description'] = campaign_tables.travel_event_desc[travel_roll]
     mission['Primary Objective'] = {}
-    mission['Primary Objective']['Title'] = dice.roll_on_table(campaign_tables.primary_objectives)
+    primary_obj_table = []
+    if (use_legacy):
+        primary_obj_table.extend(campaign_tables.primary_objectives_legacy)
+    if (use_current):
+        primary_obj_table.extend(campaign_tables.primary_objectives)
+    if (use_narrative):
+        primary_obj_table.extend(campaign_tables.primary_objectives_narrative)
+    mission['Primary Objective']['Title'] = dice.roll_on_table(primary_obj_table)
     mission['Primary Objective']['Description'] = campaign_tables.primary_objectives_desc[mission['Primary Objective']['Title']]
     mission['Secondary Objective'] = {}
-    mission['Secondary Objective']['Title'] = dice.roll_on_table(campaign_tables.secondary_objectives)
+    secondary_obj_table = []
+    if (use_legacy):
+        secondary_obj_table.extend(campaign_tables.secondary_objectives_legacy)
+    if (use_current):
+        secondary_obj_table.extend(campaign_tables.secondary_objectives)
+    if (use_narrative):
+        secondary_obj_table.extend(campaign_tables.secondary_objectives_narrative)
+    mission['Secondary Objective']['Title'] = dice.roll_on_table(secondary_obj_table)
     mission['Secondary Objective']['Description'] = campaign_tables.secondary_objectives_desc[mission['Secondary Objective']['Title']]
     # Place Search Tokens
     mission['Search Tokens'] = {}
@@ -57,4 +72,25 @@ def gen_mission(difficulty=0):
     print(json.dumps(mission,indent=2))
     return mission
 
-gen_mission()
+PARSER = argparse.ArgumentParser(description='Generate \'Age of Fantasy: Quest\' Mission')
+PARSER.add_argument('-a', '--all', action='store_true', help='Pull options from all available sources', required=False)
+PARSER.add_argument('-l', '--legacy', action='store_true', help='Pull options from legacy rulebooks', required=False)
+PARSER.add_argument('-c', '--current', action='store_true', help='Pull options from current rulebook', required=False)
+PARSER.add_argument('-n', '--narrative', action='store_true', help='Pull options from narrative rulebook', required=False)
+#Default to current rulebook only; if 'all' specified use all rulebooks; if legacy/narrative specified, use args to decide
+args = PARSER.parse_args()
+use_legacy = False
+use_current = True
+use_narrative = False
+if args.all:
+    use_legacy = True
+    use_current = True
+    use_narrative = True
+elif args.legacy or args.narrative:
+    use_legacy = args.legacy
+    use_current = args.current
+    use_narrative = args.narrative
+
+print(ascii_art.title)
+#Generate mission
+gen_mission(0, use_legacy, use_current, use_narrative)

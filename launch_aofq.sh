@@ -6,4 +6,4 @@ else
 	export PYTHONPATH=$PYTHONPATH:$PWD:${PWD}/AoFQ:${PWD}/AoFQ/tables:${PWD}/common
 fi
 
-python AoFQ/gen_mission.py
+python AoFQ/gen_mission.py "$@"
