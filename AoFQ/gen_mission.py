@@ -21,14 +21,23 @@ def place_search_token(taken_locations):
         return place_search_token(taken_locations)
     return Location
 
-def place_sentries():
-    table_quarters = [1, 2, 3, 4]
+def place_sentry():
+    sentry_roll = dice.roll_1d6()
+    if sentry_roll == 1:
+        return("Sentries: Center of Table Quarter Number [1]")
+    elif sentry_roll == 2:
+        return("Sentries: Center of Table Quarter Number [2]")
+    elif sentry_roll == 3:
+        return("Sentries: Center of Table Quarter Number [3]")
+    elif sentry_roll == 4:
+        return("Sentries: Center of Table Quarter Number [4]")
+    else:
+        return("Sentries: Center of Table Quarter of Your Choice")
+
+def place_sentries(sentries=10):
     Locations = []
-    table_quarters = dice.shuffle(table_quarters)
-    Locations.append("Sentry Group 1: Center of Table Quarter Number ["+str(table_quarters[0])+"]")
-    Locations.append("Sentry Group 2: Center of Table Quarter Number ["+str(table_quarters[1])+"]")
-    Locations.append("Sentry Group 3: Center of Table Quarter Number ["+str(table_quarters[2])+"]")
-    Locations.append("Sentry Group 4: Center of Table Quarter Number ["+str(table_quarters[3])+"]")
+    for i in range(sentries):
+        Locations.append(place_sentry())
     return Locations
 
 def gen_mission(difficulty, use_legacy, use_current, use_narrative):
