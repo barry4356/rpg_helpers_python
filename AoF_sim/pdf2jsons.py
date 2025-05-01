@@ -9,8 +9,8 @@ from pdfminer.converter import XMLConverter, HTMLConverter, TextConverter
 from pdfminer.cmapdb import CMapDB
 from pdfminer.layout import LAParams
 from pdfminer.image import ImageWriter
+import re
 
-# main
 def convertPdf(inputfile, outputfile):
     # debug option
     debug = 0
@@ -57,4 +57,31 @@ def convertPdf(inputfile, outputfile):
     outfp.close()
     return
 
-convertPdf('list.pdf', 'test.html')
+def cleanupHtmlTags(inputfile, outputfile):
+    linesToSmash = []
+    with open(inputfile, 'r', errors='ignore') as inFile:
+        with open(outputfile, 'w') as outFile:
+            lines = inFile.readlines()
+            linesFlat = []
+            for line in lines:
+                line = line.replace('\n','')
+                linesFlat.append(line)
+            for line in linesFlat:
+                line = line.replace('</span>','</span>\n').replace('<br>','')
+                outFile.write(line)
+            #for index, line in enumerate(lines):
+                #if not ('<span' in line and '</span' in line):
+                    #line = line.replace('<br>','').replace('\n','')
+                #outFile.write(line)
+                #if index >= len(lines)-1:
+                #    continue
+                #if re.match(r"<br>.\n", lines[index+1]):
+                #    lines[index] = lines[index].replace('<br>','').replace('\n','')
+                #outFile.write(lines[index])
+                
+
+# TODO:
+    # Function to read 2 lines of unit, and parse into JSON
+        # cleaned html has 2 lines per unit, Qua +, Def + can be used to find valid unit lines?
+#convertPdf('list.pdf', 'test.html')
+cleanupHtmlTags('test.html', 'test_clean.html')
