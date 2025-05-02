@@ -8,7 +8,7 @@ class unit():
         with open(filename, 'w') as fp:
             json.dump(self.data, fp, indent=2)
 
-    def from_file(self, filename):
+    def from_json(self, filename):
         # Load JSON
         empty_data = self.gen_empty_data()
         temp_data = {}
@@ -45,12 +45,17 @@ class unit():
             new_models.append(new_model)
         self.data['models'] = new_models
 
-    def from_raw(self, unit_string):
+    def from_unit_string_dict(self, unit_string_dict):
         #Takes raw input (parsed from army list pdf) and populates unit info
-        if 'qua' not in unit_string.lower() or 'def' not in unit_string.lower():
+        if 'qua' not in unit_string_dict['string'].lower() or 'def' not in unit_string_dict['string'].lower():
             print('ERROR: Invalid Unit String')
-            print(unit_string)
+            print(unit_string_dict)
             return
+        self.data['name'] = unit_string_dict['name'] 
+        #Split string for qual/def, weapons, attributes
+        #Take Unit Qua/Def from first part of string
+        #Create models
+        #Feed models the attribute/weapons string
 
     def to_string(self):
         #Outputs JSON string representing unit
@@ -72,6 +77,7 @@ class unit():
         empty_model['quality'] = 0
         empty_model['defense'] = 0
         empty_model['weapons'] = []
+        empty_model['stats'] = {}
         empty_model['impact'] = 0
         empty_model['lance'] = False
         empty_model['counter'] = False

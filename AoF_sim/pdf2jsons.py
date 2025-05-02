@@ -141,11 +141,6 @@ def htmlToJson(inputfile, outputdir):
                 unit_string_dicts.append(unit_string_dict)
     print(json.dumps(unit_string_dicts, indent=2))
     
-    
-
-# TODO:
-    # Function to read 2 lines of unit, and parse into JSON
-        # cleaned html has 2 lines per unit, Qua +, Def + can be used to find valid unit lines?
 #convertPdf('list.pdf', 'test.html')
 #cleanupHtmlTags('test.html', 'test_clean.html')
 htmlToJson('test_clean.html', 'test')
