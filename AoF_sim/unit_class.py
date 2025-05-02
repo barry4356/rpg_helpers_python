@@ -44,6 +44,7 @@ class unit():
                             temp_weapon[weapkey] = empty_weapon[weapkey]
             new_models.append(new_model)
         self.data['models'] = new_models
+        #TODO Re-evaluate this function after a JSON is created from the PDF List
 
     def from_unit_string_dict(self, unit_string_dict):
         #Takes raw input (parsed from army list pdf) and populates unit info
@@ -52,7 +53,7 @@ class unit():
             print(unit_string_dict)
             return
         self.data['name'] = unit_string_dict['name'] 
-        #Split string for qual/def, weapons, attributes
+        #TODO: Split string for qual/def, weapons, attributes
         #Take Unit Qua/Def from first part of string
         #Create models
         #Feed models the attribute/weapons string
@@ -78,11 +79,6 @@ class unit():
         empty_model['defense'] = 0
         empty_model['weapons'] = []
         empty_model['stats'] = {}
-        empty_model['impact'] = 0
-        empty_model['lance'] = False
-        empty_model['counter'] = False
-        empty_model['furious'] = False
-        empty_model['furiouser'] = False
         return empty_model
 
     def gen_empty_data(self):
