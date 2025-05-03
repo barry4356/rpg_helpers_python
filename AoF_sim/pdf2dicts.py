@@ -15,7 +15,7 @@ import json
 def update_string_at_position(original_string, index, new_char):
     return original_string[:index] + new_char + original_string[index+1:]
 
-def convertPdf(inputfile, outputfile):
+def pdfToHtml(inputfile, outputfile):
     # debug option
     debug = 0
     # input option
@@ -126,3 +126,9 @@ def htmlToDicts(inputfile, outputdir):
                 unit_string_dict['string'] = unitString(line)
                 unit_string_dicts.append(unit_string_dict)
     return unit_string_dicts
+    
+def convertPdf(inputfile):
+    #TODO: Function to call the full chain from PDF => DICT
+    convertPdf(inputfile, inputfile)
+    cleanupHtmlTags('test.html', 'test_clean.html')
+    return htmlToDicts('test_clean.html', 'test')
