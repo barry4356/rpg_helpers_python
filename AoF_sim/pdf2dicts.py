@@ -72,17 +72,7 @@ def cleanupHtmlTags(inputfile, outputfile):
                 linesFlat.append(line)
             for line in linesFlat:
                 line = line.replace('</span>','</span>\n').replace('<br>','')
-                outFile.write(line)
-            #for index, line in enumerate(lines):
-                #if not ('<span' in line and '</span' in line):
-                    #line = line.replace('<br>','').replace('\n','')
-                #outFile.write(line)
-                #if index >= len(lines)-1:
-                #    continue
-                #if re.match(r"<br>.\n", lines[index+1]):
-                #    lines[index] = lines[index].replace('<br>','').replace('\n','')
-                #outFile.write(lines[index])
-                
+                outFile.write(line)                
 
 def cleanupUnitNameString(inputString):
     outputString = inputString.split('[')[0]
@@ -111,7 +101,6 @@ def unitString(inputString):
     while index < 0:
         checkstring = inputString.split('<')[index]
         index -= 1
-        print(checkstring)
         if 'qua' in checkstring.lower() and 'def' in checkstring.lower():
             outputString = checkstring
             break
@@ -123,12 +112,9 @@ def unitString(inputString):
             outputString = checkstring
             break
     outputString = outputString.split('<')[0]
-    #outputString = inputString.split('<')[-2]
-    #outputString = outputString.split('>')[-1]
-    print(outputString)
     return outputString
 
-def htmlToJson(inputfile, outputdir):
+def htmlToDicts(inputfile, outputdir):
     unit_string_dicts = []
     with open(inputfile, 'r', errors='ignore') as inFile:
         lines = inFile.readlines()
@@ -139,8 +125,4 @@ def htmlToJson(inputfile, outputdir):
                 unit_string_dict['models'] = numberOfModels(lines[index-1])
                 unit_string_dict['string'] = unitString(line)
                 unit_string_dicts.append(unit_string_dict)
-    print(json.dumps(unit_string_dicts, indent=2))
-    
-#convertPdf('list.pdf', 'test.html')
-#cleanupHtmlTags('test.html', 'test_clean.html')
-htmlToJson('test_clean.html', 'test')
+    return unit_string_dicts

@@ -1,4 +1,6 @@
 import json
+import re
+from model_class import model
 
 class unit():
     def __init__(self):
@@ -52,15 +54,33 @@ class unit():
             print('ERROR: Invalid Unit String')
             print(unit_string_dict)
             return
-        self.data['name'] = unit_string_dict['name'] 
-        #TODO: Split string for qual/def, weapons, attributes
+        self.data['name'] = unit_string_dict['name']
+        #print(unit_string_dict)
+        #Get Qua/Def (format is Qua 1+  Def 2+; can split on + and pull numbers)
+        qual_def_str = unit_string_dict['string'].split('+')
+        self.data['quality'] = int(re.findall(r'\d+\.?\d*', qual_def_str[0])[0])
+        self.data['defense'] = int(re.findall(r'\d+\.?\d*', qual_def_str[1])[0])
+        #Remove Qual part of string
+        index = unit_string_dict['string'].find('+')
+        unitString = unit_string_dict['string'][index+1:]
+        #Remove Def part of string
+        index = unitString.find('+')
+        unitString = unitString[index+1:]
+        for modelIndex in range(unit_string_dict['models']):
+            newModel = model(self.data['quality'], self.data['defense'])
+            newModel.from_string(unitString)
+            self.data['models'].append(newModel)
         #Take Unit Qua/Def from first part of string
         #Create models
         #Feed models the attribute/weapons string
 
     def to_string(self):
         #Outputs JSON string representing unit
-        return (json.dumps(self.data, indent=2))
+        print_data = self.data.copy()
+        print_data['models'] = []
+        for printModel in self.data['models']:
+            print_data['models'].append(printModel.data)
+        return (json.dumps(print_data, indent=2))
 
     def gen_empty_weapon(self):
         empty_weapon = {}
