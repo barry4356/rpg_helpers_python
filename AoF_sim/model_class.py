@@ -57,15 +57,16 @@ class model():
                     weaponArry.append(weaponStringRemaining)
                 weaponsParsed = True
 
-        attributeString = attributeString.replace(',',' ').replace('  ',' ').lower()
-        for attributeStr in attributeString.split(' '):
-            for attributeKey in self.data['stats'].keys():
-                if attributeKey in attributeStr:
-                    if type(self.data['stats'][attributeKey]) is bool:
-                        self.data['stats'][attributeKey] = True
-                    elif type(self.data['stats'][attributeKey]) is int:
-                        if '(' in attributeStr and ')' in attributeStr:
-                            self.data['stats'][attributeKey] += int(attributeStr.split(')')[0].split('(')[-1])
+        if attributeString:
+            attributeString = attributeString.replace(',',' ').replace('  ',' ').lower()
+            for attributeStr in attributeString.split(' '):
+                for attributeKey in self.data['stats'].keys():
+                    if attributeKey in attributeStr:
+                        if type(self.data['stats'][attributeKey]) is bool:
+                            self.data['stats'][attributeKey] = True
+                        elif type(self.data['stats'][attributeKey]) is int:
+                            if '(' in attributeStr and ')' in attributeStr:
+                                self.data['stats'][attributeKey] += int(attributeStr.split(')')[0].split('(')[-1])
                             
         for weaponStr in weaponArry:
             newWeapon = weapon()

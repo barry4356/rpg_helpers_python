@@ -7,8 +7,13 @@ class unit():
         self.data = self.gen_empty_data()
 
     def to_file(self, filename):
+        #Outputs JSON string representing unit
+        print_data = self.data.copy()
+        print_data['models'] = []
+        for printModel in self.data['models']:
+            print_data['models'].append(printModel.to_dict())
         with open(filename, 'w') as fp:
-            json.dump(self.data, fp, indent=2)
+            json.dump(print_data, fp, indent=2)
 
     def from_json(self, filename):
         # Load JSON
