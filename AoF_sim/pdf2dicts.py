@@ -11,6 +11,7 @@ from pdfminer.layout import LAParams
 from pdfminer.image import ImageWriter
 import re
 import json
+import os
 
 def update_string_at_position(original_string, index, new_char):
     return original_string[:index] + new_char + original_string[index+1:]
@@ -114,7 +115,7 @@ def unitString(inputString):
     outputString = outputString.split('<')[0]
     return outputString
 
-def htmlToDicts(inputfile, outputdir):
+def htmlToDicts(inputfile):
     unit_string_dicts = []
     with open(inputfile, 'r', errors='ignore') as inFile:
         lines = inFile.readlines()
@@ -127,8 +128,11 @@ def htmlToDicts(inputfile, outputdir):
                 unit_string_dicts.append(unit_string_dict)
     return unit_string_dicts
     
-def convertPdf(inputfile):
+def convertPdf(inputfile, outputDir='Logs'):
     #TODO: Function to call the full chain from PDF => DICT
-    convertPdf(inputfile, inputfile)
-    cleanupHtmlTags('test.html', 'test_clean.html')
-    return htmlToDicts('test_clean.html', 'test')
+    os.makedirs(outputDir, exist_ok=True)
+    htmlOutfile = os.path.join(outputDir, inputfile.replace('.pdf','')+'.html')
+    pdfToHtml(inputfile, htmlOutfile)
+    prettyHtmlOutFile = htmlOutfile.replace('.html','_pretty.html')
+    cleanupHtmlTags(htmlOutfile, prettyHtmlOutFile)
+    return htmlToDicts(prettyHtmlOutFile)

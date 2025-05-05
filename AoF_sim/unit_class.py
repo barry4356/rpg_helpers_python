@@ -70,7 +70,6 @@ class unit():
             newModel = model(self.data['quality'], self.data['defense'])
             newModel.from_string(unitString)
             self.data['models'].append(newModel)
-        #Take Unit Qua/Def from first part of string
         #Create models
         #Feed models the attribute/weapons string
 
@@ -79,7 +78,7 @@ class unit():
         print_data = self.data.copy()
         print_data['models'] = []
         for printModel in self.data['models']:
-            print_data['models'].append(printModel.data)
+            print_data['models'].append(printModel.to_dict())
         return (json.dumps(print_data, indent=2))
 
     def gen_empty_weapon(self):

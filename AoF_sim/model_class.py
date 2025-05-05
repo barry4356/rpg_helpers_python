@@ -12,7 +12,8 @@ class model():
 
     def gen_empty_data(self):
         data = {
-            'stats': base_attributes
+            'stats': base_attributes,
+            'weapons': []
         }
         return data
         
@@ -69,6 +70,11 @@ class model():
         for weaponStr in weaponArry:
             newWeapon = weapon()
             newWeapon.from_string(weaponStr)
-                    
-    def to_string(self):
-        return json.dumps(self.data, indent=2)
+            self.data['weapons'].append(newWeapon)
+
+    def to_dict(self):
+        return_data = self.data.copy()
+        return_data['weapons'] = []
+        for weapon in self.data['weapons']:
+            return_data['weapons'].append(weapon.data)
+        return return_data
