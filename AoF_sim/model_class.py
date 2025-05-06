@@ -9,11 +9,11 @@ class model():
         self.data = self.gen_empty_data()
         self.data['quality'] = qual
         self.data['defense'] = defense
+        self.weapons = []
 
     def gen_empty_data(self):
         data = {
-            'stats': base_attributes,
-            'weapons': []
+            'stats': base_attributes
         }
         return data
         
@@ -71,11 +71,11 @@ class model():
         for weaponStr in weaponArry:
             newWeapon = weapon()
             newWeapon.from_string(weaponStr)
-            self.data['weapons'].append(newWeapon)
+            self.weapons.append(newWeapon)
 
     def to_dict(self):
         return_data = self.data.copy()
         return_data['weapons'] = []
-        for weapon in self.data['weapons']:
+        for weapon in self.weapons:
             return_data['weapons'].append(weapon.data)
         return return_data

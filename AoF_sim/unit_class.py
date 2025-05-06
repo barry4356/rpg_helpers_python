@@ -5,12 +5,13 @@ from model_class import model
 class unit():
     def __init__(self):
         self.data = self.gen_empty_data()
+        self.models = []
 
     def to_file(self, filename):
         #Outputs JSON string representing unit
         print_data = self.data.copy()
         print_data['models'] = []
-        for printModel in self.data['models']:
+        for printModel in self.models:
             print_data['models'].append(printModel.to_dict())
         with open(filename, 'w') as fp:
             json.dump(print_data, fp, indent=2)
@@ -50,7 +51,7 @@ class unit():
                         if weapkey not in temp_weapon.keys():
                             temp_weapon[weapkey] = empty_weapon[weapkey]
             new_models.append(new_model)
-        self.data['models'] = new_models
+        self.models = new_models
         #TODO Re-evaluate this function after a JSON is created from the PDF List
 
     def from_unit_string_dict(self, unit_string_dict):
@@ -74,7 +75,7 @@ class unit():
         for modelIndex in range(unit_string_dict['models']):
             newModel = model(self.data['quality'], self.data['defense'])
             newModel.from_string(unitString)
-            self.data['models'].append(newModel)
+            self.models.append(newModel)
         #Create models
         #Feed models the attribute/weapons string
 
@@ -82,7 +83,7 @@ class unit():
         #Outputs JSON string representing unit
         print_data = self.data.copy()
         print_data['models'] = []
-        for printModel in self.data['models']:
+        for printModel in self.models:
             print_data['models'].append(printModel.to_dict())
         return (json.dumps(print_data, indent=2))
 
@@ -108,7 +109,6 @@ class unit():
     def gen_empty_data(self):
         empty_data = {}
         empty_data['name'] = ''
-        empty_data['models'] = []
         empty_data['quality'] = 0
         empty_data['defense'] = 0
         empty_data['stats'] = {}
