@@ -13,7 +13,7 @@ class model():
 
     def gen_empty_data(self):
         data = {
-            'stats': base_attributes
+            'stats': base_attributes.copy()
         }
         return data
         
