@@ -2,10 +2,10 @@ import json
 
 class hit():
     def __init__(self):
-        self.data = self.gen_empty_data()
+        self.attributes = self.gen_empty_attributes()
+        self.ap = 0
 
-    def gen_empty_data(self):
+    def gen_empty_attributes(self):
         data = {}
-        data['ap'] = 0
         data['poison'] = False
         return data

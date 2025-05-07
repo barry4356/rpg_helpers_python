@@ -11,6 +11,7 @@ class model():
         self.quality = qual
         self.defense = defense
         self.weapons = []
+        self.alive = True
 
     def gen_empty_attributes(self):
         attributes = base_attributes.copy()
