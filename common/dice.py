@@ -1,4 +1,8 @@
 #dice.py
+import os
+import sys
+#Add local (common) directory to system path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import random
 import utils
 

@@ -1,6 +1,14 @@
 import json
 import re
+import os
+import sys
 from model_class import model
+# Add common libraries (one directory up)
+current_dir = os.getcwd()
+relative_path = '../'
+absolute_path = os.path.abspath(os.path.join(current_dir, relative_path))
+sys.path.append(absolute_path)
+from common import dice
 
 class unit():
     def __init__(self):
