@@ -43,3 +43,8 @@ class weapon():
         self.a = data['a']
         self.ranged = data['range']
         self.attributes = data['attributes'].copy()
+
+    def roll_attacks(self, qual):
+        hits = []
+        #TODO add dice; roll against qual; etc.
+        return hits

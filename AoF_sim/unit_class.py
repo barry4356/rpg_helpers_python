@@ -15,8 +15,8 @@ class unit():
         self.attributes = self.gen_empty_attributes()
         self.models = []
         self.name = ''
-        self.quality = ''
-        self.defense = ''
+        self.quality = 0
+        self.defense = 0
 
     def to_file(self, filename):
         #Outputs JSON string representing unit
@@ -84,6 +84,8 @@ class unit():
     def roll_attacks(self):
         #TODO: Model Attacks
         hits = []
+        for model in self.models:
+            hits.append(model.roll_attacks())
         return hits
 
     def roll_defense(self, hits, take_damage=False):

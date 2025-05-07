@@ -91,3 +91,9 @@ class model():
             newWeapon = weapon()
             newWeapon.from_dict(weaponDict)
             self.weapons.append(newWeapon)
+
+    def roll_attacks(self):
+        hits = []
+        for weapon in self.weapons:
+            hits.append(weapon.roll_attacks(self.quality))
+        return hits
