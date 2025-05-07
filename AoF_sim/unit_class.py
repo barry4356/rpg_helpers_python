@@ -82,14 +82,20 @@ class unit():
         return empty_data
 
     def roll_attacks(self):
-        #TODO: Model Attacks
         hits = []
         for model in self.models:
             hits.append(model.roll_attacks())
         return hits
 
     def roll_defense(self, hits, take_damage=False):
-        #TODO: Model Defense
         damage = 0
+        for hit in hits:
+            roll = dice.roll_1d6()
+            if roll == 6:
+                continue
+            if (roll-hit.ap) >= self.defense:
+                continue
+            damage += 1
+        #TODO: Take Damage by killing off models
         return damage
 
