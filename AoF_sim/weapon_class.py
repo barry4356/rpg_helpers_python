@@ -1,6 +1,14 @@
 import json
 import re
+import os
+import sys
 from model_attributes import weapon_attributes
+# Add common libraries (one directory up)
+current_dir = os.getcwd()
+relative_path = '../'
+absolute_path = os.path.abspath(os.path.join(current_dir, relative_path))
+sys.path.append(absolute_path)
+from common import dice
 
 class weapon():
     def __init__(self):
@@ -46,5 +54,10 @@ class weapon():
 
     def roll_attacks(self, qual):
         hits = []
-        #TODO add dice; roll against qual; etc.
+        for attack in range(self.a):
+            roll = dice.roll_1d6()
+            if roll >= qual:
+                newHit = hit()
+                hit.ap = self.ap
+                hits.append(hit)
         return hits
