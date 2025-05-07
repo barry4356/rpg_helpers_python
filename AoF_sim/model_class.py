@@ -92,8 +92,10 @@ class model():
             newWeapon.from_dict(weaponDict)
             self.weapons.append(newWeapon)
 
-    def roll_attacks(self):
+    def roll_attacks(self, ranged=False):
         hits = []
         for weapon in self.weapons:
+            if ranged and not weapon.ranged or not ranged and weapon.ranged:
+                continue
             hits.append(weapon.roll_attacks(self.quality))
         return hits

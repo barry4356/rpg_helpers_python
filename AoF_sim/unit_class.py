@@ -81,10 +81,10 @@ class unit():
         empty_data = {}
         return empty_data
 
-    def roll_attacks(self):
+    def roll_attacks(self, ranged=False):
         hits = []
         for model in self.models:
-            hits.append(model.roll_attacks())
+            hits.append(model.roll_attacks(ranged))
         return hits
 
     def roll_defense(self, hits, take_damage=False):
