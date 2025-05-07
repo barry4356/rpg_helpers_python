@@ -17,6 +17,8 @@ def update_string_at_position(original_string, index, new_char):
     return original_string[:index] + new_char + original_string[index+1:]
 
 def pdfToHtml(inputfile, outputfile):
+    # Taken and modified from pdf2txt.py (included in pdfminer install)
+    # Function converts PDF into a parseable HTML
     # debug option
     debug = 0
     # input option
@@ -63,7 +65,7 @@ def pdfToHtml(inputfile, outputfile):
     return
 
 def cleanupHtmlTags(inputfile, outputfile):
-    linesToSmash = []
+    # Specialized function to cleanup the HTML output from pdfminer
     with open(inputfile, 'r', errors='ignore') as inFile:
         with open(outputfile, 'w') as outFile:
             lines = inFile.readlines()
@@ -76,6 +78,7 @@ def cleanupHtmlTags(inputfile, outputfile):
                 outFile.write(line)                
 
 def cleanupUnitNameString(inputString):
+    # Specialized function to extract the unit's name from the HTML output from pdfminer
     outputString = inputString.split('[')[0]
     outputString = outputString.split('>')[-1]
     outputString = outputString.lower()
@@ -88,6 +91,7 @@ def cleanupUnitNameString(inputString):
     return outputString
 
 def numberOfModels(inputString):
+    # Specialized function to extract the number of models in a unit from the HTML output from pdfminer
     numberOfModels = 0
     numberOfModels = inputString.split('[')[-1].split(']')[0]
     try:
@@ -97,6 +101,7 @@ def numberOfModels(inputString):
     return numberOfModels
 
 def unitString(inputString):
+    # Specialized function to extract the unit's details string from the HTML output from pdfminer
     index = -1
     outputString = inputString
     while index < 0:
@@ -116,6 +121,7 @@ def unitString(inputString):
     return outputString
 
 def htmlToDicts(inputfile):
+    # Specialized function to convert the cleaned up HTML output from pdfminer into data dictionaries
     unit_string_dicts = []
     with open(inputfile, 'r', errors='ignore') as inFile:
         lines = inFile.readlines()
@@ -128,8 +134,9 @@ def htmlToDicts(inputfile):
                 unit_string_dicts.append(unit_string_dict)
     return unit_string_dicts
     
+    
+# Entry point here; this function uses the others to complete a full conversion PDF => DataDicts
 def convertPdf(inputfile, outputDir='Logs'):
-    #TODO: Function to call the full chain from PDF => DICT
     os.makedirs(outputDir, exist_ok=True)
     htmlOutfile = os.path.join(outputDir, inputfile.replace('.pdf','')+'.html')
     pdfToHtml(inputfile, htmlOutfile)

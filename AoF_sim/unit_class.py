@@ -44,8 +44,6 @@ class unit():
             newModel = model(self.quality, self.defense)
             newModel.from_string(unitString)
             self.models.append(newModel)
-        #Create models
-        #Feed models the attribute/weapons string
 
     def to_dict(self):
         #Outputs Dictionary representing entire unit
@@ -70,7 +68,6 @@ class unit():
             newModel = model(self.quality, self.defense)
             newModel.from_dict(modelDict)
             self.models.append(newModel)
-        return data 
 
     def gen_empty_attributes(self):
         empty_data = {}

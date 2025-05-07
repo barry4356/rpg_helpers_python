@@ -32,7 +32,6 @@ class model():
         if firstAttribute:
             weaponString = re.split(firstAttribute, model_string, flags=re.IGNORECASE)[0]
             attributeString = firstAttribute + re.split(firstAttribute, model_string, flags=re.IGNORECASE)[1]
-        
         weaponsParsed = False
         weaponStringRemaining = weaponString
         weaponArry = []
@@ -54,7 +53,6 @@ class model():
                 if len(weaponStringRemaining) > 1:
                     weaponArry.append(weaponStringRemaining)
                 weaponsParsed = True
-
         if attributeString:
             attributeString = attributeString.replace(',',' ').replace('  ',' ').lower()
             for attributeStr in attributeString.split(' '):
