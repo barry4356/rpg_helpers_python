@@ -87,5 +87,7 @@ class unit():
         return hits
 
     def roll_defense(self, hits, take_damage=False):
-        pass
+        #TODO: Model Defense
+        damage = 0
+        return damage
 
