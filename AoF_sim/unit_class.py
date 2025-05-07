@@ -80,3 +80,12 @@ class unit():
     def gen_empty_attributes(self):
         empty_data = {}
         return empty_data
+
+    def roll_attacks(self):
+        #TODO: Model Attacks
+        hits = []
+        return hits
+
+    def roll_defense(self, hits, take_damage=False):
+        pass
+
