@@ -6,6 +6,7 @@ import sys
 
 class model():
     def __init__(self, qual, defense):
+        # Initializes empty object
         self.attributes = self.gen_empty_attributes()
         self.quality = qual
         self.defense = defense
