@@ -80,3 +80,14 @@ class model():
         for weapon in self.weapons:
             data['weapons'].append(weapon.to_dict())
         return data
+        
+    def from_dict(self, data):
+        # Populate model from data dictionary
+        self.quality = data['quality']
+        self.defense = data['defense']
+        self.attributes = data['attributes'].copy()
+        self.weapons = []
+        for weaponDict in data['weapons']:
+            newWeapon = weapon()
+            newWeapon.from_dict(weaponDict)
+            self.weapons.append(newWeapon)

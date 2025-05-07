@@ -17,41 +17,10 @@ class unit():
 
     def from_json(self, filename):
         # Load JSON
-        empty_data = self.gen_empty_attributes()
         temp_data = {}
         with open(filename) as json_file:
             temp_data = json.load(json_file)
-        self.data = empty_data
-        # Load Top Level Data
-        for mykey in self.data:
-            if mykey in temp_data.keys():
-                self.data[mykey] = temp_data[mykey]
-            elif mykey in empty_data.keys():
-                self.data[mykey] = empty_data[mykey]
-        # Check for models
-        if 'models' not in temp_data.keys():
-            return
-        new_models = []
-        empty_model = self.gen_empty_model()
-        # Load each model
-        for temp_model in temp_data['models']:
-            new_model = {}
-            for mykey in empty_model:
-                # Populate model from file; use empty instance for missing keys
-                if mykey in temp_model.keys():
-                    new_model[mykey] = temp_model[mykey]
-                else:
-                    new_model[mykey] = empty_model[mykey]
-            # Populate weapons from file; use empty instance for missing keys
-            empty_weapon = self.gen_empty_weapon()
-            if 'weapons' in temp_model.keys():
-                for temp_weapon in temp_model['weapons']:
-                    for weapkey in empty_weapon:
-                        if weapkey not in temp_weapon.keys():
-                            temp_weapon[weapkey] = empty_weapon[weapkey]
-            new_models.append(new_model)
-        self.models = new_models
-        #TODO Re-evaluate this function after a JSON is created from the PDF List
+        self.from_dict(temp_data)
 
     def from_unit_string_dict(self, unit_string_dict):
         #Takes raw input (parsed from army list pdf) and populates unit info
@@ -79,7 +48,7 @@ class unit():
         #Feed models the attribute/weapons string
 
     def to_dict(self):
-        #Outputs JSON string representing unit
+        #Outputs Dictionary representing entire unit
         data = {}
         data['name'] = self.name
         data['quality'] = self.quality
@@ -89,6 +58,19 @@ class unit():
         for myModel in self.models:
             data['models'].append(myModel.to_dict())
         return data
+
+    def from_dict(self, data):
+        #Creates entire unit from data dictionary
+        self.name = data['name']
+        self.quality = data['quality']
+        self.defense = data['defense']
+        self.attributes = data['attributes'].copy()
+        self.models = []
+        for modelDict in data['models']:
+            newModel = model(self.quality, self.defense)
+            newModel.from_dict(modelDict)
+            self.models.append(newModel)
+        return data 
 
     def gen_empty_attributes(self):
         empty_data = {}

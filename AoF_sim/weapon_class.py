@@ -35,3 +35,11 @@ class weapon():
         data['range'] = self.ranged
         data['attributes']  = self.attributes.copy()
         return data
+        
+    def from_dict(self, data):
+        #Populate data from data dictionary
+        self.name = data['name'] 
+        self.ap = data['ap']
+        self.a = data['a']
+        self.ranged = data['range']
+        self.attributes = data['attributes'].copy()
