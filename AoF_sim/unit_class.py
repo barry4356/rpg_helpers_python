@@ -4,21 +4,20 @@ from model_class import model
 
 class unit():
     def __init__(self):
-        self.data = self.gen_empty_data()
+        self.attributes = self.gen_empty_attributes()
         self.models = []
+        self.name = ''
+        self.quality = ''
+        self.defense = ''
 
     def to_file(self, filename):
         #Outputs JSON string representing unit
-        print_data = self.data.copy()
-        print_data['models'] = []
-        for printModel in self.models:
-            print_data['models'].append(printModel.to_dict())
         with open(filename, 'w') as fp:
-            json.dump(print_data, fp, indent=2)
+            json.dump(self.to_dict(), fp, indent=2)
 
     def from_json(self, filename):
         # Load JSON
-        empty_data = self.gen_empty_data()
+        empty_data = self.gen_empty_attributes()
         temp_data = {}
         with open(filename) as json_file:
             temp_data = json.load(json_file)
@@ -60,12 +59,12 @@ class unit():
             print('ERROR: Invalid Unit String')
             print(unit_string_dict)
             return
-        self.data['name'] = unit_string_dict['name']
+        self.name = unit_string_dict['name']
         #print(unit_string_dict)
         #Get Qua/Def (format is Qua 1+  Def 2+; can split on + and pull numbers)
         qual_def_str = unit_string_dict['string'].split('+')
-        self.data['quality'] = int(re.findall(r'\d+\.?\d*', qual_def_str[0])[0])
-        self.data['defense'] = int(re.findall(r'\d+\.?\d*', qual_def_str[1])[0])
+        self.quality = int(re.findall(r'\d+\.?\d*', qual_def_str[0])[0])
+        self.defense = int(re.findall(r'\d+\.?\d*', qual_def_str[1])[0])
         #Remove Qual part of string
         index = unit_string_dict['string'].find('+')
         unitString = unit_string_dict['string'][index+1:]
@@ -73,43 +72,24 @@ class unit():
         index = unitString.find('+')
         unitString = unitString[index+1:]
         for modelIndex in range(unit_string_dict['models']):
-            newModel = model(self.data['quality'], self.data['defense'])
+            newModel = model(self.quality, self.defense)
             newModel.from_string(unitString)
             self.models.append(newModel)
         #Create models
         #Feed models the attribute/weapons string
 
-    def to_string(self):
+    def to_dict(self):
         #Outputs JSON string representing unit
-        print_data = self.data.copy()
-        print_data['models'] = []
-        for printModel in self.models:
-            print_data['models'].append(printModel.to_dict())
-        return (json.dumps(print_data, indent=2))
+        data = {}
+        data['name'] = self.name
+        data['quality'] = self.quality
+        data['defense'] = self.defense
+        data['attributes'] = self.attributes.copy()
+        data['models'] = []
+        for myModel in self.models:
+            data['models'].append(myModel.to_dict())
+        return data
 
-    def gen_empty_weapon(self):
-        empty_weapon = {}
-        empty_weapon['name'] = ''
-        empty_weapon['hits'] = 0
-        empty_weapon['ranged'] = False
-        empty_weapon['melee'] = False
-        empty_weapon['ap'] = 0
-        empty_weapon['range'] = 0
-        return empty_weapon
-
-    def gen_empty_model(self):
-        empty_model = {}
-        empty_model['name'] = ''
-        empty_model['quality'] = 0
-        empty_model['defense'] = 0
-        empty_model['weapons'] = []
-        empty_model['stats'] = {}
-        return empty_model
-
-    def gen_empty_data(self):
+    def gen_empty_attributes(self):
         empty_data = {}
-        empty_data['name'] = ''
-        empty_data['quality'] = 0
-        empty_data['defense'] = 0
-        empty_data['stats'] = {}
         return empty_data

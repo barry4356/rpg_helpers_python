@@ -2,6 +2,7 @@
 base_attributes = {
     'counter': False,
     'fearless': False,
+    'fast': False,
     'furious': False,
     'hero': False,
     'impact': 0,

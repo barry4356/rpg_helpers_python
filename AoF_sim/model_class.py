@@ -6,16 +6,14 @@ import sys
 
 class model():
     def __init__(self, qual, defense):
-        self.data = self.gen_empty_data()
-        self.data['quality'] = qual
-        self.data['defense'] = defense
+        self.attributes = self.gen_empty_attributes()
+        self.quality = qual
+        self.defense = defense
         self.weapons = []
 
-    def gen_empty_data(self):
-        data = {
-            'stats': base_attributes.copy()
-        }
-        return data
+    def gen_empty_attributes(self):
+        attributes = base_attributes.copy()
+        return attributes
         
     def from_string(self, model_string):
         #Break out the weapons by finding the first attribute keyword in the string
@@ -60,13 +58,13 @@ class model():
         if attributeString:
             attributeString = attributeString.replace(',',' ').replace('  ',' ').lower()
             for attributeStr in attributeString.split(' '):
-                for attributeKey in self.data['stats'].keys():
+                for attributeKey in self.attributes.keys():
                     if attributeKey in attributeStr:
-                        if type(self.data['stats'][attributeKey]) is bool:
-                            self.data['stats'][attributeKey] = True
-                        elif type(self.data['stats'][attributeKey]) is int:
+                        if type(self.attributes[attributeKey]) is bool:
+                            self.attributes[attributeKey] = True
+                        elif type(self.attributes[attributeKey]) is int:
                             if '(' in attributeStr and ')' in attributeStr:
-                                self.data['stats'][attributeKey] += int(attributeStr.split(')')[0].split('(')[-1])
+                                self.attributes[attributeKey] += int(attributeStr.split(')')[0].split('(')[-1])
                             
         for weaponStr in weaponArry:
             newWeapon = weapon()
@@ -74,8 +72,11 @@ class model():
             self.weapons.append(newWeapon)
 
     def to_dict(self):
-        return_data = self.data.copy()
-        return_data['weapons'] = []
+        data = {}
+        data['quality'] = self.quality
+        data['defense'] = self.defense
+        data['attributes'] = self.attributes.copy()
+        data['weapons'] = []
         for weapon in self.weapons:
-            return_data['weapons'].append(weapon.data)
-        return return_data
+            data['weapons'].append(weapon.to_dict())
+        return data
