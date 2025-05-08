@@ -3,6 +3,7 @@ import re
 import os
 import sys
 from model_attributes import weapon_attributes
+from hit_class import hit
 # Add common libraries (one directory up)
 current_dir = os.getcwd()
 relative_path = '../'
@@ -58,6 +59,6 @@ class weapon():
             roll = dice.roll_1d6()
             if roll >= qual:
                 newHit = hit()
-                hit.ap = self.ap
-                hits.append(hit)
+                newHit.ap = self.ap
+                hits.append(newHit)
         return hits

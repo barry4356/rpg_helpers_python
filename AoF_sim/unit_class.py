@@ -12,6 +12,7 @@ from common import dice
 
 class unit():
     def __init__(self):
+        # Initializes empty object
         self.attributes = self.gen_empty_attributes()
         self.models = []
         self.name = ''
@@ -19,25 +20,24 @@ class unit():
         self.defense = 0
 
     def to_file(self, filename):
-        #Outputs JSON string representing unit
+        #Outputs JSON file representing unit
         with open(filename, 'w') as fp:
             json.dump(self.to_dict(), fp, indent=2)
 
     def from_json(self, filename):
-        # Load JSON
+        # Loads all class data from JSON file
         temp_data = {}
         with open(filename) as json_file:
             temp_data = json.load(json_file)
         self.from_dict(temp_data)
 
     def from_unit_string_dict(self, unit_string_dict):
-        #Takes raw input (parsed from army list pdf) and populates unit info
+        #Takes raw input (DataDict parsed from army list pdf w/ pdf2dicts.py) and populates unit info
         if 'qua' not in unit_string_dict['string'].lower() or 'def' not in unit_string_dict['string'].lower():
             print('ERROR: Invalid Unit String')
             print(unit_string_dict)
             return
         self.name = unit_string_dict['name']
-        #print(unit_string_dict)
         #Get Qua/Def (format is Qua 1+  Def 2+; can split on + and pull numbers)
         qual_def_str = unit_string_dict['string'].split('+')
         self.quality = int(re.findall(r'\d+\.?\d*', qual_def_str[0])[0])
@@ -78,13 +78,14 @@ class unit():
             self.models.append(newModel)
 
     def gen_empty_attributes(self):
+        #TODO any unit level attributes (not model level)
         empty_data = {}
         return empty_data
 
     def roll_attacks(self, ranged=False):
         hits = []
         for model in self.models:
-            hits.append(model.roll_attacks(ranged))
+            hits.extend(model.roll_attacks(ranged))
         return hits
 
     def roll_defense(self, hits, take_damage=False):
