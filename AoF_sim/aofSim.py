@@ -6,11 +6,15 @@ import json
 
 from unit_class import unit
 logger = logging.getLogger()
+logging.basicConfig(level=logging.INFO, format='%(message)s')
 def pdf2json(pdfFile, outDir):
     dicts = pdf2dicts.convertPdf(pdfFile, outDir)
     for unitDict in dicts:
-        pass
-        #Load into unit objects
+        logger.debug('aofsim:pdf2json: Handling Unit: '+str(unitDict['name']))
+        logger.debug('aofsim:pdf2json: Unit Dictionary: \n'+json.dumps(unitDict, indent=2))
+        tempUnit = unit()
+        tempUnit.from_unit_string_dict(unitDict)
+        tempUnit.to_file(str(os.path.join(outDir,unitDict['name']+'.json')))
     return
 
 def meleeCharge(attacker, defender, simulationCount):
@@ -41,7 +45,6 @@ parser.add_argument('--attackerJson', type=str, help='File to import into attack
 parser.add_argument('--defenderJson', type=str, help='File to import into defender model', required=False)
 parser.add_argument('--simulationCount', type=int, help='Number of Simulations to run to collect data', required=False)
 
-
 args = parser.parse_args()
 
 outDir = None
@@ -57,6 +60,9 @@ if args.inputFile:
     inFile = args.inputFile
 if args.simulationCount:
     simulationCount = args.simulationCount
+if args.verbose:
+    logging.basicConfig(level=logging.DEBUG, format='%(message)s')
+    logger.setLevel(logging.DEBUG)
 
 if args.pdf2json:
     if not inFile or not outDir:
