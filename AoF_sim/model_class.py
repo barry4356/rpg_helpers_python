@@ -22,8 +22,8 @@ class model():
         model_string = model_string.replace(')', ') ').replace('  ',' ')
         words = model_string.split(' ')
         firstAttribute = None
-        for attribute in base_attributes.keys():
-            for word in words:
+        for word in words:
+            for attribute in base_attributes.keys():
                 if attribute.lower() in word.lower():
                     firstAttribute = attribute
                     break
