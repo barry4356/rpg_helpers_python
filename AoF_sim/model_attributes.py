@@ -1,6 +1,7 @@
 # Attributes that apply per-model
 base_attributes = {
     'counter': False,
+    'fear': False,
     'fearless': False,
     'fast': False,
     'furious': False,
