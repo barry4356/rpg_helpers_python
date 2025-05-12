@@ -3,6 +3,7 @@ import os
 import pdf2dicts
 import logging
 import json
+import combat_report
 
 from unit_class import unit
 logger = logging.getLogger()
@@ -18,8 +19,14 @@ def pdf2json(pdfFile, outDir):
     return
 
 def meleeCharge(attacker, defender, simulationCount):
-    pass
-    #TODO Build Results and return
+    melee_report = combat_report.report()
+    for count in range(simulationCount):
+        hits = attacker.roll_attacks()
+        damage = defender.roll_defense(hits)
+        melee_result = combat_report.result()
+        melee_result.damage = damage
+        melee_report.add_result(melee_result)
+    print(melee_report.average_damage)
 
 
 
@@ -38,7 +45,7 @@ parser = argparse.ArgumentParser(description="Tool for deriving AoF odds and sta
 #import 2 lists and run full battery of statistical analyses
 parser.add_argument('--pdf2json', action='store_true', help='Import PDF files and Export JSONs', required=False)
 parser.add_argument('--meleeCharge', action='store_true', help='Simulate a melee charge (attack and defense)', required=False)
-parser.add_argument('-o', '--outputFolder', type=str, help='Directory to export results into', required=True)
+parser.add_argument('-o', '--outputFolder', type=str, help='Directory to export results into', required=False)
 parser.add_argument('-v', '--verbose', action='store_true', help='Log everything we\'re doing to terminal and logfile', required=False)
 parser.add_argument('-i', '--inputFile', type=str, help='File to import into tool', required=False)
 parser.add_argument('--attackerJson', type=str, help='File to import into attacker model', required=False)
