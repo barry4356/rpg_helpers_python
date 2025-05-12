@@ -8,6 +8,7 @@ import combat_report
 from unit_class import unit
 logger = logging.getLogger()
 logging.basicConfig(level=logging.INFO, format='%(message)s')
+
 def pdf2json(pdfFile, outDir):
     dicts = pdf2dicts.convertPdf(pdfFile, outDir)
     for unitDict in dicts:
@@ -20,13 +21,15 @@ def pdf2json(pdfFile, outDir):
 
 def meleeCharge(attacker, defender, simulationCount):
     melee_report = combat_report.report()
+    melee_results = []
     for count in range(simulationCount):
         hits = attacker.roll_attacks()
         damage = defender.roll_defense(hits)
         melee_result = combat_report.result()
         melee_result.damage = damage
-        melee_report.add_result(melee_result)
-    print(melee_report.average_damage)
+        melee_results.append(melee_result)
+    melee_report.add_results(melee_results)
+    melee_report.print(logger)
 
 
 
@@ -34,15 +37,6 @@ def meleeCharge(attacker, defender, simulationCount):
 ### __MAIN__ ###
 parser = argparse.ArgumentParser(description="Tool for deriving AoF odds and statistics through simulations")
 
-
-#TODO: Implement the following:
-#import list and create unit JSONs in outputdir(req)
-#import unit JSONs and simulate X number of melee attacks
-#
-#
-#
-#
-#import 2 lists and run full battery of statistical analyses
 parser.add_argument('--pdf2json', action='store_true', help='Import PDF files and Export JSONs', required=False)
 parser.add_argument('--meleeCharge', action='store_true', help='Simulate a melee charge (attack and defense)', required=False)
 parser.add_argument('-o', '--outputFolder', type=str, help='Directory to export results into', required=False)
