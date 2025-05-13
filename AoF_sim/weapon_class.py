@@ -35,6 +35,13 @@ class weapon():
         match = re.search(apStrPattern, weapon_string)
         if match:
             self.ap = int(match.group(1))
+        for weapon_attribute in self.attributes.keys():
+            if weapon_attribute.lower() in weapon_string.lower():
+                if type(self.attributes[weapon_attribute]) is bool:
+                    self.attributes[weapon_attribute] = True
+                elif type(self.attributes[weapon_attribute]) is int:
+                    pass
+                    #TODO: Model this... look how model_class handles AP
 
     def to_dict(self):
         data = {}
@@ -53,12 +60,26 @@ class weapon():
         self.ranged = data['range']
         self.attributes = data['attributes'].copy()
 
-    def roll_attacks(self, qual):
+    def roll_attacks(self, qual, furious=False):
         hits = []
+        # Reliable weapons count as Quality 2+
+        if self.attributes['reliable']:
+            qual = 2
+        # Roll each attack
         for attack in range(self.a):
             roll = dice.roll_1d6()
-            if roll >= qual:
+            if roll >= qual or roll >= 6:
                 newHit = hit()
                 newHit.ap = self.ap
+                # Rending creates AP(4) on nat 6
+                if self.attributes['rending']:
+                    newHit.rending = True
+                    if roll >= 6:
+                        newHit.ap = 4
                 hits.append(newHit)
+                if roll >= 6 and furious:
+                    furiousHit = hit()
+                    furiousHit.ap = self.ap
+                    furiousHit.rending = self.attributes['rending']
+                    hits.append(furiousHit)
         return hits
