@@ -60,7 +60,7 @@ class weapon():
         self.ranged = data['range']
         self.attributes = data['attributes'].copy()
 
-    def roll_attacks(self, attacker):
+    def roll_attacks(self, wielder):
         hits = []
         # Reliable weapons count as Quality 2+
         if self.attributes['reliable']:
@@ -68,7 +68,7 @@ class weapon():
         # Roll each attack
         for attack in range(self.a):
             roll = dice.roll_1d6()
-            if roll >= attacker.quality or roll >= 6:
+            if roll >= wielder.quality or roll >= 6:
                 newHit = hit()
                 newHit.ap = self.ap
                 # Rending creates AP(4) on nat 6
@@ -77,7 +77,7 @@ class weapon():
                     if roll >= 6:
                         newHit.ap = 4
                 hits.append(newHit)
-                if roll >= 6 and attacker.attributes['furious']:
+                if roll >= 6 and wielder.attributes['furious']:
                     furiousHit = hit()
                     furiousHit.ap = self.ap
                     furiousHit.rending = self.attributes['rending']
