@@ -97,5 +97,5 @@ class model():
         for weapon in self.weapons:
             if ranged and not weapon.ranged or not ranged and weapon.ranged:
                 continue
-            hits.extend(weapon.roll_attacks(self.quality, furious=self.attributes['furious']))
+            hits.extend(weapon.roll_attacks(self))
         return hits

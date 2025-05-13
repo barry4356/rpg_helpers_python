@@ -25,6 +25,8 @@
           "range": 0,
           "attributes": {
             "lance": false,
+            "reliable": false,
+            "rending": false,
             "poison": false
           }
         }
