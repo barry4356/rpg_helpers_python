@@ -80,6 +80,7 @@ class unit():
     def gen_empty_attributes(self):
         #TODO any unit level attributes (not model level)
         empty_data = {}
+        empty_data['regeneration']=False
         return empty_data
 
     def roll_attacks(self, ranged=False):
@@ -96,6 +97,10 @@ class unit():
                 continue
             if (roll-hit.ap) >= self.defense:
                 continue
+            if (self.attributes['regeneration'] and not hit.rending):
+                roll_regen = dice.roll_1d6()
+                if roll_regen >= 5:
+                    continue
             damage += 1
         #TODO: Take Damage by killing off models
         return damage
