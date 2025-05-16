@@ -1,0 +1,52 @@
+{
+  "name": "LordLeukensCorpse",
+  "quality": 5,
+  "defense": 5,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": false,
+        "fast": false,
+        "furious": true,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 6
+      },
+      "weapons": [
+        {
+          "name": "1xPilgrimCrew",
+          "ap": 0,
+          "a": 6,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": true
+          }
+        },
+        {
+          "name": "BattleZeal,",
+          "ap": 0,
+          "a": 0,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}

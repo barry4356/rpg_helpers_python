@@ -1,0 +1,155 @@
+{
+  "name": "Mint,Chocolate,Chip",
+  "quality": 4,
+  "defense": 4,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 4,
+      "defense": 4,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": true,
+        "fearless": true,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 3
+      },
+      "weapons": [
+        {
+          "name": "3xHeavyGreatWeapon",
+          "ap": 3,
+          "a": 3,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "Regeneration,",
+          "ap": 0,
+          "a": 0,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 4,
+      "defense": 4,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": true,
+        "fearless": true,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 3
+      },
+      "weapons": [
+        {
+          "name": "3xHeavyGreatWeapon",
+          "ap": 3,
+          "a": 3,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "Regeneration,",
+          "ap": 0,
+          "a": 0,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 4,
+      "defense": 4,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": true,
+        "fearless": true,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 3
+      },
+      "weapons": [
+        {
+          "name": "3xHeavyGreatWeapon",
+          "ap": 3,
+          "a": 3,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "Regeneration,",
+          "ap": 0,
+          "a": 0,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}

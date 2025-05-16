@@ -1,0 +1,64 @@
+{
+  "name": "LeukenReborn",
+  "quality": 3,
+  "defense": 3,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 3,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": false,
+        "furious": false,
+        "hero": true,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 6
+      },
+      "weapons": [
+        {
+          "name": "1xHeavyGreatWeapon",
+          "ap": 4,
+          "a": 4,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "1xHeavyClaw",
+          "ap": 1,
+          "a": 6,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "1xStomp",
+          "ap": 1,
+          "a": 4,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}

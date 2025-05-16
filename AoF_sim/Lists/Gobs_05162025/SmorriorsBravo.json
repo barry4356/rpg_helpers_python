@@ -1,0 +1,358 @@
+{
+  "name": "SmorriorsBravo",
+  "quality": 5,
+  "defense": 6,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xSpears",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xSpears",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xSpears",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xSpears",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xSpears",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xSpears",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xSpears",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xSpears",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xSpears",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xSpears",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}

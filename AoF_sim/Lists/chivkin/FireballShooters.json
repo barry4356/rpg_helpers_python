@@ -1,0 +1,448 @@
+{
+  "name": "FireballShooters",
+  "quality": 5,
+  "defense": 5,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xLongbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xLongbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xLongbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xLongbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xLongbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xLongbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xLongbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xLongbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xLongbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": true,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xLongbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}

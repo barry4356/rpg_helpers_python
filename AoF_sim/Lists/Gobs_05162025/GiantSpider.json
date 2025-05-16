@@ -1,0 +1,85 @@
+{
+  "name": "GiantSpider",
+  "quality": 4,
+  "defense": 3,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 4,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": true,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 12
+      },
+      "weapons": [
+        {
+          "name": "1xStomp",
+          "ap": 1,
+          "a": 4,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "1xWebCatapult",
+          "ap": 0,
+          "a": 2,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "1xGiantStinger",
+          "ap": 2,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "1xFang",
+          "ap": 0,
+          "a": 4,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": true,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}

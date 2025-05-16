@@ -1,0 +1,168 @@
+{
+  "name": "SirBurnettsMen",
+  "quality": 5,
+  "defense": 5,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "5xLances",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "5xLances",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "5xLances",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "5xLances",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "5xLances",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}

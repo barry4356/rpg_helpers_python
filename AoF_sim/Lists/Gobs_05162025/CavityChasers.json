@@ -1,0 +1,638 @@
+{
+  "name": "CavityChasers",
+  "quality": 5,
+  "defense": 5,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xShortbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xToxicFangs",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": true,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xShortbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xToxicFangs",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": true,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xShortbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xToxicFangs",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": true,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xShortbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xToxicFangs",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": true,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xShortbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xToxicFangs",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": true,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xShortbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xToxicFangs",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": true,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xShortbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xToxicFangs",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": true,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xShortbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xToxicFangs",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": true,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xShortbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xToxicFangs",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": true,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xShortbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xToxicFangs",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": true,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}

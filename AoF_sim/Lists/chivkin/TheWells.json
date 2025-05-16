@@ -1,0 +1,888 @@
+{
+  "name": "TheWells",
+  "quality": 6,
+  "defense": 6,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 6,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "20xThrowStones",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "20xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}

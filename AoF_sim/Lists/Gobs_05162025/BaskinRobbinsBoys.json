@@ -1,0 +1,498 @@
+{
+  "name": "BaskinRobbinsBoys",
+  "quality": 5,
+  "defense": 6,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xCrossbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": true
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xCrossbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": true
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xCrossbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": true
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xCrossbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": true
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xCrossbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": true
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xCrossbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": true
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xCrossbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": true
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xCrossbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": true
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xCrossbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": true
+          }
+        }
+      ]
+    },
+    {
+      "quality": 5,
+      "defense": 6,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHandWeapons",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "10xCrossbows",
+          "ap": 0,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": true
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "name": "WoodfordReserves",
+  "quality": 4,
+  "defense": 3,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 4,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHeavyLances",
+          "ap": 1,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 4,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHeavyLances",
+          "ap": 1,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 4,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHeavyLances",
+          "ap": 1,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 4,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHeavyLances",
+          "ap": 1,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 4,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHeavyLances",
+          "ap": 1,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 4,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHeavyLances",
+          "ap": 1,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 4,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHeavyLances",
+          "ap": 1,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 4,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHeavyLances",
+          "ap": 1,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 4,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHeavyLances",
+          "ap": 1,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    },
+    {
+      "quality": 4,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": true,
+        "furious": false,
+        "hero": false,
+        "impact": 1,
+        "joust": true,
+        "sergeant": true,
+        "specialist": false,
+        "tough": 0
+      },
+      "weapons": [
+        {
+          "name": "10xHeavyLances",
+          "ap": 1,
+          "a": 1,
+          "range": 0,
+          "attributes": {
+            "lance": true,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}

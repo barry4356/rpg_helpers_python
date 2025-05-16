@@ -1,0 +1,104 @@
+{
+  "name": "GrailGuardiansOfGrog",
+  "quality": 3,
+  "defense": 3,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 3,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 3
+      },
+      "weapons": [
+        {
+          "name": "3xAxe-Halberds",
+          "ap": 2,
+          "a": 3,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": true,
+            "rending": true
+          }
+        }
+      ]
+    },
+    {
+      "quality": 3,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 3
+      },
+      "weapons": [
+        {
+          "name": "3xAxe-Halberds",
+          "ap": 2,
+          "a": 3,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": true,
+            "rending": true
+          }
+        }
+      ]
+    },
+    {
+      "quality": 3,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": true,
+        "fearless": true,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 3
+      },
+      "weapons": [
+        {
+          "name": "3xAxe-Halberds",
+          "ap": 2,
+          "a": 3,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": true,
+            "rending": true
+          }
+        }
+      ]
+    }
+  ]
+}

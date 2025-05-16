@@ -1,0 +1,71 @@
+{
+  "name": "Truffles",
+  "quality": 5,
+  "defense": 3,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 5,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": true,
+        "fearless": false,
+        "fast": false,
+        "furious": false,
+        "hero": false,
+        "impact": 4,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 6
+      },
+      "weapons": [
+        {
+          "name": "1xRoller",
+          "ap": 1,
+          "a": 2,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "1xThrowingWeaponsCrew",
+          "ap": 0,
+          "a": 6,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        },
+        {
+          "name": "Boing,",
+          "ap": 0,
+          "a": 0,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}

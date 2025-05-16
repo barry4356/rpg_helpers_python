@@ -1,0 +1,43 @@
+{
+  "name": "LieuteneantHaagen-daz",
+  "quality": 4,
+  "defense": 4,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 3,
+      "defense": 3,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "empower": false,
+        "fear": false,
+        "fearless": false,
+        "fast": false,
+        "furious": true,
+        "hero": true,
+        "impact": 0,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 6
+      },
+      "weapons": [
+        {
+          "name": "1xHeavyGreatWeapon",
+          "ap": 4,
+          "a": 4,
+          "range": 0,
+          "attributes": {
+            "blast": 0,
+            "deadly": 0,
+            "lance": false,
+            "poison": true,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}

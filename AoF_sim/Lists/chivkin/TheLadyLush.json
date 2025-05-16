@@ -1,0 +1,40 @@
+{
+  "name": "TheLadyLush",
+  "quality": 5,
+  "defense": 5,
+  "attributes": {},
+  "models": [
+    {
+      "quality": 5,
+      "defense": 5,
+      "attributes": {
+        "counter": false,
+        "elite": false,
+        "fear": false,
+        "fearless": false,
+        "fast": true,
+        "furious": false,
+        "hero": true,
+        "impact": 1,
+        "joust": false,
+        "sergeant": false,
+        "specialist": false,
+        "tough": 3
+      },
+      "weapons": [
+        {
+          "name": "1xHandWeapon",
+          "ap": 0,
+          "a": 3,
+          "range": 0,
+          "attributes": {
+            "lance": false,
+            "poison": false,
+            "reliable": false,
+            "rending": false
+          }
+        }
+      ]
+    }
+  ]
+}
