@@ -11,6 +11,7 @@ from pdfminer.layout import LAParams
 from pdfminer.image import ImageWriter
 import re
 import json
+import string
 import os
 
 def update_string_at_position(original_string, index, new_char):
@@ -107,6 +108,41 @@ def formatHtml(inputfile, outputfile):
                     line = line.replace('Upgrade','\nUpgrade')
                 outFile.write(line) 
 
+def getChunks(inputfile):
+    chunks = []
+    chunk = []
+    with open(inputfile, 'r', errors='ignore') as inFile:
+        lines = inFile.readlines()
+        for line in lines:
+            if line.strip():
+                chunk.append(line.strip())
+            else:
+                chunks.append(chunk)
+                chunk=[]
+    return chunks
+                
+    
+
+def createUnitFromChunk(lines):
+    unit = {}
+    for line in lines:
+        if ' [' in line and ']' in line:
+            unit['Name'] = line.split(' [')[0]
+            unit['ModelCount'] = line.split('[')[1].split(']')[0]
+        if 'Quality ' in line:
+            unit['Qual'] = line.split('Quality ')[1][0]
+        if 'Defense ' in line:
+            unit['Def'] = line.split('Defense ')[1][0]
+        if 'Tough ' in line:
+            unit['Tough'] = line.split('Tough ')[1][0]
+        if 'WeaponRNGATKAPSPE' in line:
+            unit['Specs'] = line.split('Defense ')[1].split('WeaponRNGATKAPSPE')[0][2:]
+            unit['Specs'] = unit['Specs'].replace('Tough ','').lstrip(string.digits).split(', ')
+            unit['Weapons'] = line.split('WeaponRNGATKAPSPE')[1]
+    if 'Qual' not in unit:
+        return None
+    return unit
+
 def cleanupUnitNameString(inputString):
     # Specialized function to extract the unit's name from the HTML output from pdfminer
     outputString = inputString.split('[')[0]
@@ -176,6 +212,10 @@ def convertPdf(inputfile, outputDir='Logs'):
     cleanupHtmlTags(htmlOutfile, prettyHtmlOutFile)
     stripHtml(prettyHtmlOutFile, strippedHtmlOutFile)
     formatHtml(strippedHtmlOutFile, formattedHtmlOutFile)
+    chunkedHtml = getChunks(formattedHtmlOutFile)
+    for chunk in chunkedHtml:
+        print(createUnitFromChunk(chunk))
+    
     return htmlToDicts(prettyHtmlOutFile)
 
 #TESTBED
