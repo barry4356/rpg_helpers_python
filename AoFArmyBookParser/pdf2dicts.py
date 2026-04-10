@@ -138,7 +138,7 @@ def createUnitFromChunk(lines):
         if 'WeaponRNGATKAPSPE' in line:
             unit['Specs'] = line.split('Defense ')[1].split('WeaponRNGATKAPSPE')[0][2:]
             unit['Specs'] = unit['Specs'].replace('Tough ','').lstrip(string.digits).split(', ')
-            unit['Weapons'] = line.split('WeaponRNGATKAPSPE')[1]
+            unit['Weapons'] = weapons_from_string(line.split('WeaponRNGATKAPSPE')[1].replace('&quot;','"'))
     if 'Qual' not in unit:
         return None
     return unit
@@ -165,6 +165,73 @@ def numberOfModels(inputString):
     except ValueError as e:
         print(f"Error: {e}")
     return numberOfModels
+
+def weapons_from_string(weapon_string):
+    weapon_perks = ['Bane', 'Rending', 'Shred', 'Thrust', 'Fracture']
+    weapons = []
+    weapon = {}
+    for perk in weapon_perks:
+        weapon_string.replace(perk, perk+'-')
+    #Break out the weapons
+    weaponStrAry = weapon_string.split('-')
+    protoweapon = ''
+    protoweapons = []
+    wep_idx = 0
+    for wepStr in weaponStrAry:
+        protoweapon += wepStr
+        attackStrPattern = re.escape('A') + r"(\d)"
+        match = re.search(attackStrPattern, wepStr)
+        if match:
+            protoweapons.append(protoweapon)
+            protoweapon = ''
+            wep_idx+=1
+        else:
+            for perk in weapon_perks:
+                if perk in wepStr:
+                    protoweapons[wep_idx-1] += wepStr
+                    protoweapon = ''
+                    break
+                
+    if protoweapon:
+        protoweapons.append(protoweapon)
+        print('ERROR: ORPHAN WEAPON')
+        print(protoweapon)
+    for protoweapon in protoweapons:
+        countPattern = r"(\d+)" + re.escape('x ')
+        match = re.search(countPattern, protoweapon)
+        if match:
+            weapon['Count'] = int(match.group(1))
+            protoweapon = re.sub(countPattern,"",protoweapon)
+        attackapPattern = re.escape('A') + r"(\d)(\d)"
+        match = re.search(attackapPattern, protoweapon)
+        if match:
+            weapon['Attacks'] = int(match.group(1))
+            weapon['AP'] = int(match.group(2))
+            protoweapon = re.sub(attackapPattern,"",protoweapon)
+        else:
+            attackPattern = re.escape('A') + r"(\d)"
+            match = re.search(attackPattern, protoweapon)
+            if match:
+                weapon['Attacks'] = int(match.group(1))
+                protoweapon = re.sub(attackPattern,"",protoweapon)
+            else:
+                print("ERROR: Couldn't get attack count for:")
+                print(protoweapon)
+        rangePattern = r"(\d+)" + re.escape('"')
+        match = re.search(rangePattern, protoweapon)
+        if match:
+            weapon['range'] = int(match.group(1))
+            protoweapon = re.sub(rangePattern, "", protoweapon)
+        weapon['Specs'] = []
+        for perk in weapon_perks:
+            if perk in protoweapon:
+                weapon['Specs'].append(perk)
+                protoweapon = protoweapon.replace(perk, '')
+        weapon['Name'] = protoweapon.strip()
+        weapons.append(weapon)
+        weapon = {}
+    return weapons
+
 
 def unitString(inputString):
     # Specialized function to extract the unit's details string from the HTML output from pdfminer
@@ -203,6 +270,7 @@ def htmlToDicts(inputfile):
     
 # Entry point here; this function uses the others to complete a full conversion PDF => DataDicts
 def convertPdf(inputfile, outputDir='Logs'):
+    units = []
     os.makedirs(outputDir, exist_ok=True)
     htmlOutfile = os.path.join(outputDir, inputfile.replace('.pdf','')+'.html')
     pdfToHtml(inputfile, htmlOutfile)
@@ -214,9 +282,11 @@ def convertPdf(inputfile, outputDir='Logs'):
     formatHtml(strippedHtmlOutFile, formattedHtmlOutFile)
     chunkedHtml = getChunks(formattedHtmlOutFile)
     for chunk in chunkedHtml:
-        print(createUnitFromChunk(chunk))
-    
-    return htmlToDicts(prettyHtmlOutFile)
+        unit = createUnitFromChunk(chunk)
+        if unit:
+            units.append(unit)
+    return units
 
 #TESTBED
-print(json.dumps(convertPdf('ArmyBooks\ChivKin.pdf'), indent=2))
+#print(json.dumps(convertPdf('ArmyBooks\ChivKin.pdf'), indent=2))
+print(json.dumps(convertPdf('ArmyBooks\Empire.pdf'), indent=2))
