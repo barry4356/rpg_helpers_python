@@ -95,6 +95,9 @@ def formatHtml(inputfile, outputfile):
             formattedLines = []
             for line in lines:
                 line = line.replace('pts','pts\n')
+                line = line.replace('&quot;','"')
+                line = line.replace('\u00ef\u00ac\u20ac', 'ff')
+                line = line.replace('\u00ef\u00ac\u201a', 'fl')
                 outFile.write(line)
     with open(outputfile+'_', 'r', errors='ignore') as inFile:
         with open(outputfile, 'w') as outFile:
@@ -167,11 +170,17 @@ def numberOfModels(inputString):
     return numberOfModels
 
 def weapons_from_string(weapon_string):
-    weapon_perks = ['Bane', 'Rending', 'Shred', 'Thrust', 'Fracture']
+    weapon_perks = ['Bane', 'Fracture', 'Rending', 'Shred', 'Thrust']
+    weapon_perks_scaled = ['Blast']
     weapons = []
     weapon = {}
     for perk in weapon_perks:
-        weapon_string.replace(perk, perk+'-')
+        weapon_string = weapon_string.replace(perk, perk+'-')
+    for perk in weapon_perks_scaled:
+        perk_pattern = re.escape(perk) + re.escape('(') + r"(\d+)" + re.escape(')')
+        match = re.search(perk_pattern, weapon_string)
+        if match:
+            weapon_string = re.sub(perk_pattern, perk+'('+match.group(1)+')-', weapon_string)
     #Break out the weapons
     weaponStrAry = weapon_string.split('-')
     protoweapon = ''
@@ -191,46 +200,56 @@ def weapons_from_string(weapon_string):
                     protoweapons[wep_idx-1] += wepStr
                     protoweapon = ''
                     break
-                
     if protoweapon:
         protoweapons.append(protoweapon)
         print('ERROR: ORPHAN WEAPON')
         print(protoweapon)
+        
     for protoweapon in protoweapons:
-        countPattern = r"(\d+)" + re.escape('x ')
-        match = re.search(countPattern, protoweapon)
-        if match:
-            weapon['Count'] = int(match.group(1))
-            protoweapon = re.sub(countPattern,"",protoweapon)
-        attackapPattern = re.escape('A') + r"(\d)(\d)"
-        match = re.search(attackapPattern, protoweapon)
+        weapons.append(weapon_from_string(protoweapon, weapon_perks, weapon_perks_scaled))
+    return weapons
+        
+def weapon_from_string(protoweapon, weapon_perks, weapon_perks_scaled):
+    weapon = {}
+    countPattern = r"(\d+)" + re.escape('x ')
+    match = re.search(countPattern, protoweapon)
+    if match:
+        weapon['Count'] = int(match.group(1))
+        protoweapon = re.sub(countPattern,"",protoweapon)
+    attackapPattern = re.escape('A') + r"(\d)(\d)"
+    match = re.search(attackapPattern, protoweapon)
+    if match:
+        weapon['Attacks'] = int(match.group(1))
+        weapon['AP'] = int(match.group(2))
+        protoweapon = re.sub(attackapPattern,"",protoweapon)
+    else:
+        attackPattern = re.escape('A') + r"(\d)"
+        match = re.search(attackPattern, protoweapon)
         if match:
             weapon['Attacks'] = int(match.group(1))
-            weapon['AP'] = int(match.group(2))
-            protoweapon = re.sub(attackapPattern,"",protoweapon)
+            protoweapon = re.sub(attackPattern,"",protoweapon)
         else:
-            attackPattern = re.escape('A') + r"(\d)"
-            match = re.search(attackPattern, protoweapon)
+            print("ERROR: Couldn't get attack count for:")
+            print(protoweapon)
+    rangePattern = r"(\d+)" + re.escape('"')
+    match = re.search(rangePattern, protoweapon)
+    if match:
+        weapon['range'] = int(match.group(1))
+        protoweapon = re.sub(rangePattern, "", protoweapon)
+    weapon['Specs'] = []
+    for perk in weapon_perks:
+        if perk in protoweapon:
+            weapon['Specs'].append(perk)
+            protoweapon = protoweapon.replace(perk, '')
+    for perk in weapon_perks_scaled:
+        if perk in protoweapon:
+            perk_pattern = re.escape(perk) + re.escape('(') + r"(\d+)" + re.escape(')')
+            match = re.search(perk_pattern, protoweapon)
             if match:
-                weapon['Attacks'] = int(match.group(1))
-                protoweapon = re.sub(attackPattern,"",protoweapon)
-            else:
-                print("ERROR: Couldn't get attack count for:")
-                print(protoweapon)
-        rangePattern = r"(\d+)" + re.escape('"')
-        match = re.search(rangePattern, protoweapon)
-        if match:
-            weapon['range'] = int(match.group(1))
-            protoweapon = re.sub(rangePattern, "", protoweapon)
-        weapon['Specs'] = []
-        for perk in weapon_perks:
-            if perk in protoweapon:
-                weapon['Specs'].append(perk)
-                protoweapon = protoweapon.replace(perk, '')
-        weapon['Name'] = protoweapon.strip()
-        weapons.append(weapon)
-        weapon = {}
-    return weapons
+                weapon['Specs'].append(perk+'('+match.group(1)+')')
+                protoweapon = re.sub(perk_pattern, '', protoweapon)
+    weapon['Name'] = protoweapon.strip()
+    return weapon
 
 
 def unitString(inputString):
@@ -289,4 +308,11 @@ def convertPdf(inputfile, outputDir='Logs'):
 
 #TESTBED
 #print(json.dumps(convertPdf('ArmyBooks\ChivKin.pdf'), indent=2))
-print(json.dumps(convertPdf('ArmyBooks\Empire.pdf'), indent=2))
+
+empire = convertPdf('ArmyBooks\Empire.pdf')
+chivkin = convertPdf('ArmyBooks\ChivKin.pdf')
+with open('chivKin.json', 'w') as f:
+    json.dump(chivkin, f, indent=2)
+with open('empire.json', 'w') as f:
+    json.dump(empire, f, indent=2)
+#print(json.dumps(empire, indent=2))
