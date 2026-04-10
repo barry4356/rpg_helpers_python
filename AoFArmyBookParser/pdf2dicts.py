@@ -100,7 +100,7 @@ def formatHtml(inputfile, outputfile):
                 line = line.replace('\u00ef\u00ac\u201a', 'fl')
                 outFile.write(line)
     with open(outputfile+'_', 'r', errors='ignore') as inFile:
-        with open(outputfile, 'w') as outFile:
+        with open(outputfile+'__', 'w') as outFile:
             lines = inFile.readlines()
             formattedLines = []
             for line in lines:
@@ -109,7 +109,17 @@ def formatHtml(inputfile, outputfile):
                 if 'quality' in line.lower():
                     line = line.replace('Replace','\nReplace')
                     line = line.replace('Upgrade','\nUpgrade')
-                outFile.write(line) 
+                outFile.write(line)
+    with open(outputfile+'__', 'r', errors='ignore') as inFile:
+        with open(outputfile, 'w') as outFile:
+            lines = inFile.readlines()
+            formattedLines = []
+            for line in lines:
+                if 'quality' not in line.lower():
+                    #Get rid of 'Buffs' that are listed as 'free upgrades'
+                    line = line.replace('Buff','Buff\n')
+                outFile.write(line)
+
 
 def getChunks(inputfile):
     chunks = []
@@ -131,13 +141,22 @@ def createUnitFromChunk(lines):
     for line in lines:
         if ' [' in line and ']' in line:
             unit['Name'] = line.split(' [')[0]
-            unit['ModelCount'] = line.split('[')[1].split(']')[0]
+            count_pattern = re.escape("[")+r"(\d+)"+re.escape("]")
+            match = re.search(count_pattern, line)
+            if match:
+                unit['ModelCount'] = int(match.group(1))
+            cost_pattern = r"(\d+)" + re.escape('pts')
+            match = re.search(cost_pattern, line)
+            if match:
+                unit['Cost'] = int(match.group(1))
         if 'Quality ' in line:
-            unit['Qual'] = line.split('Quality ')[1][0]
-        if 'Defense ' in line:
-            unit['Def'] = line.split('Defense ')[1][0]
+            unit['Qual'] = int(line.split('Quality ')[1][0])
+        def_pattern = re.escape("Defense ")+r"(\d)"+re.escape("+")
+        match = re.search(def_pattern, line)
+        if match:
+            unit['Def'] = int(match.group(1))
         if 'Tough ' in line:
-            unit['Tough'] = line.split('Tough ')[1][0]
+            unit['Tough'] = int(line.split('Tough ')[1][0])
         if 'WeaponRNGATKAPSPE' in line:
             unit['Specs'] = line.split('Defense ')[1].split('WeaponRNGATKAPSPE')[0][2:]
             unit['Specs'] = unit['Specs'].replace('Tough ','').lstrip(string.digits).split(', ')
@@ -305,14 +324,3 @@ def convertPdf(inputfile, outputDir='Logs'):
         if unit:
             units.append(unit)
     return units
-
-#TESTBED
-#print(json.dumps(convertPdf('ArmyBooks\ChivKin.pdf'), indent=2))
-
-empire = convertPdf('ArmyBooks\Empire.pdf')
-chivkin = convertPdf('ArmyBooks\ChivKin.pdf')
-with open('chivKin.json', 'w') as f:
-    json.dump(chivkin, f, indent=2)
-with open('empire.json', 'w') as f:
-    json.dump(empire, f, indent=2)
-#print(json.dumps(empire, indent=2))
