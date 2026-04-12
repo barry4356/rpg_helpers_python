@@ -235,21 +235,28 @@ def weapon_from_string(protoweapon, weapon_perks, weapon_perks_scaled):
     if match:
         weapon['Count'] = int(match.group(1))
         protoweapon = re.sub(countPattern,"",protoweapon)
-    attackapPattern = re.escape('A') + r"(\d)(\d)"
-    match = re.search(attackapPattern, protoweapon)
+    attackStrPattern_dubdigitsAP = re.escape('A') + r"(\d\d)(\d)"
+    match = re.search(attackStrPattern_dubdigitsAP, protoweapon)
     if match:
         weapon['Attacks'] = int(match.group(1))
         weapon['AP'] = int(match.group(2))
-        protoweapon = re.sub(attackapPattern,"",protoweapon)
+        protoweapon = re.sub(attackStrPattern_dubdigitsAP,"",protoweapon)
     else:
-        attackPattern = re.escape('A') + r"(\d)"
-        match = re.search(attackPattern, protoweapon)
+        attackapPattern = re.escape('A') + r"(\d)(\d)"
+        match = re.search(attackapPattern, protoweapon)
         if match:
             weapon['Attacks'] = int(match.group(1))
-            protoweapon = re.sub(attackPattern,"",protoweapon)
+            weapon['AP'] = int(match.group(2))
+            protoweapon = re.sub(attackapPattern,"",protoweapon)
         else:
-            print("ERROR: Couldn't get attack count for:")
-            print(protoweapon)
+            attackPattern = re.escape('A') + r"(\d)"
+            match = re.search(attackPattern, protoweapon)
+            if match:
+                weapon['Attacks'] = int(match.group(1))
+                protoweapon = re.sub(attackPattern,"",protoweapon)
+            else:
+                print("ERROR: Couldn't get attack count for:")
+                print(protoweapon)
     rangePattern = r"(\d+)" + re.escape('"')
     match = re.search(rangePattern, protoweapon)
     if match:
