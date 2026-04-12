@@ -104,7 +104,7 @@ def formatHtml(inputfile, outputfile):
             lines = inFile.readlines()
             formattedLines = []
             for line in lines:
-                if '[' in line:
+                if '[' in line and 'quality' not in line.lower():
                     outFile.write('\n')
                 if 'quality' in line.lower():
                     line = line.replace('Replace','\nReplace')
@@ -155,8 +155,10 @@ def createUnitFromChunk(lines):
         match = re.search(def_pattern, line)
         if match:
             unit['Def'] = int(match.group(1))
-        if 'Tough ' in line:
-            unit['Tough'] = int(line.split('Tough ')[1][0])
+        tough_pattern = re.escape("Tough ")+r"(\d+)"
+        match = re.search(tough_pattern, line)
+        if match:
+            unit['Tough'] = int(match.group(1))
         if 'WeaponRNGATKAPSPE' in line:
             unit['Specs'] = line.split('Defense ')[1].split('WeaponRNGATKAPSPE')[0][2:]
             unit['Specs'] = unit['Specs'].replace('Tough ','').lstrip(string.digits).split(', ')
